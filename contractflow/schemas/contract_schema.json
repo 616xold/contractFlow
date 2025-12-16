@@ -1,0 +1,55 @@
+{
+  "doc_type": {
+    "description": "High-level type of document",
+    "type": "string",
+    "enum": ["nda", "msa", "other"]
+  },
+  "party_a_name": {
+    "description": "Full legal name of the first party",
+    "type": "string"
+  },
+  "party_b_name": {
+    "description": "Full legal name of the second party",
+    "type": "string"
+  },
+  "effective_date": {
+    "description": "Date on which the agreement becomes effective, in ISO format YYYY-MM-DD if possible",
+    "type": "string"
+  },
+  "term_length": {
+    "description": "Length of the agreement term in months, if determinable",
+    "type": "integer",
+    "nullable": true
+  },
+  "governing_law": {
+    "description": "Jurisdiction whose laws govern the agreement (e.g. 'England and Wales')",
+    "type": "string"
+  },
+  "termination_notice_days": {
+    "description": "Number of days of notice required to terminate for convenience, if specified",
+    "type": "integer",
+    "nullable": true
+  },
+  "liability_cap": {
+    "description": "Monetary cap on liability, expressed as text (e.g. '12 months of Fees')",
+    "type": "string"
+  },
+  "non_solicit_clause_present": {
+    "description": "Whether there is a non-solicitation clause",
+    "type": "boolean"
+  },
+  "data_transfer_outside_uk_eu": {
+    "description": "Whether the agreement explicitly allows data transfer outside the UK/EU",
+    "type": "string",
+    "enum": ["yes", "no", "unknown"]
+  },
+  "risk_level": {
+    "description": "High-level risk rating from the perspective of a small SaaS vendor",
+    "type": "string",
+    "enum": ["low", "medium", "high"]
+  },
+  "risk_explanation": {
+    "description": "Short natural-language explanation (2–4 sentences) of why the risk level was chosen",
+    "type": "string"
+  }
+}
