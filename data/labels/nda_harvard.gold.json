@@ -1,0 +1,14 @@
+{
+  "doc_type": "nda",
+  "party_a_name": "[COMPANY NAME]",
+  "party_b_name": "President and Fellows of Harvard College",
+  "effective_date": null,
+  "term_length": 24,
+  "governing_law": "Commonwealth of Massachusetts",
+  "termination_notice_days": 30,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Template NDA with blank effective date. Term is 2 years with a 5-year confidentiality tail and Massachusetts governing law/jurisdiction. No explicit limitation of liability is stated, increasing exposure, and the forum is outside UK/EU."
+}

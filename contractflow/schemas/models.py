@@ -16,7 +16,7 @@ class ContractExtraction(BaseModel):
     doc_type: Literal["nda", "msa", "other"]
     party_a_name: NonEmptyStr
     party_b_name: NonEmptyStr
-    effective_date: date
+    effective_date: Optional[str] = None
     term_length: Optional[int] = None
     governing_law: NonEmptyStr
     termination_notice_days: Optional[int] = None

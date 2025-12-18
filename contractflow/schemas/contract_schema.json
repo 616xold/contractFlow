@@ -14,7 +14,8 @@
   },
   "effective_date": {
     "description": "Date on which the agreement becomes effective, in ISO format YYYY-MM-DD if possible",
-    "type": "string"
+    "type": "string",
+    "nullable": true
   },
   "term_length": {
     "description": "Length of the agreement term in months, if determinable",

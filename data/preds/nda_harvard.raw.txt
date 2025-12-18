@@ -1,14 +1,1 @@
-{
-  "doc_type": "nda",
-  "party_a_name": "[COMPANY NAME]",
-  "party_b_name": "President and Fellows of Harvard College",
-  "effective_date": null,
-  "term_length": 24,
-  "governing_law": "Commonwealth of Massachusetts",
-  "termination_notice_days": 30,
-  "liability_cap": "No liability cap specified.",
-  "non_solicit_clause_present": false,
-  "data_transfer_outside_uk_eu": "unknown",
-  "risk_level": "medium",
-  "risk_explanation": "This is a mutual NDA with standard confidentiality, non-use, and compelled-disclosure provisions, and a defined term (2 years) with confidentiality obligations lasting 5 years. There is no express limitation of liability or other risk-allocation language, which can increase exposure if a dispute arises. The agreement is governed by Massachusetts law with exclusive jurisdiction in Massachusetts courts, which may be unfavorable for a small SaaS vendor outside that forum."
-}
+{"doc_type":"nda","party_a_name":"[COMPANY NAME]","party_b_name":"President and Fellows of Harvard College","effective_date":null,"term_length":24,"governing_law":"Commonwealth of Massachusetts","termination_notice_days":30,"liability_cap":"Not specified","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is a mutual confidentiality agreement with a 5-year confidentiality/non-use obligation, which is a moderate ongoing compliance burden for a small SaaS vendor. There is no stated liability cap or other limitation of remedies, which can increase exposure if a dispute arises. Termination is available on 30 days’ notice, but confidentiality obligations survive regardless."}
