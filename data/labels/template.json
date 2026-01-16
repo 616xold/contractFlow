@@ -1,0 +1,14 @@
+{
+  "doc_type": "TODO",
+  "party_a_name": "TODO",
+  "party_b_name": "TODO",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "TODO",
+  "termination_notice_days": null,
+  "liability_cap": "TODO",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "TODO"
+}

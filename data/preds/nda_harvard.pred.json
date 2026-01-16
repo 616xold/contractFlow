@@ -1,25 +1,254 @@
 {
   "doc_type": "nda",
-  "party_a_name": "[COMPANY NAME]",
-  "party_b_name": "President and Fellows of Harvard College",
+  "party_a_name": null,
+  "party_b_name": "[COMPANY NAME]",
   "effective_date": null,
-  "term_length": 24,
+  "term_length": null,
   "governing_law": "Commonwealth of Massachusetts",
-  "termination_notice_days": 30,
-  "liability_cap": "Not specified",
+  "termination_notice_days": null,
+  "liability_cap": null,
   "non_solicit_clause_present": false,
   "data_transfer_outside_uk_eu": "unknown",
-  "risk_level": "medium",
-  "risk_explanation": "This is a mutual confidentiality agreement with a 5-year confidentiality/non-use obligation, which is a moderate ongoing compliance burden for a small SaaS vendor. There is no stated liability cap or other limitation of remedies, which can increase exposure if a dispute arises. Termination is available on 30 days’ notice, but confidentiality obligations survive regardless.",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
   "_meta": {
     "pdf": "data\\raw_pdfs\\nda_harvard.pdf",
     "model": "gpt-5.2",
-    "input_tokens": 2394,
-    "output_tokens": 167,
+    "input_tokens": 23312,
+    "output_tokens": 2260,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
-    "issues": []
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "total_chunks": 4,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.96,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "CONFIDENTIAL DISCLOSURE AGREEMENT THIS CONFIDENTIAL DISCLOSURE AGREEMENT (this “Agreement”) is entered into as of __________________, (the “Effective Date”) by and between..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1064,
+          "completion_tokens": 77
+        },
+        "party_a_name": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "...entered into as of __________________, (the “Effective Date”) by and between [COMPANY NAME], a company organized under the laws of [STATE/COUNTRY OF INCORPORATION]... (“Company”) and President and Fellows of Harvard College... (“Harvard”)."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2124,
+          "completion_tokens": 239
+        },
+        "party_b_name": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "...by and between [COMPANY NAME], a company organized under the laws of [STATE/COUNTRY OF INCORPORATION]... (“Company”) and President and Fellows of Harvard College... (“Harvard”)."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2124,
+          "completion_tokens": 219
+        },
+        "effective_date": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "THIS CONFIDENTIAL DISCLOSURE AGREEMENT (this “Agreement”) is entered into as of __________________, (the “Effective Date”)"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2128,
+          "completion_tokens": 132
+        },
+        "term_length": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "THIS CONFIDENTIAL DISCLOSURE AGREEMENT (this “Agreement”) is entered into as of __________________, (the “Effective Date”) by and between [COMPANY NAME]..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2116,
+          "completion_tokens": 148
+        },
+        "governing_law": {
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "This Agreement shall be governed by and construed in accordance with the laws of the Commonwealth of Massachusetts, without regard to any choice of law principle..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1046,
+          "completion_tokens": 72
+        },
+        "termination_notice_days": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "For illustrative purposes only. This sample contains terms representative of a Confidential Disclosure Agreement, but any such agreement may be subject to change."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "9. Other Agreements. ... provided that nothing in this Agreement shall require either party to enter into any transaction or to execute any agreement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2128,
+          "completion_tokens": 210
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "For illustrative purposes only. This sample contains terms representative of a Confidential Disclosure Agreement, but any such agreement may be subject to change."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "10. Miscellaneous.  This Agreement may not be assigned or transferred by either party without the other party’s prior written consent."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2086,
+          "completion_tokens": 206
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "3. Nondisclosure of Confidential Information. Without the Disclosing Party’s prior, express written consent, the Receiving Party shall not directly or indirectly disseminate or otherwise disclose..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2090,
+          "completion_tokens": 157
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "...the Receiving Party shall not directly or indirectly disseminate or otherwise disclose, deliver or make available to any person outside its organization any of the Confidential Information it receives hereunder."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2184,
+          "completion_tokens": 165
+        },
+        "risk_level": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "For illustrative purposes only. This sample contains terms representative of a Confidential Disclosure Agreement, but any such agreement may be subject to change."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "3. Nondisclosure of Confidential Information. ... the Receiving Party shall not directly or indirectly disseminate or otherwise disclose... any of the Confidential Information it receives hereunder."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2130,
+          "completion_tokens": 224,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Without the Disclosing Party’s prior, express written consent, the Receiving Party shall not directly or indirectly disseminate or otherwise disclose... any of the Confidential Information it receives hereunder."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "The Receiving Party may disclose the Confidential Information... only to persons within its organization who have a need to receive such Confidential Information... and who agree to confidentiality and non-use obligations..."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Nothing in this Agreement shall limit in any way Harvard’s ability to publish Research results pursuant to the terms of such Research Agreement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2092,
+          "completion_tokens": 411,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 3,
+        "avg_confidence": 0.347,
+        "min_confidence": 0.12
+      }
+    }
   }
 }

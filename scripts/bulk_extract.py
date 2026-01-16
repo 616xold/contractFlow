@@ -13,7 +13,13 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from contractflow.core.extractor import DEFAULT_MODEL, ExtractionResult, extract_fields_naive
+from contractflow.core.extractor import (
+    DEFAULT_MODEL,
+    ExtractionResult,
+    extract_fields_field_agents,
+    extract_fields_naive,
+    extract_fields_retrieval,
+)
 
 
 def main() -> None:
@@ -57,6 +63,47 @@ def main() -> None:
         action="store_true",
         help="Disable structured outputs parsing (debugging / fallback mode)",
     )
+    retrieval_group = parser.add_mutually_exclusive_group()
+    retrieval_group.add_argument(
+        "--retrieval",
+        action="store_true",
+        help="Use retrieval context over chunked pages for a single LLM call",
+    )
+    retrieval_group.add_argument(
+        "--field-agents",
+        action="store_true",
+        help="Use per-field retrieval and extraction agents",
+    )
+    parser.add_argument(
+        "--retrieval-backend",
+        type=str,
+        default="bm25",
+        help="Retrieval backend (default: bm25)",
+    )
+    parser.add_argument(
+        "--embedding-model",
+        type=str,
+        default="text-embedding-3-small",
+        help="Embedding model for embeddings backend (default: text-embedding-3-small)",
+    )
+    parser.add_argument(
+        "--embedding-batch-size",
+        type=int,
+        default=64,
+        help="Embedding batch size for indexing (default: 64)",
+    )
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        default=3,
+        help="Number of chunks to retrieve per field (default: 3)",
+    )
+    parser.add_argument(
+        "--max-chunk-chars",
+        type=int,
+        default=1200,
+        help="Max chars per chunk in the prompt (default: 1200)",
+    )
     args = parser.parse_args()
 
     pdf_paths = sorted(args.in_dir.glob("*.pdf"))
@@ -86,15 +133,47 @@ def main() -> None:
             raw_out_path = args.preds_dir / f"{pdf_path.stem}.raw.txt"
 
             try:
-                result: ExtractionResult = extract_fields_naive(
-                    pdf_path,
-                    args.schema,
-                    model=args.model,
-                    validate=not args.no_validate,
-                    strict=args.strict,
-                    coerce=not args.no_coerce,
-                    structured_outputs=not args.no_structured_outputs,
-                )
+                result: ExtractionResult
+                if args.field_agents:
+                    result = extract_fields_field_agents(
+                        pdf_path,
+                        args.schema,
+                        model=args.model,
+                        validate=not args.no_validate,
+                        strict=args.strict,
+                        coerce=not args.no_coerce,
+                        structured_outputs=not args.no_structured_outputs,
+                        retrieval_backend=args.retrieval_backend,
+                        embedding_model=args.embedding_model,
+                        embedding_batch_size=args.embedding_batch_size,
+                        top_k=args.top_k,
+                        max_chunk_chars=args.max_chunk_chars,
+                    )
+                elif args.retrieval:
+                    result = extract_fields_retrieval(
+                        pdf_path,
+                        args.schema,
+                        model=args.model,
+                        validate=not args.no_validate,
+                        strict=args.strict,
+                        coerce=not args.no_coerce,
+                        structured_outputs=not args.no_structured_outputs,
+                        retrieval_backend=args.retrieval_backend,
+                        embedding_model=args.embedding_model,
+                        embedding_batch_size=args.embedding_batch_size,
+                        top_k=args.top_k,
+                        max_chunk_chars=args.max_chunk_chars,
+                    )
+                else:
+                    result = extract_fields_naive(
+                        pdf_path,
+                        args.schema,
+                        model=args.model,
+                        validate=not args.no_validate,
+                        strict=args.strict,
+                        coerce=not args.no_coerce,
+                        structured_outputs=not args.no_structured_outputs,
+                    )
                 raw_out_path.write_text(result.raw_text, encoding="utf-8")
 
                 pred_payload: dict = dict(result.json_result)
@@ -109,6 +188,7 @@ def main() -> None:
                     "structured_outputs": not args.no_structured_outputs,
                     "issues": result.issues or [],
                 }
+                pred_payload["_meta"]["retrieval"] = result.retrieval or {"enabled": False}
                 out_path.write_text(
                     json.dumps(pred_payload, indent=2, ensure_ascii=False) + "\n",
                     encoding="utf-8",

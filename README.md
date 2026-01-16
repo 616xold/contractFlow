@@ -1,72 +1,143 @@
-# ContractFlow
+ContractFlow Overview
+=====================
 
-ContractFlow is a baseline NDA/commercial contract extractor. It reads PDFs, extracts a fixed set of fields into JSON, and captures a simple risk summary. The goal is to evolve into a production-style, agentic pipeline with evaluation and UI, but today the focus is the Week-1 baseline CLI and plumbing.
+ContractFlow is a baseline contract extractor focused on NDAs and simple commercial agreements.
+It reads PDFs, extracts a fixed schema into JSON, and computes a risk summary. The project
+is structured to evolve into an agentic pipeline with retrieval, evidence, validation, and
+evaluation.
 
-## What’s implemented now
-- **Baseline extractor** (`contractflow/core/extractor.py`): single-call LLM extraction, structured outputs (Pydantic + `responses.parse`), robust JSON recovery, schema validation/coercion, prompt-safety guards, and null-handling for nullable fields.
-- **Schema & model** (`contractflow/schemas/contract_schema.json`, `contractflow/schemas/models.py`): fixed fields for NDAs/MSAs; stricter types (e.g., `effective_date` as ISO date), non-empty party names/governing law, enums, nullable ints, and “unknown” reserved for `data_transfer_outside_uk_eu`.
-- **CLI tools**:
-  - `scripts/baseline_extract.py`: run on a single PDF, saves parsed JSON and raw model output to `data/preds/`, prints token usage, supports strict/lenient validation and structured-outputs toggle.
-  - `scripts/bulk_extract.py`: iterate over `data/raw_pdfs/*.pdf`, save preds/raws, and write a summary CSV with success/failure and token counts.
-  - `scripts/download_samples.py`: fetches sample NDAs/MSAs into `data/raw_pdfs/`.
-- **PDF text**: `contractflow/core/pdf_utils.py` for basic text extraction via `pypdf`.
-- **Sample output**: `data/preds/nda_harvard.pred.json` demonstrates the pipeline; validation recorded an issue for missing `effective_date`.
+Goals
+-----
+- Extract structured fields from contracts (party names, dates, term, governing law, etc).
+- Provide deterministic validation and normalization of outputs.
+- Support agentic retrieval and per-field extraction with evidence.
+- Track evaluation metrics against gold labels.
 
-## Repo layout
-- `contractflow/core/` — extractor and PDF utilities.
-- `contractflow/schemas/` — JSON schema + Pydantic model.
-- `scripts/` — CLIs for single/bulk extraction and sample download.
-- `data/raw_pdfs/` — sample PDFs (after running `download_samples`).
-- `data/preds/` — predictions and raw model outputs.
-- `docs/domain.md` — field definitions and initial risk heuristics.
+Repository Layout
+-----------------
+- contractflow/core/
+  - pdf_utils.py: PDF text extraction (per-page + full text).
+  - chunking.py: Chunking, BM25 retrieval, embeddings retrieval, and retrieval helpers.
+  - extractor.py: LLM extraction pipelines (naive, retrieval context, field agents).
+- contractflow/schemas/
+  - contract_schema.json: JSON schema for all extraction fields.
+  - models.py: Pydantic model for structured outputs.
+- scripts/
+  - baseline_extract.py: Single-document extractor CLI.
+  - bulk_extract.py: Batch extractor CLI over a folder of PDFs.
+  - inspect_chunks.py: Prints chunk headings and snippets for tuning chunking.
+  - evaluate.py: Compares predictions vs gold labels and reports accuracy + coverage.
+- data/
+  - raw_pdfs/: source documents.
+  - preds/: extraction outputs and raw model outputs.
+  - labels/: gold labels and labeling templates.
+- docs/
+  - domain.md: field definitions and risk heuristics.
 
-## Setup
-```bash
-python -m venv .venv
-. .venv/Scripts/activate  # PowerShell: .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-Add your key in `.env`:
-```
-OPENAI_API_KEY=sk-...
-```
+Data Flow (High-Level)
+----------------------
+1) PDF ingestion
+   - pdf_utils.read_pdf_pages() extracts per-page text using pypdf.
+2) Chunking + retrieval (optional)
+   - chunking.chunk_pdf() splits pages into sections using heading heuristics.
+   - Retrieval uses BM25 or embeddings and returns top-k chunk hits.
+3) LLM extraction
+   - Naive: one call over the full document.
+   - Retrieval context: one call over concatenated retrieved excerpts.
+   - Field agents: per-field calls using retrieved excerpts, evidence snippets, and confidence.
+4) Verification and normalization
+   - Type validation/coercion per schema.
+   - Deterministic normalization for effective_date and term_length.
+   - Risk level and explanation derived from domain heuristics.
+5) Evaluation
+   - evaluate.py compares predictions to gold labels and reports accuracy and coverage.
 
-## Usage
-Single PDF:
-```bash
-python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --model gpt-5.2
-```
-- Outputs: `data/preds/nda_harvard.pred.json` (parsed + `_meta` with tokens/issues) and `data/preds/nda_harvard.raw.txt`.
-- Defaults: `strict=False` (lenient), validation on, coercion on, structured outputs on.
-- Turn on fail-fast: `--strict`
-- Disable structured outputs: `--no-structured-outputs`
-- Disable validation/coercion: `--no-validate`, `--no-coerce`
+Extraction Modes
+----------------
+1) Naive (single call)
+   - extractor.extract_fields_naive(): full PDF text -> one LLM call -> schema validation.
 
-Bulk over a folder:
-```bash
-python scripts/bulk_extract.py --model gpt-5.2
-```
-Writes preds/raws per PDF plus `data/preds/summary.csv`.
+2) Retrieval context (single call with excerpts)
+   - extractor.extract_fields_retrieval():
+     - Build chunk index.
+     - Retrieve top-k chunks per field.
+     - Assemble excerpts into a single prompt.
+     - One LLM call with schema validation.
+     - _meta.retrieval.coverage reports retrieval hit coverage.
 
-Download sample PDFs:
-```bash
-python scripts/download_samples.py
-```
+3) Field agents (per-field agent loop)
+   - extractor.extract_fields_field_agents():
+     - Build chunk index.
+     - For each field:
+       - Build a field-specific query.
+       - Retrieve top-k chunks.
+       - Run a per-field LLM call that returns value + evidence + confidence.
+       - Retry with augmented query when confidence is low or conflicts detected.
+     - Apply deterministic verifiers and risk heuristics.
+     - _meta.retrieval.coverage reports evidence coverage.
 
-## Current progress (Baseline)
-- Prompt is guarded (clear delimiters, injection warnings) and enforces: return all keys, use `null` for nullable missing, `unknown` only for data_transfer_outside_uk_eu.
-- Validation catches missing/extra keys, wrong types, enum drift, empty required strings, and disallows `"unknown"` for non-reserved fields. Lenient mode returns issues instead of raising.
-- Structured outputs (`responses.parse` + Pydantic) for stronger adherence; falls back to JSON parsing with recovery.
-- Token usage captured; `_meta` persisted with run settings and issues to aid eval/debug.
+Chunking and Retrieval
+----------------------
+- chunking.py detects headings using:
+  - Section/Article prefixes.
+  - Numbered headings (e.g. "1. Definitions").
+  - All-caps lines.
+  - Title-case headings.
+- Retrieval backends:
+  - BM25 (local scoring).
+  - Embeddings via OpenAI embeddings API with cosine similarity.
+- Both return top-k chunks with page numbers and headings.
 
-## Known gaps / next steps
-- Improve recall for `effective_date` (observed null in `nda_harvard.pred.json`); consider regex/date heuristics or targeted field prompts.
-- Add evaluation scripts against gold labels (`data/labels/`) once labels exist.
-- Add chunking/RAG + per-field retrieval for better accuracy on longer contracts.
-- Add risk post-processing using `docs/domain.md` heuristics as a secondary check.
-- Add tests for extraction/validation and CI wiring.
-- UI and integrations (CSV/Sheets/Notion) are planned but not yet started.
+Evidence and Coverage
+---------------------
+- Field agents return evidence snippets and a confidence score.
+- Coverage metrics:
+  - Retrieval context: hit_ratio based on retrieval hits per field.
+  - Field agents: evidence_ratio and confidence stats based on evidence snippets.
 
-## Notes
-- Default model is `gpt-5.2` with `reasoning={"effort": "none"}` and `temperature=0` for determinism/cost control.
-- Strict mode will raise on any schema violation; lenient mode will keep `issues` in output and set offending fields to `null`.
+Schema and Validation
+---------------------
+- contract_schema.json is the source of truth for field definitions and types.
+- extractor.py enforces:
+  - Required keys and types.
+  - Enum constraints.
+  - Non-empty strings for required fields.
+  - "unknown" reserved for data_transfer_outside_uk_eu only.
+- Normalization:
+  - effective_date normalized to ISO if possible.
+  - term_length normalized to months if specified in years.
+
+Risk Heuristics
+---------------
+Risk is derived deterministically from docs/domain.md:
+- Start from medium.
+- High if liability is uncapped, governing law is outside UK/EU, or data transfer is "yes".
+- Low if liability <= 12 months, governing law is England & Wales, and term <= 12 months.
+
+CLI Usage Examples
+------------------
+- Single extraction (naive):
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf
+
+- Retrieval context (BM25):
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --retrieval
+
+- Field agents (BM25):
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents
+
+- Field agents (embeddings backend):
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend embeddings
+
+- Inspect chunk headings:
+  python scripts/inspect_chunks.py data/raw_pdfs/nda_harvard.pdf --max-chars 200
+
+- Evaluate predictions:
+  python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds
+
+Known Gaps and Next Steps
+-------------------------
+- Expand labeled datasets in data/labels/.
+- Improve heading heuristics and chunking for long contracts.
+- Add OCR for scanned PDFs.
+- Improve query hints for difficult fields (party names, liability cap).
+- Add stronger evaluation metrics (e.g., partial credit, evidence precision/recall).
