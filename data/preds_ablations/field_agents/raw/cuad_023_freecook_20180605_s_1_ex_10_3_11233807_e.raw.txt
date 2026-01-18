@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"Heading: Website Design, Development and Hosting Agreement"},{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between ... (hereinafter referred to as \"Client\") and ... (hereinafter referred to as \"Company\")."}],"confidence":0.95,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"...entered into on January 11, 2018 by and between Natalija Tunevic, director of FreeCook (hereinafter referred to as \"Client\") and Mitchell Vitalis, director of Mitchell's Web Advance, PLC..."}],"confidence":0.62,"value":"Natalija Tunevic"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"...by and between Natalija Tunevic, director of FreeCook (hereinafter referred to as \"Client\") and Mitchell Vitalis, director of Mitchell's Web Advance, PLC (hereinafter referred to as \"Company\")."}],"confidence":0.9,"value":"Mitchell Vitalis"}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between Natalija Tunevic..."}],"confidence":0.9,"value":"2018-01-11"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018..."},{"page_num":2,"heading":null,"snippet":"3. Business Hours; Rush Work. Company representatives are available during Company's normal business hours..."}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[],"confidence":0.12,"value":""}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between..."}],"confidence":0.12,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"Client agrees to pay to Company the sum of $5,000 (the \"Contract Price\") to design and develop a website for Client"}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"Client agrees that any unsolicited positive feedback Client provides to Company may be used in any Company marketing and/or advertising materials (i.e., customer testimonials)."}],"confidence":0.12,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[],"confidence":0.12,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Company at its sole discretion may at any time alter or cease providing the Customer Service"},{"page_num":2,"heading":null,"snippet":"Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours... The surcharge for rush work shall be the standard hourly rate of $40 plus twenty-five percent (25%)."}],"confidence":0.55,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":1,"heading":"Website Design, Development and Hosting Agreement","snippet":"Company will not make any attempt to proof read or correct any contextual, grammatical or typographical errors in the written content submitted by Client. It is Client's sole responsibility to check the accuracy"},{"page_num":2,"heading":null,"snippet":"Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours... The surcharge for rush work shall be the standard hourly rate of $40 plus twenty-five percent (25%)."},{"page_num":2,"heading":"Exhibit A","snippet":"Scope of Work Development of design of Free Cook... Development of unique style of the Client Website... Designing UI/UX-practical parts... Development of a prototype and interface testing."}],"confidence":0.42,"value":"The agreement places key responsibilities and potential extra costs on the client, which can increase project risk. The company disclaims responsibility for proofreading client-provided content, and rush or after-hours work triggers a surcharge. The scope includes multiple design stages and deliverables, adding complexity that can raise the chance of delays or rework."}

@@ -1,0 +1,32 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Thrivent Financial for Lutherans",
+  "party_b_name": "Thrivent Life Insurance Company",
+  "effective_date": "2019-07-01",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is an insurance contract endorsement transferring obligations from Thrivent Life Insurance Company to Thrivent Financial for Lutherans and adding solvency-related member payment obligations. It does not include typical SaaS protections such as a liability cap, termination rights, or governing law in the provided text. The solvency impairment clause (extra payment within 60 days or indebtedness with 5% interest) increases financial exposure, creating moderate risk.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_015_thriventvariableinsuranceaccountb_201907.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 1917,
+    "output_tokens": 184,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+    ],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

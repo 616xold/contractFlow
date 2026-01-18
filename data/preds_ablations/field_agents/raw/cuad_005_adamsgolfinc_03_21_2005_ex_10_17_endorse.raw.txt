@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":9,"heading":"32. CONFIDENTIALITY","snippet":"Both parties understand that the contents of this Agreement... are extremely confidential... both parties agree not to disclose the terms of this Agreement"},{"page_num":7,"heading":"24.  ADAMS GOLF'S RIGHTS UPON TERMINATION","snippet":"In the event of termination of this Agreement, ADAMS GOLF shall cease using the name and/or likeness of CONSULTANT..."}],"confidence":0.55,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":8,"heading":"30. RELATIONSHIP","snippet":"...constituting of a partnership or joint venture between ADAMS GOLF and CONSULTANT."},{"page_num":9,"heading":"32. CONFIDENTIALITY","snippet":"...CONSULTANT shall take all reasonable steps to ensure such confidentiality to ADAMS GOLF."}],"confidence":0.62,"value":"ADAMS GOLF"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":8,"heading":"30. RELATIONSHIP","snippet":"Both parties agree that this Agreement does not constitute and shall not be construed as a constituting of a partnership or joint venture between ADAMS GOLF and CONSULTANT."},{"page_num":9,"heading":"32. CONFIDENTIALITY","snippet":"...CONSULTANT shall take all reasonable steps to ensure such confidentiality to ADAMS GOLF."}],"confidence":0.55,"value":"CONSULTANT"}
+
+FIELD effective_date
+{"evidence":[{"page_num":10,"heading":"Date: January 13, 2005","snippet":"Date: January 13, 2005"},{"page_num":10,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed as of the","snippet":"date first set forth above.\nAPPROVED FOR CONSULTANT                       By: /s/ Tom Watson     Date: January 13,\n2005"}],"confidence":0.78,"value":"2005-01-13"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"1.   TERM OF CONTRACT","snippet":"The Term of this Agreement shall be for a period of [* ****] years and [*****] months"}],"confidence":0.22,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":8,"heading":"25. APPLICABLE LAW","snippet":"This Agreement shall be governed and construed according to the laws of the State of\nKansas."}],"confidence":0.98,"value":"State of Kansas"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":7,"heading":"23.  TERMINATION FOR CAUSE","snippet":"...the other party may terminate for cause upon giving fifteen (15) days written notice..."}],"confidence":0.22,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":5,"heading":"14. INDEMNITY","snippet":"CONSULTANT agrees to protect, indemnify and hold ADAMS GOLF harmless from any and all liability, claims, causes of action, suits, damages and expenses..."}],"confidence":0.18,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":"6.    CONSULTANT'S ENDORSEMENT OF NON-COMPETITIVE PRODUCT","snippet":"When endorsing a non-competitive product, under no circumstances shall CONSULTANT wear, play, use, hold or in any way be associated with an ADAMS GOLF competitor's Product."},{"page_num":8,"heading":"30. RELATIONSHIP","snippet":"Both parties agree that this Agreement does not constitute and shall not be construed as a constituting of a partnership or joint venture between ADAMS GOLF and CONSULTANT."}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":9,"heading":"31. ASSIGNMENT AND CHANGE OF CONTROL","snippet":"Neither ADAMS GOLF nor CONSULTANT shall have the right to grant sublicenses hereunder or to assign, alienate or otherwise transfer any of its rights or obligations hereunder."},{"page_num":8,"heading":"26. ENTIRE AGREEMENT","snippet":"The provisions of this Agreement are intended by the parties as a complete, conclusive and final expression of their agreement concerning the subject matter hereof..."}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":5,"heading":"14. INDEMNITY","snippet":"CONSULTANT agrees to protect, indemnify and hold ADAMS GOLF harmless from any and all liability, claims, causes of action, suits, damages and expenses (including reasonable attorneys' fees and expenses)"}],"confidence":0.62,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":6,"heading":"1.2005 $ [*****] 2.2006$ [*****] 3.2007$ [*****] 4.2008$ [*****] 5.2009$ [*****]","snippet":"In the event of ADAMS GOLF'S insolvency or bankruptcy, it is expressly agreed to by the parties that CONSULTANT shall not be obligated to repay any money so long as CONSULTANT continues to fully perform his obligations under this Agreement."},{"page_num":2,"heading":null,"snippet":"D. \"CONTRACT TERRITORY\" shall mean the entire world."}],"confidence":0.42,"value":"The agreement includes a provision addressing insolvency/bankruptcy, stating the consultant is not required to repay money if they continue performing, which reduces repayment/recoupment risk for the consultant. However, key commercial terms (including payment amounts and other obligations) are heavily redacted, limiting a full assessment. The contract territory is worldwide, which can increase operational and compliance complexity and contributes to residual risk."}

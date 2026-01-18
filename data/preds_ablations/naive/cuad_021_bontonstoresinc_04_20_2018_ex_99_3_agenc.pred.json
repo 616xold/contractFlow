@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "The Bon-Ton Stores, Inc. and its associated chapter 11 debtors in possession (collectively, \"Merchant\")",
+  "party_b_name": "(a) a contractual joint venture comprised of GA Retail, Inc. and Tiger Capital Group, LLC (collectively, the \"Agent\") and (b) Wilmington Savings Fund Society, FSB, as the indenture agent and collateral trustee for the 8.00% second-lien senior secured notes due 2021 (collectively with Agent, \"Purchaser\")",
+  "effective_date": "2018-04-18",
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": 7,
+  "liability_cap": "Not specified (agreement states Purchaser shall not be liable for any claims against Merchant except as expressly provided)",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "This is a complex bankruptcy-related agency agreement with extensive operational, escrow, and court-approval dependencies, not a standard SaaS contract. It contains broad provisions limiting Purchaser liability except as expressly provided and grants significant rights over assets and proceeds, creating high legal/operational complexity. Termination mechanics are not a simple convenience termination (only a 7-day store-by-store vacate notice is specified), increasing risk for a small vendor.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 43474,
+    "output_tokens": 298,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

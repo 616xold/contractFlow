@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "ADAMS GOLF",
+  "party_b_name": "CONSULTANT",
+  "effective_date": "2005-01-13",
+  "term_length": null,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": null,
+  "liability_cap": "No explicit monetary cap stated; mutual indemnities apply (including attorneys' fees and expenses).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement includes broad, uncapped indemnity obligations (including attorneys’ fees) and does not state any limitation of liability, which is high risk for a small vendor. Key commercial terms (including parts of the term and payments) are heavily redacted, increasing uncertainty. Termination provisions appear focused on for-cause scenarios with specific notice periods, but no clear termination-for-convenience notice is provided."
+}

@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"Exhibit h(2)                               SPONSORSHIP AGREEMENT","snippet":"SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,"},{"page_num":3,"heading":null,"snippet":"8. Severability. If any provision of this Agreement shall become or shall be found to be invalid..."},{"page_num":3,"heading":null,"snippet":"4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment..."}],"confidence":0.74,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit h(2)                               SPONSORSHIP AGREEMENT","snippet":"SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,\na Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC,"}],"confidence":0.93,"value":"Domini Advisor Trust"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":1,"heading":"W I T N E S S E T H:","snippet":"...the Trust wishes to engage Domini to provide certain oversight, administrative and management services, and Domini is willing to provide such oversight, administrative and management services to the Trust..."}],"confidence":0.42,"value":"Domini"}
+
+FIELD effective_date
+{"evidence":[{"page_num":4,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and","snippet":"...all as of the day and year first above written."},{"page_num":4,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and","snippet":"...Declaration of Trust, dated October 6, 2004, as amended..."}],"confidence":0.22,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"W I T N E S S E T H:","snippet":"...Domini is willing to provide such oversight, administrative and management services to the Trust on the terms and conditions hereinafter set forth; NOW, THEREFORE..."}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":4,"heading":null,"snippet":"This Agreement shall be construed and enforced and interpreted in accordance with and governed by the laws of the Commonwealth of Massachusetts without reference to principles of conflicts of law."}],"confidence":0.99,"value":"Commonwealth of Massachusetts"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"9. Notice. Any notices under this Agreement shall be in writing addressed and delivered personally, by telecopy or mailed postage-paid to the other party..."}],"confidence":0.18,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or... reckless disregard of its obligations"}],"confidence":0.22,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":null,"snippet":"4. Limitation of Liability of the Sponsor... 5. Activities of the Sponsor. The services of the Sponsor to the Trust are not to be deemed to be exclusive, Domini being free to render oversight, administrative and/or other services to other parties."},{"page_num":3,"heading":null,"snippet":"8. Severability. If any provision of this Agreement shall become or shall be found to be invalid... 9. Notice. Any notices under this Agreement shall be in writing..."}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":3,"heading":null,"snippet":"...Domini shall not enter into any such subcontract unless the Trustees of the Trust shall have found the subcontracting party to be qualified..."}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or... reckless disregard of its obligations"}],"confidence":0.62,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or... reckless disregard"},{"page_num":2,"heading":null,"snippet":"the Sponsor shall not be deemed to have assumed... any duties... and shall not be responsible for, the management of the Trust's assets or the rendering of investment advice"}],"confidence":0.62,"value":"The risk level is driven by the agreement’s broad limitation of the Sponsor’s liability, which largely shields it from claims for errors, mistakes, or omissions except in cases of willful misfeasance, bad faith, gross negligence, or reckless disregard. This reduces the Trust’s recourse for ordinary performance failures. The Sponsor also disclaims responsibility for asset management and investment advice, narrowing its obligations and shifting key operational risk away from the Sponsor."}

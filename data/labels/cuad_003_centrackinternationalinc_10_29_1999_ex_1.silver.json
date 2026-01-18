@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "i-on",
+  "party_b_name": "Customer",
+  "effective_date": "1999-04-06",
+  "term_length": 6,
+  "governing_law": "United States (state unspecified)",
+  "termination_notice_days": 30,
+  "liability_cap": "Limited to one (1) month's fees and the remaining portion of any prepaid fees.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a web site hosting agreement with broad customer responsibilities and hold-harmless language for interruptions and data loss, which increases operational risk. The provider’s liability is capped at one month’s fees plus remaining prepaid fees, which is favorable to the provider but may be commercially contentious. Termination for convenience requires 30 days’ notice, and the customer remains obligated to pay amounts due, creating some payment/collection risk."
+}

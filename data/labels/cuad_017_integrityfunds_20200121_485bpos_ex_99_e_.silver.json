@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Integrity Short Term Government Fund",
+  "party_b_name": "Integrity Funds Distributor, LLC",
+  "effective_date": "2020-01-18",
+  "term_length": 24,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": 60,
+  "liability_cap": "Obligations bind only the property of the Fund; no personal liability of trustees/shareholders/officers/employees.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a distribution and services agreement with mutual indemnification provisions tied to securities law disclosures, which can create meaningful litigation and defense-cost exposure. There is no clear monetary cap on liability; instead, liability is limited structurally to the Fund’s property and excludes coverage for willful misfeasance/bad faith/gross negligence. Termination requires notice (60 days by the Fund; 90 days by Integrity), which reduces flexibility compared to at-will termination."
+}

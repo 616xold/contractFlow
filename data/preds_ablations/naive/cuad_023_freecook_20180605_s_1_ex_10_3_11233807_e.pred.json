@@ -1,0 +1,31 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Natalija Tunevic",
+  "party_b_name": "Mitchell Vitalis",
+  "effective_date": "2018-01-11",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "Not specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "The agreement is a services contract for website design/development/hosting with payment and project timing terms, but it does not specify governing law, termination rights/notice, or a liability limitation. The absence of these standard risk-allocation clauses increases uncertainty and potential exposure in a dispute. No non-solicitation or data transfer provisions are stated.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 2183,
+    "output_tokens": 166,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+    ],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

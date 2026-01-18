@@ -1,0 +1,31 @@
+{
+  "doc_type": "nda",
+  "party_a_name": "___________________________ (the \"Franchisee\")",
+  "party_b_name": "___________________________ (the \"Member\")",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "No explicit monetary liability cap stated; includes obligation to pay court costs and reasonable attorney's fees for injunctive relief enforcement.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement contains broad confidentiality obligations lasting during the franchise term and thereafter, plus a two-year post-term non-compete within a 3-mile radius. It also includes non-solicitation language (inducing employees to leave) and provides for injunctive relief with payment of court costs and attorneys' fees. There is no stated liability cap or governing law, increasing uncertainty and potential exposure.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 2299,
+    "output_tokens": 203,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+    ],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

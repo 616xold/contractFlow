@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Kiromic, Inc.",
+  "party_b_name": "Gianluca Rotino",
+  "effective_date": "2018-07-01",
+  "term_length": null,
+  "governing_law": "State of Texas",
+  "termination_notice_days": null,
+  "liability_cap": "No liability cap stated.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement contains broad confidentiality and IP assignment provisions, and includes an indemnity by the Consultant for third-party IP claims, but it does not include any explicit limitation of liability or liability cap. Termination is allowed on prior written notice but no notice period is specified, creating uncertainty. It also mandates binding arbitration in Houston, Texas under Texas law, which may increase enforcement and dispute-resolution burden for a small SaaS vendor.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 4458,
+    "output_tokens": 189,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

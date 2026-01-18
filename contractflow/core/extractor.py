@@ -908,9 +908,19 @@ def extract_fields_naive(
     strict: bool = False,
     coerce: bool = True,
     structured_outputs: bool = True,
+    use_ocr: bool = False,
+    ocr_min_chars: int = 40,
+    ocr_lang: str = "eng",
+    ocr_dpi: int = 200,
 ) -> ExtractionResult:
     """Read a PDF, call the LLM once with the schema, and return parsed JSON."""
-    contract_text = read_pdf_text(pdf_path)
+    contract_text = read_pdf_text(
+        pdf_path,
+        use_ocr=use_ocr,
+        ocr_min_chars=ocr_min_chars,
+        ocr_lang=ocr_lang,
+        ocr_dpi=ocr_dpi,
+    )
     if not contract_text.strip():
         raise ValueError("No text extracted. Is this a scanned PDF? Use OCR.")
     schema = load_schema(schema_path)
@@ -937,15 +947,28 @@ def extract_fields_retrieval(
     retrieval_backend: str = "bm25",
     embedding_model: str = "text-embedding-3-small",
     embedding_batch_size: int = 64,
+    embedding_cache_dir: Optional[str | Path] = None,
     top_k: int = 3,
     max_chunk_chars: int = 1200,
+    chunk_max_chars: int = 2000,
+    use_ocr: bool = False,
+    ocr_min_chars: int = 40,
+    ocr_lang: str = "eng",
+    ocr_dpi: int = 200,
 ) -> ExtractionResult:
     """Extract fields using per-field retrieval over chunked pages."""
     if top_k < 1:
         raise ValueError("top_k must be >= 1 for retrieval.")
 
     schema = load_schema(schema_path)
-    chunks = chunk_pdf(pdf_path)
+    chunks = chunk_pdf(
+        pdf_path,
+        max_chunk_chars=chunk_max_chars,
+        use_ocr=use_ocr,
+        ocr_min_chars=ocr_min_chars,
+        ocr_lang=ocr_lang,
+        ocr_dpi=ocr_dpi,
+    )
     if not chunks:
         raise ValueError("No text extracted. Is this a scanned PDF? Use OCR.")
 
@@ -954,6 +977,7 @@ def extract_fields_retrieval(
         backend=retrieval_backend,
         embedding_model=embedding_model,
         embedding_batch_size=embedding_batch_size,
+        embedding_cache_dir=embedding_cache_dir,
     )
     field_queries = _build_field_queries(schema)
     field_hits: Dict[str, list[RetrievalHit]] = {}
@@ -967,8 +991,12 @@ def extract_fields_retrieval(
         "mode": "retrieval_context",
         "backend": retriever.backend,
         "model": getattr(retriever, "model", None),
+        "cache_path": getattr(retriever, "cache_path", None),
+        "cache_hit": getattr(retriever, "cache_hit", None),
         "top_k": top_k,
         "max_chunk_chars": max_chunk_chars,
+        "chunk_max_chars": chunk_max_chars,
+        "use_ocr": use_ocr,
         "total_chunks": len(chunks),
         "total_hits": total_hits,
         "used_fallback_full_text": False,
@@ -976,7 +1004,13 @@ def extract_fields_retrieval(
     retrieval_meta["coverage"] = _compute_retrieval_hit_coverage(field_hits)
 
     if total_hits == 0:
-        contract_text = read_pdf_text(pdf_path)
+        contract_text = read_pdf_text(
+            pdf_path,
+            use_ocr=use_ocr,
+            ocr_min_chars=ocr_min_chars,
+            ocr_lang=ocr_lang,
+            ocr_dpi=ocr_dpi,
+        )
         retrieval_meta["used_fallback_full_text"] = True
         return call_llm_for_schema(
             contract_text,
@@ -1016,15 +1050,28 @@ def extract_fields_field_agents(
     retrieval_backend: str = "bm25",
     embedding_model: str = "text-embedding-3-small",
     embedding_batch_size: int = 64,
+    embedding_cache_dir: Optional[str | Path] = None,
     top_k: int = 3,
     max_chunk_chars: int = 1200,
+    chunk_max_chars: int = 2000,
+    use_ocr: bool = False,
+    ocr_min_chars: int = 40,
+    ocr_lang: str = "eng",
+    ocr_dpi: int = 200,
 ) -> ExtractionResult:
     """Extract fields by running a per-field retrieval + extraction agent."""
     if top_k < 1:
         raise ValueError("top_k must be >= 1 for field agents.")
 
     schema = load_schema(schema_path)
-    chunks = chunk_pdf(pdf_path)
+    chunks = chunk_pdf(
+        pdf_path,
+        max_chunk_chars=chunk_max_chars,
+        use_ocr=use_ocr,
+        ocr_min_chars=ocr_min_chars,
+        ocr_lang=ocr_lang,
+        ocr_dpi=ocr_dpi,
+    )
     if not chunks:
         raise ValueError("No text extracted. Is this a scanned PDF? Use OCR.")
 
@@ -1034,6 +1081,7 @@ def extract_fields_field_agents(
         backend=retrieval_backend,
         embedding_model=embedding_model,
         embedding_batch_size=embedding_batch_size,
+        embedding_cache_dir=embedding_cache_dir,
     )
     field_queries = _build_field_queries(schema)
 
@@ -1108,8 +1156,12 @@ def extract_fields_field_agents(
         "mode": "field_agents",
         "backend": retriever.backend,
         "model": getattr(retriever, "model", None),
+        "cache_path": getattr(retriever, "cache_path", None),
+        "cache_hit": getattr(retriever, "cache_hit", None),
         "top_k": top_k,
         "max_chunk_chars": max_chunk_chars,
+        "chunk_max_chars": chunk_max_chars,
+        "use_ocr": use_ocr,
         "total_chunks": len(chunks),
         "fields": field_meta,
     }

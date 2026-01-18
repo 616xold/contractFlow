@@ -1,0 +1,31 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Shelby J. Butterfield",
+  "party_b_name": "Butterfield Family Trust",
+  "effective_date": "2020-03-27",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "Not specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "low",
+  "risk_explanation": "This is a joint filing agreement for SEC Schedule 13G/13D reporting, not a commercial services contract. It contains no payment, IP, data processing, confidentiality, or broad liability provisions that would typically create material risk for a small SaaS vendor. Obligations are limited to filing responsibility and accuracy of each party’s own information.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 1051,
+    "output_tokens": 168,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+    ],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

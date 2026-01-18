@@ -1,0 +1,260 @@
+{
+  "doc_type": "other",
+  "party_a_name": "John J. Lofquist",
+  "party_b_name": "Anna",
+  "effective_date": null,
+  "term_length": 6,
+  "governing_law": null,
+  "termination_notice_days": 30,
+  "liability_cap": "one (1) month's fees and the remaining portion of any prepaid fees",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_003_centrackinternationalinc_10_29_1999_ex_1.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 19553,
+    "output_tokens": 1930,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'governing_law' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 24,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "WEB SITE HOSTING AGREEMENT",
+              "snippet": "This WEB SITE HOSTING AGREEMENT (\"this Agreement\") is entered into this 6th day of April,"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 688,
+          "completion_tokens": 66
+        },
+        "party_a_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "----------------------------- Name: John J. Lofquist                  Name:   Anna",
+              "snippet": "----------------------------- Name: John J. Lofquist                  Name:   Anna"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1612,
+          "completion_tokens": 181
+        },
+        "party_b_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "----------------------------- Name: John J. Lofquist                  Name:   Anna",
+              "snippet": "----------------------------- Name: John J. Lofquist                  Name:   Anna"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 680,
+          "completion_tokens": 68
+        },
+        "effective_date": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first set",
+              "snippet": "IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first set forth above."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2001,
+          "completion_tokens": 158
+        },
+        "term_length": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "TERM AND TERMINATION",
+              "snippet": "The term of this Agreement for the Hosted Site shall commence upon April 1, 1999 and shall continue for a period of six (6) months, unless earlier terminated"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 715,
+          "completion_tokens": 76
+        },
+        "governing_law": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "Transmission or storage of any information, data, or material in violation of United States or state regulation or law is prohibited"
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 2345,
+          "completion_tokens": 128
+        },
+        "termination_notice_days": {
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "4 Agreement, which notice must be given not less than fifteen (15) days before the end of",
+              "snippet": "Either party may terminate this Agreement without cause at any time effective upon thirty (30) days' written notice."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 707,
+          "completion_tokens": 81
+        },
+        "liability_cap": {
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "LIMITATION OF LIABILITY",
+              "snippet": "i-on's liability for damages to the Customer for any cause whatsoever, regardless of the form of action, and whether in contract or in tort, including negligence, shall be limited to one (1) month's fees and the remaining portion of any prepaid fees."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 843,
+          "completion_tokens": 106
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "The Customer expressly agrees to use all of i-on's services only for lawful purposes."
+            },
+            {
+              "page_num": 4,
+              "heading": "INDEMNIFICATION",
+              "snippet": "The Customer agrees to indemnify and hold harmless i-on, against any lawsuits, claims, damages, or liabilities..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2358,
+          "completion_tokens": 194
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "Transmission or storage of any information, data, or material in violation of United States or state regulation or law is prohibited"
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "...otherwise violate any local, state, national, or International law."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2755,
+          "completion_tokens": 187
+        },
+        "risk_level": {
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "RESPONSIBILITIES OF THE CUSTOMER",
+              "snippet": "The Customer acknowledges that failure to pay such fees in a timely manner will result in the interruption or discontinuation of services for the Hosted Site."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "The Customer is solely responsible for all customer support required by users of Hosted Site."
+            },
+            {
+              "page_num": 2,
+              "heading": "additional charge, limited to:",
+              "snippet": "Additional Web site administration services will be billed at $200 per hour."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2398,
+          "completion_tokens": 251,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "RESPONSIBILITIES OF THE CUSTOMER",
+              "snippet": "The Customer acknowledges that failure to pay such fees in a timely manner will result in the interruption or discontinuation of services for the Hosted Site."
+            },
+            {
+              "page_num": 4,
+              "heading": "4 Agreement, which notice must be given not less than fifteen (15) days before the end of",
+              "snippet": "Either party may terminate this Agreement without cause at any time effective upon thirty (30) days' written notice."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "The Customer is solely responsible for all customer support required by users of Hosted Site."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2451,
+          "completion_tokens": 434,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 4,
+        "avg_confidence": 0.575,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

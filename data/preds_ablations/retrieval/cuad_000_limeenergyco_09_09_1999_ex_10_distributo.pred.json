@@ -1,0 +1,49 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Electric City Corp., a Delaware corporation",
+  "party_b_name": "Electric City of Illinois LLC",
+  "effective_date": "1999-09-07",
+  "term_length": 120,
+  "governing_law": "State of Illinois",
+  "termination_notice_days": 30,
+  "liability_cap": "No explicit overall monetary liability cap stated; agreement excludes consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a long-term (10-year) exclusive distributor agreement with termination for cause on 30 days’ notice, which can create lock-in and operational risk. There is no clear overall cap on liability, though consequential/liquidated damages for late delivery are disclaimed unless expressly agreed. The agreement also includes injunctive relief provisions and a non-solicitation/non-compete style restriction, increasing enforcement and business risk.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_000_limeenergyco_09_09_1999_ex_10_distributo.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 6967,
+    "output_tokens": 212,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 86,
+      "total_hits": 36,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      }
+    }
+  }
+}

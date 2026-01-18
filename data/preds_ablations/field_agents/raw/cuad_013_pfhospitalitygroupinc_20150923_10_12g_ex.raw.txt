@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND","snippet":"THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (\"Agreement\") is made this _____ day of _________, 20___, by and between ..."},{"page_num":1,"heading":"APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND","snippet":"...will gain access to certain of Franchisor's Confidential Information, as defined herein, and must therefore be bound by the same confidentiality and non-competition agreement..."}],"confidence":0.93,"value":"nda"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":2,"heading":"IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and","snippet":"FRANCHISEE MEMBER By: By: Name: Name: Title: Title:"},{"page_num":2,"heading":null,"snippet":"acknowledges and agrees that Franchisor is an intended third-party beneficiary of this Agreement with the right to enforce it, independently or jointly with Franchisee."}],"confidence":0.12,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":2,"heading":"IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and","snippet":"FRANCHISEE MEMBER By: By: Name: Name: Title: Title:"}],"confidence":0.12,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":2,"heading":"IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and","snippet":"...voluntarily signed this Agreement on the date first written above."},{"page_num":1,"heading":"Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015","snippet":"Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015"}],"confidence":0.25,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND","snippet":"Member covenants and agrees that during the term of the Franchise Agreement..."}],"confidence":0.18,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":2,"heading":null,"snippet":"...a final order of a duly authorized arbitrator, panel of arbitrators, or a court of competent jurisdiction..."}],"confidence":0.12,"value":""}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Agreement; (b) expiration or termination of the Franchise Agreement (regardless of the cause for termination); (c) termination of Member's employment with Franchisee;"}],"confidence":0.12,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Member acknowledges that any failure to comply with the requirements of this Agreement will cause Franchisor irreparable injury, and Member agrees to pay all court costs and reasonable attorney's fees..."}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015","snippet":"(ii) Divert or attempt to divert any business or customer, or potential business or customer, to any Competitive Business; or (iii) Induce any person to leave his or her employment with Franchisee or Franchisor."}],"confidence":0.78,"value":true}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":1,"heading":"APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND","snippet":"...the Member... will gain access to certain of Franchisor's Confidential Information, as defined herein, and must therefore be bound by the same confidentiality and non-competition agreement..."}],"confidence":0.12,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":1,"heading":"Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015","snippet":"Member shall not... own, manage, engage in... any Competitive Business... within a three (3) mile radius...\"Post-Term Period\"... two (2) years"},{"page_num":2,"heading":null,"snippet":"Member agrees to pay all court costs and reasonable attorney's fees incurred by Franchisor in obtaining specific performance of, or an injunction against violation"}],"confidence":0.62,"value":"high"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":1,"heading":"Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015","snippet":"Member covenants and agrees that during the Post-Term Period... Member shall not... own, manage, engage in, be employed by... any Competitive Business... within a three (3) mile radius..."},{"page_num":2,"heading":null,"snippet":"Member acknowledges that any failure to comply with the requirements of this Agreement will cause Franchisor irreparable injury, and Member agrees to pay all court costs and reasonable attorney's fees... in obtaining... an injunction..."},{"page_num":2,"heading":null,"snippet":"Franchisor is an intended third-party beneficiary of this Agreement with the right to enforce it, independently or jointly with Franchisee."}],"confidence":0.62,"value":"The risk level is elevated because the agreement imposes broad post-termination non-compete and non-solicitation restrictions, including a two-year post-term period and a three-mile radius limitation. Enforcement risk is higher because the Franchisor is an intended third-party beneficiary and can enforce the agreement, and the Member acknowledges irreparable harm with injunctive relief and fee-shifting provisions."}

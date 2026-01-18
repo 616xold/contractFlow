@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "EDGE Communications Solutions, LLC",
+  "party_b_name": "FTE Networks, Inc.",
+  "effective_date": "2016-02-17",
+  "term_length": 36,
+  "governing_law": "State of Texas",
+  "termination_notice_days": 15,
+  "liability_cap": "No explicit limitation of liability cap stated in the provided excerpts (insurance requirements include CGL $1,000,000 per occurrence/$2,000,000 aggregate and umbrella/excess $5,000,000).",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement appears to be a subcontract/strategic alliance with strong subcontractor obligations, including broad compliance, safety, and indemnity-related responsibilities, plus a 15-day cure period for default termination. There is no clear limitation of liability cap in the excerpts, which increases exposure. It also includes a non-solicitation clause with liquidated damages, adding commercial risk."
+}

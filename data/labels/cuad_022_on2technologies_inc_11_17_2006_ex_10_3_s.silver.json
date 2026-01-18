@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "On2 Technologies, Inc.",
+  "party_b_name": "Wildform, Inc.",
+  "effective_date": null,
+  "term_length": 18,
+  "governing_law": "State of New York",
+  "termination_notice_days": 30,
+  "liability_cap": "Not specified in provided excerpts",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "The agreement includes confidentiality obligations and a defined 18-month term, with termination for uncured material breach on 30 days’ notice, which is fairly standard. However, the provided excerpts do not show any explicit limitation of liability or liability cap, increasing potential exposure. It also involves transition/support services and deliverables, which can create delivery/acceptance and IP-related risk if disputes arise."
+}

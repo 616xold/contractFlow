@@ -1,0 +1,277 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": "2014-09-15",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_010_metlife_inc_remarketing_agreement.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 30525,
+    "output_tokens": 2267,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "Field 'party_b_name' must be a non-empty string",
+      "Field 'governing_law' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'party_b_name' is null but not nullable",
+      "Field 'governing_law' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 115,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 12,
+              "heading": null,
+              "snippet": "The Remarketing of the Remarketed Securities pursuant to this Remarketing Agreement and the Pricing Agreement... consummation of the transactions herein and therein contemplated"
+            },
+            {
+              "page_num": 10,
+              "heading": null,
+              "snippet": "...each Transaction Document other than this Remarketing Agreement and the Pricing Agreement... and the Indenture has been duly qualified under the Trust Indenture Act."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1124,
+          "completion_tokens": 108
+        },
+        "party_a_name": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 21,
+              "heading": "Section 20 of the Exchange Act against any losses, claims, damages or liabilities (or",
+              "snippet": "actions in respect thereof) to which the Company may become subject, under the Act or otherwise,"
+            },
+            {
+              "page_num": 21,
+              "heading": "Section 20 of the Exchange Act against any losses, claims, damages or liabilities (or",
+              "snippet": "brought against any indemnified party and it shall notify the indemnifying party of the commencement thereof,"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2170,
+          "completion_tokens": 217
+        },
+        "party_b_name": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 27,
+              "heading": "METLIFE, INC.",
+              "snippet": "METLIFE, INC.\nBy:  /s/ Marlene B. Debel  Name:  Marlene B. Debel  Title:  Senior Vice President and"
+            },
+            {
+              "page_num": 29,
+              "heading": "By:       Name:   Title:",
+              "snippet": "By:       Name:   Title:"
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'party_b_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2175,
+          "completion_tokens": 196
+        },
+        "effective_date": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Effective on September 15, 2014, the Series E Debt Securities will automatically convert, without any act of any holder, into units consisting of two tranches,"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3043,
+          "completion_tokens": 151
+        },
+        "term_length": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "the term \"Remarketing Date\" means the date ... during the period that begins on, and includes, September 25, 2014 and ends on, and includes, October 7, 2014;"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3009,
+          "completion_tokens": 162
+        },
+        "governing_law": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 25,
+              "heading": "15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED",
+              "snippet": "15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED"
+            },
+            {
+              "page_num": 25,
+              "heading": "THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.",
+              "snippet": "may be instituted in any state or Federal court in the Borough of Manhattan, The City of New York, New York"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 2197,
+          "completion_tokens": 266
+        },
+        "termination_notice_days": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 23,
+              "heading": null,
+              "snippet": "A Remarketing Agent may resign and be discharged from its duties and obligations hereunder, and the Company may remove any or all of the Remarketing Agents, by giving five (5) Business Days' prior written notice..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3074,
+          "completion_tokens": 160
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 21,
+              "heading": null,
+              "snippet": "other expenses reasonably incurred by such Remarketing Agent in connection with investigating or defending any such action or claim as such expenses are incurred; provided, however, that the Company shall not be liable in any such case to the extent"
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2985,
+          "completion_tokens": 157
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 25,
+              "heading": "THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.",
+              "snippet": "16. Consent to Jurisdiction. The Company agrees that any legal suit, action or proceeding... may be instituted in any state or Federal court..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2968,
+          "completion_tokens": 112
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 31,
+              "heading": "Hong Kong",
+              "snippet": "The Series E Debentures may not be offered or sold... (in each case whether in Hong Kong or elsewhere)..."
+            },
+            {
+              "page_num": 32,
+              "heading": "Singapore",
+              "snippet": "...Regulation 32 of the Securities and Futures (Offers of Investments) (Shares and Debentures) Regulations 2005 of Singapore."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2393,
+          "completion_tokens": 199
+        },
+        "risk_level": {
+          "confidence": 0.28,
+          "evidence": [
+            {
+              "page_num": 19,
+              "heading": null,
+              "snippet": "...the effect of which... is in the judgment of the Remarketing Agents so material and adverse as to make it impracticable or inadvisable to proceed with the Remarketing..."
+            },
+            {
+              "page_num": 17,
+              "heading": null,
+              "snippet": "...the Company will pay or cause to be paid... (iii)... the reasonable fees and disbursements of counsel for the Remarketing Agents..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2875,
+          "completion_tokens": 247,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.34,
+          "evidence": [
+            {
+              "page_num": 24,
+              "heading": null,
+              "snippet": "This Remarketing Agreement shall terminate (i) in the event of a Remarketing that is not a Successful Remarketing... the obligations of the Remarketing Agents may be terminated... if... conditions precedent... shall have failed to occur."
+            },
+            {
+              "page_num": 30,
+              "heading": null,
+              "snippet": "the representations and warranties of the Company... are true and correct... and (ii) the Company has complied... with all agreements and all conditions... under the Remarketing Agreement and the other Transaction Documents"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2512,
+          "completion_tokens": 292,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 15,
+        "unique_evidence_pages": 11,
+        "avg_confidence": 0.276,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

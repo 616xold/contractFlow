@@ -1,0 +1,283 @@
+{
+  "doc_type": "msa",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": "2019-11-01",
+  "term_length": null,
+  "governing_law": "State of Illinois and the United States of America",
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_016_reynoldsconsumerproductsinc_20191115_s_1.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 26403,
+    "output_tokens": 2750,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "Field 'party_b_name' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'party_b_name' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 56,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "BACKGROUND",
+              "snippet": "The Parties are entering into this Agreement to establish the terms and conditions under which Seller may agree to sell specific products to Buyer, and Buyer may agree to purchase specific products from Seller"
+            },
+            {
+              "page_num": 13,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "constitutes the entire agreement between the Parties with respect to the sale of products by Seller to Buyer and the purchase of products by Buyer from Seller."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 992,
+          "completion_tokens": 136
+        },
+        "party_a_name": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "...Copies of additional insured endorsements required for applicable policies in the name and for the benefit of: \"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;...\""
+            },
+            {
+              "page_num": 7,
+              "heading": null,
+              "snippet": "...endorsements required for applicable policies in the name and for the benefit of: \"\"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;...\""
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2421,
+          "completion_tokens": 236
+        },
+        "party_b_name": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "Copies of additional insured endorsements required for applicable policies in the name and for the benefit of: \"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;\""
+            },
+            {
+              "page_num": 7,
+              "heading": null,
+              "snippet": "waiver of subrogation endorsements required for applicable policies in the name and for the benefit of: \"\"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;\""
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_b_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2566,
+          "completion_tokens": 284
+        },
+        "effective_date": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "MASTER SUPPLY AGREEMENT",
+              "snippet": "MASTER SUPPLY AGREEMENT (the \"Agreement\") dated November 1, 2019 (the \"Effective Date\")"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2050,
+          "completion_tokens": 169
+        },
+        "term_length": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "AGREEMENT",
+              "snippet": "1. Term. The \"Term\" of this Agreement will commence on the Effective Date and will end on\nthe earlier of: (a) the first anniversary of the expiration date of the last Purchase"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2528,
+          "completion_tokens": 160
+        },
+        "governing_law": {
+          "confidence": 0.96,
+          "evidence": [
+            {
+              "page_num": 14,
+              "heading": null,
+              "snippet": "This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects... by the laws of the State of Illinois and the United States of America"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1130,
+          "completion_tokens": 87
+        },
+        "termination_notice_days": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Schedule (as defined in this next Section); (b) a termination date elected by a Party in a",
+              "snippet": "\"written notice delivered to the other Party any time after the expiration of the last Purchase Schedule\""
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2643,
+          "completion_tokens": 198
+        },
+        "liability_cap": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "Automobile Liability Insurance. Occurrence based coverage with a combined single limit of at least $10,000,000 per occurrence and in the aggregate"
+            },
+            {
+              "page_num": 4,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "7. Indemnification. a. A claim that a Party ... is required to defend and indemnify the other Party ... is referred to ... as an \"Indemnified Claim\"."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2619,
+          "completion_tokens": 254
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "A Party will promptly notify the other Party of any change in circumstance during the Term in which the Party is no longer in compliance with the foregoing general representations, warranties and covenants."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "If a Buyer receives a product that fails to conform to these representations and warranties, the sole remedies of Buyer for the breach of warranty will be to: (1) reject and return the non-conforming product..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2516,
+          "completion_tokens": 238
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 14,
+              "heading": null,
+              "snippet": "This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects... by the laws of the State of Illinois and the United States of America"
+            },
+            {
+              "page_num": 14,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "The restrictions in this Section will not preclude a Party for authorizing an Affiliate to purchase or sell a product on behalf of a Party under this Agreement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3068,
+          "completion_tokens": 292
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "Automobile Liability Insurance... combined single limit of at least $10,000,000 per occurrence... Requires additional insured endorsement and waiver of subrogation endorsement."
+            },
+            {
+              "page_num": 6,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "Employers' Liability Insurance... limit of at least $10,000,000 per occurrence... Requires waiver of alternate employer endorsement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1018,
+          "completion_tokens": 153,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.34,
+          "evidence": [
+            {
+              "page_num": 7,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "A Party that breaches this Agreement will only be liable to the other Party for direct damages arising from the breach. Each Party waives any right to recover consequential, incidental, indirect, exemplary, punitive... damages"
+            },
+            {
+              "page_num": 6,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "Automobile Liability Insurance... combined single limit of at least $10,000,000... Requires additional insured endorsement and waiver of subrogation endorsement."
+            },
+            {
+              "page_num": 10,
+              "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+              "snippet": "A Receiving Party will not be obligated to incur any liability, expense or risk in extending such cooperation to a Disclosing Party."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2852,
+          "completion_tokens": 543,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 16,
+        "unique_evidence_pages": 7,
+        "avg_confidence": 0.408,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

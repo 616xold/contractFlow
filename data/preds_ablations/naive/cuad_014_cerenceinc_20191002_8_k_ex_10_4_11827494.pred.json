@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Nuance Communications, Inc.",
+  "party_b_name": "Cerence Inc.",
+  "effective_date": "2019-09-30",
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": null,
+  "liability_cap": "No monetary liability cap stated; excludes indirect, special, punitive or consequential damages.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is an intellectual property agreement with broad, perpetual, worldwide license grants and significant restrictions around use and disclosure of shared technology assets. Liability terms disclaim warranties and exclude consequential damages but do not include a clear monetary cap, which can create uncertainty. Termination is limited (generally only by mutual written agreement, with a pre-distribution termination right), so obligations may persist long-term.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 14575,
+    "output_tokens": 189,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"DISTRIBUTOR AGREEMENT","snippet":"THIS  DISTRIBUTOR  AGREEMENT (the  \"Agreement\")  is made by and between Electric City Corp.,  a Delaware  corporation  (\"Company\")  and Electric City of Illinois LLC (\"Distributor\")"}],"confidence":0.86,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":2,"heading":"1.2      License.  The Company  hereby grants the  Distributor","snippet":"The Company hereby grants the Distributor the right to do business and use the name \"Electric City of Illinois\" or a similar variation thereof"}],"confidence":0.2,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":2,"heading":"1.2      License.  The Company  hereby grants the  Distributor","snippet":"The Company  hereby grants the  Distributor the right to do business  and use the name  \"Electric City of Illinois\""}],"confidence":0.2,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":9,"heading":"4.1      Duration.   Unless  earlier   terminated   otherwise  provided","snippet":"this Agreement, subject to the commencement date established in Section 1.3, shall be effective immediately."},{"page_num":2,"heading":"1.3      Term.  The term of this  Agreement  shall be ten (10)","snippet":"which shall commence on the date upon which the Company delivers to Distributor the last Sample"}],"confidence":0.22,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":2,"heading":"1.3      Term.  The term of this  Agreement  shall be ten (10)","snippet":"The term of this Agreement shall be ten (10) years (the \"Term\")"}],"confidence":0.95,"value":120}
+
+FIELD governing_law
+{"evidence":[{"page_num":15,"heading":"6.9      Governing Law.","snippet":"This Agreement is to be construed according to the laws of the State of Illinois."}],"confidence":0.98,"value":"State of Illinois"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":9,"heading":"4.2      Termination  for  Cause.   Either  party  may  terminate  this","snippet":"Agreement upon 30 days"},{"page_num":10,"heading":"4.4      Repurchase of Products.  Upon the expiration or termination of","snippet":"If Company terminates  the  Agreement  without  cause and for reasons other than  Distributor's  failure to meet its minimum expectations;   it  shall   repurchase"}],"confidence":0.42,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":5,"heading":null,"snippet":"neither                   the\nDistributor  nor the Company  shall have a liability  for\n                   consequential\nor  liquidated   damages   pertaining  to  late\n                   delivery unless Company\nspecifically  acknowledges and agrees"}],"confidence":0.22,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":13,"heading":"Page -11-","snippet":"Term of the  Agreement  and for a period of  eighteen (18) months thereafter,  nor will Distributor solicit any customer  or  potential  customer  of Company to purchase a competitive product during that period."}],"confidence":0.93,"value":true}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":8,"heading":"3.6.     Non-Disclosure  of  Confidential  Information.","snippet":"None of  the parties   hereto... shall during the term of this Agreement or thereafter disclose any confidential  information obtained or acquired by them in connection with the Products and the business of the other"}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":3,"heading":null,"snippet":"letter of credit (\"LC\") in the amount of Five Hundred  Thousand Dollars  ($500,000)... The Company may draw funds from the LC to pay for  Distributor's  purchases,  which are not paid according to the terms"},{"page_num":10,"heading":null,"snippet":"both parties acknowledge... they shall not be required to demonstrate the absence of an adequate remedy at law, and neither party shall be required to post bond as a precondition to obtaining a temporary restraining order or preliminary injunction."},{"page_num":4,"heading":"Page -3-","snippet":"This Agreement does not create... partners, joint venturers... which would impose liability upon one party for the act or omission of the other party."}],"confidence":0.62,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":9,"heading":"4.2      Termination  for  Cause.   Either  party  may  terminate  this","snippet":"Agreement upon 30 days"},{"page_num":10,"heading":"4.4      Repurchase of Products.  Upon the expiration or termination of","snippet":"the Company may, at its option... repurchase any Products... at the net invoice price... less any applicable special allowances, discounts, shipping..."},{"page_num":10,"heading":"4.4      Repurchase of Products.  Upon the expiration or termination of","snippet":"If Company terminates the Agreement without cause... it shall repurchase... any unopened Product, and shall bear all shipping, handling and related costs"}],"confidence":0.62,"value":"The risk level is driven by termination and inventory exposure: either party can terminate on 30 days’ notice, which can abruptly end the relationship. Repurchase of inventory is largely at the Company’s option and may be at net invoice price less various deductions, creating potential financial loss for the Distributor. However, if the Company terminates without cause (and not due to minimum expectations), it must repurchase unopened product and cover related shipping/handling costs, partially mitigating that risk."}

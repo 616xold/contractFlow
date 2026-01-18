@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": null,
+  "term_length": 48,
+  "governing_law": "[***] (state not specified)",
+  "termination_notice_days": null,
+  "liability_cap": "unknown (Section 11.4 Limitation of Liability is referenced but the cap amount/standard is not provided in the excerpt)",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "The excerpts indicate a commercial agreement with confidentiality, non-solicitation, and limitation of liability provisions, but key business-risk terms are heavily redacted (effective date, governing law state, termination notice period, and liability cap). Those unknowns create uncertainty for a small SaaS vendor about enforceability and exposure. No clear data-transfer clause is shown, so cross-border data handling obligations are unclear."
+}

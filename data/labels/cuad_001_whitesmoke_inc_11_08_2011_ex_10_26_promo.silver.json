@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Google Inc",
+  "party_b_name": "Distributor",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "English law",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts (Limitation of Liability section referenced but cap amount redacted/absent).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Key commercial terms are heavily redacted in the excerpts (including party identity for the Distributor, effective date, and term), creating uncertainty for a small SaaS vendor. The agreement appears to give Google broad control and termination rights (including immediate termination in several scenarios), which increases operational and revenue risk. Liability terms are referenced but the actual cap is not visible, making downside exposure unclear."
+}

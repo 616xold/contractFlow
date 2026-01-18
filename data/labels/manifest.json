@@ -1,0 +1,236 @@
+{
+  "cuad_000_limeenergyco_09_09_1999_ex_10_distributo": {
+    "doc": "cuad_000_limeenergyco_09_09_1999_ex_10_distributo",
+    "label_file": "data\\labels\\cuad_000_limeenergyco_09_09_1999_ex_10_distributo.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo": {
+    "doc": "cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo",
+    "label_file": "data\\labels\\cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119": {
+    "doc": "cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119",
+    "label_file": "data\\labels\\cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_003_centrackinternationalinc_10_29_1999_ex_1": {
+    "doc": "cuad_003_centrackinternationalinc_10_29_1999_ex_1",
+    "label_file": "data\\labels\\cuad_003_centrackinternationalinc_10_29_1999_ex_1.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a": {
+    "doc": "cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a",
+    "label_file": "data\\labels\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse": {
+    "doc": "cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse",
+    "label_file": "data\\labels\\cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23": {
+    "doc": "cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23",
+    "label_file": "data\\labels\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve": {
+    "doc": "cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve",
+    "label_file": "data\\labels\\cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_": {
+    "doc": "cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_",
+    "label_file": "data\\labels\\cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_009_pacira_pharmaceuticals_inc_a_r_strategic": {
+    "doc": "cuad_009_pacira_pharmaceuticals_inc_a_r_strategic",
+    "label_file": "data\\labels\\cuad_009_pacira_pharmaceuticals_inc_a_r_strategic.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_010_metlife_inc_remarketing_agreement": {
+    "doc": "cuad_010_metlife_inc_remarketing_agreement",
+    "label_file": "data\\labels\\cuad_010_metlife_inc_remarketing_agreement.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat": {
+    "doc": "cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat",
+    "label_file": "data\\labels\\cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_": {
+    "doc": "cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_",
+    "label_file": "data\\labels\\cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex": {
+    "doc": "cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex",
+    "label_file": "data\\labels\\cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494": {
+    "doc": "cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494",
+    "label_file": "data\\labels\\cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_015_thriventvariableinsuranceaccountb_201907": {
+    "doc": "cuad_015_thriventvariableinsuranceaccountb_201907",
+    "label_file": "data\\labels\\cuad_015_thriventvariableinsuranceaccountb_201907.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_016_reynoldsconsumerproductsinc_20191115_s_1": {
+    "doc": "cuad_016_reynoldsconsumerproductsinc_20191115_s_1",
+    "label_file": "data\\labels\\cuad_016_reynoldsconsumerproductsinc_20191115_s_1.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_017_integrityfunds_20200121_485bpos_ex_99_e_": {
+    "doc": "cuad_017_integrityfunds_20200121_485bpos_ex_99_e_",
+    "label_file": "data\\labels\\cuad_017_integrityfunds_20200121_485bpos_ex_99_e_.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_": {
+    "doc": "cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_",
+    "label_file": "data\\labels\\cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic": {
+    "doc": "cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic",
+    "label_file": "data\\labels\\cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg": {
+    "doc": "cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg",
+    "label_file": "data\\labels\\cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc": {
+    "doc": "cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc",
+    "label_file": "data\\labels\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s": {
+    "doc": "cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s",
+    "label_file": "data\\labels\\cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e": {
+    "doc": "cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e",
+    "label_file": "data\\labels\\cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "cuad_024_operaltd_04_30_2020_ex_4_14_service_agre": {
+    "doc": "cuad_024_operaltd_04_30_2020_ex_4_14_service_agre",
+    "label_file": "data\\labels\\cuad_024_operaltd_04_30_2020_ex_4_14_service_agre.silver.json",
+    "label_suffix": ".silver.json",
+    "label_quality": "silver",
+    "mode": "retrieval",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  },
+  "nda_harvard": {
+    "doc": "nda_harvard",
+    "label_file": "data\\labels\\nda_harvard.gold.json",
+    "label_suffix": ".gold.json",
+    "label_quality": "gold",
+    "mode": "manual",
+    "model": "unknown",
+    "created_at": "2026-01-17T23:49:48Z"
+  }
+}

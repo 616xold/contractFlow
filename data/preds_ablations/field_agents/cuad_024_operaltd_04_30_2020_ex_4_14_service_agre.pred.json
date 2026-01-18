@@ -1,0 +1,281 @@
+{
+  "doc_type": "msa",
+  "party_a_name": "PC Financial Services Private Limited",
+  "party_b_name": "Mobimagic Co., Ltd.",
+  "effective_date": "2019-04-01",
+  "term_length": 12,
+  "governing_law": "India",
+  "termination_notice_days": null,
+  "liability_cap": "the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_024_operaltd_04_30_2020_ex_4_14_service_agre.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 22990,
+    "output_tokens": 2597,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 22,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "9. TERM & TERMINATION 9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period... This Agreement is a memorialization of an earlier oral Agreement"
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "7. CONFIDENTIALITY & PUBLICITY Neither Party shall disclose the other Party's Confidential Information to any third party or use Confidential Information for any purpose other than fur the proper fulfillment of this Agreement."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "PC Financial shall be responsible for data security management and confidentiality responsibilities... PC Financial shall not, directly or Indirectly: ... make the Services available to any third party"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1173,
+          "completion_tokens": 209
+        },
+        "party_a_name": {
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "to be charged. IN WITNESS WHEREOF, the Parties have executed this Agreement as of the",
+              "snippet": "Effective Date. PC Financial Services Private Limited Mobimagic Co., Ltd."
+            },
+            {
+              "page_num": 1,
+              "heading": "2.2 Mobimagic will provide the system / platform maintenance services and data processing",
+              "snippet": "Mobimagic will provide the system / platform maintenance services and data processing services to PC Financial."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 890,
+          "completion_tokens": 124
+        },
+        "party_b_name": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "to be charged. IN WITNESS WHEREOF, the Parties have executed this Agreement as of the",
+              "snippet": "Effective Date. PC Financial Services Private Limited Mobimagic Co., Ltd."
+            },
+            {
+              "page_num": 5,
+              "heading": "10 shall survive termination of this Agreement. 10. MISCELLANEOUS 10.1 The Parties to this",
+              "snippet": "relationship between PC Financial and Mobimagic."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 890,
+          "completion_tokens": 124
+        },
+        "effective_date": {
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "April. 1st 2019 (\"Effective Date\") by and between:"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1035,
+          "completion_tokens": 80
+        },
+        "term_length": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "1.5 \"Service Period\" means April. 1st 2019 through to March 30, 2020."
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2508,
+          "completion_tokens": 264
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES",
+              "snippet": "This Agreement (and any question about its subsistence, effect or termination) is to be interpreted in accordance with the laws of India, save for that body of law which governs the conflict of laws."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1094,
+          "completion_tokens": 108
+        },
+        "termination_notice_days": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "9. TERM & TERMINATION 9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period, unless terminated earlier as provided in this Section. 9.2 This Agreement may be terminated..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2907,
+          "completion_tokens": 211
+        },
+        "liability_cap": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES",
+              "snippet": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES PERFORMED UNDER THIS AGREEMENT."
+            },
+            {
+              "page_num": 5,
+              "heading": "LIABLE FOR ANY CONSEQUENTIAL, INDIRECT, EXEMPLARY, SPECIAL, OR INCIDENTAL DAMAGES ARISING",
+              "snippet": "FROM OR RELATING TO THIS AGREEMENT. NEITHER PARTIES' TOTAL CUMULATIVE LIABILITY IN"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2692,
+          "completion_tokens": 245
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "In consideration of their mutual promises, the Parties hereby agree as follows: 1. DEFINITIONS"
+            },
+            {
+              "page_num": 5,
+              "heading": "10 shall survive termination of this Agreement. 10. MISCELLANEOUS 10.1 The Parties to this",
+              "snippet": "10. MISCELLANEOUS 10.1 The Parties to this Agreement are independent contractors."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2916,
+          "completion_tokens": 270
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.28,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES",
+              "snippet": "10.3 This Agreement ... is to be interpreted in accordance with the laws of India... The courts of New Delhi shall have exclusive jurisdiction..."
+            },
+            {
+              "page_num": 3,
+              "heading": "4.7 Data protection. Each Party agrees to comply with all applicable data protection and",
+              "snippet": "Each Party agrees to comply with all applicable data protection and privacy laws... Each Party shall treat all data... including... customer personal data, as confidential."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2802,
+          "completion_tokens": 290
+        },
+        "risk_level": {
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "4.7 Data protection. Each Party agrees to comply with all applicable data protection and",
+              "snippet": "Each Party agrees to comply with all applicable data protection and privacy laws... Each party warrants that it shall take appropriate technical and organizational measures..."
+            },
+            {
+              "page_num": 3,
+              "heading": "4.8 Both Parties acknowledge and confirm that the Reserve Bank of India (hereafter \"RBI\") or persons authorized by it has right to access and inspect",
+              "snippet": "RBI... has right to access and inspect the PC Financial's documents, records of Service transactions and other necessary information... stored or processed by Mobimagic"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1106,
+          "completion_tokens": 156,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all",
+              "snippet": "the Parties and their suppliers disclaim all warranties, either express or implied, statutory or otherwise, inducing without limitation warranties of functionality, merchantability, fitness for a particular purpose."
+            },
+            {
+              "page_num": 2,
+              "heading": "3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all",
+              "snippet": "Mobimagic shall not in any manner be held or be responsible or liable for any unforeseen contingency, claims, liabilities, demands. losses, damages or expenses arising due to absence of storage or retention of any PC Financial data"
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "Neither Party shall be liable to the other Party... for any loss of profit, business or goodwill or any indirect, incidental or consequential costs, damages or expenses of any kind, except for such loss attributable to breach of confidentiality."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2977,
+          "completion_tokens": 516,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 18,
+        "unique_evidence_pages": 4,
+        "avg_confidence": 0.599,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

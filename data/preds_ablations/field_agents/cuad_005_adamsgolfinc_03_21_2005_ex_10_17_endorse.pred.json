@@ -1,0 +1,265 @@
+{
+  "doc_type": "other",
+  "party_a_name": "ADAMS GOLF",
+  "party_b_name": "CONSULTANT",
+  "effective_date": "2005-01-13",
+  "term_length": null,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 14543,
+    "output_tokens": 2004,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 71,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "32. CONFIDENTIALITY",
+              "snippet": "Both parties understand that the contents of this Agreement... are extremely confidential... both parties agree not to disclose the terms of this Agreement"
+            },
+            {
+              "page_num": 7,
+              "heading": "24.  ADAMS GOLF'S RIGHTS UPON TERMINATION",
+              "snippet": "In the event of termination of this Agreement, ADAMS GOLF shall cease using the name and/or likeness of CONSULTANT..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 761,
+          "completion_tokens": 117
+        },
+        "party_a_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "30. RELATIONSHIP",
+              "snippet": "...constituting of a partnership or joint venture between ADAMS GOLF and CONSULTANT."
+            },
+            {
+              "page_num": 9,
+              "heading": "32. CONFIDENTIALITY",
+              "snippet": "...CONSULTANT shall take all reasonable steps to ensure such confidentiality to ADAMS GOLF."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 781,
+          "completion_tokens": 100
+        },
+        "party_b_name": {
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "30. RELATIONSHIP",
+              "snippet": "Both parties agree that this Agreement does not constitute and shall not be construed as a constituting of a partnership or joint venture between ADAMS GOLF and CONSULTANT."
+            },
+            {
+              "page_num": 9,
+              "heading": "32. CONFIDENTIALITY",
+              "snippet": "...CONSULTANT shall take all reasonable steps to ensure such confidentiality to ADAMS GOLF."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 796,
+          "completion_tokens": 114
+        },
+        "effective_date": {
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 10,
+              "heading": "Date: January 13, 2005",
+              "snippet": "Date: January 13, 2005"
+            },
+            {
+              "page_num": 10,
+              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed as of the",
+              "snippet": "date first set forth above.\nAPPROVED FOR CONSULTANT                       By: /s/ Tom Watson     Date: January 13,\n2005"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 585,
+          "completion_tokens": 124
+        },
+        "term_length": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "1.   TERM OF CONTRACT",
+              "snippet": "The Term of this Agreement shall be for a period of [* ****] years and [*****] months"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1408,
+          "completion_tokens": 128
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "25. APPLICABLE LAW",
+              "snippet": "This Agreement shall be governed and construed according to the laws of the State of\nKansas."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 577,
+          "completion_tokens": 66
+        },
+        "termination_notice_days": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 7,
+              "heading": "23.  TERMINATION FOR CAUSE",
+              "snippet": "...the other party may terminate for cause upon giving fifteen (15) days written notice..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1674,
+          "completion_tokens": 130
+        },
+        "liability_cap": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "14. INDEMNITY",
+              "snippet": "CONSULTANT agrees to protect, indemnify and hold ADAMS GOLF harmless from any and all liability, claims, causes of action, suits, damages and expenses..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 1828,
+          "completion_tokens": 205
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "6.    CONSULTANT'S ENDORSEMENT OF NON-COMPETITIVE PRODUCT",
+              "snippet": "When endorsing a non-competitive product, under no circumstances shall CONSULTANT wear, play, use, hold or in any way be associated with an ADAMS GOLF competitor's Product."
+            },
+            {
+              "page_num": 8,
+              "heading": "30. RELATIONSHIP",
+              "snippet": "Both parties agree that this Agreement does not constitute and shall not be construed as a constituting of a partnership or joint venture between ADAMS GOLF and CONSULTANT."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1846,
+          "completion_tokens": 290
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "31. ASSIGNMENT AND CHANGE OF CONTROL",
+              "snippet": "Neither ADAMS GOLF nor CONSULTANT shall have the right to grant sublicenses hereunder or to assign, alienate or otherwise transfer any of its rights or obligations hereunder."
+            },
+            {
+              "page_num": 8,
+              "heading": "26. ENTIRE AGREEMENT",
+              "snippet": "The provisions of this Agreement are intended by the parties as a complete, conclusive and final expression of their agreement concerning the subject matter hereof..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1646,
+          "completion_tokens": 212
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "14. INDEMNITY",
+              "snippet": "CONSULTANT agrees to protect, indemnify and hold ADAMS GOLF harmless from any and all liability, claims, causes of action, suits, damages and expenses (including reasonable attorneys' fees and expenses)"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 653,
+          "completion_tokens": 86,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "1.2005 $ [*****] 2.2006$ [*****] 3.2007$ [*****] 4.2008$ [*****] 5.2009$ [*****]",
+              "snippet": "In the event of ADAMS GOLF'S insolvency or bankruptcy, it is expressly agreed to by the parties that CONSULTANT shall not be obligated to repay any money so long as CONSULTANT continues to fully perform his obligations under this Agreement."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "D. \"CONTRACT TERRITORY\" shall mean the entire world."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1988,
+          "completion_tokens": 432,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 16,
+        "unique_evidence_pages": 7,
+        "avg_confidence": 0.446,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

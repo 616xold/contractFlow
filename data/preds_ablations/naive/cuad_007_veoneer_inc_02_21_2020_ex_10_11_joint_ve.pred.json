@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Veoneer AB and Veoneer US, Inc.",
+  "party_b_name": "Nissin Kogyo Co., Ltd., Nissin Kogyo Holdings USA, Inc., and Zhongshan Nissin Industry Co., Ltd.",
+  "effective_date": "2019-10-30",
+  "term_length": null,
+  "governing_law": "Japan",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is an amendment/termination of a joint venture agreement rather than a SaaS contract, so many vendor-protective commercial terms (liability cap, termination notice, data processing) are not stated here. It includes survival of liability for pre-closing breaches and D&O indemnity obligations, which can create open-ended exposure. Governing law is Japan, which may increase enforcement and legal-cost risk for a small SaaS vendor.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 2915,
+    "output_tokens": 219,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

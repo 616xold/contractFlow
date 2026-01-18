@@ -1,0 +1,266 @@
+{
+  "doc_type": "msa",
+  "party_a_name": "EKR Therapeutics, Inc.",
+  "party_b_name": "EKR Therapeutics, Inc.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "New York",
+  "termination_notice_days": null,
+  "liability_cap": "[**] US Dollars ($[**])",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_009_pacira_pharmaceuticals_inc_a_r_strategic.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 19859,
+    "output_tokens": 2321,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 240,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 42,
+              "heading": "10.6 (\"Insurance\")), Article 11 (\"Confidentiality, Press Releases and Publications\"),",
+              "snippet": "10.6 (\"Insurance\")), Article 11 (\"Confidentiality, Press Releases and Publications\"),"
+            },
+            {
+              "page_num": 37,
+              "heading": null,
+              "snippet": "11.3 Duration. The confidentiality and non-use obligations contained in this Agreement shall continue for the duration of this Agreement and for a period of [**] ([**]) years after termination"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 858,
+          "completion_tokens": 132
+        },
+        "party_a_name": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 61,
+              "heading": "By:     Print Name:     Title:",
+              "snippet": "EKR Therapeutics, Inc."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 934,
+          "completion_tokens": 145
+        },
+        "party_b_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 61,
+              "heading": "By:     Print Name:     Title:",
+              "snippet": "EKR Therapeutics, Inc."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 934,
+          "completion_tokens": 145
+        },
+        "effective_date": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "MARKETING AGREEMENT",
+              "snippet": "...is made on October 15, 2009 (the \"Agreement Date\") and is effective as of the Effective Date (as defined below)..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2142,
+          "completion_tokens": 144
+        },
+        "term_length": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": null,
+              "snippet": "\"Term\"   Means the term of this Agreement as set out in Section 15;"
+            },
+            {
+              "page_num": 39,
+              "heading": "14.4 Non Participation. Should in accordance with Section 14.2, PPI decide not to",
+              "snippet": "As used herein \"Term\" refers to the Initial Term and any renewal terms."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1827,
+          "completion_tokens": 180
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 63,
+              "heading": null,
+              "snippet": "This Note shall be governed by and construed in accordance with the laws of the State of New York"
+            },
+            {
+              "page_num": 49,
+              "heading": "21.10 Cumulative Rights. The rights and remedies of each of the Parties under or pursuant",
+              "snippet": "21.13 Governing Law. This Agreement and the relationship between the Parties shall be governed by, and interpreted in accordance with New York law"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 676,
+          "completion_tokens": 119
+        },
+        "termination_notice_days": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 42,
+              "heading": null,
+              "snippet": "EKR may terminate this Agreement for convenience at any time upon [**] ([**]) days prior, written notice to PPI."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2344,
+          "completion_tokens": 134
+        },
+        "liability_cap": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 35,
+              "heading": "10.8 PPI Liability Limitation. Any and all liability of PPI to EKR howsoever arising in",
+              "snippet": "Any and all liability of PPI to EKR howsoever arising... shall be limited ... to [**] US Dollars ($[**]);"
+            },
+            {
+              "page_num": 36,
+              "heading": "7.2.12 of  the Supply Agreement.   10.9 EKR Liability Limitation. Any and all liability of",
+              "snippet": "Any and all liability of EKR to PPI howsoever arising... shall be limited ... to [**] US Dollars ($[**]);"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1000,
+          "completion_tokens": 163
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 37,
+              "heading": null,
+              "snippet": "11.3 Duration. The confidentiality and non-use obligations contained in this Agreement shall continue for the duration of this Agreement and for a period of [**] ([**]) years after termination"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2121,
+          "completion_tokens": 231
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Confidential Information",
+              "snippet": "Means all confidential information, data and materials in whatever form disclosed by or on behalf of one Party  or its Affiliates to the other Party or its Affiliates"
+            },
+            {
+              "page_num": 17,
+              "heading": null,
+              "snippet": "The cost of submitting any data generated by any Phase IV studies conducted by EKR which is required to be filed with the FDA shall be borne by EKR"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1436,
+          "completion_tokens": 238
+        },
+        "risk_level": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 35,
+              "heading": "10.5 Settlement of Claims. The indemnified Party shall not admit liability in respect of,",
+              "snippet": "10.6 Insurance. Each Party shall maintain, at its own cost, comprehensive product liability insurance, general commercial liability insurance and business interruption insurance..."
+            },
+            {
+              "page_num": 16,
+              "heading": null,
+              "snippet": "During the Lease Term, PPI shall: (i) assume the risk of loss or damage to the Transferred Equipment; ... (v) maintain property damage and liability insurance..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2954,
+          "completion_tokens": 220,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 16,
+              "heading": null,
+              "snippet": "During the Lease Term, PPI shall: (i) assume the risk of loss or damage to the Transferred Equipment; ... (v) maintain property damage and liability insurance and insurance against loss or damage"
+            },
+            {
+              "page_num": 16,
+              "heading": null,
+              "snippet": "If any of the Transferred Equipment is lost, stolen, destroyed, damaged beyond repair... PPI shall promptly... pay to EKR an amount equal to the estimated in-place, fair market value"
+            },
+            {
+              "page_num": 45,
+              "heading": "18.2 Duration. If such Force Majeure continues unabated for a period of at least ninety",
+              "snippet": "If the affected Party is prevented... from performing... for a continuous period of six (6) months the other Party may terminate this Agreement."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2633,
+          "completion_tokens": 470,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 15,
+        "unique_evidence_pages": 12,
+        "avg_confidence": 0.438,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

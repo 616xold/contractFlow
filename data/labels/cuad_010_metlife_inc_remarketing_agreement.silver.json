@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": "2014-09-15",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU."
+}

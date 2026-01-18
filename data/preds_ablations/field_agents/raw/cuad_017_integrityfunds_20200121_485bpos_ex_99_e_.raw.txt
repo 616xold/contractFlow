@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":6,"heading":"SECTION 7. TERM OF AGREEMENT Section 7.1 This Agreement shall continue until January 18,","snippet":"This Agreement shall continue until January 18, 2022, and thereafter shall continue automatically for successive annual periods... provided such continuance is specifically approved at least annually by (a) the Fund's Board of Trustees"},{"page_num":6,"heading":"1940 Act) of the Fund and who have no direct or indirect financial interest in the","snippet":"This Agreement is terminable with respect to the Fund, without penalty, (a) on 60 days' written notice... or (b) on 90 days' written notice by Integrity. This Agreement will also terminate automatically in the event of its assignment"}],"confidence":0.55,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":6,"heading":"provisions hereof or otherwise affect their construction or effect. In Witness Whereof,","snippet":"Integrity Short Term Government Fund By: /s/ Shannon D. Radke Shannon D. Radke - President Accepted: Integrity Funds Distributor, LLC"}],"confidence":0.62,"value":"Integrity Short Term Government Fund"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":6,"heading":"provisions hereof or otherwise affect their construction or effect. In Witness Whereof,","snippet":"Integrity Short Term Government Fund By: /s/ Shannon D. Radke Shannon D. Radke - President Accepted: Integrity Funds Distributor, LLC By: /s/ Shannon D. Radke"}],"confidence":0.74,"value":"Integrity Funds Distributor, LLC"}
+
+FIELD effective_date
+{"evidence":[{"page_num":6,"heading":"provisions hereof or otherwise affect their construction or effect. In Witness Whereof,","snippet":"the parties hereto have caused this Agreement to be executed as of the date first set forth herein."}],"confidence":0.22,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":6,"heading":"SECTION 7. TERM OF AGREEMENT Section 7.1 This Agreement shall continue until January 18,","snippet":"This Agreement shall continue until January 18, 2022, and thereafter shall continue automatically for successive annual periods"}],"confidence":0.86,"value":24}
+
+FIELD governing_law
+{"evidence":[{"page_num":6,"heading":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of","snippet":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of Kansas."}],"confidence":0.98,"value":"State of Kansas"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":6,"heading":"1940 Act) of the Fund and who have no direct or indirect financial interest in the","snippet":"This Agreement is terminable with respect to the Fund, without penalty, (a) on 60 days' written notice, ... or (b) on 90 days' written notice by Integrity."}],"confidence":0.62,"value":60}
+
+FIELD liability_cap
+{"evidence":[{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"...neither such authorization by such Trustees nor such execution and delivery by such officer shall be deemed to have been made by any of them individually or to impose any liability on any of them personally..."}],"confidence":0.18,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":null,"snippet":"Integrity agrees to use its best efforts to solicit orders for the sale of the Shares at the public offering price"},{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"Integrity or its affiliates may enter into distribution or other agreements with such other corporations and trusts."}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":6,"heading":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of","snippet":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of Kansas."}],"confidence":0.12,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":4,"heading":"1940 Act, or common law or otherwise, but only to the extent that such liability or","snippet":"Integrity's agreement to indemnify the Fund, its officers and trustees, and any such controlling person, as aforesaid, is expressly conditioned upon Integrity's being notified of any action brought against the Fund"}],"confidence":0.55,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":3,"heading":"SECTION 4. INDEMNIFICATION Section 4.1 The Fund authorizes Integrity and any dealers with","snippet":"The Fund agrees to indemnify, defend, and hold Integrity, its several officers and governors... free and harmless from and against any and all claims, demands, liabilities, and expenses"},{"page_num":4,"heading":"Section 4.2 Integrity agrees to indemnify, defend, and hold the Fund, its several officers","snippet":"Integrity agrees to indemnify, defend, and hold the Fund, its several officers and trustees..."},{"page_num":5,"heading":"Section 4.3 In case any action shall be brought against any indemnified party under","snippet":"the indemnifying party shall be entitled to participate in, and... to assume the defense thereof with counsel satisfactory to such indemnified party."}],"confidence":0.34,"value":"null"}

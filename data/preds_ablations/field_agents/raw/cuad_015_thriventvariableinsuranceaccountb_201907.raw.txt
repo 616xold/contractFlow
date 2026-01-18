@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary. The following provisions are included as part of this contract:"},{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."}],"confidence":0.72,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Thrivent Life Insurance Company Thrivent Financial for Lutherans\nthe Company the Society"},{"page_num":1,"heading":"You may direct inquiries to:","snippet":"Thrivent Financial for Lutherans 4321 N. Ballard Road Appleton, WI 54919-0001"}],"confidence":0.62,"value":"Thrivent Financial for Lutherans"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"Thrivent Financial for Lutherans 4321 N. Ballard Road Appleton, WI 54919-0001 (800)\n847-4836"}],"confidence":0.32,"value":"Thrivent Financial for Lutherans"}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"Heading: Effective Date: July 1, 2019"}],"confidence":0.98,"value":"2019-07-01"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."},{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws of the Society..."}],"confidence":0.12,"value":""}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"If you do not make the extra payment within 60 days from the date we notify you of your share of the deficiency, the amount will be charged as an indebtedness against the contract..."}],"confidence":0.12,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."},{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All benefits and other terms of this contract remain unchanged except as described below."},{"page_num":2,"heading":"The following provisions of this contract are amended:","snippet":"The following provisions of this contract are amended:"}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":"DEFINITIONS","snippet":"The DEFINITIONS section of the contract is amended to include the following:"},{"page_num":2,"heading":"Is amended to read:","snippet":"Is amended to read:"},{"page_num":3,"heading":null,"snippet":"Thrivent Life Insurance Company Thrivent Financial for Lutherans"}],"confidence":0.12,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"ASSIGNMENT","snippet":"You may transfer ownership of this contract in accordance with our bylaws."}],"confidence":0.12,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"MAINTENANCE OF SOLVENCY... If the solvency of the Society becomes impaired, you may be required to make an extra payment... If you do not make the extra payment within 60 days... interest compounded at the rate of 5% per year."}],"confidence":0.62,"value":"high"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"If the solvency of the Society becomes impaired, you may be required to make an extra payment. The Board of Directors will determine the amount of any extra payment."},{"page_num":1,"heading":"You may direct inquiries to:","snippet":"You may make the extra payment by an equivalent reduction in benefits or by a payment in cash. If you do not make the extra payment within 60 days... charged as an indebtedness... interest... 5% per year."},{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"Benefits will not be reduced or eliminated by any future amendments to our Articles of Incorporation or Bylaws."}],"confidence":0.74,"value":"The risk level is elevated because the contract includes a “Maintenance of Solvency” provision requiring the member to make an extra payment if the Society’s solvency becomes impaired, with the amount set by the Board. If the member does not pay within 60 days, the amount becomes indebtedness against the contract with 5% compounded interest, and the member may instead accept a reduction in benefits. Although the contract states benefits will not be reduced by future bylaw amendments, the solvency clause still creates potential additional cost or benefit reduction risk."}

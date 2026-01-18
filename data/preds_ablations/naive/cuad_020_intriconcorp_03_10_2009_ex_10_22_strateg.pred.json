@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "IntriCon Corporation",
+  "party_b_name": "Dynamic Hearing Pty Ltd",
+  "effective_date": "2008-10-01",
+  "term_length": 60,
+  "governing_law": "Victoria, Australia",
+  "termination_notice_days": 90,
+  "liability_cap": "Dynamic Hearing's aggregate liability to IntriCon is capped at $5m (must not exceed $5m) for direct loss and damages and other liability not otherwise excluded.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "This is a strategic alliance/license agreement with significant payment obligations (minimum annual payments and royalties) and broad indemnities, which is high risk for a small SaaS vendor. Liability is capped only for Dynamic Hearing (at $5m) and there are extensive exclusions of implied warranties and consequential damages, creating imbalance depending on which side you are. Termination for convenience requires 3 months’ notice and termination is restricted for the first two years except for non-payment, reducing flexibility.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 11908,
+    "output_tokens": 227,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

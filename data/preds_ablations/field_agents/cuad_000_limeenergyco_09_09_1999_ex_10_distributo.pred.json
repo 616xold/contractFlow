@@ -1,0 +1,271 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": null,
+  "term_length": 1440,
+  "governing_law": "State of Illinois",
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_000_limeenergyco_09_09_1999_ex_10_distributo.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 19115,
+    "output_tokens": 1869,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "Field 'party_b_name' must be a non-empty string",
+      "normalized term_length from years to months",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'party_b_name' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 86,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "DISTRIBUTOR AGREEMENT",
+              "snippet": "THIS  DISTRIBUTOR  AGREEMENT (the  \"Agreement\")  is made by and between Electric City Corp.,  a Delaware  corporation  (\"Company\")  and Electric City of Illinois LLC (\"Distributor\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 689,
+          "completion_tokens": 88
+        },
+        "party_a_name": {
+          "confidence": 0.2,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "1.2      License.  The Company  hereby grants the  Distributor",
+              "snippet": "The Company hereby grants the Distributor the right to do business and use the name \"Electric City of Illinois\" or a similar variation thereof"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2552,
+          "completion_tokens": 186
+        },
+        "party_b_name": {
+          "confidence": 0.2,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "1.2      License.  The Company  hereby grants the  Distributor",
+              "snippet": "The Company  hereby grants the  Distributor the right to do business  and use the name  \"Electric City of Illinois\""
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_b_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2552,
+          "completion_tokens": 165
+        },
+        "effective_date": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "4.1      Duration.   Unless  earlier   terminated   otherwise  provided",
+              "snippet": "this Agreement, subject to the commencement date established in Section 1.3, shall be effective immediately."
+            },
+            {
+              "page_num": 2,
+              "heading": "1.3      Term.  The term of this  Agreement  shall be ten (10)",
+              "snippet": "which shall commence on the date upon which the Company delivers to Distributor the last Sample"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2011,
+          "completion_tokens": 249
+        },
+        "term_length": {
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "1.3      Term.  The term of this  Agreement  shall be ten (10)",
+              "snippet": "The term of this Agreement shall be ten (10) years (the \"Term\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "normalized term_length from years to months"
+          ],
+          "prompt_tokens": 788,
+          "completion_tokens": 74
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 15,
+              "heading": "6.9      Governing Law.",
+              "snippet": "This Agreement is to be construed according to the laws of the State of Illinois."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 771,
+          "completion_tokens": 65
+        },
+        "termination_notice_days": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "4.2      Termination  for  Cause.   Either  party  may  terminate  this",
+              "snippet": "Agreement upon 30 days"
+            },
+            {
+              "page_num": 10,
+              "heading": "4.4      Repurchase of Products.  Upon the expiration or termination of",
+              "snippet": "If Company terminates  the  Agreement  without  cause and for reasons other than  Distributor's  failure to meet its minimum expectations;   it  shall   repurchase"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2157,
+          "completion_tokens": 192
+        },
+        "liability_cap": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "neither                   the\nDistributor  nor the Company  shall have a liability  for\n                   consequential\nor  liquidated   damages   pertaining  to  late\n                   delivery unless Company\nspecifically  acknowledges and agrees"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2431,
+          "completion_tokens": 177
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 13,
+              "heading": "Page -11-",
+              "snippet": "Term of the  Agreement  and for a period of  eighteen (18) months thereafter,  nor will Distributor solicit any customer  or  potential  customer  of Company to purchase a competitive product during that period."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 837,
+          "completion_tokens": 89
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "3.6.     Non-Disclosure  of  Confidential  Information.",
+              "snippet": "None of  the parties   hereto... shall during the term of this Agreement or thereafter disclose any confidential  information obtained or acquired by them in connection with the Products and the business of the other"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2496,
+          "completion_tokens": 127
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "letter of credit (\"LC\") in the amount of Five Hundred  Thousand Dollars  ($500,000)... The Company may draw funds from the LC to pay for  Distributor's  purchases,  which are not paid according to the terms"
+            },
+            {
+              "page_num": 10,
+              "heading": null,
+              "snippet": "both parties acknowledge... they shall not be required to demonstrate the absence of an adequate remedy at law, and neither party shall be required to post bond as a precondition to obtaining a temporary restraining order or preliminary injunction."
+            },
+            {
+              "page_num": 4,
+              "heading": "Page -3-",
+              "snippet": "This Agreement does not create... partners, joint venturers... which would impose liability upon one party for the act or omission of the other party."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 925,
+          "completion_tokens": 187,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "4.2      Termination  for  Cause.   Either  party  may  terminate  this",
+              "snippet": "Agreement upon 30 days"
+            },
+            {
+              "page_num": 10,
+              "heading": "4.4      Repurchase of Products.  Upon the expiration or termination of",
+              "snippet": "the Company may, at its option... repurchase any Products... at the net invoice price... less any applicable special allowances, discounts, shipping..."
+            },
+            {
+              "page_num": 10,
+              "heading": "4.4      Repurchase of Products.  Upon the expiration or termination of",
+              "snippet": "If Company terminates the Agreement without cause... it shall repurchase... any unopened Product, and shall bear all shipping, handling and related costs"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 906,
+          "completion_tokens": 270,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 8,
+        "avg_confidence": 0.516,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

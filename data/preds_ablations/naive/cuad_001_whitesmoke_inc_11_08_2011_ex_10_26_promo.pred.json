@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Whitesmoke Inc.",
+  "party_b_name": "Google Inc",
+  "effective_date": "2011-08-01",
+  "term_length": 24,
+  "governing_law": "English law",
+  "termination_notice_days": null,
+  "liability_cap": "Each party's total liability in any Contract Year is limited to the greater of: (a) [*] Euros ([*] Euros); and (b) [*]% of the total payment due to the Distributor in the relevant Contract Year pursuant to Clause 4.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement imposes strict distribution, branding, and compliance obligations, with broad audit rights and immediate termination rights for specified breaches. The liability cap is present but the key amounts are redacted, creating uncertainty about exposure, and several obligations survive termination. From a small SaaS vendor perspective, the operational compliance burden and termination/audit leverage make the overall risk high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 15923,
+    "output_tokens": 221,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

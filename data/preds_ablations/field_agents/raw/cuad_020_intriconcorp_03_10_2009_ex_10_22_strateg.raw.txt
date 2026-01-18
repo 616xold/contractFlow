@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":11,"heading":"7.0    Confidentiality","snippet":"not disclose any Confidential Information to any person, except in confidence as permitted by this Agreement;"},{"page_num":12,"heading":"8.2 IntriCon must notify Dynamic Hearing immediately upon becoming aware of:","snippet":"the information has become generally available to the public other than because of a breach of this Agreement, or any obligation of confidence owed to the disclosing party;"}],"confidence":0.78,"value":"nda"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"Agreement without the prior written consent of  Dynamic Hearing. Likewise, Dynamic Hearing may not assign or transfer any of its rights or obligations under this Agreement without the prior  written consent of IntriCon."},{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"}],"confidence":0.62,"value":"Dynamic Hearing Pty Ltd"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"Agreement without the prior written consent of  Dynamic Hearing. Likewise, Dynamic Hearing may not assign or transfer any of its rights or obligations under this Agreement without the prior  written consent of IntriCon."},{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"}],"confidence":0.78,"value":"INTRICON CORPORATION"}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"Arden Hills, Minnesota 55112  United States                   and","snippet":"This Agreement is entered into and is effective as of the 1st day of October, 2008 (Commencement Date)"}],"confidence":0.93,"value":"2008-10-01"}
+
+FIELD term_length
+{"evidence":[{"page_num":5,"heading":"3.1 Term: The initial term of this Agreement shall be five (5) years from the date of","snippet":"3.1 Term: The initial term of this Agreement shall be five (5) years from the date of execution"}],"confidence":0.95,"value":60}
+
+FIELD governing_law
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"12.8 This Agreement is governed by the laws of Victoria, Australia and the parties submit to the jurisdiction of the courts of Victoria, Australia."}],"confidence":0.99,"value":"Victoria, Australia"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":16,"heading":"11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon","snippet":"IntriCon may terminate this Agreement upon three (3) months written notice to Dynamic Hearing"},{"page_num":16,"heading":"11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon","snippet":"Dynamic Hearing may terminate this Agreement upon three (3) months written notice to IntriCon of such termination."}],"confidence":0.74,"value":90}
+
+FIELD liability_cap
+{"evidence":[{"page_num":14,"heading":"in this Agreement:","snippet":"...but subject to the provisions of 10.3. (a) all terms and warranties... are expressly excluded; (b) Dynamic Hearing is not liable... for any indirect, consequential... loss or damage..."},{"page_num":13,"heading":"10.0    Indemnity and Limitation of Liability","snippet":"...any breach of this Agreement by IntriCon... but subject to the provisions of 10.3."}],"confidence":0.22,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":7,"heading":"4.2 IntriCon will pay to Dynamic Hearing a fixed technology access fee of US$300,000","snippet":"Payment of the technology Access Fee will  maintain IntriCon's non-exclusive rights to Dynamic Hearing Technology."},{"page_num":7,"heading":"3.11 Where Dynamic Hearing supplies Dynamic Hearing Technology directly to a customer on","snippet":"Dynamic Hearing may continue indefinitely selling products and services to new customers using the ON Semiconductor DSP hybrid chip."}],"confidence":0.12,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"12.8 This Agreement is governed by the laws of Victoria, Australia and the parties submit to the jurisdiction of the courts of Victoria, Australia."}],"confidence":0.22,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":21,"heading":null,"snippet":"Unless expressly specified in this Exhibit, Dynamic Hearing will have no obligation to provide updates or revisions to, or new versions of, any software."},{"page_num":17,"heading":"11.9 Nothing in this clause 11.0 is intended to prevent end-users of Products continuing","snippet":"All rights granted under this Agreement in relation to the Licensed Subject Matter will cease except as otherwise provided herein as to existing products;"}],"confidence":0.35,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":17,"heading":"11.9 Nothing in this clause 11.0 is intended to prevent end-users of Products continuing","snippet":"Notwithstanding anything herein to the contrary, IntriCon shall have a right after termination to continue selling existing products that include the Dynamic Hearing Technology as long as IntriCon pays the appropriate royalties"}],"confidence":0.22,"value":"The excerpts do not state an explicit risk level or the rationale for selecting one. They only describe certain post-termination rights (e.g., continued sales of existing products with royalty payments) and reporting/technology definitions, which are insufficient to justify a specific risk assessment. Therefore, the risk-level explanation cannot be determined from the provided text."}

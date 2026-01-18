@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"Heading: JOINT FILING AGREEMENT"},{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D"}],"confidence":0.95,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D..."}],"confidence":0.12,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D..."}],"confidence":0.12,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"Dated: March 27, 2020."}],"confidence":0.72,"value":"2020-03-27"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file... this Schedule 13G or Schedule 13D and any future amendments thereto... Dated: March 27, 2020."}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"...pursuant to and in accordance with the provisions of Rule 13d-1(k) under the Securities Exchange Act of 1934."}],"confidence":0.18,"value":""}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D and any future amendments thereto..."}],"confidence":0.08,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned acknowledge that each shall be responsible for the timely filing of such amendments, and for the completeness and accuracy of the information concerning her or it contained therein"}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D and any future amendments thereto..."}],"confidence":0.12,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D and any future amendments thereto..."}],"confidence":0.12,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D and any future amendments thereto..."}],"confidence":0.25,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"each shall be responsible for the timely filing of such amendments, and for the completeness and accuracy of the information concerning her or it contained therein"},{"page_num":1,"heading":"JOINT FILING AGREEMENT","snippet":"but shall not be responsible for the completeness and accuracy of the information concerning the other, except to the extent that she or it knows or has reason to believe that such information is inaccurate."}],"confidence":0.34,"value":"null"}

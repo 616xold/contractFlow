@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Marv Enterprises, LLC",
+  "party_b_name": "Premier Biomedical, Inc.",
+  "effective_date": "2020-05-12",
+  "term_length": null,
+  "governing_law": "Commonwealth of Pennsylvania",
+  "termination_notice_days": null,
+  "liability_cap": "No explicit liability cap stated in provided excerpts (reference to $40,000,000 total royalty to Premier is not a liability cap).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is an intellectual property/licensing and joint venture-style agreement with ongoing confidentiality obligations and significant commercial/royalty terms (including payments up to $40,000,000 to Premier). The excerpts do not show an explicit limitation of liability, which can increase exposure. Termination-for-convenience notice is not evident in the provided text, creating uncertainty around exit rights."
+}

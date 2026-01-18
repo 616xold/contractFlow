@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":25,"heading":"4.3 Disclosure and Consent for Setting Changes. You may not bundle any Google Application","snippet":"You may not bundle any Google Application with any Application that makes a change to any operating system or Application data setting... unless prior to making such change"},{"page_num":25,"heading":"4.3 will not apply to those setting changes that may be made prior to sale to the  end","snippet":"4.5 EULA and Privacy Policy. You may not bundle any Google Application with any Application unless it conforms... pursuant to a EULA... Your privacy policy must be accessible from your Application"}],"confidence":0.55,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":19,"heading":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name","snippet":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name"}],"confidence":0.62,"value":"GOOGLE INC"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":19,"heading":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name","snippet":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name"},{"page_num":4,"heading":"2.2 Third Party Distribution. Distributor may distribute Bundles to third parties solely","snippet":"...Distributor shall... distribute Bundles in a manner that is no  less protective of the Products and Google than the terms of this Agreement..."}],"confidence":0.62,"value":"GOOGLE INC"}
+
+FIELD effective_date
+{"evidence":[{"page_num":5,"heading":"3.4 Launch. Distributor shall begin distribution of Bundles in accordance with this","snippet":"Agreement (\"Launch\") within [ * ] days following the  Effective Date (the date of such Launch, the \"Launch Date\")."},{"page_num":9,"heading":"5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier","snippet":"This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue  for the Term."}],"confidence":0.22,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":9,"heading":"5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier","snippet":"This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue for the Term."},{"page_num":18,"heading":"11.7 Severability. The invalidity, illegality or unenforceability of any term (or part of","snippet":"...shall not affect the continuation in force of the remainder of the term (if any) and this Agreement."}],"confidence":0.18,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":18,"heading":"11.10 Governing Law. This Agreement is governed by English law and the parties submit to","snippet":"This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts"}],"confidence":0.98,"value":"English law"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":10,"heading":"5.5 Additional Termination Rights. Google may terminate this Agreement immediately upon","snippet":"Google may terminate this Agreement immediately upon written notice to Distributor if:"},{"page_num":16,"heading":"10.3 Google may (at its sole discretion) suspend Distributors distribution or use of the","snippet":"if any suspension under this Clause continues for more than 30 days, Distributor may... terminate this Agreement immediately upon written notice."},{"page_num":9,"heading":"Agreement, with immediate effect, if the other party:","snippet":"fails to remedy that breach within thirty (30) days after receiving written notice of such breach."}],"confidence":0.22,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":13,"heading":"9. LIMITATION OF LIABILITY","snippet":"9. LIMITATION OF LIABILITY"},{"page_num":14,"heading":"9.2 Nothing in this Agreement shall exclude or limit either party's liability under Clause","snippet":"9.2 Nothing in this Agreement shall exclude or limit either party's liability under Clause"}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":18,"heading":"11.10 Governing Law. This Agreement is governed by English law and the parties submit to","snippet":"This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts..."},{"page_num":16,"heading":"10.3 Google may (at its sole discretion) suspend Distributors distribution or use of the","snippet":"Google may (at its sole discretion) suspend Distributors distribution or use of the Products or the Google Trademarks..."},{"page_num":9,"heading":"provided that following [ * ]:","snippet":"...if following [ * ] there is a transfer of shareholding... then Google may exercise its right to terminate..."}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":16,"heading":"any IP Claim arising from:","snippet":"(c) any content, information or data provided to Google by Distributor, End Users or any other third parties;"}],"confidence":0.12,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":16,"heading":"10.4 Distributor [ * ] and will indemnify Google against all liabilities, costs, damages","snippet":"Distributor [ * ] and will indemnify Google against all liabilities, costs, damages and expenses ... suffered or incurred by Google ... arising from: (a) Distributor's improper ... or unauthorised ... distribution, or installation of the Products"},{"page_num":27,"heading":"Section 2 through 6 of these  Guidelines;","snippet":"Special indemnity and other suspension and/or termination provisions may apply. These are addressed in your agreement with Google."},{"page_num":15,"heading":"is limited to the greater of:","snippet":"User claim arising out of or resulting from such End Users use of any Distributor App(s), including any actions or claims in product liability, tort, contract or equity."}],"confidence":0.62,"value":"high"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":10,"heading":"5.5 Additional Termination Rights.","snippet":"Google may terminate this Agreement immediately upon"},{"page_num":18,"heading":"11.10 Governing Law.","snippet":"This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts"}],"confidence":0.46,"value":"The risk level is driven by provisions that can materially affect the counterparty’s leverage and remedies. Google has an express right to terminate the agreement immediately under certain conditions, which can create operational and revenue uncertainty. The agreement is also governed by English law with exclusive English court jurisdiction, which may increase litigation cost and complexity for a non-UK party."}

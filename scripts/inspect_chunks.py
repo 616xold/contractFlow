@@ -32,13 +32,49 @@ def main() -> None:
         help="Max chars per chunk to print (0 for full text)",
     )
     parser.add_argument(
+        "--chunk-max-chars",
+        type=int,
+        default=2000,
+        help="Max chars per chunk during chunking (default: 2000)",
+    )
+    parser.add_argument(
+        "--use-ocr",
+        action="store_true",
+        help="Enable OCR fallback when extracted text is sparse",
+    )
+    parser.add_argument(
+        "--ocr-min-chars",
+        type=int,
+        default=40,
+        help="Min avg chars per page before OCR fallback (default: 40)",
+    )
+    parser.add_argument(
+        "--ocr-lang",
+        type=str,
+        default="eng",
+        help="OCR language (default: eng)",
+    )
+    parser.add_argument(
+        "--ocr-dpi",
+        type=int,
+        default=200,
+        help="OCR DPI for pdf2image (default: 200)",
+    )
+    parser.add_argument(
         "--no-text",
         action="store_true",
         help="Only print headings and metadata",
     )
     args = parser.parse_args()
 
-    chunks = chunk_pdf(args.pdf_path)
+    chunks = chunk_pdf(
+        args.pdf_path,
+        max_chunk_chars=args.chunk_max_chars,
+        use_ocr=args.use_ocr,
+        ocr_min_chars=args.ocr_min_chars,
+        ocr_lang=args.ocr_lang,
+        ocr_dpi=args.ocr_dpi,
+    )
     if not chunks:
         print("No text extracted. Is this a scanned PDF? Use OCR.", file=sys.stderr)
         raise SystemExit(1)

@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Bravatek Technologies, Inc.",
+  "party_b_name": "Sibannac, Inc.",
+  "effective_date": "2017-11-30",
+  "term_length": 12,
+  "governing_law": "State of Texas",
+  "termination_notice_days": 90,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU."
+}

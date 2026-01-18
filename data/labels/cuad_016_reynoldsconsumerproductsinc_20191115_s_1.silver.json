@@ -1,0 +1,14 @@
+{
+  "doc_type": "msa",
+  "party_a_name": "REYNOLDS CONSUMER PRODUCTS LLC",
+  "party_b_name": "PACTIV LLC",
+  "effective_date": "2019-11-01",
+  "term_length": null,
+  "governing_law": "State of Illinois, United States of America",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts (limitations include direct damages only and exclusion of consequential/indirect damages, with carve-outs for indemnification, IP infringement, and unauthorized disclosure/use of Confidential Information).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a master supply agreement with broad limitation-of-liability language (direct damages only; consequential/indirect damages waived) and notable carve-outs that preserve potentially significant exposure for indemnification, IP infringement, and confidentiality breaches. The excerpts do not show a clear monetary liability cap or a termination-for-convenience notice period, which can increase uncertainty for a small SaaS vendor. Governing law is Illinois (US), which may add legal/venue friction for non-US vendors."
+}

@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "PC Financial Services Private Limited",
+  "party_b_name": "Mobimagic Co., Ltd.",
+  "effective_date": "2019-04-01",
+  "term_length": 12,
+  "governing_law": "India",
+  "termination_notice_days": null,
+  "liability_cap": "Total cumulative liability will not exceed the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "The agreement includes a broad limitation of liability capped at the aggregate fees/expenses owed, and excludes consequential damages, which can be unfavorable depending on the vendor’s exposure. Termination is only for material breach with a 30-day cure period and there is no clear termination-for-convenience right. There are also cross-border service elements and data-processing obligations, but the contract states the provider will not store/retain PC Financial data (except limited billing records), which reduces some data-handling risk.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_024_operaltd_04_30_2020_ex_4_14_service_agre.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 5341,
+    "output_tokens": 225,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

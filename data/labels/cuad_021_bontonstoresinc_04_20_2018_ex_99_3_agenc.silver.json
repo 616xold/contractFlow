@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": "THE BON-TON STORES, INC.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": 7,
+  "liability_cap": "$2,000,000 (the \"503(b)(9) Cap\") and $8,000,000 (the \"Stub Rent Cap\"); also references a \"Wind-Down Cap\" (amount not stated in excerpts)",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The excerpts indicate a complex bankruptcy-related wind-down/sale agreement with multiple monetary caps, escrowed deposit/liquidated damages, and extensive operational obligations, which is atypical and high-risk for a small SaaS vendor. Liability and payment structures appear specialized (e.g., trust/segregated accounts and caps) and not a standard SaaS allocation of risk. Key commercial basics like a clear effective date and overall term length are not determinable from the provided excerpts."
+}

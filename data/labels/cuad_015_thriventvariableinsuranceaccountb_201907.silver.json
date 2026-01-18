@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Thrivent Financial for Lutherans",
+  "party_b_name": "Thrivent Life Insurance Company",
+  "effective_date": "2019-07-01",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The excerpts describe an insurance/benefit society contract amendment that includes a maintenance-of-solvency provision requiring the member to make an extra payment if the Society’s solvency is impaired, with interest if unpaid. Key commercial protections typical for a small SaaS vendor (governing law, liability cap, termination terms) are not stated in the provided text, increasing uncertainty. The potential for additional payment obligations and lack of clear risk-limiting terms drive a high risk rating."
+}

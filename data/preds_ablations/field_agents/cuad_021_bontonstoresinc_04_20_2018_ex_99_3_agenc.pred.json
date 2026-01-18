@@ -1,0 +1,256 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": "THE BON-TON STORES, INC.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": 7,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 18818,
+    "output_tokens": 2148,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 497,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 23,
+              "heading": null,
+              "snippet": "Merchant and Agent agree that, except to the extent that wages and benefits of Retained Employees constitute Expenses hereunder, nothing contained in this Agreement... shall be deemed to constitute an assumption by Agent"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 892,
+          "completion_tokens": 76
+        },
+        "party_a_name": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 33,
+              "heading": "15.5 No Waiver.",
+              "snippet": "No consent or waiver by any Party, express or implied, to or of any breach"
+            },
+            {
+              "page_num": 43,
+              "heading": "Schedule A",
+              "snippet": "Description Counterparty Name and Address Assignee Name and Address Cure Amount Effective Date of Assignment"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 1724,
+          "completion_tokens": 254
+        },
+        "party_b_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 35,
+              "heading": "Second-Lien Notes By: Name: Its:",
+              "snippet": "THE BON-TON STORES, INC., on behalf of itself and the other entities comprising Merchant"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 790,
+          "completion_tokens": 75
+        },
+        "effective_date": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 43,
+              "heading": "none",
+              "snippet": "...the assumption and assignment of such Lease or Contract will become effective automatically pursuant to the Approval Order on the date"
+            },
+            {
+              "page_num": 43,
+              "heading": "Schedule A",
+              "snippet": "...Cure Amount Effective Date of Assignment"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2062,
+          "completion_tokens": 229
+        },
+        "term_length": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 17,
+              "heading": "Section 6. Sale Term.",
+              "snippet": "Section 6. Sale Term."
+            },
+            {
+              "page_num": 20,
+              "heading": "8.8 Sale Reconciliation. On each Wednesday during the Sale Term, Agent and Merchant shall",
+              "snippet": "Within thirty (30) days after the end of the Sale Term, or as soon as"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1585,
+          "completion_tokens": 196
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 33,
+              "heading": "15.3 Governing Law/Exclusive Jurisdiction. This Agreement shall be governed by and",
+              "snippet": "This Agreement shall be governed by and interpreted in accordance with the laws of the State of Delaware"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 850,
+          "completion_tokens": 78
+        },
+        "termination_notice_days": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 17,
+              "heading": "6.1 Term.",
+              "snippet": "Agent may, in its discretion, earlier terminate the GOB Sale on a Store-by- Store basis upon not less than seven (7) days' prior written notice"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 962,
+          "completion_tokens": 76
+        },
+        "liability_cap": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 11,
+              "heading": "Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 13 of 60",
+              "snippet": "Agent shall assume the obligation to pay (a) $2,000,000 (the \"503(b)(9) Cap\")... and (b) $8,000,000 (the \"Stub Rent Cap\")..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2612,
+          "completion_tokens": 236
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 50,
+              "heading": null,
+              "snippet": "...Agent shall not distribute handbills, leaflets or other written materials...; provided that Agent may solicit customers in the Stores themselves... Agent shall not use any flashing lights or amplified sound to advertise the Sale or solicit customers..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2366,
+          "completion_tokens": 158
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 19,
+              "heading": null,
+              "snippet": "Merchant in order for Merchant to comply with its privacy policy and applicable laws governing the use and dissemination of confidential consumer personal data);"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1763,
+          "completion_tokens": 169
+        },
+        "risk_level": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 12,
+              "heading": null,
+              "snippet": "(b) Assets and Proceeds Held in Trust. Subject to Section 3.2(a), Merchant shall hold all\nof the Assets in trust for the benefit of Purchaser."
+            },
+            {
+              "page_num": 30,
+              "heading": "Section 13. Purchaser's Security Interest.",
+              "snippet": "Purchaser shall have a senior lien on all Assets and\nProceeds, which lien shall be deemed by the Approval Order to be automatically perfected."
+            },
+            {
+              "page_num": 30,
+              "heading": "Section 13. Purchaser's Security Interest.",
+              "snippet": "Purchaser shall have a superpriority administrative expense claim against Merchant"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1861,
+          "completion_tokens": 254
+        },
+        "risk_explanation": {
+          "confidence": 0.34,
+          "evidence": [
+            {
+              "page_num": 34,
+              "heading": "15.11 Deposit. Pursuant to the Bidding Procedures, Agent has provided a cash deposit in",
+              "snippet": "In the event the Closing fails to occur... only upon entry of a final and non-appealable order... determining... Purchaser's sole... breach... Merchant shall be entitled to retain the Deposit as liquidated damages"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1351,
+          "completion_tokens": 347,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 11,
+        "fields_with_evidence": 11,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 16,
+        "unique_evidence_pages": 11,
+        "avg_confidence": 0.3945,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any, Dict, Tuple
 
@@ -16,7 +18,7 @@ if str(REPO_ROOT) not in sys.path:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Evaluate predictions vs gold labels.")
+    parser = argparse.ArgumentParser(description="Evaluate predictions vs labels.")
     parser.add_argument(
         "--preds-dir",
         type=Path,
@@ -27,13 +29,25 @@ def main() -> None:
         "--labels-dir",
         type=Path,
         default=REPO_ROOT / "data" / "labels",
-        help="Directory containing .gold.json files",
+        help="Directory containing label files",
+    )
+    parser.add_argument(
+        "--label-suffix",
+        type=str,
+        default=".gold.json",
+        help="Label filename suffix (default: .gold.json)",
     )
     parser.add_argument(
         "--schema",
         type=Path,
         default=REPO_ROOT / "contractflow" / "schemas" / "contract_schema.json",
         help="Path to the JSON schema describing fields to evaluate",
+    )
+    parser.add_argument(
+        "--partial-threshold",
+        type=float,
+        default=0.85,
+        help="Partial match threshold for string similarity (default: 0.85)",
     )
     parser.add_argument(
         "--out",
@@ -43,14 +57,42 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    schema = _load_json(args.schema)
-    label_paths = sorted(args.labels_dir.glob("*.gold.json"))
+    summary = evaluate_predictions(
+        labels_dir=args.labels_dir,
+        preds_dir=args.preds_dir,
+        schema_path=args.schema,
+        label_suffix=args.label_suffix,
+        partial_threshold=args.partial_threshold,
+    )
+
+    _print_summary(summary)
+
+    if args.out:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+
+
+def evaluate_predictions(
+    *,
+    labels_dir: Path,
+    preds_dir: Path,
+    schema_path: Path,
+    label_suffix: str = ".gold.json",
+    partial_threshold: float = 0.85,
+) -> Dict[str, Any]:
+    schema = _load_json(schema_path)
+    label_paths = sorted(labels_dir.glob(f"*{label_suffix}"))
     if not label_paths:
-        print(f"No label files found in {args.labels_dir}", file=sys.stderr)
-        raise SystemExit(1)
+        raise ValueError(f"No label files found in {labels_dir} with suffix {label_suffix}")
 
     field_stats: Dict[str, Dict[str, Any]] = {
-        field: {"correct": 0, "total": 0} for field in schema.keys()
+        field: {
+            "exact_correct": 0,
+            "partial_correct": 0,
+            "total": 0,
+            "avg_similarity": 0.0,
+        }
+        for field in schema.keys()
     }
     docs: list[Dict[str, Any]] = []
 
@@ -60,11 +102,17 @@ def main() -> None:
     missing_preds = 0
     evaluated_docs = 0
 
+    overall_exact = 0
+    overall_partial = 0
+    overall_total = 0
+
     for label_path in label_paths:
-        base = label_path.stem
-        if base.endswith(".gold"):
-            base = base[: -len(".gold")]
-        pred_path = args.preds_dir / f"{base}.pred.json"
+        base = label_path.name
+        if base.endswith(label_suffix):
+            base = base[: -len(label_suffix)]
+        else:
+            base = label_path.stem
+        pred_path = preds_dir / f"{base}.pred.json"
 
         gold = _load_json(label_path)
         pred: Dict[str, Any] = {}
@@ -85,34 +133,50 @@ def main() -> None:
         pred = _load_json(pred_path)
         meta = pred.get("_meta", {}) if isinstance(pred, dict) else {}
         pred_fields = {k: v for k, v in pred.items() if k != "_meta"}
+        gold_fields = {k: v for k, v in gold.items() if k != "_meta"}
 
-        correct = 0
+        exact_correct = 0
+        partial_correct = 0
         total = 0
         per_field: Dict[str, Any] = {}
 
         for field, meta_def in schema.items():
-            gold_value = gold.get(field, None)
+            gold_value = gold_fields.get(field, None)
             pred_value = pred_fields.get(field, None)
             norm_gold = _normalize_value(gold_value, meta_def)
             norm_pred = _normalize_value(pred_value, meta_def)
-            is_correct = norm_gold == norm_pred
+            is_exact = norm_gold == norm_pred
+            similarity = _field_similarity(norm_gold, norm_pred, meta_def)
+            is_partial = is_exact or similarity >= partial_threshold
 
             total += 1
-            if is_correct:
-                correct += 1
+            if is_exact:
+                exact_correct += 1
+            if is_partial:
+                partial_correct += 1
 
             field_stats[field]["total"] += 1
-            if is_correct:
-                field_stats[field]["correct"] += 1
+            if is_exact:
+                field_stats[field]["exact_correct"] += 1
+            if is_partial:
+                field_stats[field]["partial_correct"] += 1
+            field_stats[field]["avg_similarity"] += similarity
 
             per_field[field] = {
                 "gold": norm_gold,
                 "pred": norm_pred,
-                "correct": is_correct,
+                "exact": is_exact,
+                "partial": is_partial,
+                "similarity": round(similarity, 4),
             }
 
+        overall_exact += exact_correct
+        overall_partial += partial_correct
+        overall_total += total
+
         evaluated_docs += 1
-        accuracy = (correct / total) if total else 0.0
+        accuracy_exact = (exact_correct / total) if total else 0.0
+        accuracy_partial = (partial_correct / total) if total else 0.0
 
         coverage = (meta.get("retrieval") or {}).get("coverage") or {}
         evidence_ratio = coverage.get("evidence_ratio")
@@ -128,34 +192,37 @@ def main() -> None:
                 "label_path": str(label_path),
                 "pred_path": str(pred_path),
                 "status": "evaluated",
-                "fields_correct": correct,
+                "fields_exact": exact_correct,
+                "fields_partial": partial_correct,
                 "fields_total": total,
-                "accuracy": round(accuracy, 4),
+                "accuracy_exact": round(accuracy_exact, 4),
+                "accuracy_partial": round(accuracy_partial, 4),
                 "coverage": coverage,
                 "fields": per_field,
             }
         )
 
     field_accuracy = {}
-    overall_correct = 0
-    overall_total = 0
-
     for field, stats in field_stats.items():
         total = stats["total"]
-        correct = stats["correct"]
-        overall_correct += correct
-        overall_total += total
+        exact = stats["exact_correct"]
+        partial = stats["partial_correct"]
+        avg_similarity = stats["avg_similarity"] / total if total else 0.0
         field_accuracy[field] = {
-            "correct": correct,
+            "exact_correct": exact,
+            "partial_correct": partial,
             "total": total,
-            "accuracy": round((correct / total) if total else 0.0, 4),
+            "accuracy_exact": round((exact / total) if total else 0.0, 4),
+            "accuracy_partial": round((partial / total) if total else 0.0, 4),
+            "avg_similarity": round(avg_similarity, 4),
         }
 
     summary = {
         "docs_total": len(label_paths),
         "docs_evaluated": evaluated_docs,
         "docs_missing_preds": missing_preds,
-        "overall_accuracy": round((overall_correct / overall_total) if overall_total else 0.0, 4),
+        "overall_accuracy_exact": round((overall_exact / overall_total) if overall_total else 0.0, 4),
+        "overall_accuracy_partial": round((overall_partial / overall_total) if overall_total else 0.0, 4),
         "field_accuracy": field_accuracy,
         "evidence_coverage": {
             "avg_evidence_ratio": round(_mean(evidence_ratios), 4) if evidence_ratios else None,
@@ -166,11 +233,7 @@ def main() -> None:
         "docs": docs,
     }
 
-    _print_summary(summary)
-
-    if args.out:
-        args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    return summary
 
 
 def _load_json(path: Path) -> Dict[str, Any]:
@@ -223,6 +286,34 @@ def _normalize_value(value: Any, meta: Dict[str, Any]) -> Any:
     return text_lower
 
 
+def _field_similarity(gold: Any, pred: Any, meta: Dict[str, Any]) -> float:
+    expected = meta.get("type")
+    enum_vals = meta.get("enum")
+    if gold is None and pred is None:
+        return 1.0
+    if expected in {"integer", "boolean"}:
+        return 1.0 if gold == pred else 0.0
+    if enum_vals:
+        return 1.0 if gold == pred else 0.0
+    return _text_similarity(str(gold), str(pred))
+
+
+def _text_similarity(a: str, b: str) -> float:
+    norm_a = _normalize_text(a)
+    norm_b = _normalize_text(b)
+    if not norm_a and not norm_b:
+        return 1.0
+    if not norm_a or not norm_b:
+        return 0.0
+    return SequenceMatcher(None, norm_a, norm_b).ratio()
+
+
+def _normalize_text(text: str) -> str:
+    lowered = text.lower()
+    lowered = re.sub(r"[^a-z0-9]+", " ", lowered)
+    return " ".join(lowered.split())
+
+
 def _first_int(text: str) -> Any:
     match = None
     for token in text.replace(",", " ").split():
@@ -239,10 +330,15 @@ def _mean(values: list[float]) -> float:
 def _print_summary(summary: Dict[str, Any]) -> None:
     print(f"docs_total={summary['docs_total']} docs_evaluated={summary['docs_evaluated']}")
     print(f"docs_missing_preds={summary['docs_missing_preds']}")
-    print(f"overall_accuracy={summary['overall_accuracy']}")
+    print(f"overall_accuracy_exact={summary['overall_accuracy_exact']}")
+    print(f"overall_accuracy_partial={summary['overall_accuracy_partial']}")
     print("field_accuracy:")
     for field, stats in summary["field_accuracy"].items():
-        print(f"  {field}: {stats['correct']}/{stats['total']} ({stats['accuracy']})")
+        print(
+            f"  {field}: exact {stats['exact_correct']}/{stats['total']} "
+            f"({stats['accuracy_exact']}), partial {stats['partial_correct']}/{stats['total']} "
+            f"({stats['accuracy_partial']})"
+        )
 
     coverage = summary.get("evidence_coverage", {})
     if coverage:

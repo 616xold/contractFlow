@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"BACKGROUND","snippet":"The Parties are entering into this Agreement to establish the terms and conditions under which Seller may agree to sell specific products to Buyer, and Buyer may agree to purchase specific products from Seller"},{"page_num":13,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"constitutes the entire agreement between the Parties with respect to the sale of products by Seller to Buyer and the purchase of products by Buyer from Seller."}],"confidence":0.78,"value":"msa"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"...Copies of additional insured endorsements required for applicable policies in the name and for the benefit of: \"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;...\""},{"page_num":7,"heading":null,"snippet":"...endorsements required for applicable policies in the name and for the benefit of: \"\"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;...\""}],"confidence":0.12,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Copies of additional insured endorsements required for applicable policies in the name and for the benefit of: \"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;\""},{"page_num":7,"heading":null,"snippet":"waiver of subrogation endorsements required for applicable policies in the name and for the benefit of: \"\"[NAME OF OTHER PARTY], its parent, subsidiaries and affiliates;\""}],"confidence":0.12,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"MASTER SUPPLY AGREEMENT","snippet":"MASTER SUPPLY AGREEMENT (the \"Agreement\") dated November 1, 2019 (the \"Effective Date\")"}],"confidence":0.98,"value":"2019-11-01"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"AGREEMENT","snippet":"1. Term. The \"Term\" of this Agreement will commence on the Effective Date and will end on\nthe earlier of: (a) the first anniversary of the expiration date of the last Purchase"}],"confidence":0.42,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":14,"heading":null,"snippet":"This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects... by the laws of the State of Illinois and the United States of America"}],"confidence":0.96,"value":"State of Illinois and the United States of America"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":1,"heading":"Schedule (as defined in this next Section); (b) a termination date elected by a Party in a","snippet":"\"written notice delivered to the other Party any time after the expiration of the last Purchase Schedule\""}],"confidence":0.22,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Automobile Liability Insurance. Occurrence based coverage with a combined single limit of at least $10,000,000 per occurrence and in the aggregate"},{"page_num":4,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"7. Indemnification. a. A claim that a Party ... is required to defend and indemnify the other Party ... is referred to ... as an \"Indemnified Claim\"."}],"confidence":0.18,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":null,"snippet":"A Party will promptly notify the other Party of any change in circumstance during the Term in which the Party is no longer in compliance with the foregoing general representations, warranties and covenants."},{"page_num":4,"heading":null,"snippet":"If a Buyer receives a product that fails to conform to these representations and warranties, the sole remedies of Buyer for the breach of warranty will be to: (1) reject and return the non-conforming product..."}],"confidence":0.12,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":14,"heading":null,"snippet":"This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects... by the laws of the State of Illinois and the United States of America"},{"page_num":14,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"The restrictions in this Section will not preclude a Party for authorizing an Affiliate to purchase or sell a product on behalf of a Party under this Agreement."}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Automobile Liability Insurance... combined single limit of at least $10,000,000 per occurrence... Requires additional insured endorsement and waiver of subrogation endorsement."},{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Employers' Liability Insurance... limit of at least $10,000,000 per occurrence... Requires waiver of alternate employer endorsement."}],"confidence":0.62,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":7,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"A Party that breaches this Agreement will only be liable to the other Party for direct damages arising from the breach. Each Party waives any right to recover consequential, incidental, indirect, exemplary, punitive... damages"},{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Automobile Liability Insurance... combined single limit of at least $10,000,000... Requires additional insured endorsement and waiver of subrogation endorsement."},{"page_num":10,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"A Receiving Party will not be obligated to incur any liability, expense or risk in extending such cooperation to a Disclosing Party."}],"confidence":0.34,"value":"The excerpts show several provisions that can materially affect risk, including broad waivers of indirect damages and significant insurance requirements with waivers of subrogation. They also limit a receiving party’s obligation to take on liability, expense, or risk when cooperating with disclosure requests. However, the excerpts do not state any explicit risk level or rationale, so this explanation is inferential and incomplete."}

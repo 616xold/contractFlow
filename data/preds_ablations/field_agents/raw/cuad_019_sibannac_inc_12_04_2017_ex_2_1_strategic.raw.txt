@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":2,"heading":null,"snippet":"For any Product or Solution sold to any perspective clients introduced by Bravatek... Bravatek will receive a lead-finder fee... payable NET 30 days after each client payment"},{"page_num":2,"heading":null,"snippet":"5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information... related to client projects... products, services and business of each of the parties."},{"page_num":2,"heading":null,"snippet":"7) Term The term of this Agreement is twelve (12) months... 10) Indemnification COMPANY shall indemnify Bravatek..."}],"confidence":0.72,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Bravatek Technologies,\nInc.  Sibannac, Inc."},{"page_num":3,"heading":null,"snippet":"Bravatek Technologies,\nInc.  Sibannac, Inc.     By: /s/ Thomas A.Cellucci  By: /s/ David Mersky"}],"confidence":0.72,"value":"Bravatek Technologies, Inc."}
+
+FIELD party_b_name
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Bravatek Technologies,\nInc.  Sibannac, Inc."},{"page_num":3,"heading":null,"snippet":"By: /s/ Thomas A.Cellucci  By: /s/ David Mersky     Name: Thomas\nA. Cellucci  Name: David Mersky"}],"confidence":0.86,"value":"Sibannac, Inc."}
+
+FIELD effective_date
+{"evidence":[{"page_num":3,"heading":"Date: November 30, 2017  Date: November 30, 2017","snippet":"Date: November 30, 2017  Date: November 30, 2017"},{"page_num":3,"heading":null,"snippet":"This Agreement shall not be considered accepted, approved or otherwise effective until signed by the appropriate parties."}],"confidence":0.72,"value":"2017-11-30"}
+
+FIELD term_length
+{"evidence":[{"page_num":2,"heading":null,"snippet":"The term of this Agreement is twelve (12) months from the date hereof, and will be automatically renewed for one (1) additional twelve month period unless either party shall notify the other in writing of its intention not to renew."}],"confidence":0.95,"value":12}
+
+FIELD governing_law
+{"evidence":[{"page_num":2,"heading":null,"snippet":"9) Governing Law This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas."}],"confidence":0.98,"value":"State of Texas"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":2,"heading":null,"snippet":"This Agreement may also be terminated by either party upon ninety (90) days written notice."}],"confidence":0.93,"value":90}
+
+FIELD liability_cap
+{"evidence":[{"page_num":2,"heading":null,"snippet":"10) Indemnification COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs..."},{"page_num":3,"heading":null,"snippet":"attorney's fees and court costs, incurred in connection with any third-party claim, action or proceeding arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":null,"snippet":"5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects of party and products, services and business of each of the parties."}],"confidence":0.22,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"9) Governing Law This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas."},{"page_num":1,"heading":"Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this","snippet":"...by and between Bravatek Solutions, Inc., a corporation organized under the laws of the State of Colorado... and Sibannac, Inc. (\"COMPANY\"), a corporation organized under the laws of Nevada..."}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":2,"heading":null,"snippet":"COMPANY and Bravatek agree to maintain in strict confidence and not to disclose or disseminate, or to use for any purposes other than performance of the projects, the Confidential Information disclosed."},{"page_num":3,"heading":null,"snippet":"attorney's fees and court costs, incurred in connection with any third-party claim, action or proceeding arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."},{"page_num":3,"heading":null,"snippet":"This Agreement shall not be assignable by either party without the prior written consent of the other party."}],"confidence":0.62,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":2,"heading":null,"snippet":"10) Indemnification COMPANY shall indemnify Bravatek... for any and all damages, costs, expenses... including reasonable attorney's fees and court costs incurred in connection with any third-party claim... arising from the negligence... of COMPANY"},{"page_num":3,"heading":null,"snippet":"attorney's fees and court costs, incurred in connection with any third-party claim... arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."},{"page_num":2,"heading":null,"snippet":"This Agreement may also be terminated by either party upon ninety (90) days written notice."}],"confidence":0.74,"value":"The agreement includes broad mutual indemnification, requiring each party to cover the other’s damages and legal costs for third-party claims arising from negligence, misconduct, or breach. This can create significant financial exposure if a claim occurs. The contract also allows termination on 90 days’ notice, adding business continuity risk."}

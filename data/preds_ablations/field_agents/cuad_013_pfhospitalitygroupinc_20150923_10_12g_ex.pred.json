@@ -1,0 +1,269 @@
+{
+  "doc_type": "nda",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 24328,
+    "output_tokens": 2153,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "Field 'party_b_name' must be a non-empty string",
+      "Field 'governing_law' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'party_b_name' is null but not nullable",
+      "Field 'governing_law' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 8,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (\"Agreement\") is made this _____ day of _________, 20___, by and between ..."
+            },
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "...will gain access to certain of Franchisor's Confidential Information, as defined herein, and must therefore be bound by the same confidentiality and non-competition agreement..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1164,
+          "completion_tokens": 172
+        },
+        "party_a_name": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and",
+              "snippet": "FRANCHISEE MEMBER By: By: Name: Name: Title: Title:"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "acknowledges and agrees that Franchisor is an intended third-party beneficiary of this Agreement with the right to enforce it, independently or jointly with Franchisee."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2236,
+          "completion_tokens": 223
+        },
+        "party_b_name": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and",
+              "snippet": "FRANCHISEE MEMBER By: By: Name: Name: Title: Title:"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_b_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2236,
+          "completion_tokens": 176
+        },
+        "effective_date": {
+          "confidence": 0.25,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and",
+              "snippet": "...voluntarily signed this Agreement on the date first written above."
+            },
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2501,
+          "completion_tokens": 270
+        },
+        "term_length": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "Member covenants and agrees that during the term of the Franchise Agreement..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2712,
+          "completion_tokens": 156
+        },
+        "governing_law": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "...a final order of a duly authorized arbitrator, panel of arbitrators, or a court of competent jurisdiction..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 2494,
+          "completion_tokens": 128
+        },
+        "termination_notice_days": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Agreement; (b) expiration or termination of the Franchise Agreement (regardless of the cause for termination); (c) termination of Member's employment with Franchisee;"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2712,
+          "completion_tokens": 146
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Member acknowledges that any failure to comply with the requirements of this Agreement will cause Franchisor irreparable injury, and Member agrees to pay all court costs and reasonable attorney's fees..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2465,
+          "completion_tokens": 155
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "(ii) Divert or attempt to divert any business or customer, or potential business or customer, to any Competitive Business; or (iii) Induce any person to leave his or her employment with Franchisee or Franchisor."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1151,
+          "completion_tokens": 111
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "...the Member... will gain access to certain of Franchisor's Confidential Information, as defined herein, and must therefore be bound by the same confidentiality and non-competition agreement..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2592,
+          "completion_tokens": 210
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "Member shall not... own, manage, engage in... any Competitive Business... within a three (3) mile radius...\"Post-Term Period\"... two (2) years"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Member agrees to pay all court costs and reasonable attorney's fees incurred by Franchisor in obtaining specific performance of, or an injunction against violation"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1159,
+          "completion_tokens": 136
+        },
+        "risk_explanation": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "Member covenants and agrees that during the Post-Term Period... Member shall not... own, manage, engage in, be employed by... any Competitive Business... within a three (3) mile radius..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Member acknowledges that any failure to comply with the requirements of this Agreement will cause Franchisor irreparable injury, and Member agrees to pay all court costs and reasonable attorney's fees... in obtaining... an injunction..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Franchisor is an intended third-party beneficiary of this Agreement with the right to enforce it, independently or jointly with Franchisee."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 906,
+          "completion_tokens": 270,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 11,
+        "fields_with_evidence": 11,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 15,
+        "unique_evidence_pages": 2,
+        "avg_confidence": 0.3164,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": "THE BON-TON STORES, INC.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": 7,
+  "liability_cap": "$2,000,000 (503(b)(9) Cap) and $8,000,000 (Stub Rent Cap); also references a Wind-Down Cap (amount not stated in excerpt)",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The excerpts indicate a complex bankruptcy-related sale/agency agreement with significant operational obligations, escrowed deposit/liquidated damages, and multiple monetary caps tied to claims and wind-down costs. Key commercial terms for a typical SaaS vendor (clear effective date, standard liability limitation, and data protection terms) are not present or are unclear in the provided text. The structure and context (bankruptcy court jurisdiction and sale operations) suggest higher legal and performance risk than a standard services contract.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 6060,
+    "output_tokens": 229,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 497,
+      "total_hits": 36,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      }
+    }
+  }
+}

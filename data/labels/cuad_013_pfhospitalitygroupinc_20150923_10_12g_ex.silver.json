@@ -1,0 +1,14 @@
+{
+  "doc_type": "nda",
+  "party_a_name": "___________________________ (the \"Franchisee\")",
+  "party_b_name": "___________________________ (the \"Member\")",
+  "effective_date": null,
+  "term_length": 24,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "No explicit monetary liability cap stated; includes injunctive relief and obligation to pay court costs and reasonable attorney's fees.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "This is a non-disclosure and non-competition agreement with a broad non-compete (including a two-year post-term period and geographic radius restrictions) and a non-solicitation component. It provides for injunctive relief and requires the Member to pay court costs and reasonable attorneys’ fees for enforcement, increasing exposure. No governing law, liability cap, or termination notice is specified in the provided excerpts, adding uncertainty."
+}

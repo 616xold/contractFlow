@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":12,"heading":null,"snippet":"The Remarketing of the Remarketed Securities pursuant to this Remarketing Agreement and the Pricing Agreement... consummation of the transactions herein and therein contemplated"},{"page_num":10,"heading":null,"snippet":"...each Transaction Document other than this Remarketing Agreement and the Pricing Agreement... and the Indenture has been duly qualified under the Trust Indenture Act."}],"confidence":0.72,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":21,"heading":"Section 20 of the Exchange Act against any losses, claims, damages or liabilities (or","snippet":"actions in respect thereof) to which the Company may become subject, under the Act or otherwise,"},{"page_num":21,"heading":"Section 20 of the Exchange Act against any losses, claims, damages or liabilities (or","snippet":"brought against any indemnified party and it shall notify the indemnifying party of the commencement thereof,"}],"confidence":0.12,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":27,"heading":"METLIFE, INC.","snippet":"METLIFE, INC.\nBy:  /s/ Marlene B. Debel  Name:  Marlene B. Debel  Title:  Senior Vice President and"},{"page_num":29,"heading":"By:       Name:   Title:","snippet":"By:       Name:   Title:"}],"confidence":0.32,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Effective on September 15, 2014, the Series E Debt Securities will automatically convert, without any act of any holder, into units consisting of two tranches,"}],"confidence":0.32,"value":"2014-09-15"}
+
+FIELD term_length
+{"evidence":[{"page_num":3,"heading":null,"snippet":"the term \"Remarketing Date\" means the date ... during the period that begins on, and includes, September 25, 2014 and ends on, and includes, October 7, 2014;"}],"confidence":0.18,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":25,"heading":"15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED","snippet":"15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED"},{"page_num":25,"heading":"THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.","snippet":"may be instituted in any state or Federal court in the Borough of Manhattan, The City of New York, New York"}],"confidence":0.22,"value":""}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":23,"heading":null,"snippet":"A Remarketing Agent may resign and be discharged from its duties and obligations hereunder, and the Company may remove any or all of the Remarketing Agents, by giving five (5) Business Days' prior written notice..."}],"confidence":0.42,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":21,"heading":null,"snippet":"other expenses reasonably incurred by such Remarketing Agent in connection with investigating or defending any such action or claim as such expenses are incurred; provided, however, that the Company shall not be liable in any such case to the extent"}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":25,"heading":"THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.","snippet":"16. Consent to Jurisdiction. The Company agrees that any legal suit, action or proceeding... may be instituted in any state or Federal court..."}],"confidence":0.12,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":31,"heading":"Hong Kong","snippet":"The Series E Debentures may not be offered or sold... (in each case whether in Hong Kong or elsewhere)..."},{"page_num":32,"heading":"Singapore","snippet":"...Regulation 32 of the Securities and Futures (Offers of Investments) (Shares and Debentures) Regulations 2005 of Singapore."}],"confidence":0.22,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":19,"heading":null,"snippet":"...the effect of which... is in the judgment of the Remarketing Agents so material and adverse as to make it impracticable or inadvisable to proceed with the Remarketing..."},{"page_num":17,"heading":null,"snippet":"...the Company will pay or cause to be paid... (iii)... the reasonable fees and disbursements of counsel for the Remarketing Agents..."}],"confidence":0.28,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":24,"heading":null,"snippet":"This Remarketing Agreement shall terminate (i) in the event of a Remarketing that is not a Successful Remarketing... the obligations of the Remarketing Agents may be terminated... if... conditions precedent... shall have failed to occur."},{"page_num":30,"heading":null,"snippet":"the representations and warranties of the Company... are true and correct... and (ii) the Company has complied... with all agreements and all conditions... under the Remarketing Agreement and the other Transaction Documents"}],"confidence":0.34,"value":"null"}

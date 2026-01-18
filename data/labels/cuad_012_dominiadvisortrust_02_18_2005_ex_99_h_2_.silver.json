@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Domini Advisor Trust",
+  "party_b_name": "Domini Social Investments LLC",
+  "effective_date": "2005-02-04",
+  "term_length": null,
+  "governing_law": "Commonwealth of Massachusetts",
+  "termination_notice_days": null,
+  "liability_cap": "No monetary cap stated; Sponsor not liable except for willful misfeasance, bad faith, gross negligence, or reckless disregard.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a sponsorship/services agreement rather than an NDA/MSA, with broad duties and operational responsibilities described. Liability is limited via a negligence standard carve-out (no liability except for willful misfeasance, bad faith, gross negligence, or reckless disregard), but there is no clear monetary cap or balanced limitation framework. Term and termination notice are not provided in the excerpts, creating uncertainty around exit rights and ongoing obligations."
+}

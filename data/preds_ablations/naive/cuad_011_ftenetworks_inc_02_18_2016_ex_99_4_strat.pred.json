@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "EDGE Communications Solutions, LLC",
+  "party_b_name": "FTE Networks, Inc.",
+  "effective_date": "2016-02-17",
+  "term_length": 36,
+  "governing_law": "State of Texas",
+  "termination_notice_days": 30,
+  "liability_cap": "No explicit limitation of liability cap stated in the provided text.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement includes broad indemnification/defense obligations in favor of EDGE and the Customer, with no stated overall liability cap, which can create uncapped exposure. Termination rights include termination for default after a short cure period, and the contract imposes significant insurance and operational obligations. There is also a non-solicitation clause with liquidated damages, increasing commercial risk.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 8907,
+    "output_tokens": 185,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

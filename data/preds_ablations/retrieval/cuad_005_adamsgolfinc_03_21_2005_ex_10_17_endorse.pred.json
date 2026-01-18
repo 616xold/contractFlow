@@ -1,0 +1,49 @@
+{
+  "doc_type": "other",
+  "party_a_name": "ADAMS GOLF",
+  "party_b_name": "CONSULTANT",
+  "effective_date": "2005-01-13",
+  "term_length": null,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": null,
+  "liability_cap": "No explicit monetary liability cap stated; mutual indemnities apply.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement includes broad indemnity obligations and does not state any explicit cap on liability, which is high risk for a small vendor. Key commercial terms (including term length and various amounts) are heavily redacted, increasing uncertainty. Termination provisions focus on for-cause notice periods rather than a clear termination-for-convenience right.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 4806,
+    "output_tokens": 174,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 71,
+      "total_hits": 36,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      }
+    }
+  }
+}

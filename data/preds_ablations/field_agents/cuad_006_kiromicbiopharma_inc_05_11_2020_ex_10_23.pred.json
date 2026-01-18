@@ -1,0 +1,260 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Scott Dahlbeck Gianluca Rotino",
+  "party_b_name": "Gianluca Rotino",
+  "effective_date": "2018-07-01",
+  "term_length": null,
+  "governing_law": "State of Texas",
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 25862,
+    "output_tokens": 2036,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 22,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "Kiromic, Inc... offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities..."
+            },
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "2. Confidentiality. \"Confidential Information\" means any proprietary information technical data, trade secrets or know-how... disclosed to Consultant by Company..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 983,
+          "completion_tokens": 121
+        },
+        "party_a_name": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "Name: Scott Dahlbeck Gianluca Rotino",
+              "snippet": "Name: Scott Dahlbeck Gianluca Rotino"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2218,
+          "completion_tokens": 123
+        },
+        "party_b_name": {
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\")"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2342,
+          "completion_tokens": 154
+        },
+        "effective_date": {
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "This letter agreement will be effective as of July 1, 2018."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2038,
+          "completion_tokens": 165
+        },
+        "term_length": {
+          "confidence": 0.28,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "5. Term and Termination. This Agreement will commence on the Effective Date and will continue until termination as provided below."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2339,
+          "completion_tokens": 154
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "This Agreement shall be governed by the laws of the State of Texas, without reference to its conflicts of law principles."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 936,
+          "completion_tokens": 66
+        },
+        "termination_notice_days": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2819,
+          "completion_tokens": 116
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "and against all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2785,
+          "completion_tokens": 146
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.34,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "none",
+              "snippet": "formation of any business or commercial entity in the Field of Interest or otherwise competitive with the Company."
+            },
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "2. Confidentiality. \"Confidential Information\" means any proprietary information technical data, trade secrets or know-how..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2801,
+          "completion_tokens": 229
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Consultant agrees that Consultant owes Company and such third parties, during the term of this Agreement and thereafter, a duty to hold all such confidential or proprietary information in the strictest confidence and not to disclose it to any person..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2901,
+          "completion_tokens": 211
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "Consultant will indemnify Company and hold it harmless from"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "...all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation by Company of such third party's rights..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 890,
+          "completion_tokens": 107,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
+            },
+            {
+              "page_num": 6,
+              "heading": "SERVICES AND COMPENSATION",
+              "snippet": "The Company will compensate Consultant at the rate of $400 per hour (19 hours cap monthly; anything over these hrs must be preapproved by management)"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Upon the termination of this Agreement, or upon Company's earlier requests, Consultant will deliver to Company all property relating to, and all tangible embodiments of, Inventions"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2810,
+          "completion_tokens": 444,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 13,
+        "unique_evidence_pages": 6,
+        "avg_confidence": 0.476,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

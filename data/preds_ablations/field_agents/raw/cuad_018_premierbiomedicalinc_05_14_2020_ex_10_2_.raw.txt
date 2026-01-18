@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":4,"heading":"Party.     4","snippet":"7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship..."},{"page_num":5,"heading":null,"snippet":"\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party..."}],"confidence":0.62,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement","snippet":"...by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. ... (\"Premier\"), Technology Health, Inc. ... (\"THI\")..."}],"confidence":0.62,"value":"Marv Enterprises, LLC"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":4,"heading":null,"snippet":"5. REQUIREMENT. The Parties agree that Marv and/or Mitchell S. Felder shall have no obligation and/or involvement in any capital raising activities for THI or Premier"},{"page_num":6,"heading":null,"snippet":"13.     EXPENSES ASSOCIATED WITH THIS AGREEMENT. Marv shall be reimbursed in full for the cost(s) of all legal expenses associated with this agreement by THI."}],"confidence":0.18,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement","snippet":"(this \"Agreement\") is entered into on May 12, 2020 (\"Effective Date\")"}],"confidence":0.98,"value":"2020-05-12"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"2010 Agreement/2020 Agreement to THI;                NOW, THEREFORE, for good and adequate","snippet":"To the extent that terms in the 2010 Agreement/2020 Agreement are not contradicted or revised here, the terms as stated in 2010 Agreement/2020 Agreement remain in full effect"}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":5,"heading":null,"snippet":"This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania including all matters of construction, validity, performance, and enforcement"}],"confidence":0.98,"value":"Commonwealth of Pennsylvania"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Before payment of any IP Cost, Marv shall notify THI for a time period being the lesser of (i) at least sixty (60) days before the IP Cost is due..."},{"page_num":2,"heading":null,"snippet":"By written notice to Marv and at least ninety (90) days before the non-extendable due date for the filing of a national phase application..."},{"page_num":2,"heading":null,"snippet":"Within such thirty (30) days, THI shall pay in United States dollars to Marv..."}],"confidence":0.12,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":3,"heading":null,"snippet":"...until a total amount of $40,000,000 has been paid to Premier. This royalty is separate and distinct from the royalty obligation to Marv as stated in 2(d)1."},{"page_num":5,"heading":null,"snippet":"...\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party..."}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":null,"snippet":"(d) Royalty Payments. 1. Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of:"},{"page_num":2,"heading":null,"snippet":"2. Extension of Application. By written notice to Marv and at least ninety (90) days before the non-extendable due date for the filing of a national phase application of an Application,"},{"page_num":2,"heading":null,"snippet":"5. The grant of each license hereunder includes the right to grant sublicenses to Related Companies for so long as it remains a Related Companies."}],"confidence":0.12,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":4,"heading":"Party.     4","snippet":"7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship... refraining from... disclosing, using or disseminating such confidential information"},{"page_num":5,"heading":null,"snippet":"8. VENUE. This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania..."}],"confidence":0.22,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":3,"heading":null,"snippet":"If THI does not make the obligatory payments as stated in 2(b) by the dates stated, the Exclusive License will revert back to Premier."},{"page_num":3,"heading":null,"snippet":"Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of:"},{"page_num":5,"heading":null,"snippet":"\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party... or (c) is or becomes generally available to the public other than as a result of a breach"}],"confidence":0.55,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":3,"heading":null,"snippet":"If THI denies payment, THI shall have no obligation to pay IP Costs associated with the Application or Patent in that country, but the license and all associated rights for that Application or Patent shall revert to Marv."},{"page_num":3,"heading":null,"snippet":"Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of: a. Licensed Product...; and b. any service performed by THI... that directly or indirectly uses Licensed Product."},{"page_num":4,"heading":"Party.     4","snippet":"Each Party agrees to hold in confidence confidential information acquired in the course of this relationship... refrain from... disclosing, using or disseminating such confidential information..."}],"confidence":0.62,"value":"The risk level is driven by provisions that can cause THI to lose country-specific patent rights if it declines to reimburse IP costs, since the license and associated rights revert to Marv. Ongoing financial exposure also exists through a 5% royalty on product value and related services. Broad confidentiality obligations add compliance risk if information is mishandled."}

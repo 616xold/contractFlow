@@ -1,0 +1,276 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Thrivent Financial for Lutherans",
+  "party_b_name": "Thrivent Financial for Lutherans",
+  "effective_date": "2019-07-01",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_015_thriventvariableinsuranceaccountb_201907.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 17078,
+    "output_tokens": 2263,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'governing_law' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 22,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary. The following provisions are included as part of this contract:"
+            },
+            {
+              "page_num": 2,
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 800,
+          "completion_tokens": 127
+        },
+        "party_a_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans\nthe Company the Society"
+            },
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "Thrivent Financial for Lutherans 4321 N. Ballard Road Appleton, WI 54919-0001"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1744,
+          "completion_tokens": 207
+        },
+        "party_b_name": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "Thrivent Financial for Lutherans 4321 N. Ballard Road Appleton, WI 54919-0001 (800)\n847-4836"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1536,
+          "completion_tokens": 190
+        },
+        "effective_date": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "Heading: Effective Date: July 1, 2019"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 936,
+          "completion_tokens": 65
+        },
+        "term_length": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary."
+            },
+            {
+              "page_num": 2,
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1792,
+          "completion_tokens": 268
+        },
+        "governing_law": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws of the Society..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 1749,
+          "completion_tokens": 207
+        },
+        "termination_notice_days": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "If you do not make the extra payment within 60 days from the date we notify you of your share of the deficiency, the amount will be charged as an indebtedness against the contract..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1932,
+          "completion_tokens": 202
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary."
+            },
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "All benefits and other terms of this contract remain unchanged except as described below."
+            },
+            {
+              "page_num": 2,
+              "heading": "The following provisions of this contract are amended:",
+              "snippet": "The following provisions of this contract are amended:"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 1909,
+          "completion_tokens": 261
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "DEFINITIONS",
+              "snippet": "The DEFINITIONS section of the contract is amended to include the following:"
+            },
+            {
+              "page_num": 2,
+              "heading": "Is amended to read:",
+              "snippet": "Is amended to read:"
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1357,
+          "completion_tokens": 186
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "ASSIGNMENT",
+              "snippet": "You may transfer ownership of this contract in accordance with our bylaws."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1815,
+          "completion_tokens": 167
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "MAINTENANCE OF SOLVENCY... If the solvency of the Society becomes impaired, you may be required to make an extra payment... If you do not make the extra payment within 60 days... interest compounded at the rate of 5% per year."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 736,
+          "completion_tokens": 98
+        },
+        "risk_explanation": {
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "If the solvency of the Society becomes impaired, you may be required to make an extra payment. The Board of Directors will determine the amount of any extra payment."
+            },
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "You may make the extra payment by an equivalent reduction in benefits or by a payment in cash. If you do not make the extra payment within 60 days... charged as an indebtedness... interest... 5% per year."
+            },
+            {
+              "page_num": 2,
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "Benefits will not be reduced or eliminated by any future amendments to our Articles of Incorporation or Bylaws."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 772,
+          "completion_tokens": 285,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 11,
+        "fields_with_evidence": 11,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 18,
+        "unique_evidence_pages": 3,
+        "avg_confidence": 0.3618,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

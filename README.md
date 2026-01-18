@@ -16,7 +16,7 @@ Goals
 Repository Layout
 -----------------
 - contractflow/core/
-  - pdf_utils.py: PDF text extraction (per-page + full text).
+  - pdf_utils.py: PDF text extraction (per-page + full text), optional OCR fallback.
   - chunking.py: Chunking, BM25 retrieval, embeddings retrieval, and retrieval helpers.
   - extractor.py: LLM extraction pipelines (naive, retrieval context, field agents).
 - contractflow/schemas/
@@ -27,10 +27,13 @@ Repository Layout
   - bulk_extract.py: Batch extractor CLI over a folder of PDFs.
   - inspect_chunks.py: Prints chunk headings and snippets for tuning chunking.
   - evaluate.py: Compares predictions vs gold labels and reports accuracy + coverage.
+  - ablation_eval.py: Runs naive vs retrieval vs field_agents and evaluates each.
+  - build_cuad_pdfs.py: Generates PDFs from the public CUAD dataset text.
+  - bootstrap_labels.py: Generates silver labels from an extraction mode.
 - data/
   - raw_pdfs/: source documents.
   - preds/: extraction outputs and raw model outputs.
-  - labels/: gold labels and labeling templates.
+  - labels/: gold and silver labels, labeling templates, and manifest.
 - docs/
   - domain.md: field definitions and risk heuristics.
 
@@ -134,10 +137,22 @@ CLI Usage Examples
 - Evaluate predictions:
   python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds
 
+- Evaluate against silver labels:
+  python scripts/evaluate.py --labels-dir data/labels --label-suffix .silver.json --preds-dir data/preds
+
+- Run ablations (naive vs retrieval vs field_agents):
+  python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver.json
+
+- Generate PDFs from CUAD text:
+  python scripts/build_cuad_pdfs.py --limit 25
+
+- Bootstrap silver labels:
+  python scripts/bootstrap_labels.py --label-suffix .silver.json --mode field_agents
+
 Known Gaps and Next Steps
 -------------------------
 - Expand labeled datasets in data/labels/.
 - Improve heading heuristics and chunking for long contracts.
-- Add OCR for scanned PDFs.
+- OCR fallback requires system dependencies (Poppler for pdf2image, Tesseract for pytesseract).
 - Improve query hints for difficult fields (party names, liability cap).
 - Add stronger evaluation metrics (e.g., partial credit, evidence precision/recall).

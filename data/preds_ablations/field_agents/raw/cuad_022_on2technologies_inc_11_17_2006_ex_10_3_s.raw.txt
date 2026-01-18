@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":4,"heading":"CONFIDENTIALITY","snippet":"CONFIDENTIALITY"},{"page_num":2,"heading":null,"snippet":"...not under a confidentiality obligation to the Disclosing Party, or (iv) is independently developed by the Receiving Party without reference to or use of any Confidential Information..."}],"confidence":0.62,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."}],"confidence":0.35,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."}],"confidence":0.35,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"SUPPORT AND MAINTENANCE AGREEMENT","snippet":"SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 (the \"Effective Date\"), between On2 Technologies, Inc."},{"page_num":11,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to","snippet":"be executed the Effective Date."}],"confidence":0.32,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":8,"heading":"9.1 Term. Except as otherwise set forth in Sections 9.2 and 9.3 or Exhibit A hereof, the","snippet":"term of this Agreement shall be eighteen (18) months (\"Term\")."}],"confidence":0.98,"value":18}
+
+FIELD governing_law
+{"evidence":[{"page_num":9,"heading":"10.7 Governing Law; Forum.","snippet":"10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance"},{"page_num":10,"heading":null,"snippet":"with the laws of the State of New York, without giving effect to any choice of law or conflict of law provision or rule whether such provision or rule is that of the State of New York or any other jurisdiction."}],"confidence":0.93,"value":"State of New York"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":8,"heading":"9.2 Termination. Either of Wildform or On2 may terminate this Agreement if the other Party","snippet":"is in material breach of this Agreement and fails to cure such breach within thirty (30) days after written notice."}],"confidence":0.32,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":14,"heading":"Flix products:","snippet":"...two (2) dedicated On2 branded mailings during the 12 months following closing to Wildform Flix customers..."}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":5,"heading":"5.3 Receiving Party's Duty of Care. Receiving Party shall protect the Confidential","snippet":"Receiving Party shall protect the Confidential Information from unauthorized use or disclosure... until five (5) years..."}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":1,"heading":"1.3 \"Confidential Information\" means any and all information disclosed by one Party (the","snippet":"\"Confidential Information\" means any and all information disclosed by one Party ... to the other Party ... in any manner..."}],"confidence":0.15,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":8,"heading":"8.2 Wildform's Indemnification of On2. Wildform agrees to defend, indemnify and hold","snippet":"Wildform agrees to defend, indemnify and hold harmless On2 from and against any claim, action, damage or costs (including reasonable attorneys fees)..."},{"page_num":5,"heading":"5.3 Receiving Party's Duty of Care. Receiving Party shall protect the Confidential","snippet":"Receiving Party shall protect the Confidential Information... but in no event less than reasonable care, until five (5) years... each Party shall be liable for any failure by such Party's employees..."},{"page_num":6,"heading":"6.2 Wildform Warranties. Wildform makes the following representations and warranties to","snippet":"...to the best of Wildform's knowledge... the Deliverables... will not infringe any Intellectual Property Rights held by any third party."}],"confidence":0.55,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":4,"heading":null,"snippet":"Each of the Deliverables shall be deemed accepted by On2 unless On2 delivers to Wildform a Nonconformance Notice within thirty (30) business days of the delivery of such Deliverable."},{"page_num":8,"heading":"8.2 Wildform's Indemnification of On2. Wildform agrees to defend, indemnify and hold","snippet":"Wildform agrees to defend, indemnify and hold harmless On2 from and against any claim, action, damage or costs (including reasonable attorneys fees)"},{"page_num":6,"heading":"6.2 Wildform Warranties. Wildform makes the following representations and warranties to","snippet":"to the best of Wildform's knowledge as of the Effective Date, the Deliverables marked as Deliverable #2 will not infringe any Intellectual Property Rights held by any third party."}],"confidence":0.42,"value":"The excerpts do not state an explicit risk level, so the basis for any chosen risk level cannot be determined directly. However, the contract includes a short acceptance window after which deliverables are deemed accepted, which can increase delivery/quality risk if issues are not found quickly. It also relies on limited IP non-infringement assurances (“to the best of knowledge”) and provides indemnification language, suggesting some risk allocation but not enough to infer a specific risk level."}

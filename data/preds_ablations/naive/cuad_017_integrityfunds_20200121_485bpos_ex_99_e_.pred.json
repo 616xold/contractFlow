@@ -1,0 +1,29 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Integrity Short Term Government Fund",
+  "party_b_name": "Integrity Funds Distributor, LLC",
+  "effective_date": "2020-01-18",
+  "term_length": 24,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": 60,
+  "liability_cap": "No explicit monetary liability cap stated; agreement includes mutual indemnification provisions.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "The agreement contains broad mutual indemnification obligations tied to securities law disclosures and sales materials, with no stated monetary cap on liability. Termination for convenience requires 60–90 days' notice, which may reduce flexibility. It is a specialized fund distribution/underwriting agreement rather than a typical SaaS contract, increasing legal/regulatory complexity for a small vendor.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_017_integrityfunds_20200121_485bpos_ex_99_e_.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 5830,
+    "output_tokens": 184,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false
+    }
+  }
+}

@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":12,"heading":"Section 6.01. Confidentiality. Without limiting Section 6.02, all confidential information","snippet":"all confidential information of a Party disclosed to the other Party under this Agreement shall be deemed confidential and proprietary information"},{"page_num":1,"heading":"Section 6.01. Confidentiality 10 Section 6.02. Disclosure of Confidential Technical","snippet":"Section 6.01. Confidentiality ... Section 6.02. Disclosure of Confidential Technical Information"}],"confidence":0.62,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":21,"heading":"IN WITNESS WHEREOF, the Parties have caused this Intellectual Property Agreement to be","snippet":"executed by their duly authorized representatives. NUANCE COMMUNICATIONS, INC."}],"confidence":0.86,"value":"NUANCE COMMUNICATIONS, INC."}
+
+FIELD party_b_name
+{"evidence":[{"page_num":21,"heading":"CERENCE INC.","snippet":"CERENCE INC.\nBy: /s/ Leanne Fitzgerald Name: Leanne Fitzgerald Title: Vice President and Secretary"}],"confidence":0.74,"value":"CERENCE INC."}
+
+FIELD effective_date
+{"evidence":[{"page_num":14,"heading":"Source: CERENCE INC., 8-K, 10/2/2019","snippet":"...within 90 days of the effective date of such divestment..."}],"confidence":0.12,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":18,"heading":"Section 11.08. Notices.","snippet":"All notices or other communications under this Agreement shall be in writing and shall be deemed to be duly given (a) when delivered in person..."}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":16,"heading":"Section 11.03. Governing Law; Jurisdiction.","snippet":"shall be governed by, and construed in accordance with, the Laws of the State of Delaware,"}],"confidence":0.98,"value":"State of Delaware"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":15,"heading":"Section 9.02. Termination prior to the Distribution. This Agreement may be terminated by","snippet":"Nuance at any time, in its sole discretion, prior to the Distribution; provided, however, that this Agreement shall automatically terminate upon the termination of the Separation Agreement in accordance with its terms."},{"page_num":16,"heading":"Source: CERENCE INC., 8-K, 10/2/2019","snippet":"breach within thirty (30) days of such notice (a \"Dispute\")."}],"confidence":0.22,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":13,"heading":"6.09 of the Separation Agreement, none of Nuance, SpinCo or any other member of either","snippet":"Group shall in any event have any Liability to the other or to any other member of the other's Group under this Agreement for any indirect, special, punitive or consequential damages,"}],"confidence":0.18,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":7,"heading":"Section 3.01. License Grants.","snippet":"Subject to the terms and conditions of this Agreement, as of the Distribution Date, Nuance hereby grants to SpinCo... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable... license"},{"page_num":9,"heading":"Section 4.01. License Grants.","snippet":"Subject to the terms and conditions of this Agreement, as of the Distribution Date, SpinCo hereby grants to Nuance... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable... license"}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":4,"heading":null,"snippet":"...owned by the Nuance Group as of immediately prior to the Distribution pursuant to a Nuance Data Agreement... which Data is used in the SpinCo Business..."},{"page_num":6,"heading":null,"snippet":"\"SpinCo Data\" means any Data that is (i) owned by a Third Party and licensed to the Nuance Group or SpinCo Group... pursuant to a SpinCo Data Agreement..."}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":9,"heading":"Section 4.01. License Grants.","snippet":"SpinCo hereby grants to Nuance ... a worldwide, non- exclusive, fully paid-up, perpetual and irrevocable, transferable ... sublicensable ... license under the SpinCo Patents"},{"page_num":17,"heading":"Section 11.05. Court-Ordered Interim Relief.","snippet":"each Party shall be entitled to interim measures of protection duly granted by a court of competent jurisdiction... to preserve the status quo... prevent the destruction or loss of documents... prevent the transfer... of assets."}],"confidence":0.35,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":10,"heading":null,"snippet":"SpinCo hereby grants to Nuance... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable, transferable... sublicensable... license to install, access, use... modify... further develop... sell... distribute and market products"}],"confidence":0.34,"value":"The excerpts show broad, perpetual, irrevocable, transferable and sublicensable IP license grants, which can materially affect IP control and create ongoing obligations or exposure. However, the excerpts do not state any explicit risk level or rationale, so the risk explanation cannot be determined with certainty from the provided text."}

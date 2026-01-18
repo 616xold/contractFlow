@@ -1,0 +1,49 @@
+{
+  "doc_type": "other",
+  "party_a_name": "i-on",
+  "party_b_name": "Customer",
+  "effective_date": "1999-04-06",
+  "term_length": 6,
+  "governing_law": "United States (and applicable state law)",
+  "termination_notice_days": 30,
+  "liability_cap": "Limited to one (1) month's fees and the remaining portion of any prepaid fees.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a web site hosting agreement with broad customer responsibilities and strong provider-friendly protections (hold harmless/indemnification and a low liability cap of one month’s fees plus remaining prepaid fees). Either party can terminate for convenience on 30 days’ notice, which creates continuity risk. Governing law is framed around U.S./state law compliance rather than a clear single jurisdiction, adding some legal uncertainty.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_003_centrackinternationalinc_10_29_1999_ex_1.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 6328,
+    "output_tokens": 194,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 24,
+      "total_hits": 36,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      }
+    }
+  }
+}

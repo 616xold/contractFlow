@@ -1,0 +1,53 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": "2020-03-27",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "Not specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "low",
+  "risk_explanation": "This is a joint filing agreement for SEC Schedule 13G/13D filings rather than a commercial services contract. The excerpt contains no payment terms, IP, confidentiality, data processing, or broad indemnity provisions that typically drive SaaS vendor risk. Key legal terms like governing law, termination rights, and liability caps are not specified in the provided text, limiting exposure based on this excerpt.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 3385,
+    "output_tokens": 170,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 4,
+      "total_hits": 12,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 12,
+        "avg_hits_per_field": 1.0
+      }
+    }
+  }
+}

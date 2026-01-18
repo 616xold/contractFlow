@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Nuance Communications, Inc.",
+  "party_b_name": "Cerence Inc.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts (Article VII / Section 7.01 referenced but cap amount not shown).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This appears to be an intellectual property agreement with broad, perpetual, fully paid-up license grants and detailed confidentiality provisions, which can create long-lived obligations and operational constraints. The excerpts reference a limitation of liability section, but the actual cap is not visible, increasing uncertainty. Governing law and exclusive Delaware jurisdiction may add litigation burden for a small SaaS vendor."
+}

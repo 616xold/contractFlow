@@ -1,0 +1,250 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Natalija Tunevic",
+  "party_b_name": "Mitchell Vitalis",
+  "effective_date": "2018-01-11",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 23083,
+    "output_tokens": 1967,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'governing_law' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 12,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Heading: Website Design, Development and Hosting Agreement"
+            },
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between ... (hereinafter referred to as \"Client\") and ... (hereinafter referred to as \"Company\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 927,
+          "completion_tokens": 122
+        },
+        "party_a_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "...entered into on January 11, 2018 by and between Natalija Tunevic, director of FreeCook (hereinafter referred to as \"Client\") and Mitchell Vitalis, director of Mitchell's Web Advance, PLC..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 983,
+          "completion_tokens": 95
+        },
+        "party_b_name": {
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "...by and between Natalija Tunevic, director of FreeCook (hereinafter referred to as \"Client\") and Mitchell Vitalis, director of Mitchell's Web Advance, PLC (hereinafter referred to as \"Company\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 983,
+          "completion_tokens": 95
+        },
+        "effective_date": {
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between Natalija Tunevic..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 732,
+          "completion_tokens": 82
+        },
+        "term_length": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "3. Business Hours; Rush Work. Company representatives are available during Company's normal business hours..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2496,
+          "completion_tokens": 221
+        },
+        "governing_law": {
+          "confidence": 0.12,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 2348,
+          "completion_tokens": 56
+        },
+        "termination_notice_days": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2508,
+          "completion_tokens": 145
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Client agrees to pay to Company the sum of $5,000 (the \"Contract Price\") to design and develop a website for Client"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2466,
+          "completion_tokens": 144
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Client agrees that any unsolicited positive feedback Client provides to Company may be used in any Company marketing and/or advertising materials (i.e., customer testimonials)."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2333,
+          "completion_tokens": 154
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.12,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2537,
+          "completion_tokens": 182
+        },
+        "risk_level": {
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Company at its sole discretion may at any time alter or cease providing the Customer Service"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours... The surcharge for rush work shall be the standard hourly rate of $40 plus twenty-five percent (25%)."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2413,
+          "completion_tokens": 231,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Company will not make any attempt to proof read or correct any contextual, grammatical or typographical errors in the written content submitted by Client. It is Client's sole responsibility to check the accuracy"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours... The surcharge for rush work shall be the standard hourly rate of $40 plus twenty-five percent (25%)."
+            },
+            {
+              "page_num": 2,
+              "heading": "Exhibit A",
+              "snippet": "Scope of Work Development of design of Free Cook... Development of unique style of the Client Website... Designing UI/UX-practical parts... Development of a prototype and interface testing."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2357,
+          "completion_tokens": 440,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 8,
+        "fields_without_evidence": [
+          "governing_law",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.8,
+        "evidence_snippets_total": 10,
+        "unique_evidence_pages": 2,
+        "avg_confidence": 0.409,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

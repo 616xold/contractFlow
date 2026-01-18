@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"Exhibit 10.16 SUPPLY CONTRACT... 1.1 This is a framework agreement, the terms and conditions are applied to all purchase orders"}],"confidence":0.86,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"Source: LOHA CO. LTD., F-1, 12/9/2019"},{"page_num":1,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"Source: LOHA CO. LTD., F-1, 12/9/2019"}],"confidence":0.62,"value":"LOHA CO. LTD."}
+
+FIELD party_b_name
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"Source: LOHA CO. LTD., F-1, 12/9/2019"},{"page_num":1,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"Source: LOHA CO. LTD., F-1, 12/9/2019"}],"confidence":0.32,"value":"LOHA CO. LTD."}
+
+FIELD effective_date
+{"evidence":[{"page_num":4,"heading":null,"snippet":"The Contract is valid for 5 years, beginning from and ended on . ... The Contract becomes effective after signed by both parties."},{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."}],"confidence":0.18,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":4,"heading":"none","snippet":"23. The Contract is valid for 5 years, beginning from and ended on ."}],"confidence":0.92,"value":60}
+
+FIELD governing_law
+{"evidence":[{"page_num":4,"heading":null,"snippet":"21. Law application It will be governed by the law of the People's Republic of China"}],"confidence":0.96,"value":"People's Republic of China"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."}],"confidence":0.18,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":1,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"The seller shall be liable for any damage and loss of the commodity, expenses incurred on account of improper packing, and any damage attributable to inadequate or improper protective measures taken by the seller..."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure..."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"18. LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time as stipulated in the Contract... the Sellers agree to pay a penalty..."}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"20. This final price is the confidential information. Dissemination, distribution or duplication of this price is strictly prohibited."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"17. FORCE MAJEURE: The Sellers shall not be held responsible for the delay in shipment or non-delivery..."}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"9. PORT OF DESTINATION: SHENZHEN, GUANGDONG, CHINA"},{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."}],"confidence":0.32,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"The Arbitration shall take place in Beijing and the decision of the Arbitration Committee shall be final and binding upon both parties; neither party shall seek recourse to a law court..."},{"page_num":4,"heading":null,"snippet":"It will be governed by the law of the People's Republic of China... Conflicts between these two languages... shall be subject to Chinese version."},{"page_num":3,"heading":null,"snippet":"Where necessary, the Buyers shall be at liberty to eliminate the defect(s) themselves at the Sellers' expenses. If the Sellers fail to answer the Buyers within one weeks... the claim shall be reckoned as having been accepted"}],"confidence":0.62,"value":"high"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":2,"heading":null,"snippet":"INSURANCE: To be covered by the Seller for 110% invoice value against All Risks and War Risk."},{"page_num":2,"heading":null,"snippet":"The Buyer shall open an irrevocable letter of credit with the bank within 30 days after signing the contract... 80%... will be paid against the documents... The remaining 20%... will be paid against the documents"},{"page_num":4,"heading":null,"snippet":"It will be governed by the law of the People's Republic of China... Conflicts between these two languages... shall be subject to Chinese version."}],"confidence":0.42,"value":"The risk level was chosen as moderate because the contract includes strong risk mitigations such as seller-provided insurance for 110% of invoice value and structured payment via an irrevocable letter of credit tied to shipping documents. However, there is still meaningful legal and operational risk due to PRC governing law and Chinese-language precedence in case of conflict, which can disadvantage a non-Chinese counterparty."}

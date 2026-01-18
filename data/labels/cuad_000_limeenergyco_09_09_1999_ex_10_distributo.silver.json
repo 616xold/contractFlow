@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Electric City Corp., a Delaware corporation",
+  "party_b_name": "Electric City of Illinois LLC",
+  "effective_date": "1999-09-07",
+  "term_length": 120,
+  "governing_law": "State of Illinois",
+  "termination_notice_days": 30,
+  "liability_cap": "Neither the Distributor nor the Company shall have liability for consequential or liquidated damages pertaining to late delivery unless Company specifically acknowledges and agrees in writing to the same.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a long-term (10-year) exclusive distributor agreement, which can create commercial lock-in and operational risk for a small SaaS vendor. The contract includes non-solicitation/non-compete style restrictions (e.g., not soliciting customers to purchase competitive products for 18 months after term). Liability is not clearly capped overall, though there is a limitation excluding consequential/liquidated damages for late delivery unless agreed in writing."
+}

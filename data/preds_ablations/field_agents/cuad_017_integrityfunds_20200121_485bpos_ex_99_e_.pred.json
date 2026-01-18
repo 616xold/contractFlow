@@ -1,0 +1,250 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Integrity Short Term Government Fund",
+  "party_b_name": "Integrity Funds Distributor, LLC",
+  "effective_date": null,
+  "term_length": 24,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": 60,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_017_integrityfunds_20200121_485bpos_ex_99_e_.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 18061,
+    "output_tokens": 1871,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 33,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "SECTION 7. TERM OF AGREEMENT Section 7.1 This Agreement shall continue until January 18,",
+              "snippet": "This Agreement shall continue until January 18, 2022, and thereafter shall continue automatically for successive annual periods... provided such continuance is specifically approved at least annually by (a) the Fund's Board of Trustees"
+            },
+            {
+              "page_num": 6,
+              "heading": "1940 Act) of the Fund and who have no direct or indirect financial interest in the",
+              "snippet": "This Agreement is terminable with respect to the Fund, without penalty, (a) on 60 days' written notice... or (b) on 90 days' written notice by Integrity. This Agreement will also terminate automatically in the event of its assignment"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 803,
+          "completion_tokens": 182
+        },
+        "party_a_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "provisions hereof or otherwise affect their construction or effect. In Witness Whereof,",
+              "snippet": "Integrity Short Term Government Fund By: /s/ Shannon D. Radke Shannon D. Radke - President Accepted: Integrity Funds Distributor, LLC"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 727,
+          "completion_tokens": 88
+        },
+        "party_b_name": {
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "provisions hereof or otherwise affect their construction or effect. In Witness Whereof,",
+              "snippet": "Integrity Short Term Government Fund By: /s/ Shannon D. Radke Shannon D. Radke - President Accepted: Integrity Funds Distributor, LLC By: /s/ Shannon D. Radke"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 727,
+          "completion_tokens": 98
+        },
+        "effective_date": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "provisions hereof or otherwise affect their construction or effect. In Witness Whereof,",
+              "snippet": "the parties hereto have caused this Agreement to be executed as of the date first set forth herein."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2185,
+          "completion_tokens": 201
+        },
+        "term_length": {
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "SECTION 7. TERM OF AGREEMENT Section 7.1 This Agreement shall continue until January 18,",
+              "snippet": "This Agreement shall continue until January 18, 2022, and thereafter shall continue automatically for successive annual periods"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 827,
+          "completion_tokens": 81
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "Section 8.3 This Agreement shall be construed in accordance with the laws of the State of",
+              "snippet": "Section 8.3 This Agreement shall be construed in accordance with the laws of the State of Kansas."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1021,
+          "completion_tokens": 82
+        },
+        "termination_notice_days": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "1940 Act) of the Fund and who have no direct or indirect financial interest in the",
+              "snippet": "This Agreement is terminable with respect to the Fund, without penalty, (a) on 60 days' written notice, ... or (b) on 90 days' written notice by Integrity."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 911,
+          "completion_tokens": 97
+        },
+        "liability_cap": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and",
+              "snippet": "...neither such authorization by such Trustees nor such execution and delivery by such officer shall be deemed to have been made by any of them individually or to impose any liability on any of them personally..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2872,
+          "completion_tokens": 232
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": null,
+              "snippet": "Integrity agrees to use its best efforts to solicit orders for the sale of the Shares at the public offering price"
+            },
+            {
+              "page_num": 6,
+              "heading": "SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and",
+              "snippet": "Integrity or its affiliates may enter into distribution or other agreements with such other corporations and trusts."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2539,
+          "completion_tokens": 232
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "Section 8.3 This Agreement shall be construed in accordance with the laws of the State of",
+              "snippet": "Section 8.3 This Agreement shall be construed in accordance with the laws of the State of Kansas."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2453,
+          "completion_tokens": 157
+        },
+        "risk_level": {
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "1940 Act, or common law or otherwise, but only to the extent that such liability or",
+              "snippet": "Integrity's agreement to indemnify the Fund, its officers and trustees, and any such controlling person, as aforesaid, is expressly conditioned upon Integrity's being notified of any action brought against the Fund"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1055,
+          "completion_tokens": 97,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.34,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "SECTION 4. INDEMNIFICATION Section 4.1 The Fund authorizes Integrity and any dealers with",
+              "snippet": "The Fund agrees to indemnify, defend, and hold Integrity, its several officers and governors... free and harmless from and against any and all claims, demands, liabilities, and expenses"
+            },
+            {
+              "page_num": 4,
+              "heading": "Section 4.2 Integrity agrees to indemnify, defend, and hold the Fund, its several officers",
+              "snippet": "Integrity agrees to indemnify, defend, and hold the Fund, its several officers and trustees..."
+            },
+            {
+              "page_num": 5,
+              "heading": "Section 4.3 In case any action shall be brought against any indemnified party under",
+              "snippet": "the indemnifying party shall be entitled to participate in, and... to assume the defense thereof with counsel satisfactory to such indemnified party."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1941,
+          "completion_tokens": 324,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 2,
+        "avg_confidence": 0.507,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

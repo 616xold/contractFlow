@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":37,"heading":null,"snippet":"Any and all information and materials disclosed by a Party pursuant to the Confidentiality Agreement between the Parties dated [***] (the \"Confidentiality Agreement\") shall be deemed Confidential Information disclosed pursuant to this Agreement."},{"page_num":17,"heading":"3.3.13 act as a first level escalation to address disagreements or disputes between the","snippet":"act as a first level escalation to address disagreements or disputes between the Parties;"}],"confidence":0.62,"value":"msa"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":25,"heading":"4.4.2 Ownership of Product Materials.","snippet":"As between the Parties, Dova shall own all right, title and interest... (other than any name, trademark, trade name or logo of Valeant or its Affiliates...)"}],"confidence":0.25,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":25,"heading":"4.4.2 Ownership of Product Materials. As between the Parties, Dova shall own all right,","snippet":"...other than any name, trademark, trade name or logo of Valeant or its Affiliates..."}],"confidence":0.32,"value":"Valeant"}
+
+FIELD effective_date
+{"evidence":[{"page_num":8,"heading":"1.25 \"Effective Date\" shall have the meaning set forth in the preamble to this Agreement.","snippet":"1.25 \"Effective Date\" shall have the meaning set forth in the preamble to this Agreement."},{"page_num":44,"heading":"12.1 Term. This Agreement shall become effective as of the Effective Date and, unless","snippet":"This Agreement shall become effective as of the Effective Date"},{"page_num":49,"heading":"IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.","snippet":"the Parties have executed this Agreement as of the Effective Date."}],"confidence":0.18,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":44,"heading":"12.1 Term. This Agreement shall become effective as of the Effective Date and, unless","snippet":"This Agreement shall become effective as of the Effective Date and, unless earlier terminated as provided in this ARTICLE 12, shall extend until the four (4) year anniversary of the Effective Date (the \"Term\")."}],"confidence":0.95,"value":48}
+
+FIELD governing_law
+{"evidence":[{"page_num":47,"heading":"13.5 Governing Law. This Agreement and any and all matters arising directly or indirectly","snippet":"herefrom shall be governed by and construed and enforced in accordance with the internal\nlaws of the [***] applicable to agreements made and to be performed entirely in such\nstate"}],"confidence":0.35,"value":"[***]"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":45,"heading":"12.3.1 Either Party shall have the right to terminate this Agreement before the end of the","snippet":"Term for its convenience upon [***] written notice to the other Party (and any such termination shall become effective at the end of such [***]); [***]."}],"confidence":0.22,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":4,"heading":"11.4 Limitation of Liability. 40","snippet":"11.4 Limitation of Liability. 40"},{"page_num":43,"heading":"11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER","snippet":"11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER"},{"page_num":42,"heading":"ARTICLE 11  INDEMNIFICATION; LIMITATIONS ON LIABILITY","snippet":"ARTICLE 11  INDEMNIFICATION; LIMITATIONS ON LIABILITY"}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":15,"heading":"2.3.2 Non-Solicitation.","snippet":"neither Valeant nor Dova (nor any of their respective Affiliates) shall directly or indirectly solicit for hire or employee... any of the other Party's professional personnel... without the other Party's prior written consent."},{"page_num":15,"heading":"2.3 Non-Competition; Non-Solicitation.","snippet":"2.3 Non-Competition; Non-Solicitation."}],"confidence":0.98,"value":true}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":16,"heading":"3.3.2 provide a forum to discuss and coordinate the promotion of the Product in the","snippet":"Territory, including in and outside the Specialty;"},{"page_num":29,"heading":"5.7 Certain Reporting Responsibilities. Notwithstanding the foregoing provisions of this","snippet":"...such Party shall provide to the other Party... the data and other information... for such other Party's reporting..."}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":17,"heading":"3.3.13 act as a first level escalation to address disagreements or disputes between the","snippet":"act as a first level escalation to address disagreements or disputes between the Parties;"}],"confidence":0.22,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"TPO receptor agonists have been associated with thrombotic and thromboembolic complications in patients with chronic liver disease."},{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"Portal vein thrombosis has been reported in patients with chronic liver disease treated with TPO receptor agonists."},{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"Consider the potential increased thrombotic risk when administering DOPTELET to patients with known risk factors for thromboembolism..."}],"confidence":0.62,"value":"The risk level is elevated because DOPTELET (a TPO receptor agonist) is associated with thrombotic and thromboembolic complications in patients with chronic liver disease, including reported cases of portal vein thrombosis. The prescribing information also advises considering increased thrombotic risk in patients with known thromboembolism risk factors."}

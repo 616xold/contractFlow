@@ -1,0 +1,282 @@
+{
+  "doc_type": "msa",
+  "party_a_name": null,
+  "party_b_name": "Valeant",
+  "effective_date": null,
+  "term_length": 576,
+  "governing_law": "[***]",
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 14637,
+    "output_tokens": 2168,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "normalized term_length from years to months",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 576,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 37,
+              "heading": null,
+              "snippet": "Any and all information and materials disclosed by a Party pursuant to the Confidentiality Agreement between the Parties dated [***] (the \"Confidentiality Agreement\") shall be deemed Confidential Information disclosed pursuant to this Agreement."
+            },
+            {
+              "page_num": 17,
+              "heading": "3.3.13 act as a first level escalation to address disagreements or disputes between the",
+              "snippet": "act as a first level escalation to address disagreements or disputes between the Parties;"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 615,
+          "completion_tokens": 124
+        },
+        "party_a_name": {
+          "confidence": 0.25,
+          "evidence": [
+            {
+              "page_num": 25,
+              "heading": "4.4.2 Ownership of Product Materials.",
+              "snippet": "As between the Parties, Dova shall own all right, title and interest... (other than any name, trademark, trade name or logo of Valeant or its Affiliates...)"
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 1509,
+          "completion_tokens": 158
+        },
+        "party_b_name": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 25,
+              "heading": "4.4.2 Ownership of Product Materials. As between the Parties, Dova shall own all right,",
+              "snippet": "...other than any name, trademark, trade name or logo of Valeant or its Affiliates..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1457,
+          "completion_tokens": 156
+        },
+        "effective_date": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "1.25 \"Effective Date\" shall have the meaning set forth in the preamble to this Agreement.",
+              "snippet": "1.25 \"Effective Date\" shall have the meaning set forth in the preamble to this Agreement."
+            },
+            {
+              "page_num": 44,
+              "heading": "12.1 Term. This Agreement shall become effective as of the Effective Date and, unless",
+              "snippet": "This Agreement shall become effective as of the Effective Date"
+            },
+            {
+              "page_num": 49,
+              "heading": "IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.",
+              "snippet": "the Parties have executed this Agreement as of the Effective Date."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1156,
+          "completion_tokens": 234
+        },
+        "term_length": {
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 44,
+              "heading": "12.1 Term. This Agreement shall become effective as of the Effective Date and, unless",
+              "snippet": "This Agreement shall become effective as of the Effective Date and, unless earlier terminated as provided in this ARTICLE 12, shall extend until the four (4) year anniversary of the Effective Date (the \"Term\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "normalized term_length from years to months"
+          ],
+          "prompt_tokens": 563,
+          "completion_tokens": 98
+        },
+        "governing_law": {
+          "confidence": 0.35,
+          "evidence": [
+            {
+              "page_num": 47,
+              "heading": "13.5 Governing Law. This Agreement and any and all matters arising directly or indirectly",
+              "snippet": "herefrom shall be governed by and construed and enforced in accordance with the internal\nlaws of the [***] applicable to agreements made and to be performed entirely in such\nstate"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1157,
+          "completion_tokens": 188
+        },
+        "termination_notice_days": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 45,
+              "heading": "12.3.1 Either Party shall have the right to terminate this Agreement before the end of the",
+              "snippet": "Term for its convenience upon [***] written notice to the other Party (and any such termination shall become effective at the end of such [***]); [***]."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1492,
+          "completion_tokens": 184
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "11.4 Limitation of Liability. 40",
+              "snippet": "11.4 Limitation of Liability. 40"
+            },
+            {
+              "page_num": 43,
+              "heading": "11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER",
+              "snippet": "11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER"
+            },
+            {
+              "page_num": 42,
+              "heading": "ARTICLE 11  INDEMNIFICATION; LIMITATIONS ON LIABILITY",
+              "snippet": "ARTICLE 11  INDEMNIFICATION; LIMITATIONS ON LIABILITY"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 1102,
+          "completion_tokens": 322
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 15,
+              "heading": "2.3.2 Non-Solicitation.",
+              "snippet": "neither Valeant nor Dova (nor any of their respective Affiliates) shall directly or indirectly solicit for hire or employee... any of the other Party's professional personnel... without the other Party's prior written consent."
+            },
+            {
+              "page_num": 15,
+              "heading": "2.3 Non-Competition; Non-Solicitation.",
+              "snippet": "2.3 Non-Competition; Non-Solicitation."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 582,
+          "completion_tokens": 128
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 16,
+              "heading": "3.3.2 provide a forum to discuss and coordinate the promotion of the Product in the",
+              "snippet": "Territory, including in and outside the Specialty;"
+            },
+            {
+              "page_num": 29,
+              "heading": "5.7 Certain Reporting Responsibilities. Notwithstanding the foregoing provisions of this",
+              "snippet": "...such Party shall provide to the other Party... the data and other information... for such other Party's reporting..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1688,
+          "completion_tokens": 216
+        },
+        "risk_level": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 17,
+              "heading": "3.3.13 act as a first level escalation to address disagreements or disputes between the",
+              "snippet": "act as a first level escalation to address disagreements or disputes between the Parties;"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2486,
+          "completion_tokens": 142,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 52,
+              "heading": "WARNINGS AND PRECAUTIONS",
+              "snippet": "TPO receptor agonists have been associated with thrombotic and thromboembolic complications in patients with chronic liver disease."
+            },
+            {
+              "page_num": 52,
+              "heading": "WARNINGS AND PRECAUTIONS",
+              "snippet": "Portal vein thrombosis has been reported in patients with chronic liver disease treated with TPO receptor agonists."
+            },
+            {
+              "page_num": 52,
+              "heading": "WARNINGS AND PRECAUTIONS",
+              "snippet": "Consider the potential increased thrombotic risk when administering DOPTELET to patients with known risk factors for thromboembolism..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 830,
+          "completion_tokens": 218,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 17,
+        "unique_evidence_pages": 14,
+        "avg_confidence": 0.417,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

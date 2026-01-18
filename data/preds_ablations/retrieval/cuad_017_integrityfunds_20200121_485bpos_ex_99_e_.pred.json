@@ -1,0 +1,49 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Integrity Short Term Government Fund",
+  "party_b_name": "Integrity Funds Distributor, LLC",
+  "effective_date": "2020-01-18",
+  "term_length": 24,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": 60,
+  "liability_cap": "Obligations bind only the property of the Fund; no personal liability of trustees/shareholders/officers/agents/employees.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a distribution and services agreement with mutual indemnification provisions tied to securities law disclosures, which can create meaningful litigation and defense-cost exposure. There is no clear monetary liability cap; instead, liability is limited to the Fund’s property and excludes certain misconduct standards, leaving uncertainty for a vendor. Termination requires 60–90 days’ notice, which may reduce flexibility compared to typical SaaS arrangements.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_017_integrityfunds_20200121_485bpos_ex_99_e_.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 6927,
+    "output_tokens": 204,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 33,
+      "total_hits": 36,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      }
+    }
+  }
+}

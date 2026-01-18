@@ -2,6 +2,10 @@
 
 Gold labels live in this folder and are named like `<doc_stem>.gold.json`.
 
+Silver labels (LLM-generated drafts) can be stored as `<doc_stem>.silver.json` and
+tracked in `manifest.json`. Silver labels are useful for ablations but should be
+manually reviewed before treating them as gold.
+
 Guidelines:
 - Use the schema in `contractflow/schemas/contract_schema.json`.
 - Populate every field (use null only for nullable fields).

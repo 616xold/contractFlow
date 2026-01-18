@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "PC Financial Services Private Limited",
+  "party_b_name": "Mobimagic Co., Ltd.",
+  "effective_date": "2019-04-01",
+  "term_length": 12,
+  "governing_law": "India",
+  "termination_notice_days": null,
+  "liability_cap": "The aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is a service agreement involving system/platform maintenance and data processing, including customer personal data, which increases operational and compliance risk. The governing law and exclusive jurisdiction are India (New Delhi), which may be less favorable for a small SaaS vendor depending on where it operates. Liability appears capped to the aggregate fees/expenses owed, which is helpful, but the excerpts do not show clear termination-for-convenience notice terms or detailed cross-border data transfer controls."
+}

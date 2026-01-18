@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "PACIRA PHARMACEUTICALS, INC. (F/K/A SKYEPharma, Inc.)",
+  "party_b_name": "EKR THERAPEUTICS, INC.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "New York",
+  "termination_notice_days": null,
+  "liability_cap": "Each party's liability is limited to [**] US Dollars ($[**]) (with carve-outs for death/personal injury due to negligence and certain unpaid payments; and additional exceptions as stated).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "The agreement includes broad indemnity/insurance obligations and product-related liabilities, which can create meaningful exposure for a small vendor. Although there is a stated liability limitation, the cap amount is redacted and there are carve-outs, making the true risk difficult to quantify. Governing law and exclusive jurisdiction in New York may also increase dispute-handling burden."
+}

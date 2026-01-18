@@ -1,0 +1,3786 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R 24 0 R 26 0 R 28 0 R 30 0 R 32 0 R 34 0 R 36 0 R 38 0 R 40 0 R 42 0 R 44 0 R 46 0 R 48 0 R 50 0 R 52 0 R 54 0 R 56 0 R 58 0 R 60 0 R 62 0 R 64 0 R ] /Count 31 >>
+endobj
+3 0 obj
+<< /Length 3906 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(Exhibit 10.26    CONFIDENTIAL TREATMENT HAS BEEN REQUESTED AS TO CERTAIN PORTIONS OF THIS) Tj
+0 -12 Td
+(DOCUMENT. EACH SUCH PORTION,  WHICH HAS BEEN OMITTED HEREIN AND REPLACED WITH AN ASTERISK) Tj
+0 -12 Td
+([*], HAS BEEN FILED SEPARATELY WITH THE  SECURITIES AND EXCHANGE COMMISSION.     PROMOTION) Tj
+0 -12 Td
+(AND DISTRIBUTION AGREEMENT     This Promotion and Distribution Agreement including all) Tj
+0 -12 Td
+(exhibits \(collectively referred to as the "Agreement"\), effective as of 1 August 2011 \(the) Tj
+0 -12 Td
+("Effective Date"\), is made by and between Whitesmoke Inc., with registered) Tj
+0 -12 Td
+(offices/principle place of business at 501 Silverside Road, Suite 105,  Wilmington DE) Tj
+0 -12 Td
+(19809, USA, \("Distributor"\), and Google Inc whose principle place of business is at 1600) Tj
+0 -12 Td
+(Amphitheatre Parkway, Mountain View,  CA 94043, USA \("Google"\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+("Bundle" means the Distribution Products bundled with the Distributor App\(s\).     "Chrome) Tj
+0 -12 Td
+(Browser" means the machine-readable binary code version of the Google Chrome browser) Tj
+0 -12 Td
+(provided to Distributor in connection with  this Agreement, and any modifications or) Tj
+0 -12 Td
+(updates to it that Google may provide to Distributor.     "Chrome Browser Installer") Tj
+0 -12 Td
+(means: \(a\) the machine-readable binary code version of the installer provided to) Tj
+0 -12 Td
+(Distributor in connection with this  Agreement that installs the Chrome Browser, and any) Tj
+0 -12 Td
+(modifications, updates or upgrades to it that Google may provide to Distributor; and \(b\)) Tj
+0 -12 Td
+(the  Chrome Browser Criteria Checker.     "Chrome Use Event" means an event that indicates) Tj
+0 -12 Td
+(an [* ] has occurred.     "Chrome Server Communication" means a communication that, as) Tj
+0 -12 Td
+(determined solely by Google, is sent for the purpose of indicating that an End  User: \(a\)) Tj
+0 -12 Td
+(is [* ] to the [* ]; and \(b\) has kept the [* ] open for a minimum of [* ] during a [* ]) Tj
+0 -12 Td
+(\(whether during the [* ] or a [* ] of the Chrome  Browser\).     "Criteria Checker" means a) Tj
+0 -12 Td
+(set of software routines \(and any updates to them\) provided to Distributor by Google, as) Tj
+0 -12 Td
+(part of a software library,  that check certain criteria \(as determined by Google and) Tj
+0 -12 Td
+(modified by Google from time to time\) to determine if the Chrome Browser or Google) Tj
+0 -12 Td
+(Toolbar \(as applicable\) can be installed on an End User's operating system. Accordingly,) Tj
+0 -12 Td
+("Chrome Browser Criteria Checker" means the Criteria  Checker provided by Google in) Tj
+0 -12 Td
+(respect of the Chrome Browser and "Google Toolbar Criteria Checker" means the Criteria) Tj
+0 -12 Td
+(Checker provided by  Google in respect of the Google Toolbar.     "Distributor App\(s\)") Tj
+0 -12 Td
+(means the following application \(and successor versions of such software\): the trial) Tj
+0 -12 Td
+(version of the WhiteSmoke Writer  \(currently called WhiteSmoke 2011\) available on a) Tj
+0 -12 Td
+(worldwide basis, but for the avoidance of doubt shall not mean any other products of) Tj
+0 -12 Td
+(Distributor, including without limitation the full paid version of Whitesmoke Writer or) Tj
+0 -12 Td
+(any version of Whitesmoke "Translator" software,  regardless of whether Whitesmoke Writer) Tj
+0 -12 Td
+(incorporates any translation functionality.     *Confidential treatment requested  Google) Tj
+0 -12 Td
+(Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1. DEFINITIONS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.1 In this Agreement unless expressly stated otherwise:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 1 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+("Distribution Products" means:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Length 3929 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+("End User" means an end user customer of Distributor who is located in the Territory.) Tj
+0 -12 Td
+("EULA" means the end user license agreement applicable to a Product, which end user) Tj
+0 -12 Td
+(license agreement may be updated or modified by Google in  its sole discretion from time) Tj
+0 -12 Td
+(to time.     "False" means a "false" response \(or equivalent negative response\) given by) Tj
+0 -12 Td
+(the Criteria Checker.     "Google Program Guidelines" means the policy and implementation) Tj
+0 -12 Td
+(guidelines applicable to the Products as updated by Google and provided to  Distributor) Tj
+0 -12 Td
+(from time to time.     "Google Toolbar" means the machine-readable binary code version of) Tj
+0 -12 Td
+(the Google toolbar for Internet Explorer provided to Distributor in  connection with this) Tj
+0 -12 Td
+(Agreement, and any modifications or updates to it that Google may provide to Distributor.) Tj
+0 -12 Td
+("Google Toolbar Installer" means: \(a\) the machine-readable binary code version of the) Tj
+0 -12 Td
+(installer provided to Distributor in connection with this  Agreement that installs the) Tj
+0 -12 Td
+(Google Toolbar, and any modifications, updates or upgrades to it that Google may provide) Tj
+0 -12 Td
+(to Distributor; and \(b\) the  Google Toolbar Criteria Checker.     "Google Trademarks") Tj
+0 -12 Td
+(means all names, trade names, trademarks, and logos used by Google in connection with the) Tj
+0 -12 Td
+(Products.     "Group Company" means in relation to each of the parties:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+("Install Completed" occurs when an End User has completed the install process for a Bundle) Tj
+0 -12 Td
+(and the install completed screen is shown to the End  User in accordance with Exhibit B.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) as at the Effective Date, the Google Toolbar Installer and the Chrome Browser) Tj
+0 -12 Td
+(Installer; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) if Distributor notifies Google at any time after the Effective Date that it wishes to) Tj
+0 -12 Td
+(bundle the full Google Toolbar and Google  provides its approval in writing \(including) Tj
+0 -12 Td
+(email\), the Google Toolbar; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) if Distributor notifies Google at any time after the Effective Date that it wishes to) Tj
+0 -12 Td
+(bundle the full Chrome Browser and Google  provides its approval in writing \(including) Tj
+0 -12 Td
+(email\), the Chrome Browser.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) any parent company of that party; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) any corporate body of which that party directly or indirectly has control or which is) Tj
+0 -12 Td
+(directly or indirectly controlled by the same  person or group of persons as that party.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 2 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+("Intellectual Property Rights" means all copyright, moral rights, patent rights, trade) Tj
+0 -12 Td
+(marks, design right, rights in or relating to databases, rights in  or relating to) Tj
+0 -12 Td
+(confidential information, rights in relation to domain names, and any other intellectual) Tj
+0 -12 Td
+(property rights \(registered or unregistered\)  throughout the world.     "IPO" means an) Tj
+0 -12 Td
+(initial public offering of all or any of the shares in Distributor or securities) Tj
+0 -12 Td
+(representing those shares for the purposes of being  publically traded or quoted on an) Tj
+0 -12 Td
+(investment exchange.     "Maximum Distribution Commitment" means [* ] , as may be) Tj
+0 -12 Td
+(increased by Google pursuant to Clause 4.2 \(Maximum Distribution Commitment\).     "[ * ]") Tj
+0 -12 Td
+(means a [ * ] or [ * ] entered by the [ * ] into the [ * ] located at the [ * ] of the [ *) Tj
+0 -12 Td
+(]. [ * ] do not include the events listed in Clause 3.9\(c\)\(ii\).     "Products" means the) Tj
+0 -12 Td
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 3236 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(Google Toolbar, Google Toolbar Installer, Chrome Browser and Chrome Browser Installer.) Tj
+0 -12 Td
+("[ * ]" means the [ * ] received by a [ * ] that, as determined solely by [ * ]: \(a\) is [) Tj
+0 -12 Td
+(* ] by a [ * ] obtained via a [ * ]; \(b\) is the next [ * ] that occurs  following a [ * ];) Tj
+0 -12 Td
+(and \(c\) includes the [ * ]. [ * ] only include those [ * ] which meet the requirements set) Tj
+0 -12 Td
+(out in Clause 3.9\(c\)\(iii\).     "[ * ]" means a [ * ] received by [ * ] that, as determined) Tj
+0 -12 Td
+(solely by [ * ]: \(a\) is [ * ] by a [ * ] obtained via a [ * ]; \(b\) is sent for the [ * ]) Tj
+0 -12 Td
+(of indicating  that an [ * ]: \(i\) has opened [ * ] following installation of the [ * ],) Tj
+0 -12 Td
+(\(ii\) is [ * ] to the [ * ], and \(iii\) has [ * ] a [ * ] into the [ * ]; and \(c\) includes) Tj
+0 -12 Td
+(the  correct [ * ]. [ * ] only include those [ * ] which meet the requirements set out in) Tj
+0 -12 Td
+(Clause 3.9\(c\)\(i\).     "Term" means the earlier of: \(a\) the end of the two year period from) Tj
+0 -12 Td
+(the Effective Date to 31 July 2013; or \(b\) the last day of the calendar month  within) Tj
+0 -12 Td
+(which the Maximum Distribution Commitment is reached.     "Territory" means those) Tj
+0 -12 Td
+(countries listed in Exhibit A, excluding any territory or state prohibited under Clause) Tj
+0 -12 Td
+(11.5.     "True" means a "true" response \(or equivalent positive response\) given by the) Tj
+0 -12 Td
+(Criteria Checker.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.2 In this Agreement, the words "include" and "including" will not limit the generality) Tj
+0 -12 Td
+(of any words preceding them.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2. LICENSE GRANTS AND RESTRICTIONS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.1 Products License Grant. Subject to the terms and conditions of this Agreement, Google) Tj
+0 -12 Td
+(grants to Distributor a [* ] license during the  Term to: \(a\) bundle the Distribution) Tj
+0 -12 Td
+(Products, in machine-readable binary code format only, solely with Distributor App\(s\); \(b\)) Tj
+0 -12 Td
+(distribute  Bundles directly \(or indirectly, subject to Clause 2.2 \(Third Party) Tj
+0 -12 Td
+(Distribution\)\) to End Users in the Territory; \(c\) when indicated by the  applicable) Tj
+0 -12 Td
+(Criteria Checker and requested by the End User in accordance with clause 3.2 \(Form of) Tj
+0 -12 Td
+(Distribution Offering\), install the  Chrome Browser or the Google Toolbar \(as applicable\)) Tj
+0 -12 Td
+(on the End User's system using the Google Installers; and \(d\) reproduce \(or have) Tj
+0 -12 Td
+(reproduced by Third Party Distributors as defined in Clause 2.2 \(Third Party) Tj
+0 -12 Td
+(Distribution\)\), the Distribution Products to the extent  necessary to exercise the rights) Tj
+0 -12 Td
+(granted in \(a\), \(b\) and \(c\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 3 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 3960 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.2 Third Party Distribution. Distributor may distribute Bundles to third parties solely) Tj
+0 -12 Td
+(for redistribution of such Bundles by those third  parties directly to End Users \(such) Tj
+0 -12 Td
+(third parties, "Third Party Distributors"\); provided that: \(a\) in connection with any and) Tj
+0 -12 Td
+(all such  offers or distributions, Distributor shall, and shall ensure that each Third) Tj
+0 -12 Td
+(Party Distributor shall, distribute Bundles in a manner that is no  less protective of the) Tj
+0 -12 Td
+(Products and Google than the terms of this Agreement, and \(b\) Google in its sole) Tj
+0 -12 Td
+(discretion may direct Distributor  to cease distributing Bundles to any Third Party) Tj
+0 -12 Td
+(Distributor that in Google's sole discretion would either: \(i\) harm or devalue Google's) Tj
+0 -12 Td
+(business, brand or name, or \(ii\) violate Google's privacy policy, and Distributor shall) Tj
+0 -12 Td
+(cause any such Third Party Distributor to cease  distribution of Bundles as soon as) Tj
+0 -12 Td
+(practicable but in no event longer than [ * ] following receipt of such request from) Tj
+0 -12 Td
+(Google. Distributor  shall ensure that no Third Party Distributor bundles anything in or) Tj
+0 -12 Td
+(with Bundles without Google's prior written approval, and if Google  grants its approval,) Tj
+0 -12 Td
+(Distributor shall provide Google with information about any such bundling arrangements at) Tj
+0 -12 Td
+(Google's request.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.3 License Grant Restrictions. Distributor shall not, and shall not allow any third party) Tj
+0 -12 Td
+(to \(except to the extent that such prohibitions are  not permitted by law\): \(a\)) Tj
+0 -12 Td
+(disassemble, de-compile or otherwise reverse engineer the Products or otherwise attempt to) Tj
+0 -12 Td
+(learn the source  code or algorithms underlying the Products; \(b\) modify the Products,) Tj
+0 -12 Td
+(create derivative works from or based on the Products; \(c\) except as  expressly set out in) Tj
+0 -12 Td
+(this Agreement, provide, sell, license, distribute, lease, lend, or disclose the Products) Tj
+0 -12 Td
+(to any third party; \(d\) use the  Products for timeshare, service bureau, or other) Tj
+0 -12 Td
+(unauthorised purposes; or \(e\) exceed the scope of any license granted to Distributor) Tj
+0 -12 Td
+(under this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.4 Trademark License and Use. Subject to the terms and conditions of this Agreement,) Tj
+0 -12 Td
+(Google grants to Distributor a limited, [ * ] license  during the Term to use the Google) Tj
+0 -12 Td
+(Trademarks, in accordance with Google's trademark usage guidelines, solely to market and) Tj
+0 -12 Td
+(promote the  Products consistent with this Agreement, provided that all use of the Google) Tj
+0 -12 Td
+(Trademarks shall be subject to Google's prior review and  advance written consent. All) Tj
+0 -12 Td
+(uses of the Google Trademarks, and all goodwill associated therewith, shall inure solely) Tj
+0 -12 Td
+(to the benefit of  Google.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.5 Trademark Restrictions. Distributor shall not remove, modify, adapt, or prepare) Tj
+0 -12 Td
+(derivative works of any Google Trademarks or Google  copyright notices, or other Google) Tj
+0 -12 Td
+(proprietary rights notices.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.6 Updated Versions of Distribution Products. Google may request that Distributor) Tj
+0 -12 Td
+(distribute the latest version of the Distribution Products.  Distributor shall begin such) Tj
+0 -12 Td
+(distribution within [ * ] following Google's request.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3. DISTRIBUTION AND OTHER OBLIGATIONS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.1 Delivery. Google shall deliver the Distribution Products electronically to Distributor) Tj
+0 -12 Td
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 2845 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(at a [ * ] following the Effective Date and prior to  Launch \(as defined in Clause 3.4) Tj
+0 -12 Td
+(\(Launch\)\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 4 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(User to review such EULA via a hyperlink to such EULA: and \(c\) a button on which each End) Tj
+0 -12 Td
+(User may click indicating agreement to the  terms of such EULA. In the event that an End) Tj
+0 -12 Td
+(User does not affirmatively agree to install the Google Toolbar or Chrome Browser, by) Tj
+0 -12 Td
+(clicking on the button to agree to the terms of the applicable EULA, then the Google) Tj
+0 -12 Td
+(Toolbar or Chrome Browser \(as applicable\) shall not  be installed on such End User's) Tj
+0 -12 Td
+(computer.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.2 Form of Distribution Offering. Distributor shall ensure that the form of any offering) Tj
+0 -12 Td
+(of the Products by Distributor, including the timing,  relative and absolute placement,) Tj
+0 -12 Td
+(visual presentation to End Users, initial launch of the Products \(and any modifications to) Tj
+0 -12 Td
+(them\) and the  presentation of any other applications or products offered with the) Tj
+0 -12 Td
+(Products, conforms to the Google Program Guidelines and to Exhibit B  of this Agreement.) Tj
+0 -12 Td
+(Except as set out in Clause 2 \(Licence Grant and Restrictions\) and except for End Users as) Tj
+0 -12 Td
+(expressly set out in this  Agreement, Distributor shall not offer or distribute the) Tj
+0 -12 Td
+(Products to any third party. If, during the Term, Exhibit B and the Google Program) Tj
+0 -12 Td
+(Guidelines conflict, Exhibit B will take precedence with respect to the conflicting terms.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.3 Guidelines for Applications. Distributor shall comply, and shall ensure that each) Tj
+0 -12 Td
+(Third Party Distributor complies, with the Guidelines for  Applications set out in Exhibit) Tj
+0 -12 Td
+(C.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.4 Launch. Distributor shall begin distribution of Bundles in accordance with this) Tj
+0 -12 Td
+(Agreement \("Launch"\) within [ * ] days following the  Effective Date \(the date of such) Tj
+0 -12 Td
+(Launch, the "Launch Date"\). Beginning on the Launch Date and continuing throughout the) Tj
+0 -12 Td
+(Term,  Distributor shall ensure that [ * ]Distributor App distributed by or on behalf of) Tj
+0 -12 Td
+(Distributor is bundled with the Distribution Products as  set out in this Agreement.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2309 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(3.5 Exclusivity.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) [ * ]) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.6 EULA. In connection with Distributor's distribution of the Products under this) Tj
+0 -12 Td
+(Agreement, and before the Google Toolbar or Chrome  Browser can be installed by an End) Tj
+0 -12 Td
+(User, Distributor shall provide each End User with: \(a\) a clear statement inviting the End) Tj
+0 -12 Td
+(User to agree  to the terms of the applicable EULA; \(b\) the opportunity for each End) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.7 Accurate Reproduction. Distributor agrees that in connection with its exercise of the) Tj
+0 -12 Td
+(right granted in Clause 2.1 \(Products Licence Grant\)  it shall accurately reproduce the) Tj
+0 -12 Td
+(Distribution Products and shall not: \(a\) modify any Product \(including modify the Chrome) Tj
+0 -12 Td
+(Browser or  Google Toolbar configuration files or registry settings\); or \(b\) insert into) Tj
+0 -12 Td
+(the Products any viruses, worms, date bombs, time bombs, or  other code that is) Tj
+0 -12 Td
+(specifically designed to cause the Products to cease operating, or to damage, interrupt,) Tj
+0 -12 Td
+(or interfere with any Products  or End User data.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.8 [ * ]. During the Term and for a period of [ * ] following the expiration or) Tj
+0 -12 Td
+(termination of this Agreement, Distributor shall not, and shall not  engage any third) Tj
+0 -12 Td
+(party to: \(a\) restrict, modify, or reconfigure in any manner any of the Products that have) Tj
+0 -12 Td
+(been installed by End Users  \(such End Users, "Installed Base End Users"\) in connection) Tj
+0 -12 Td
+(with this Agreement; or \(b\) engage in activities that encourage Installed  Base End Users) Tj
+0 -12 Td
+(to modify, uninstall or reconfigure any or the Products.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 5 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 3783 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.9  Reporting.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) By Distributor. During the Term, Distributor shall, on a [ * ] basis, no later than) Tj
+0 -12 Td
+(the [ * ] of the following [ * ], provide Google  with a report identifying, on a country-) Tj
+0 -12 Td
+(by-country basis, the total number of: \(i\) Bundles distributed; \(ii\) Installs Completed;) Tj
+0 -12 Td
+(\(iii\)  Google Toolbar offers presented to End Users; and \(iv\) Chrome Browser offers) Tj
+0 -12 Td
+(presented to End Users, in the preceding [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) By Google. During the Term, Google shall on a [ * ] basis, provide Distributor with a) Tj
+0 -12 Td
+(report of the [ * ] of [ * ] and [ * ] in the  preceding [ * ] broken down on a [ * ]) Tj
+0 -12 Td
+(basis and by the [ * ] in Exhibit A.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) Parameters. Distributor acknowledges, and shall cooperate with Google to [ * ] that:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(i\) [ * ]: \(A\) are determined on a [ * ] \(B\) are only [ * ]; \(C\) do not include [ * ] from) Tj
+0 -12 Td
+(computers on which another [ * ] of the  [ * ] is [ * ]; and \(D\) do not include use of the) Tj
+0 -12 Td
+([ * ] in any [ * ] other than [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(ii\) [ * ] do not include: \(A\) [ * ] that has been [ * ], \(B\) [ * ] or [ * ] in any area) Tj
+0 -12 Td
+(other than in the [ * ], or \(C\) any other [ * ] of  the [ * ] designed to artificially [ *) Tj
+0 -12 Td
+(].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(iii\) [ * ]: \(A\) are determined on a [ * ]; \(B\) are only [ * ]; \(C\) are not sent in) Tj
+0 -12 Td
+(response to [ * ] from computers on which  another [ * ] of the [ * ] is [ * ]; and \(D\)) Tj
+0 -12 Td
+(are sent only in response to [ * ] from computers that meet the [ * ] requirements  as) Tj
+0 -12 Td
+(determined by the [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(d\) Records and Audit Rights. Distributor will keep and maintain complete and accurate) Tj
+0 -12 Td
+(books, records, and accounts relating to  this Agreement. During the Term, and for a) Tj
+0 -12 Td
+(period of [ * ] thereafter, Google may audit Distributor's relevant records to confirm) Tj
+0 -12 Td
+(Distributor's compliance with this Agreement. Google's auditor will only have access to) Tj
+0 -12 Td
+(those books and records of Distributor  which are reasonably necessary to confirm such) Tj
+0 -12 Td
+(compliance.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4. PAYMENT TERMS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4.1 Payments. Subject to Clause 4.2, during the Term on a [ * ] basis, Google shall pay to) Tj
+0 -12 Td
+(Distributor the applicable payment set out in Exhibit  A for each [ * ] and each [ * ]) Tj
+0 -12 Td
+(that occurred during the previous [ * ]. Google shall determine the [ * ] in respect of) Tj
+0 -12 Td
+(which each [ * ] and  [ * ] took [ * ] \(using the relevant [ * ]\). Notwithstanding the) Tj
+0 -12 Td
+(foregoing, in no event will the [ * ] of [ * ] by Google to Distributor for all  [ * ] and) Tj
+0 -12 Td
+(all [ * ] in respect of [ * ] \(as set out in Exhibit A\) exceed [ * ] \([ * ]\) of the [ * ]) Tj
+0 -12 Td
+(to Distributor for such [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4.2 [ * ]. Notwithstanding anything to the contrary, in no event shall the [ * ] paid or) Tj
+0 -12 Td
+(payable to Distributor by Google pursuant to Clause 4.1  \(Payments\) exceed the [ * ].) Tj
+0 -12 Td
+(Google shall have the right, at its sole option, to increase the [ * ] by providing) Tj
+0 -12 Td
+(written notice to Distributor  no later than [ * ] prior to the end of the Term. The) Tj
+0 -12 Td
+(foregoing sentence shall not relieve Google of any payment obligations that have  accrued) Tj
+0 -12 Td
+ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 2505 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(prior to the achievement of the [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4.3 Payment Terms. All payments under this Agreement shall be made in [ * ] in the [ * ]) Tj
+0 -12 Td
+(following the [ * ] for which the payments are  applicable. The party receiving payment) Tj
+0 -12 Td
+(will be responsible for any bank charges assessed by the recipient's bank. In addition to) Tj
+0 -12 Td
+(other  rights and remedies Google may have, Google may offset any payment obligations to) Tj
+0 -12 Td
+(Distributor that Google may incur under this  Agreement against any product or service) Tj
+0 -12 Td
+(fees owed to Google and not yet paid by Distributor under any agreement between) Tj
+0 -12 Td
+(Distributor  and Google. Google may also withhold and offset against its payment) Tj
+0 -12 Td
+(obligations under this Agreement, or require Distributor to pay to  Google within [ * ] of) Tj
+0 -12 Td
+(any invoice, any amounts Google [ * ] overpaid to Distributor in prior periods.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 6 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4.4 Taxes. All payments under this Agreement are exclusive of taxes imposed by any) Tj
+0 -12 Td
+(governmental entity. Google shall pay any applicable  taxes imposed by governmental) Tj
+0 -12 Td
+(agencies with respect to the transactions under this Agreement other than taxes based upon) Tj
+0 -12 Td
+(Distributor's income. Google shall promptly provide to Distributor a copy of an official) Tj
+0 -12 Td
+(tax receipt or other appropriate evidence of any  taxes imposed on payments made under) Tj
+0 -12 Td
+(this Agreement. When Distributor has the legal obligation to collect any applicable taxes,) Tj
+0 -12 Td
+(the  appropriate amount shall be invoiced to and paid by Google unless Google provides) Tj
+0 -12 Td
+(Distributor with a valid tax exemption certificate  authorised by the appropriate taxing) Tj
+0 -12 Td
+(authority.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4.5 Interest. Distributor may charge interest at the rate of [ * ] above the base rate of) Tj
+0 -12 Td
+ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 3435 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(Barclays Bank PLC from time to time, from the due date  until the date of actual payment,) Tj
+0 -12 Td
+(whether before or after judgment, on any payment pursuant to this Clause 4 \(Payment Terms\)) Tj
+0 -12 Td
+(which is  overdue.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5. TERM AND TERMINATION) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier) Tj
+0 -12 Td
+(terminated as set out in this Agreement, shall continue  for the Term.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.2 Termination for breach. A party may suspend performance and/or terminate this) Tj
+0 -12 Td
+(Agreement, with immediate effect, if the other party:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) is in material breach of this Agreement where the breach is incapable of remedy; or) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) is in material breach of this Agreement where the breach is capable of remedy and) Tj
+0 -12 Td
+(fails to remedy that breach within thirty \(30\)  days after receiving written notice of) Tj
+0 -12 Td
+(such breach.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.3 Termination for insolvency. A party may suspend performance and/or terminate this) Tj
+0 -12 Td
+(Agreement with immediate effect, if:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) the other party enters into an arrangement or composition with or for the benefit of) Tj
+0 -12 Td
+(its creditors, goes into administration,  receivership or administrative receivership, is) Tj
+0 -12 Td
+(declared bankrupt or insolvent or is dissolved or otherwise ceases to carry on  business;) Tj
+0 -12 Td
+(or) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) any analogous event happens to the other party in any jurisdiction in which it is) Tj
+0 -12 Td
+(incorporated or resident or in which it carries on  business or has assets.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.4 Change of Control. [ * ] may terminate this Agreement immediately upon written notice) Tj
+0 -12 Td
+(if there is a Change of Control of [ * ]. In this  Clause the term "Control" shall mean) Tj
+0 -12 Td
+(the possession by any person\(s\) directly or indirectly of the power to direct or cause the) Tj
+0 -12 Td
+(direction  of another person and "Change of Control" is to be construed accordingly. [ * ]) Tj
+0 -12 Td
+(expected to experience, or [ * ] is experiencing, such  Change of Control shall notify [ *) Tj
+0 -12 Td
+(] in writing of this before or within [ * ] after the Change of Control. If [ * ] has not) Tj
+0 -12 Td
+(exercised its right of  termination under this Clause within [ * ] following the later of) Tj
+0 -12 Td
+(\(i\) the receipt of notice of [ * ] Change of Control or \(ii\) the Change of  Control event,) Tj
+0 -12 Td
+(that [ * ]. The parties acknowledge that as at the Effective Date, [ * ] may [ * ] its [ *) Tj
+0 -12 Td
+(]. [ * ] agrees not to exercise its  termination right under this clause 5.4 if [ * ],) Tj
+0 -12 Td
+(provided that following [ * ]:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 7 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(For the avoidance of doubt, if following [ * ] there is a transfer of shareholding or) Tj
+0 -12 Td
+(interests in Distributor to any existing or new  shareholder\(s\) which results in any) Tj
+0 -12 Td
+(person or persons subsequently gaining Control of Distributor, then Google may exercise) Tj
+0 -12 Td
+(its right to  terminate in accordance with this clause 5.4..) Tj
+0 -12 Td
+ET
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 19 0 R >>
+endobj
+21 0 obj
+<< /Length 4478 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.4.1. no one person Controls [ * ] \(other than an[ * ] which is not a [ * ] of [ * ] \(as) Tj
+0 -12 Td
+(determined by [ * ]in its sole discretion\)\); and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.4.2. no [ * ] of [ * ] \(as determined by [ * ] in its sole discretion\) holds a [ * ] or) Tj
+0 -12 Td
+([ * ] in [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.5 Additional Termination Rights. Google may terminate this Agreement immediately upon) Tj
+0 -12 Td
+(written notice to Distributor if: \(a\) Distributor  breaches Clause 2 \(License Grants and) Tj
+0 -12 Td
+(Restrictions\), Clause 3.6 \(EULA\), Clause 3.7 \(Accurate Reproduction\), or Clause 6) Tj
+0 -12 Td
+(\(Confidential  Information\), \(b\) if Google believes, in good faith, that the Distributor) Tj
+0 -12 Td
+(has violated or caused Google to violate any Anti-Bribery Laws \(as  defined in Clause 8.5\)) Tj
+0 -12 Td
+(or that such a violation is reasonably likely to occur, or \(c\) Distributor is in material) Tj
+0 -12 Td
+(breach of this Agreement more  than [ * ] notwithstanding any cure of such breaches.) Tj
+0 -12 Td
+(Notwithstanding anything to the contrary, in the event that the government or  controlling) Tj
+0 -12 Td
+(body of any country or territory in which Bundles are distributed imposes any law,) Tj
+0 -12 Td
+(restriction or regulation that makes it illegal  to distribute the Products, or any) Tj
+0 -12 Td
+(portion of them, into such country or territory, or if any such law, restriction or) Tj
+0 -12 Td
+(regulation places a  substantial burden on Google, where substantial is measured with) Tj
+0 -12 Td
+(respect to Google's economic benefit under this Agreement, as  determined by Google in its) Tj
+0 -12 Td
+(reasonable and good faith judgment \(such substantial burden, a "Substantial Burden"\) then) Tj
+0 -12 Td
+(either party or  Google \(in the case of a Substantial Burden\) may require the suspension) Tj
+0 -12 Td
+(of all distributions of Bundles in such country or territory until  such time as such law,) Tj
+0 -12 Td
+(restriction or regulation is repealed, nullified or modified such that it is no longer) Tj
+0 -12 Td
+(illegal or a Substantial Burden \(in  the case of Google\), as applicable, for Bundles to be) Tj
+0 -12 Td
+(distributed in such country or territory \("Special Suspension"\); provided, however,  that) Tj
+0 -12 Td
+(Distributor's obligations under Clause 3.5 \(Exclusivity\) shall not apply in respect of the) Tj
+0 -12 Td
+(relevant country or territory during any  period of Special Suspension. If a period of) Tj
+0 -12 Td
+(Special Suspension extends for more than [ * ] may then terminate this Agreement \(in part\)) Tj
+0 -12 Td
+(in  respect of the affected country or territory only, such termination to take effect) Tj
+0 -12 Td
+(upon written notice[ * ]. [ * ] will use its reasonable  endeavours to provide [ * ] with) Tj
+0 -12 Td
+([ * ] \(to the extent it is practicable to do so\) of the [ * ] or [ * ] \(which was) Tj
+0 -12 Td
+(commenced by [ * ]\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.6 Effect of Termination. Upon expiration or termination of this Agreement: \(a\) all) Tj
+0 -12 Td
+(rights and licenses granted under this Agreement shall  immediately cease; \(b\) Distributor) Tj
+0 -12 Td
+(shall \(and shall ensure that any Third Party Distributors shall\) immediately stop) Tj
+0 -12 Td
+(reproducing the  Products and offering or distributing Bundles; \(c\) Distributor shall) Tj
+0 -12 Td
+(return or destroy \(and a duly appointed officer of Distributor shall  certify to such) Tj
+0 -12 Td
+(destruction\) all copies of the Products and any other Google Confidential Information in) Tj
+0 -12 Td
+(its possession; and \(d\) the fees  payable to Distributor shall immediately cease accruing) Tj
+0 -12 Td
+(and Google shall within [ * ] following such expiration or termination pay to  Distributor) Tj
+0 -12 Td
+(any undisputed amounts which have accrued from the time of the most recent payment to) Tj
+0 -12 Td
+(Distributor through the date of  termination or expiration of this Agreement. Clauses 5.6) Tj
+0 -12 Td
+(\(Effect of Termination\), 6 \(Confidential Information\), 7 \(Proprietary Rights\), 9) Tj
+0 -12 Td
+(\(Limitation of Liability\), 10 \(Indemnification\) and 11 \(General\) shall survive the) Tj
+0 -12 Td
+(termination or expiration of this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 8 -) Tj
+0 -12 Td
+ET
+endstream
+endobj
+22 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 21 0 R >>
+endobj
+23 0 obj
+<< /Length 2962 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(6. CONFIDENTIAL INFORMATION) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(6.1 In this Agreement, "Confidential Information" means information disclosed by \(or on) Tj
+0 -12 Td
+(behalf of\) one party to the other party under this  Agreement that is marked as) Tj
+0 -12 Td
+(confidential or, from its nature, content or the circumstances in which it is disclosed,) Tj
+0 -12 Td
+(might reasonably be  supposed to be confidential, including the terms and conditions) Tj
+0 -12 Td
+(\(including the Exhibits\) of this Agreement. It does not include  information that the) Tj
+0 -12 Td
+(recipient already knew, that becomes public through no fault of the recipient, that was) Tj
+0 -12 Td
+(independently developed by  the recipient or that was lawfully given to the recipient by a) Tj
+0 -12 Td
+(third party.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(6.2 The recipient of any Confidential Information shall not disclose that Confidential) Tj
+0 -12 Td
+(Information, except to Group Companies, employees  and/or professional advisors who need) Tj
+0 -12 Td
+(to know it and who have agreed in writing \(or in the case of professional advisors are) Tj
+0 -12 Td
+(otherwise  bound\) to keep it confidential. The recipient shall ensure that those people) Tj
+0 -12 Td
+(and entities: \(a\) use such Confidential Information only to  exercise rights and fulfill) Tj
+0 -12 Td
+(obligations under this Agreement, and \(b\) keep such Confidential Information confidential.) Tj
+0 -12 Td
+(The recipient may  also disclose Confidential Information when required by law, or the) Tj
+0 -12 Td
+(regulation or rule of a major US stock exchange or the United States  Securities and) Tj
+0 -12 Td
+(Exchange Commission, after giving reasonable notice to the discloser, such notice to be) Tj
+0 -12 Td
+(sufficient to give the discloser: \(i\)  the opportunity to seek confidential treatment, a) Tj
+0 -12 Td
+(protective order or similar remedies or relief prior to disclosure \(if applicable\) and) Tj
+0 -12 Td
+(\(ii\)  \(where any disclosure is necessary\) time to consult on and approve the form and) Tj
+0 -12 Td
+(content of the relevant disclosure. The parties shall then  promptly discuss and agree in) Tj
+0 -12 Td
+(good faith on the form and content of the disclosure \(each acting reasonably\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(7. PROPRIETARY RIGHTS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(7.1 Distributor acknowledges that Google and/or its licensors own all right, title and) Tj
+0 -12 Td
+(interest, including all Intellectual Property Rights in and  to the Products and the) Tj
+0 -12 Td
+ET
+endstream
+endobj
+24 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 23 0 R >>
+endobj
+25 0 obj
+<< /Length 1959 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(Google Trademarks and all modifications to them. Distributor has, and shall acquire, no) Tj
+0 -12 Td
+(rights in the foregoing  except those expressly granted by this Agreement. Google shall) Tj
+0 -12 Td
+(not be restricted from selling, licensing, modifying, or otherwise  distributing the) Tj
+0 -12 Td
+(Products and/or the Google Trademarks to any third party.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(7.2 Google acknowledges that Distributor and/or its licensors own all right, title and) Tj
+0 -12 Td
+(interest, including all Intellectual Property Rights, in and  to the Distributor Apps and) Tj
+0 -12 Td
+(all [ * ] to [ * ]. Except as expressly set forth in this Agreement, Distributor shall not) Tj
+0 -12 Td
+(be [ * ]from [ * ], or  otherwise [ * ]the Distributor App\(s\) or other products of) Tj
+0 -12 Td
+(Distributor to [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8. WARRANTIES) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.1 Each party warrants to the other that it will use reasonable care and skill in) Tj
+0 -12 Td
+(complying with its obligations under this Agreement.  Distributor also represents and) Tj
+0 -12 Td
+(warrants that it will undertake commercially reasonable endeavours in good faith to comply) Tj
+0 -12 Td
+(with Google's  business partner due diligence process including providing requested) Tj
+0 -12 Td
+(information.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 9 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+26 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 25 0 R >>
+endobj
+27 0 obj
+<< /Length 3794 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.2 Google warrants that the Distribution Products will for a period of [ * ] from the) Tj
+0 -12 Td
+(date of their supply to Distributor be free from any defect  which has a materially) Tj
+0 -12 Td
+(adverse effect on their use or operation.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.3 If any of the warranties in Clause 8.1 or 8.2 is breached by Google, Distributor must) Tj
+0 -12 Td
+(tell Google as soon as possible. Distributor must give  Google a reasonable time to fix) Tj
+0 -12 Td
+(the problem and \(if necessary\) to supply Distributor with a corrected or replacement) Tj
+0 -12 Td
+(version of the  Distribution Product or a way to work-around the problem that is not) Tj
+0 -12 Td
+(materially detrimental to Distributor, or to re-perform any relevant  services. This will) Tj
+0 -12 Td
+(be done without any additional charge to Distributor. If Google is able to do this within) Tj
+0 -12 Td
+(a reasonable time, Google will  have no other obligations or liability in relation to that) Tj
+0 -12 Td
+(breach.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.4 Google will not be liable for breach of any of the warranties or other terms in this) Tj
+0 -12 Td
+(Agreement to the extent that the breach arises from:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) use of the Products other than in accordance with normal operating procedures;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) any alterations or maintenance to the Products done by anyone other than Google or) Tj
+0 -12 Td
+(someone authorised by Google;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) any problem with a computer on which the Products are installed, or with any equipment) Tj
+0 -12 Td
+(connected to that computer or any  other software which is installed on that computer;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(d\) any abnormal or incorrect operating conditions; or) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(e\) use of the Products in combination with any other hardware or software, unless this) Tj
+0 -12 Td
+(use has been approved by Google in  writing.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.5 Distributor will comply with all applicable commercial and public anti-bribery laws,) Tj
+0 -12 Td
+(including, without limitation, the UK's Bribery Act  2010 and the U.S. Foreign Corrupt) Tj
+0 -12 Td
+(Practices Act of 1977 \("Anti-Bribery Laws"\), which prohibit \(amongst other things\) corrupt) Tj
+0 -12 Td
+(offers of  anything of value, either directly or indirectly, to a government official to) Tj
+0 -12 Td
+(obtain or keep business. ''Government officials" include any  government employee,) Tj
+0 -12 Td
+(candidate for public office, and employee of government-owned or government-controlled) Tj
+0 -12 Td
+(companies, public  international organisations, and political parties. Furthermore,) Tj
+0 -12 Td
+(Distributor will not make any facilitation payments, which are payments to  induce) Tj
+0 -12 Td
+(officials to perform routine functions they are otherwise obligated to perform.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.6 No conditions, warranties or other terms apply to the Products, [ * ] or to any other) Tj
+0 -12 Td
+(goods or services supplied under this Agreement  unless expressly set out in this) Tj
+0 -12 Td
+(Agreement. Subject to Clause 9.1, no implied conditions, warranties or other terms apply) Tj
+0 -12 Td
+(\(including any  implied terms as to satisfactory quality, fitness for purpose or) Tj
+0 -12 Td
+(conformance with description\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9. LIMITATION OF LIABILITY) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.1 Nothing in this Agreement shall exclude or limit either party's liability for:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) death or personal injury resulting from the negligence of either party or their) Tj
+0 -12 Td
+(servants, agents or employees;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) fraud or fraudulent misrepresentation;) Tj
+0 -12 Td
+ET
+endstream
+endobj
+28 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 27 0 R >>
+endobj
+29 0 obj
+<< /Length 2135 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(- 10 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(In this Clause 9.4, "Contract Year" means a period of one year starting on the Effective) Tj
+0 -12 Td
+(Date or the relevant anniversary of the Effective  Date \(as appropriate\). If the amount) Tj
+0 -12 Td
+(referred to in \(b\) above cannot be calculated accurately at the time the relevant) Tj
+0 -12 Td
+(liability is to be  assessed \(the "Applicable Time"\), it shall be calculated on a pro-rata) Tj
+0 -12 Td
+(basis as X/Y x Z. Where:     X = the total sum paid and payable to the Distributor) Tj
+0 -12 Td
+(pursuant to Clause 4 in the relevant Contract Year prior to the Applicable Time;     Y =) Tj
+0 -12 Td
+(the number of days elapsed in the relevant Contract Year prior to the Applicable Time; and) Tj
+0 -12 Td
+(Z = 365     *Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) breach of any implied condition as to title or quiet enjoyment; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(d\) misuse of confidential information.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.2 Nothing in this Agreement shall exclude or limit either party's liability under Clause) Tj
+0 -12 Td
+(10 \(Indemnities\), or Distributor's liability under Clause  2 \(License Grants and) Tj
+0 -12 Td
+(Restrictions\), Clause 3.5 \(Exclusivity\), Clause 3.6 \(End User License Agreement\) and) Tj
+0 -12 Td
+(Clause 3.7 \(Accurate  Reproduction\) or Clause [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.3 Subject to Clauses 9.1 and 9.2, neither party shall be liable under this Agreement) Tj
+0 -12 Td
+(\(whether in contract, tort or otherwise\) for any:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) loss of anticipated savings;) Tj
+0 -12 Td
+ET
+endstream
+endobj
+30 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 29 0 R >>
+endobj
+31 0 obj
+<< /Length 1863 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(\(b\) loss of business opportunity \(which for the avoidance of doubt shall not include loss) Tj
+0 -12 Td
+(of advertising revenue\);) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) loss of or corruption of data;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(d\) loss or damage resulting from third party claims; or) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(e\) indirect or consequential losses;) Tj
+0 -12 Td
+(suffered or incurred by the other party \(whether or not such losses were within the) Tj
+0 -12 Td
+(contemplation of the parties at the date of this  Agreement\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.4 Subject to Clauses 9.1 and 9.2, each party's total liability under or in connection) Tj
+0 -12 Td
+(with this Agreement \(whether in contract, tort or  otherwise\) arising in any Contract Year) Tj
+0 -12 Td
+(is limited to the greater of:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) [ * ] Euros \([ * ] Euros\); and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) [ * ]% of the total payment due to the Distributor in the relevant Contract Year) Tj
+0 -12 Td
+(pursuant to Clause 4 \(Payment Terms\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 11 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(By Distributor.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(User claim arising out of or resulting from such End Users use of any Distributor App\(s\),) Tj
+0 -12 Td
+(including any actions or claims in product  liability, tort, contract or equity.) Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+32 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 31 0 R >>
+endobj
+33 0 obj
+<< /Length 3534 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(10. INDEMNIFICATION BY GOOGLE.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.1 Google [ * ] and will indemnify Distributor against all liabilities, costs, damages) Tj
+0 -12 Td
+(and expenses \(including settlement costs approved in  writing by Google and reasonable) Tj
+0 -12 Td
+(legal fees [ * ]\) suffered or incurred by Distributor arising from any claim from a third) Tj
+0 -12 Td
+(party that any  Products or any Google Trademark infringe\(s\) any copyright, trade secret) Tj
+0 -12 Td
+(or trademark of such third party \(an "IP Claim"\), provided that  Distributor:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) promptly notifies Google;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) provides Google with reasonable information, assistance and cooperation in responding) Tj
+0 -12 Td
+(to and, where applicable, defending  such IP Claim; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) gives Google full control and sole authority over the defence and settlement of such) Tj
+0 -12 Td
+(IP Claim. Distributor may appoint its own  supervising counsel of its choice at its own) Tj
+0 -12 Td
+(expense.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.2 Google will not have any obligations or liability under this Clause 10 in relation to) Tj
+0 -12 Td
+(any IP Claim arising from:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) use of the Products or Google Trademarks in a modified form or in combination with) Tj
+0 -12 Td
+(materials not furnished by Google;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) use of the Products or Google Trademarks other than in accordance with this Agreement;) Tj
+0 -12 Td
+(or) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) any content, information or data provided to Google by Distributor, End Users or any) Tj
+0 -12 Td
+(other third parties;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.3 Google may \(at its sole discretion\) suspend Distributors distribution or use of the) Tj
+0 -12 Td
+(Products or the Google Trademarks which are alleged,  or believed by Google, to infringe) Tj
+0 -12 Td
+(any third party's Intellectual Property Rights, or modify such items to make them non-) Tj
+0 -12 Td
+(infringing. if any  suspension under this Clause continues for more than 30 days,) Tj
+0 -12 Td
+(Distributor may, at any time until use of the distribution or use of the  Products or the) Tj
+0 -12 Td
+(Google Trademarks is reinstated, terminate this Agreement immediately upon written notice.) Tj
+0 -12 Td
+([ * ] will use reasonable  endeavours to [ * ] with [ * ] \(to the extent it is practicable) Tj
+0 -12 Td
+(to do so\) of the [ * ] or [ * ].) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.4 Distributor [ * ] and will indemnify Google against all liabilities, costs, damages) Tj
+0 -12 Td
+(and expenses \(including settlement costs approved in  writing by Distributor and) Tj
+0 -12 Td
+(reasonable legal fees [ * ]\) suffered or incurred by Google or any Google Group Company) Tj
+0 -12 Td
+(arising from: \(a\)  Distributor's improper \(ie not in accordance with the requirements of) Tj
+0 -12 Td
+(this Agreement including the Exhibits\) or unauthorised, replication,  packaging,) Tj
+0 -12 Td
+(marketing, distribution, or installation of the Products, including any breach of Clause) Tj
+0 -12 Td
+(8.5 and any claims based on  representations, warranties, or misrepresentations made by) Tj
+0 -12 Td
+(Distributor, \(b\) any claim from a third party that the Distributor App\(s\)  infringe any) Tj
+0 -12 Td
+(third party copyright, trademark, or trade secret, or \(c\) any End) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 12 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+34 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 33 0 R >>
+endobj
+35 0 obj
+<< /Length 2662 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.5 The indemnification obligations set out in Clause 10.4\(b\) shall exist only if Google:) Tj
+0 -12 Td
+(\(a\) promptly notifies Distributor of such claim, \(b\)  provides Distributor with reasonable) Tj
+0 -12 Td
+(information, assistance and cooperation in responding to and, where applicable, defending) Tj
+0 -12 Td
+(the  lawsuit or proceeding, and \(c\) gives Distributor full control and sole authority over) Tj
+0 -12 Td
+(the defense and settlement of such claim. Google may  join in defense with counsel of its) Tj
+0 -12 Td
+(choice at its own expense.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.6 The foregoing Clauses 10.1 to 10.5 states the parties' entire liability and exclusive) Tj
+0 -12 Td
+(remedy with respect to infringement of a third party's  Intellectual Property Rights.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11. GENERAL) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.1 Publicity. Subject to clause 6 \(Confidential Information\), neither party may make any) Tj
+0 -12 Td
+(public statement regarding the relationship  contemplated by this Agreement without the) Tj
+0 -12 Td
+(other's prior written approval.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.2 Notices. All notices of termination or breach must be in English, in writing,) Tj
+0 -12 Td
+(addressed to the other party's Legal Department and sent to  Distributor's address set out) Tj
+0 -12 Td
+(at the head of this Agreement or to [ * ] \(as applicable\) or such other address as either) Tj
+0 -12 Td
+(party has notified the  other in accordance with this Clause. All notices shall be deemed) Tj
+0 -12 Td
+(to have been given on receipt as verified by written or automated  receipt or electronic) Tj
+0 -12 Td
+(log \(as applicable\). All other notices must be in English, in writing, addressed to the) Tj
+0 -12 Td
+(other party's primary contact  and sent to their then current postal address or email) Tj
+0 -12 Td
+(address.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.3 Assignment. [ * ] may [ * ]any of its rights or obligations under this Agreement) Tj
+0 -12 Td
+(without the prior written consent of [ * ]. For the  avoidance of doubt, a Change of) Tj
+0 -12 Td
+(Control shall be deemed an assignment hereunder unless [ * ] does not exercise its [ * ].) Tj
+0 -12 Td
+ET
+endstream
+endobj
+36 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 35 0 R >>
+endobj
+37 0 obj
+<< /Length 3173 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(11.4 Force Majeure. Neither party shall be liable for failure to perform or delay in) Tj
+0 -12 Td
+(performing any obligation under this Agreement if the failure  or delay is caused by any) Tj
+0 -12 Td
+(circumstances beyond its reasonable control.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.5 Compliance with Export Laws. Distributor shall comply with all applicable export and) Tj
+0 -12 Td
+(re-export control laws and regulations \("Export  Laws"\), which the parties agree include:) Tj
+0 -12 Td
+(\(a\) the Export Administration Regulations maintained by the U.S. Department of Commerce,) Tj
+0 -12 Td
+(\(b\)  trade and economic sanctions maintained by the U.S. Treasury Department's Office of) Tj
+0 -12 Td
+(Foreign Assets Control, and \(c\) the International  Traffic in Arms Regulations maintained) Tj
+0 -12 Td
+(by the U.S. Department of State. Unless Distributor obtains prior authorisation required) Tj
+0 -12 Td
+(by  applicable Export Laws, Distributor shall not export any Product to Cuba, Iran, North) Tj
+0 -12 Td
+(Korea, Sudan or Syria.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.6 No Waiver. Failure or delay in exercising any right or remedy under this Agreement) Tj
+0 -12 Td
+(shall not constitute a waiver of such \(or any other\)  right or remedy.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.7 Severability. The invalidity, illegality or unenforceability of any term \(or part of) Tj
+0 -12 Td
+(a term\) of this Agreement shall not affect the continuation  in force of the remainder of) Tj
+0 -12 Td
+(the term \(if any\) and this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.8 No Agency. Except as expressly stated otherwise, nothing in this Agreement shall) Tj
+0 -12 Td
+(create an agency, partnership or joint venture of any  kind between the parties.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.9 No Third-Party Beneficiaries. Except as expressly stated otherwise, nothing in this) Tj
+0 -12 Td
+(Agreement shall create or confer any rights or other  benefits in favour of any person) Tj
+0 -12 Td
+(other than the parties to this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 13 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Signed by the parties on the dates shown below.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.10 Governing Law. This Agreement is governed by English law and the parties submit to) Tj
+0 -12 Td
+(the exclusive jurisdiction of the English courts in  relation to any dispute \(contractual) Tj
+0 -12 Td
+(or non-contractual\) concerning this Agreement save that either party may apply to any) Tj
+0 -12 Td
+(court for an  injunction or other relief to protect its Intellectual Property Rights. If) Tj
+0 -12 Td
+(this Agreement is translated into any other language, if there is  conflict the English) Tj
+0 -12 Td
+(text will take precedence.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(11.11 Counterparts. The parties may execute this agreement in counterparts, which taken) Tj
+0 -12 Td
+(together will constitute one instrument.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+38 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 37 0 R >>
+endobj
+39 0 obj
+<< /Length 2199 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(11.12 Entire Agreement. Subject to Clause 9.1, this Agreement sets out all terms agreed) Tj
+0 -12 Td
+(between the parties in relation to its subject matter and  supersedes all previous) Tj
+0 -12 Td
+(agreements between the parties relating to the same. In entering into this Agreement) Tj
+0 -12 Td
+(neither party has relied on  any statement, representation or warranty not expressly set) Tj
+0 -12 Td
+(out in this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name) Tj
+0 -12 Td
+(Name        [ * ]   [ * ]  Title   Title        [ * ]   [ * ]  Date   Date) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 14 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(EXHIBIT A     Payments) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*[ * ]     ** [ * ].     *Confidential treatment requested  Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+([ * ]     [ * ]       [ * ]   [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [) Tj
+0 -12 Td
+(* ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]) Tj
+0 -12 Td
+([ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ *) Tj
+0 -12 Td
+(]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]) Tj
+0 -12 Td
+($ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [) Tj
+0 -12 Td
+(* ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]) Tj
+0 -12 Td
+([ * ]     [ * ]     $ [ * ]  [ * ]     [ * ]     $ [ * ]  [ * ]**     [ * ]*     $ [ * ]) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 15 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(EXHIBIT B     Process Flow) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 16 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Form of Offering     1 - WhiteSmoke Welcome Screen) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 17 -) Tj
+0 -12 Td
+ET
+endstream
+endobj
+40 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 39 0 R >>
+endobj
+41 0 obj
+<< /Length 2172 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2-Toolbar offer     lf [ * ] Criteria Checker has returned "True") Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 18 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3-Chrome offer     If [ * ] Criteria Checker has not returned 'True" AND [ * ] Criteria) Tj
+0 -12 Td
+(Checker has returned "True") Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*Confidential treatment requested) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 19 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4 - Installation Progress) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 20 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5 - Chrome First Launch     If Chrome has been installed) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Criteria Checker     During the Term, for each End User who installs the Distributor App,) Tj
+0 -12 Td
+(Distributor shall use the [ * ] Criteria Checker to determine if [ * ] can be  offered to) Tj
+0 -12 Td
+(such End User. If the [ * ] Criteria Checker returns True, Distributor shall offer the End) Tj
+0 -12 Td
+(User the opportunity to install the [ * ] in  conjunction with the Distributor App. If the) Tj
+0 -12 Td
+([ * ] Criteria Checker returns False Distributor shall: a\) not offer the End User the) Tj
+0 -12 Td
+(opportunity to install  the [ * ] and b\) use the [ * ] Criteria Checker to determine) Tj
+0 -12 Td
+(whether the [ * ] can be offered to such End User. If the [ * ] Criteria Checker returns) Tj
+0 -12 Td
+(True, Distributor shall offer the End User the opportunity to install the [ * ] in) Tj
+0 -12 Td
+(conjunction with the Distributor App. If the [ * ] Criteria Checker  returns False,) Tj
+0 -12 Td
+(Distributor shall not offer such End User the opportunity to install the [ * ]. Prior to) Tj
+0 -12 Td
+(Launch, Distributor shall obtain Google's  approval of the parameters Distributor uses to) Tj
+0 -12 Td
+ET
+endstream
+endobj
+42 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 41 0 R >>
+endobj
+43 0 obj
+<< /Length 3968 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(call the [ * ] Criteria Checker and [ * ] Criteria Checker     Chrome Browser Auto Launch.) Tj
+0 -12 Td
+(Distributor shall ensure that the first launch of the Chrome Browser following) Tj
+0 -12 Td
+(installation of the Chrome Browser complies with each of the  following requirements \(the) Tj
+0 -12 Td
+("Chrome Launch Requirements"\):     \(a\) The Chrome Browser shall auto-launch immediately) Tj
+0 -12 Td
+(prior to the launch of the Distributor App, no earlier and no later.     *Confidential) Tj
+0 -12 Td
+(treatment requested) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 21 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) No advertisements, offers, or other communications shall appear between launch of a) Tj
+0 -12 Td
+(Distributor App and launch of the Chrome  Browser.     \(c\) Upon launch of the Chrome) Tj
+0 -12 Td
+(Browser, the Chrome Browser shall immediately appear on the End User's computer desktop) Tj
+0 -12 Td
+(exactly as  shown in this Exhibit B. Without limiting the preceding sentence, each of the) Tj
+0 -12 Td
+(following shall appear on the End User's desktop exactly as shown in  this Exhibit B: \(i\)) Tj
+0 -12 Td
+(the location and size of the Chrome Browser window and the Distributor App window, \(ii\)) Tj
+0 -12 Td
+(the z-order of the Distributor App and  the Chrome Browser, and \(iii\) the number and) Tj
+0 -12 Td
+(content of the tabs in the Chrome Browser \(i.e., the Chrome Browser shall contain exactly) Tj
+0 -12 Td
+(two \(2\)  tabs, with the first tab set to google.com, and the second tab set to) Tj
+0 -12 Td
+(http://tools.google.com/chrome/intlfen-US/welcome.html \(or such other url as  Google may) Tj
+0 -12 Td
+(specify\). In no event shall the Chrome Browser window be minimized. Notwithstanding the) Tj
+0 -12 Td
+(foregoing, Distributor may modify the  content and design of the Distributor App window) Tj
+0 -12 Td
+(provided that Distributor complies with the other restrictions in this Agreement and) Tj
+0 -12 Td
+(obtains  Google's prior consent.     \(d\) The tabs in the Chrome Browser and the Omnibox) Tj
+0 -12 Td
+(shall be clearly visible to the End User as shown in this Exhibit B, regardless of the) Tj
+0 -12 Td
+(resolution of the End User's monitor. In no event shall the tabs in the Chrome Browser or) Tj
+0 -12 Td
+(the Omnibox be hidden behind a Distributor App.     \(e\) Distributor shall implement \(or,) Tj
+0 -12 Td
+(if implemented by Google, Distributor shall not modify\) the six-month flag \(i.e., the) Tj
+0 -12 Td
+(functionality that  prevents an End User from receiving more than one \(1\) offer for the) Tj
+0 -12 Td
+(Chrome Browser within any six \(6\)-month period\) unless Google has provided  written) Tj
+0 -12 Td
+(confirmation \(including by email\) that the 6-months flag can be turned off. Note that this) Tj
+0 -12 Td
+(authorisation may be revoked at any time and  Distributor shall then include the 6 months) Tj
+0 -12 Td
+(flag again in future builds.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 22 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(EXHIBIT C     Guidelines for Applications Bundled with Google Applications     Google has) Tj
+0 -12 Td
+(observed a significant increase in the number of reports of software that is engaging in) Tj
+0 -12 Td
+(deceptive, malicious and other annoying  practices that significantly diminish user) Tj
+0 -12 Td
+(perception and enjoyment of the internet. These practices include but are not limited to) Tj
+0 -12 Td
+(installing  software on computers without obtaining informed end user consent \(the so-) Tj
+0 -12 Td
+(called "drive-by download"\), inundating end users with  advertisements without adequate) Tj
+0 -12 Td
+(attribution or labeling, exposing users to pornographic material without obtaining) Tj
+0 -12 Td
+(informed end user consent,  obtaining or transmitting personal information about an end) Tj
+0 -12 Td
+ET
+endstream
+endobj
+44 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 43 0 R >>
+endobj
+45 0 obj
+<< /Length 4026 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(user without obtaining informed end user consent, and interfering with an end user's) Tj
+0 -12 Td
+(ability to easily uninstall applications the end user does not wish to be on his or her) Tj
+0 -12 Td
+(computer.     Google does not wish to be associated with these types of practices.) Tj
+0 -12 Td
+(Accordingly, Google has developed the Guidelines set forth below to prevent  its) Tj
+0 -12 Td
+(trademark, other intellectual property, and services from being used in connection with) Tj
+0 -12 Td
+(these practices. Google believes that these Guidelines  are necessary to protect Google) Tj
+0 -12 Td
+(from any allegation that it has contributed to practices that might be viewed as unlawful) Tj
+0 -12 Td
+(or actionable; to preserve  the reputation of Google as a provider of trusted software and) Tj
+0 -12 Td
+(services in a manner that is beneficial and fair to users and other constituents; and  to) Tj
+0 -12 Td
+(stem the rising incidence of practices that harm users and diminish the perceived value) Tj
+0 -12 Td
+(and reliability of the internet, which are essential to  Google's business.     With this) Tj
+0 -12 Td
+(objective in mind, Google has established the following Guidelines to apply to customer) Tj
+0 -12 Td
+(Applications that are bundled with any Google  Application. Except to the extent Google) Tj
+0 -12 Td
+(has otherwise specifically agreed in writing, Google does not grant permission to, and you) Tj
+0 -12 Td
+(will not,  bundle any Application with a Google Application unless you ensure that any) Tj
+0 -12 Td
+(such Application specified in the agreement between you and  Google that incorporated) Tj
+0 -12 Td
+(these Guidelines complies with these Guidelines.     For the avoidance of doubt, by these) Tj
+0 -12 Td
+(Guidelines Google does not intend to, and does not, impose any restrictions on what you) Tj
+0 -12 Td
+(may do with any  Application that is not bundled with a Google Application, bundled with) Tj
+0 -12 Td
+(an Application that accesses Google services, or used to access Google  services; you) Tj
+0 -12 Td
+(remain free to sell any Application you wish \(whether or not it complies with these) Tj
+0 -12 Td
+(Guidelines\) so long as it is not bundled with a  Google Application, bundled with an) Tj
+0 -12 Td
+(Application that accesses Google services, or used to access Google services.     In these) Tj
+0 -12 Td
+(Guidelines: \(a\) "you" and "your" refer to the legal entity\(ies\) that has entered into the) Tj
+0 -12 Td
+(contract with Google into which these Guidelines  are incorporated, as well as any person) Tj
+0 -12 Td
+(or entity acting on your behalf; and \(b\) "Application" means any application, plug-in,) Tj
+0 -12 Td
+(helper, component or  other executable code that runs on a user's computer, examples of) Tj
+0 -12 Td
+(which include those that provide browser helper objects, instant messaging,  chat, email,) Tj
+0 -12 Td
+(data, file viewing, media playing, file sharing, games, internet navigation, search and) Tj
+0 -12 Td
+(other services.    Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 23 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google welcomes input about these Guidelines from you and from other interested parties,) Tj
+0 -12 Td
+(and is always willing to consider revisions as  appropriate to encourage innovation while) Tj
+0 -12 Td
+(protecting against deceptive, unfair and harmful practices. Accordingly, Google may update) Tj
+0 -12 Td
+(these  Guidelines, including the Attachments, from time to time as provided in Section 10) Tj
+0 -12 Td
+(below.     If you have any questions about these Guidelines, please do not hesitate to) Tj
+0 -12 Td
+(discuss them with your Google account manager.     Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 24 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1. General.     1.1 Approval and Ongoing Compliance. You may bundle Google Applications) Tj
+0 -12 Td
+ET
+endstream
+endobj
+46 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 45 0 R >>
+endobj
+47 0 obj
+<< /Length 3603 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(with Applications only to the extent permitted in the  signed written agreement into which) Tj
+0 -12 Td
+(these Guidelines have been incorporated. In such instance, you must ensure that your) Tj
+0 -12 Td
+(Application both \(1\)  has been approved by Google for the purpose of being bundled with) Tj
+0 -12 Td
+(Google Applications in writing in advance, and \(2\) complies at all times with  the) Tj
+0 -12 Td
+(requirements outlined herein. To obtain Google's approval for any Applications not) Tj
+0 -12 Td
+(expressly approved in your agreement, you must submit a  written request.     1.2 No) Tj
+0 -12 Td
+(Google Branding or Attribution. Your Application, and any related collateral material) Tj
+0 -12 Td
+(\(including any Web pages promoting your  Application or from which your Application is) Tj
+0 -12 Td
+(made available\), must not contain any Google branding, trademarks or attribution unless) Tj
+0 -12 Td
+(\(and then  only to the extent\) Google expressly consents otherwise in writing. In) Tj
+0 -12 Td
+(addition, queries entered into Applications may not resolve to a results page  that) Tj
+0 -12 Td
+(contains any Google branding, trademarks or attribution unless \(and then only to the) Tj
+0 -12 Td
+(extent\) Google expressly consents otherwise in writing.     2. Prohibited Content. You may) Tj
+0 -12 Td
+(not bundle any Google Application with an Application that: \(a\) contains any viruses,) Tj
+0 -12 Td
+(worms, trojan horses, or the  like; and \(b\) is distributed primarily for the purpose of) Tj
+0 -12 Td
+(\(i\) distributing pornographic, obscene, excessively profane, gambling-related, deceptive,) Tj
+0 -12 Td
+(fraudulent or illegal content, or \(ii\) distributing content related to "hacking" or) Tj
+0 -12 Td
+("cracking."     3. Prohibited Behavior. You may not bundle any Google Application with an) Tj
+0 -12 Td
+(Application that engages in deceptive, unfair, harassing or otherwise  annoying practices.) Tj
+0 -12 Td
+(For example, the Application may not:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) use, or permit an unaffiliated person to use, an end user's computer system for any) Tj
+0 -12 Td
+(purpose not understood and  affirmatively consented to by the end user \(including, without) Tj
+0 -12 Td
+(limitation, for purposes of consuming bandwidth or  computer resources, sending email) Tj
+0 -12 Td
+(messages, launching denial of service attacks, accruing toll charges through a dialer  or) Tj
+0 -12 Td
+(obtaining personal information from an end user's computer such as login, password,) Tj
+0 -12 Td
+(account or other information  personal to the end user\);) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) intentionally create or exploit any security vulnerabilities in end user computers;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) trigger pop-ups, pop-unders, exit windows, or similar obstructive or intrusive) Tj
+0 -12 Td
+(functionality, that materially interfere with  an end user's Web navigation or browsing or) Tj
+0 -12 Td
+(the use of his or her computer;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(d\) repeatedly ask an end user to take, or try to deceive an end user into taking, an) Tj
+0 -12 Td
+(action that the end user has previously  declined to take \(such as repeatedly asking an) Tj
+0 -12 Td
+(end user to change his or her home page or some other setting or  configuration\);) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 25 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+48 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 47 0 R >>
+endobj
+49 0 obj
+<< /Length 3233 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4. Disclosure and Consent.     4.1 Disclosure and Consent before Installation. You may not) Tj
+0 -12 Td
+(bundle any Google Application with any Application unless you \(and your  distribution and) Tj
+0 -12 Td
+(bundling partners, if applicable under the terms of the agreement between you and Google) Tj
+0 -12 Td
+(that incorporates these Guidelines\)  design the installation of any such Application in a) Tj
+0 -12 Td
+(manner that ensures that it is installed by end users in a knowing and willful manner -) Tj
+0 -12 Td
+(e.g., no  "drive-by' downloads or installs. By "distribution partner" we mean any third) Tj
+0 -12 Td
+(party who distributes your Application and by "bundling partner"  we mean any third party) Tj
+0 -12 Td
+(who installs your Application in combination with or alongside one or more other) Tj
+0 -12 Td
+(Applications. At a minimum, compliance  with this provision requires that, prior to) Tj
+0 -12 Td
+(installing your Application, you and any third party distributing or bundling your) Tj
+0 -12 Td
+(Application:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4.2 Disclosure and Consent for Collection and Transmission of Personally Identifiable) Tj
+0 -12 Td
+(information. You may not bundle any Google  Application with any Application that \(1\)) Tj
+0 -12 Td
+(collects or transmits to any entity other than the end user personally identifiable) Tj
+0 -12 Td
+(information, or \(2\)  collects or transmits information related to a user's computer or) Tj
+0 -12 Td
+(Internet usage or activity in a manner that could collect or transmit such user's) Tj
+0 -12 Td
+(personally identifiable information \(such as through keystroke logging\), unless prior to) Tj
+0 -12 Td
+(the first occurrence of any such collection or transmission  you:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(e\) redirect browser traffic away from valid DNS entries \(except that your Application may) Tj
+0 -12 Td
+(direct unresolved URLs to an  alternative URL designated by you, provided that the page to) Tj
+0 -12 Td
+(which the end user resolves adequately informs the end  user that you and your Application) Tj
+0 -12 Td
+(are the source of that page\);) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(f\) interfere with the browser default search functionality \(except that your Application) Tj
+0 -12 Td
+(may permit an end user to change  his or her default search engine with proper disclosure,) Tj
+0 -12 Td
+(consent and attribution as provided below\); or) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(g\) engage in activity that violates any applicable Jaw or regulation.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) first, fully, accurately, clearly and conspicuously disclose to end users:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(i\) that they are installing an application,) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(ii\) the name of the Application, identifying you as the entity responsible for it, and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(iii\) the principal and significant features and functionality of the Application; and) Tj
+0 -12 Td
+ET
+endstream
+endobj
+50 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 49 0 R >>
+endobj
+51 0 obj
+<< /Length 3430 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(\(b\) then, obtain the end user's affirmative consent to install the Application.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) first, fully, accurately, clearly and conspicuously disclose:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 26 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4.3 Disclosure and Consent for Setting Changes. You may not bundle any Google Application) Tj
+0 -12 Td
+(with any Application that makes a  change to any operating system or Application data) Tj
+0 -12 Td
+(setting which will impact the user experience of other Applications \(e.g., changing the) Tj
+0 -12 Td
+(browser default home page or changing the default application for a file type, such as the) Tj
+0 -12 Td
+(default email, browser or media player application\),  unless prior to making such change) Tj
+0 -12 Td
+(you:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Notwithstanding the foregoing, \(i\) no disclosure and consent need be made for changes to) Tj
+0 -12 Td
+(operating system or Application data settings that  have only a minor impact on user) Tj
+0 -12 Td
+(experience, such as adding a small number of bookmarks to the browser menu or adding an) Tj
+0 -12 Td
+(item to a start menu,  and \(ii\) the disclosure and consent requirements of this Section) Tj
+0 -12 Td
+(4.3 will not apply to those setting changes that may be made prior to sale to the  end) Tj
+0 -12 Td
+(user.     4.4 Method of Disclosure and Consent. In order to satisfy the requirements) Tj
+0 -12 Td
+(above, the disclosure of the items specified above \(a\) must be  provided in both \(1\) the) Tj
+0 -12 Td
+(End User License Agreement \(EULA\) or privacy policy \(to the extent required by law or) Tj
+0 -12 Td
+(otherwise by industry custom\)  and \(2\) separately from the EULA and/or privacy policy) Tj
+0 -12 Td
+(\(e.g. in installation screens or message boxes, as the case may be\), and \(b\) must be) Tj
+0 -12 Td
+(designed so that it will be read by, adequately inform and evidence the consent of a) Tj
+0 -12 Td
+(typical Internet user. See Attachment 1 for sample disclosure  and consent implementations) Tj
+0 -12 Td
+(that would satisfy certain of the requirements above.     4.5 EULA and Privacy Policy. You) Tj
+0 -12 Td
+(may not bundle any Google Application with any Application unless it conforms, and is) Tj
+0 -12 Td
+(distributed  pursuant to a EULA that conforms, with all applicable laws and regulations.) Tj
+0 -12 Td
+(In addition, you and your Application must comply with the  agreements and representations) Tj
+0 -12 Td
+(you make with your end users in your EULA and privacy policy. Your privacy policy must be) Tj
+0 -12 Td
+(accessible from  your Application in an easily found location. If your Application) Tj
+0 -12 Td
+(collects or transmits any other information related to the user's use of his or her) Tj
+0 -12 Td
+(computer, but not required to be disclosed and consented to pursuant to Section 4.2, then) Tj
+0 -12 Td
+(the collection and use of such other information must  be disclosed in your privacy) Tj
+0 -12 Td
+(policy.     Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(i\) the type of information collected \(described with specificity in the case of) Tj
+0 -12 Td
+(personally identifiable information\),) Tj
+0 -12 Td
+ET
+endstream
+endobj
+52 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 51 0 R >>
+endobj
+53 0 obj
+<< /Length 4269 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(\(ii\) the method of collection \(e.g. by registration, etc.\), and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(iii\) the location of \(i.e., a link to\) the privacy policy that governs the collection,) Tj
+0 -12 Td
+(use and disclosure of the  information; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) then, obtain the end user's affirmative consent to such collection and/or) Tj
+0 -12 Td
+(transmission.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) first, fully, accurately, clearly and conspicuously disclose the change in a manner) Tj
+0 -12 Td
+(that will explain the practical effect of  such change; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) then, obtain the end user's affirmative consent to make such change.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 27 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5. Transparency. Neither you nor any of your third party distribution or bundling partners) Tj
+0 -12 Td
+(may mislead end users or create end user confusion  with regard to the source or owner of) Tj
+0 -12 Td
+(an Application or any portion of its purpose, functionality or features. For example, all) Tj
+0 -12 Td
+(elements of your  Application that are visible to the end user must clearly identify their) Tj
+0 -12 Td
+(source through its branding and attribution, and that identification, whatever  form it) Tj
+0 -12 Td
+(takes, must correspond to the identification of your application in the menu that permits) Tj
+0 -12 Td
+(end users to remove programs. You must clearly  label advertisements provided by your) Tj
+0 -12 Td
+(Application \(if any\) as such and clearly identify your Application as the source of those) Tj
+0 -12 Td
+(advertisements. In  addition, if your Application modifies the operation or display of) Tj
+0 -12 Td
+(other applications or Web sites \(other than Web sites that you own\), then in  each) Tj
+0 -12 Td
+(instance you must clearly and conspicuously attribute the source of that modification to) Tj
+0 -12 Td
+(your Application \(as distinct from the application or  Web site modified\) in a manner that) Tj
+0 -12 Td
+(will inform a typical Internet user; provided that this requirement will not apply to) Tj
+0 -12 Td
+(modifications for which you  obtain disclosure and consent pursuant to Section 4.3. See) Tj
+0 -12 Td
+(Attachment 1 for examples of modifications that are clearly and conspicuously  disclosed) Tj
+0 -12 Td
+(to end users.     6. Deactivation. You may not bundle any Google Application with any) Tj
+0 -12 Td
+(Application that impairs an end user's ability to change any preferences or  settings set) Tj
+0 -12 Td
+(by the Application in accordance with the way that such preferences or settings ordinarily) Tj
+0 -12 Td
+(may be changed by the applicable  Application. Once disabled by an end user, your) Tj
+0 -12 Td
+(Application may not be re-enabled without an affirmative action by the end user to) Tj
+0 -12 Td
+(explicitly re- enable your application. Accordingly, no use, update, installation or re-) Tj
+0 -12 Td
+(enablement of a separate Application, and no code downloaded as a result  of browsing a) Tj
+0 -12 Td
+(Web site, may operate to re-enable your Application. Your Application must permit end) Tj
+0 -12 Td
+(users to uninstall it \(in the customary place  the applicable operating system has) Tj
+0 -12 Td
+(designated for adding or removing programs, e.g., Add/Remove Programs control panel in) Tj
+0 -12 Td
+(Windows\) in a  straightforward manner, without undue effort or skill. In addition, your) Tj
+0 -12 Td
+(Application, when running, must provide \(in an easily found location\) clear  and concise) Tj
+0 -12 Td
+(instructions on how it may be uninstalled. Once uninstalled, your Application must not) Tj
+0 -12 Td
+(leave behind any functionality or design  elements, and all setting changes made by the) Tj
+0 -12 Td
+(application, but not explicitly agreed to by the end user, should be reversed to the) Tj
+0 -12 Td
+(extent  practicable.     7. Bundling of Applications. In addition to the requirements set) Tj
+0 -12 Td
+(forth in the agreement between you and Google that incorporates these  Guidelines, in) Tj
+0 -12 Td
+(order for you to bundle any Application with a Google Application must satisfy each of the) Tj
+0 -12 Td
+(following requirements:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+54 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 53 0 R >>
+endobj
+55 0 obj
+<< /Length 3840 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) the end user is made aware of all of the Applications included in the bundle prior to) Tj
+0 -12 Td
+(any installation;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) all such Applications included in the bundle or download comply with the provisions of) Tj
+0 -12 Td
+(Section 2 through 6 of these  Guidelines;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) if Applications in a bundle in which you are participating are supported in part by) Tj
+0 -12 Td
+(revenue generated by advertising  displayed in another independent Application included in) Tj
+0 -12 Td
+(that bundle and the continued use of the Application is  conditioned on such other) Tj
+0 -12 Td
+(independent Application remaining installed and active on the end user's computer, the end) Tj
+0 -12 Td
+(user must be made aware of that relationship; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 28 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8. Information and Assistance. Subject to any confidentiality obligations owed to third) Tj
+0 -12 Td
+(parties, you must provide Google with such information as  Google may reasonably request) Tj
+0 -12 Td
+(about the distribution of those of your Applications that are bundled with any Google) Tj
+0 -12 Td
+(Application. For example,  we may ask you to share with us: \(a\) the means by and/or the) Tj
+0 -12 Td
+(locations from which your Applications are distributed; or \(b\) the identity of any) Tj
+0 -12 Td
+(applications included in any of your bundling relationships \(and the entities responsible) Tj
+0 -12 Td
+(for such applications\). In addition, you must provide  such assistance as Google may) Tj
+0 -12 Td
+(reasonably request to investigate and stop potential violations of these Guidelines that) Tj
+0 -12 Td
+(may be connected to your  Application, including by way of using such number of) Tj
+0 -12 Td
+(identifiers and other tracking parameters as Google may reasonably request. This would) Tj
+0 -12 Td
+(include providing Google with "golden masters" of any bundle or other distribution that) Tj
+0 -12 Td
+(includes your Application, or working with Google to  stop any entities that may be) Tj
+0 -12 Td
+(financially benefiting from your Application from engaging in any of these proscribed) Tj
+0 -12 Td
+(practices. You understand,  however, that Google has no obligation to provide support to) Tj
+0 -12 Td
+(end users of your Application. For the avoidance of doubt, these information and) Tj
+0 -12 Td
+(assistance rights do not extend to any of your Applications that are not used to access) Tj
+0 -12 Td
+(Google services, bundled with a Google Application, or  bundled with an Application that) Tj
+0 -12 Td
+(accesses Google services.     9. Legal. You must maintain ownership and control of your) Tj
+0 -12 Td
+(Application at all times to the extent required to practically and legally enforce the) Tj
+0 -12 Td
+(requirements of these guidelines. If you are seeking to permit a third party Application) Tj
+0 -12 Td
+(to be bundled with a Google Application, then you must  also obtain Google's written) Tj
+0 -12 Td
+(approval of that third party Application \(in addition to the approval required for your) Tj
+0 -12 Td
+(Application\). If Google  approves the third party Application, you are responsible for) Tj
+0 -12 Td
+(ensuring that such third party Application also complies with these Guidelines.  Special) Tj
+0 -12 Td
+(indemnity and other suspension and/or termination provisions may apply. These are) Tj
+0 -12 Td
+(addressed in your agreement with Google.     10. Updates.     10.1 General. As mentioned) Tj
+0 -12 Td
+(above, Google may update these Guidelines, including the Attachments, from time to time;) Tj
+0 -12 Td
+ET
+endstream
+endobj
+56 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 55 0 R >>
+endobj
+57 0 obj
+<< /Length 3908 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(provided,  however, that no updates will be effective until Google provides you with) Tj
+0 -12 Td
+(thirty \(30\) days' written notice thereof. Once you receive that notice \(the  date on which) Tj
+0 -12 Td
+(you receive such notice, the "Update Notice Date"\), you will be required to bring your) Tj
+0 -12 Td
+(Application into compliance within thirty \(30\)  days     Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(d\) either \(1\) the bundle must provide for a master uninstaller that will enable the end) Tj
+0 -12 Td
+(user to uninstall every Application in  the bundle without undue effort or skill, or \(2\)) Tj
+0 -12 Td
+(if no master uninstaller is provided, the de-installation of any Application  may not be) Tj
+0 -12 Td
+(dependent or conditioned upon the de-installation of any other Application included in the) Tj
+0 -12 Td
+(bundle.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 29 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.2 Extended Compliance Period. If, solely as a result of an updated requirement, one or) Tj
+0 -12 Td
+(more of your Applications no longer complies  with these Guidelines, as updated, and you) Tj
+0 -12 Td
+(are incapable of bringing such Application into compliance prior to the scheduled) Tj
+0 -12 Td
+(effective date of  such update \(the "Update Effective Date"\), you agree to provide Google) Tj
+0 -12 Td
+(with written notice thereof as soon as reasonably practicable, but in any  event no later) Tj
+0 -12 Td
+(than the Update Effective Date, identifying the Application and the reasons why it may not) Tj
+0 -12 Td
+(be brought into compliance prior to the  Update Effective Date, and providing such other) Tj
+0 -12 Td
+(detail as Google may reasonably request with respect thereto \(consistent in any event with) Tj
+0 -12 Td
+(your  confidentiality obligations\). Thereafter, the parties will consult, and you agree to) Tj
+0 -12 Td
+(will work, diligently and in good faith to develop and execute a  plan to bring such) Tj
+0 -12 Td
+(Application into compliance with these Guidelines, as updated, as soon as reasonably) Tj
+0 -12 Td
+(practicable, but in any event within  ninety \(90\) days of the Update Notice Date \(the) Tj
+0 -12 Td
+("Maximum Compliance Period"\). You agree that you will provide Google with such information) Tj
+0 -12 Td
+(as  Google reasonably requests during this period to keep Google apprised of your progress) Tj
+0 -12 Td
+(in bringing your Application into compliance.  Notwithstanding the foregoing \(but subject) Tj
+0 -12 Td
+(to the next sentence\), in no event may a new requirement provided for in any update to) Tj
+0 -12 Td
+(these  Guidelines require you to take any action which would violate the terms of any) Tj
+0 -12 Td
+(agreement between you and any unaffiliated third party that is in  effect on the date that) Tj
+0 -12 Td
+(Google delivers notice of the proposed update. In any event, if you are unable to bring) Tj
+0 -12 Td
+(any Application into compliance  during the Maximum Compliance Period, Google may elect,) Tj
+0 -12 Td
+(by providing at least thirty \(30\) days prior written notice, to require you to cease) Tj
+0 -12 Td
+(bundling either the specific non-conforming Application or those versions of the) Tj
+0 -12 Td
+(Application which are, or are distributed, in violation of the  Guidelines, as updated; it) Tj
+0 -12 Td
+(being understood that, at such time, you will be entitled to procure services from an) Tj
+0 -12 Td
+(alternative source for those  Applications \(or versions thereof\) with respect to which) Tj
+0 -12 Td
+(Google has exercised such election.     Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 30 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Attachment 1     Prohibited Behavior and Content     The application may not impact the) Tj
+0 -12 Td
+ET
+endstream
+endobj
+58 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 57 0 R >>
+endobj
+59 0 obj
+<< /Length 1439 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(display of other applications unless you provide clear disclosure in each instance) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 31 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 32 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Disclosure and Consent     Clear and conspicuous disclosure is required prior to download) Tj
+0 -12 Td
+(or install: what it is, what it does, and how it will be displayed to the end user) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Disclosure and Consent     Describe type, method, and use of personal information, if) Tj
+0 -12 Td
+(applicable. Point user to privacy policy) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 33 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 34 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Branding & Attribution     The visible elements of the application should be easily) Tj
+0 -12 Td
+(identifiable to the end user) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+60 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 59 0 R >>
+endobj
+61 0 obj
+<< /Length 1558 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 35 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Implementation, Transparency and Deactivation     The Application must permit end users to) Tj
+0 -12 Td
+(uninstall it in the customary place the applicable operating system has designated for) Tj
+0 -12 Td
+(adding or  removing programs \(e.g., Add/Remove Programs control panel in Windows\) in a) Tj
+0 -12 Td
+(straightforward manner    Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 36 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 37 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Implementation, Transparency and Deactivation     The Application must contain \(in an) Tj
+0 -12 Td
+(easily found location\) clear and concise instructions on how it may be uninstalled) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 38 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Bundling of Applications     When bundling, the end user must be made aware of all the) Tj
+0 -12 Td
+(applications included prior to installation.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+62 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 61 0 R >>
+endobj
+63 0 obj
+<< /Length 571 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(- 39 -) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Bundling of Applications     When bundling, the end user must be made aware of advertising) Tj
+0 -12 Td
+(revenue relationships to other applications, if the continued use of the primary) Tj
+0 -12 Td
+(application is conditioned on the other applications being installed and active on the end) Tj
+0 -12 Td
+(user's computer) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Google Confidential) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- 40 -) Tj
+0 -12 Td
+ET
+endstream
+endobj
+64 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 65 0 R >> >> /Contents 63 0 R >>
+endobj
+65 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 66
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000326 00000 n 
+0000004284 00000 n 
+0000004411 00000 n 
+0000008392 00000 n 
+0000008519 00000 n 
+0000011807 00000 n 
+0000011934 00000 n 
+0000015946 00000 n 
+0000016074 00000 n 
+0000018972 00000 n 
+0000019101 00000 n 
+0000021463 00000 n 
+0000021592 00000 n 
+0000025428 00000 n 
+0000025557 00000 n 
+0000028115 00000 n 
+0000028244 00000 n 
+0000031732 00000 n 
+0000031861 00000 n 
+0000036392 00000 n 
+0000036521 00000 n 
+0000039536 00000 n 
+0000039665 00000 n 
+0000041677 00000 n 
+0000041806 00000 n 
+0000045653 00000 n 
+0000045782 00000 n 
+0000047970 00000 n 
+0000048099 00000 n 
+0000050015 00000 n 
+0000050144 00000 n 
+0000053731 00000 n 
+0000053860 00000 n 
+0000056575 00000 n 
+0000056704 00000 n 
+0000059930 00000 n 
+0000060059 00000 n 
+0000062311 00000 n 
+0000062440 00000 n 
+0000064665 00000 n 
+0000064794 00000 n 
+0000068815 00000 n 
+0000068944 00000 n 
+0000073023 00000 n 
+0000073152 00000 n 
+0000076808 00000 n 
+0000076937 00000 n 
+0000080223 00000 n 
+0000080352 00000 n 
+0000083835 00000 n 
+0000083964 00000 n 
+0000088286 00000 n 
+0000088415 00000 n 
+0000092308 00000 n 
+0000092437 00000 n 
+0000096398 00000 n 
+0000096527 00000 n 
+0000098019 00000 n 
+0000098148 00000 n 
+0000099759 00000 n 
+0000099888 00000 n 
+0000100511 00000 n 
+0000100640 00000 n 
+trailer << /Size 66 /Root 1 0 R >>
+startxref
+100711
+%%EOF

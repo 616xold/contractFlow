@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":23,"heading":null,"snippet":"Merchant and Agent agree that, except to the extent that wages and benefits of Retained Employees constitute Expenses hereunder, nothing contained in this Agreement... shall be deemed to constitute an assumption by Agent"}],"confidence":0.62,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":33,"heading":"15.5 No Waiver.","snippet":"No consent or waiver by any Party, express or implied, to or of any breach"},{"page_num":43,"heading":"Schedule A","snippet":"Description Counterparty Name and Address Assignee Name and Address Cure Amount Effective Date of Assignment"}],"confidence":0.12,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":35,"heading":"Second-Lien Notes By: Name: Its:","snippet":"THE BON-TON STORES, INC., on behalf of itself and the other entities comprising Merchant"}],"confidence":0.62,"value":"THE BON-TON STORES, INC."}
+
+FIELD effective_date
+{"evidence":[{"page_num":43,"heading":"none","snippet":"...the assumption and assignment of such Lease or Contract will become effective automatically pursuant to the Approval Order on the date"},{"page_num":43,"heading":"Schedule A","snippet":"...Cure Amount Effective Date of Assignment"}],"confidence":0.22,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":17,"heading":"Section 6. Sale Term.","snippet":"Section 6. Sale Term."},{"page_num":20,"heading":"8.8 Sale Reconciliation. On each Wednesday during the Sale Term, Agent and Merchant shall","snippet":"Within thirty (30) days after the end of the Sale Term, or as soon as"}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":33,"heading":"15.3 Governing Law/Exclusive Jurisdiction. This Agreement shall be governed by and","snippet":"This Agreement shall be governed by and interpreted in accordance with the laws of the State of Delaware"}],"confidence":0.98,"value":"State of Delaware"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":17,"heading":"6.1 Term.","snippet":"Agent may, in its discretion, earlier terminate the GOB Sale on a Store-by- Store basis upon not less than seven (7) days' prior written notice"}],"confidence":0.62,"value":7}
+
+FIELD liability_cap
+{"evidence":[{"page_num":11,"heading":"Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 13 of 60","snippet":"Agent shall assume the obligation to pay (a) $2,000,000 (the \"503(b)(9) Cap\")... and (b) $8,000,000 (the \"Stub Rent Cap\")..."}],"confidence":0.32,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":50,"heading":null,"snippet":"...Agent shall not distribute handbills, leaflets or other written materials...; provided that Agent may solicit customers in the Stores themselves... Agent shall not use any flashing lights or amplified sound to advertise the Sale or solicit customers..."}],"confidence":0.22,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":19,"heading":null,"snippet":"Merchant in order for Merchant to comply with its privacy policy and applicable laws governing the use and dissemination of confidential consumer personal data);"}],"confidence":0.18,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":12,"heading":null,"snippet":"(b) Assets and Proceeds Held in Trust. Subject to Section 3.2(a), Merchant shall hold all\nof the Assets in trust for the benefit of Purchaser."},{"page_num":30,"heading":"Section 13. Purchaser's Security Interest.","snippet":"Purchaser shall have a senior lien on all Assets and\nProceeds, which lien shall be deemed by the Approval Order to be automatically perfected."},{"page_num":30,"heading":"Section 13. Purchaser's Security Interest.","snippet":"Purchaser shall have a superpriority administrative expense claim against Merchant"}],"confidence":0.32,"value":"high"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":34,"heading":"15.11 Deposit. Pursuant to the Bidding Procedures, Agent has provided a cash deposit in","snippet":"In the event the Closing fails to occur... only upon entry of a final and non-appealable order... determining... Purchaser's sole... breach... Merchant shall be entitled to retain the Deposit as liquidated damages"}],"confidence":0.34,"value":"The excerpts describe a significant deposit that may be forfeited as liquidated damages if the closing fails due to the purchaser’s sole material breach, which creates meaningful financial exposure. However, the forfeiture is conditioned on a final, non-appealable bankruptcy court order, which limits and clarifies when that risk applies. The excerpts do not provide an explicit risk level, so this explanation is inferred from the deposit and remedy terms."}

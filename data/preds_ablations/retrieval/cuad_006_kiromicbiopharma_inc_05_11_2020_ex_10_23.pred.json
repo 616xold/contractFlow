@@ -1,0 +1,49 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Kiromic, Inc.",
+  "party_b_name": "Gianluca Rotino",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Texas",
+  "termination_notice_days": null,
+  "liability_cap": "No explicit liability cap stated (includes consultant indemnity for third-party claims).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement contains broad confidentiality and IP/inventions obligations and includes an indemnity by the consultant for third-party claims, but no explicit limitation of liability is shown in the excerpts. Termination is allowed on prior written notice with no stated notice period, creating uncertainty. From a small SaaS vendor perspective, the lack of a liability cap and potentially expansive obligations increase risk.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 7681,
+    "output_tokens": 184,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 22,
+      "total_hits": 36,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Natalija Tunevic",
+  "party_b_name": "Mitchell Vitalis",
+  "effective_date": "2018-01-11",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "The excerpts identify the parties and effective date but do not show key risk terms such as governing law, termination for convenience notice, or any limitation of liability. Missing or unclear liability and termination provisions can increase exposure for a small SaaS/vendor. Based on the limited information available, the risk is assessed as medium due to these unknowns rather than any clearly adverse clause."
+}

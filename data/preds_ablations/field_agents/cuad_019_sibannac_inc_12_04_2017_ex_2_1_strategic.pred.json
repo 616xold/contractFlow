@@ -1,0 +1,285 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Bravatek Technologies, Inc.",
+  "party_b_name": "Sibannac, Inc.",
+  "effective_date": "2017-11-30",
+  "term_length": 12,
+  "governing_law": "State of Texas",
+  "termination_notice_days": 90,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 20260,
+    "output_tokens": 2029,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 6,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "For any Product or Solution sold to any perspective clients introduced by Bravatek... Bravatek will receive a lead-finder fee... payable NET 30 days after each client payment"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information... related to client projects... products, services and business of each of the parties."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "7) Term The term of this Agreement is twelve (12) months... 10) Indemnification COMPANY shall indemnify Bravatek..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1145,
+          "completion_tokens": 164
+        },
+        "party_a_name": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Bravatek Technologies,\nInc.  Sibannac, Inc."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Bravatek Technologies,\nInc.  Sibannac, Inc.     By: /s/ Thomas A.Cellucci  By: /s/ David Mersky"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1115,
+          "completion_tokens": 107
+        },
+        "party_b_name": {
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Bravatek Technologies,\nInc.  Sibannac, Inc."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "By: /s/ Thomas A.Cellucci  By: /s/ David Mersky     Name: Thomas\nA. Cellucci  Name: David Mersky"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1115,
+          "completion_tokens": 107
+        },
+        "effective_date": {
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Date: November 30, 2017  Date: November 30, 2017",
+              "snippet": "Date: November 30, 2017  Date: November 30, 2017"
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "This Agreement shall not be considered accepted, approved or otherwise effective until signed by the appropriate parties."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 933,
+          "completion_tokens": 112
+        },
+        "term_length": {
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "The term of this Agreement is twelve (12) months from the date hereof, and will be automatically renewed for one (1) additional twelve month period unless either party shall notify the other in writing of its intention not to renew."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1139,
+          "completion_tokens": 85
+        },
+        "governing_law": {
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "9) Governing Law This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1143,
+          "completion_tokens": 72
+        },
+        "termination_notice_days": {
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "This Agreement may also be terminated by either party upon ninety (90) days written notice."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1161,
+          "completion_tokens": 58
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "10) Indemnification COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs..."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "attorney's fees and court costs, incurred in connection with any third-party claim, action or proceeding arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2824,
+          "completion_tokens": 280
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects of party and products, services and business of each of the parties."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2805,
+          "completion_tokens": 213
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "9) Governing Law This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas."
+            },
+            {
+              "page_num": 1,
+              "heading": "Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this",
+              "snippet": "...by and between Bravatek Solutions, Inc., a corporation organized under the laws of the State of Colorado... and Sibannac, Inc. (\"COMPANY\"), a corporation organized under the laws of Nevada..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2922,
+          "completion_tokens": 268
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "COMPANY and Bravatek agree to maintain in strict confidence and not to disclose or disseminate, or to use for any purposes other than performance of the projects, the Confidential Information disclosed."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "attorney's fees and court costs, incurred in connection with any third-party claim, action or proceeding arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "This Agreement shall not be assignable by either party without the prior written consent of the other party."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1137,
+          "completion_tokens": 167,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "10) Indemnification COMPANY shall indemnify Bravatek... for any and all damages, costs, expenses... including reasonable attorney's fees and court costs incurred in connection with any third-party claim... arising from the negligence... of COMPANY"
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "attorney's fees and court costs, incurred in connection with any third-party claim... arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "This Agreement may also be terminated by either party upon ninety (90) days written notice."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2821,
+          "completion_tokens": 396,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 17,
+        "unique_evidence_pages": 3,
+        "avg_confidence": 0.64,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

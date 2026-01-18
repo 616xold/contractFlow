@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Kiromic, Inc... offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities..."},{"page_num":1,"heading":"Dear Gianluca:","snippet":"2. Confidentiality. \"Confidential Information\" means any proprietary information technical data, trade secrets or know-how... disclosed to Consultant by Company..."}],"confidence":0.72,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":6,"heading":"Name: Scott Dahlbeck Gianluca Rotino","snippet":"Name: Scott Dahlbeck Gianluca Rotino"}],"confidence":0.32,"value":"Scott Dahlbeck Gianluca Rotino"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\")"}],"confidence":0.78,"value":"Gianluca Rotino"}
+
+FIELD effective_date
+{"evidence":[{"page_num":5,"heading":null,"snippet":"This letter agreement will be effective as of July 1, 2018."}],"confidence":0.78,"value":"2018-07-01"}
+
+FIELD term_length
+{"evidence":[{"page_num":3,"heading":null,"snippet":"5. Term and Termination. This Agreement will commence on the Effective Date and will continue until termination as provided below."},{"page_num":3,"heading":null,"snippet":"Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."}],"confidence":0.28,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":4,"heading":null,"snippet":"This Agreement shall be governed by the laws of the State of Texas, without reference to its conflicts of law principles."}],"confidence":0.98,"value":"State of Texas"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."}],"confidence":0.22,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":2,"heading":null,"snippet":"and against all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation..."}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":4,"heading":"none","snippet":"formation of any business or commercial entity in the Field of Interest or otherwise competitive with the Company."},{"page_num":1,"heading":"Dear Gianluca:","snippet":"2. Confidentiality. \"Confidential Information\" means any proprietary information technical data, trade secrets or know-how..."}],"confidence":0.34,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Consultant agrees that Consultant owes Company and such third parties, during the term of this Agreement and thereafter, a duty to hold all such confidential or proprietary information in the strictest confidence and not to disclose it to any person..."}],"confidence":0.22,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Consultant will indemnify Company and hold it harmless from"},{"page_num":2,"heading":null,"snippet":"...all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation by Company of such third party's rights..."}],"confidence":0.62,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."},{"page_num":6,"heading":"SERVICES AND COMPENSATION","snippet":"The Company will compensate Consultant at the rate of $400 per hour (19 hours cap monthly; anything over these hrs must be preapproved by management)"},{"page_num":2,"heading":null,"snippet":"Upon the termination of this Agreement, or upon Company's earlier requests, Consultant will deliver to Company all property relating to, and all tangible embodiments of, Inventions"}],"confidence":0.62,"value":"The risk level is elevated because the agreement is terminable by either party on written notice, creating uncertainty around continuity of services and costs. Compensation is hourly with a monthly cap and preapproval requirements, which can create budgeting and scope-management risk. The contract also imposes significant IP deliverable/assignment obligations upon termination, increasing operational and compliance exposure if not managed carefully."}

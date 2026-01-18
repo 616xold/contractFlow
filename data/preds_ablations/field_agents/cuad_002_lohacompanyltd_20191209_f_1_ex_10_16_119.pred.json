@@ -1,0 +1,285 @@
+{
+  "doc_type": "other",
+  "party_a_name": "LOHA CO. LTD.",
+  "party_b_name": "LOHA CO. LTD.",
+  "effective_date": null,
+  "term_length": 720,
+  "governing_law": "People's Republic of China",
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 29408,
+    "output_tokens": 2999,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "normalized term_length from years to months",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 14,
+      "fields": {
+        "doc_type": {
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "Exhibit 10.16 SUPPLY CONTRACT... 1.1 This is a framework agreement, the terms and conditions are applied to all purchase orders"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1247,
+          "completion_tokens": 92
+        },
+        "party_a_name": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
+            },
+            {
+              "page_num": 1,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 967,
+          "completion_tokens": 130
+        },
+        "party_b_name": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
+            },
+            {
+              "page_num": 1,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2713,
+          "completion_tokens": 251
+        },
+        "effective_date": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "The Contract is valid for 5 years, beginning from and ended on . ... The Contract becomes effective after signed by both parties."
+            },
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3032,
+          "completion_tokens": 236
+        },
+        "term_length": {
+          "confidence": 0.92,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "none",
+              "snippet": "23. The Contract is valid for 5 years, beginning from and ended on ."
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "normalized term_length from years to months"
+          ],
+          "prompt_tokens": 2737,
+          "completion_tokens": 150
+        },
+        "governing_law": {
+          "confidence": 0.96,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "21. Law application It will be governed by the law of the People's Republic of China"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 983,
+          "completion_tokens": 62
+        },
+        "termination_notice_days": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2869,
+          "completion_tokens": 209
+        },
+        "liability_cap": {
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "The seller shall be liable for any damage and loss of the commodity, expenses incurred on account of improper packing, and any damage attributable to inadequate or improper protective measures taken by the seller..."
+            },
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure..."
+            },
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "18. LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time as stipulated in the Contract... the Sellers agree to pay a penalty..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 3152,
+          "completion_tokens": 417
+        },
+        "non_solicit_clause_present": {
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "20. This final price is the confidential information. Dissemination, distribution or duplication of this price is strictly prohibited."
+            },
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "17. FORCE MAJEURE: The Sellers shall not be held responsible for the delay in shipment or non-delivery..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2866,
+          "completion_tokens": 357
+        },
+        "data_transfer_outside_uk_eu": {
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "9. PORT OF DESTINATION: SHENZHEN, GUANGDONG, CHINA"
+            },
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3139,
+          "completion_tokens": 232
+        },
+        "risk_level": {
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "The Arbitration shall take place in Beijing and the decision of the Arbitration Committee shall be final and binding upon both parties; neither party shall seek recourse to a law court..."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "It will be governed by the law of the People's Republic of China... Conflicts between these two languages... shall be subject to Chinese version."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Where necessary, the Buyers shall be at liberty to eliminate the defect(s) themselves at the Sellers' expenses. If the Sellers fail to answer the Buyers within one weeks... the claim shall be reckoned as having been accepted"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2938,
+          "completion_tokens": 368
+        },
+        "risk_explanation": {
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "INSURANCE: To be covered by the Seller for 110% invoice value against All Risks and War Risk."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "The Buyer shall open an irrevocable letter of credit with the bank within 30 days after signing the contract... 80%... will be paid against the documents... The remaining 20%... will be paid against the documents"
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "It will be governed by the law of the People's Republic of China... Conflicts between these two languages... shall be subject to Chinese version."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2765,
+          "completion_tokens": 495,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "coverage": {
+        "fields_total": 11,
+        "fields_with_evidence": 11,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 20,
+        "unique_evidence_pages": 4,
+        "avg_confidence": 0.48,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+FIELD doc_type
+{"evidence":[{"page_num":3,"heading":"Signature Page to Amendment and Termination of Joint Venture Agreement","snippet":"Signature Page to Amendment and Termination of Joint Venture Agreement"},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... under the JV Agreement shall terminate"}],"confidence":0.9,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":3,"heading":"Veoneer AB","snippet":"Veoneer AB"}],"confidence":0.62,"value":"Veoneer AB"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":3,"heading":"Veoneer AB","snippet":"Nissin Kogyo Co., Ltd.\nBy: /s/ Yasushi Kawaguchi Name: Yasushi Kawaguchi Title: Representative Director,"}],"confidence":0.62,"value":"Nissin Kogyo Co., Ltd."}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"This AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT (this \"Amendment\") is made and entered into effective as of October 30, 2019 (the \"Effective Date\")"}],"confidence":0.98,"value":"2019-10-30"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"2016 by and among Autoliv ASP, Inc. (\"Autoliv ASP\"), Autoliv AB (\"Autoliv AB\") and Autoliv","snippet":"...as amended, supplemented or otherwise modified from time to time in accordance with the terms thereof and in effect on the date hereof (the \"JV Agreement\")."},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate..."}],"confidence":0.12,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":3,"heading":"Article 3.Governing Law","snippet":"This Amendment shall be governed by and construed in accordance with the laws of Japan."}],"confidence":0.98,"value":"Japan"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBZ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"}],"confidence":0.18,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":2,"heading":"ANRA.","snippet":"...shall not release any Veoneer Party or any Nissin Party from liability for the breach of any of its representations, warranties, covenants or agreements set forth in the JV Agreement..."}],"confidence":0.12,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"},{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"This AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT... by and among... (the \"Veoneer Parties\")... and... (the \"Nissin Parties\")"}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing, except as expressly set forth in this Amendment, the JV Agreement shall immediately cease to have any application or effect with respect to VNBJ..."},{"page_num":1,"heading":"2016 to engage in the JV Business through Veoneer Nissin Brake Systems Japan, Co., Ltd.","snippet":"...Veoneer Nissin Brake Systems Japan, Co., Ltd. (\"VNBJ\"), Veoneer Nissin Brake Systems America, LLC... Veoneer Nissin Brake Systems (Zhongshan), Co., Ltd. (\"VNBZ\")..."}],"confidence":0.12,"value":"unknown"}
+
+FIELD risk_level
+{"evidence":[{"page_num":2,"heading":"ANRA.","snippet":"...the termination of the JV Agreement... shall not release any... Party from liability for the breach of any of its representations, warranties, covenants or agreements... that arise prior to the... Closing..."}],"confidence":0.55,"value":"medium"}
+
+FIELD risk_explanation
+{"evidence":[{"page_num":2,"heading":"ANRA.","snippet":"the termination of the JV Agreement with respect to VNBJ, VNBZ or the Veoneer Parties shall not release any Veoneer Party or any Nissin Party from liability for the breach... that arise prior to the VNBJ Closing or the VNBZ Closing"},{"page_num":2,"heading":"Article 2.D&O Indemnity","snippet":"the Nissin Parties agree to cause each of VNBJ and VNBZ to comply... with respect to the indemnification or reimbursement... of all Directors and Officers... with respect to any Liabilities arising prior to the VNBJ Closing or the VNBZ Closing"},{"page_num":3,"heading":"Article 4.Effectiveness","snippet":"This Amendment shall only become effective upon the VNBJ Closing... and shall terminate without any force or effect in the event that the VNBJ SPA and the VNBZ SPA are terminated"}],"confidence":0.62,"value":"The risk level is elevated because the agreement preserves pre-closing liability even if the JV Agreement is terminated, meaning parties remain exposed for earlier breaches. It also requires indemnification/reimbursement for directors and officers for liabilities arising prior to closing, which can create ongoing financial exposure. Effectiveness and termination are tied to the closings and SPA termination, adding conditionality and execution risk."}

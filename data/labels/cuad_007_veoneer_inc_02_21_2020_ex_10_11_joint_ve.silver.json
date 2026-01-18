@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Veoneer AB",
+  "party_b_name": "Nissin Kogyo Co., Ltd.",
+  "effective_date": "2019-10-30",
+  "term_length": null,
+  "governing_law": "Japan",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts (termination does not release liability for prior breaches).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "medium",
+  "risk_explanation": "This is an amendment/termination agreement that preserves liability for breaches and includes ongoing D&O indemnity obligations for liabilities arising prior to the closings. No explicit liability cap or termination-for-convenience notice period is shown in the excerpts, which can increase exposure/uncertainty. Governing law is Japan, which may add complexity for a small SaaS vendor."
+}

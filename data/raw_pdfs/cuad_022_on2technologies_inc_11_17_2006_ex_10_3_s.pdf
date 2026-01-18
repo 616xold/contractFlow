@@ -1,0 +1,2490 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 4 0 R 6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R 18 0 R 20 0 R 22 0 R 24 0 R 26 0 R 28 0 R 30 0 R 32 0 R 34 0 R 36 0 R 38 0 R 40 0 R 42 0 R ] /Count 20 >>
+endobj
+3 0 obj
+<< /Length 3701 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(Exhibit 10.3) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(EXHIBIT C) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(SUPPORT AND MAINTENANCE AGREEMENT) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 \(the "Effective Date"\),) Tj
+0 -12 Td
+(between On2 Technologies, Inc., a Delaware corporation \("On2"\), and Wildform, Inc., a) Tj
+0 -12 Td
+(California corporation \("Wildform"\). Capitalized terms used herein and not defined herein) Tj
+0 -12 Td
+(shall have the meanings given to them in Asset Purchase Agreement \(as defined below\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(WITNESSETH:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(WHEREAS, On2 and Wildform have entered into an Asset Purchase And Software License) Tj
+0 -12 Td
+(Agreement dated as of April 4, 2005 \(the "Asset Purchase Agreement"\) pursuant to which,) Tj
+0 -12 Td
+(among other matters, Wildform has agreed to sell and license certain assets to On2; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(WHEREAS, in connection with the Asset Purchase Agreement, On2 desires for Wildform to) Tj
+0 -12 Td
+(provide certain services to On2, and Wildform wishes to perform such services in) Tj
+0 -12 Td
+(accordance herewith.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(NOW, THEREFORE, subject to the terms, conditions, covenants and provisions of this) Tj
+0 -12 Td
+(Agreement, each of On2 and Wildform mutually covenant and agree as follows:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE I) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(DEFINITIONS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(For purposes hereof, each of the following terms shall have the respective meaning set) Tj
+0 -12 Td
+(forth below, whether employed in the singular or plural, unless the particular context in) Tj
+0 -12 Td
+(which a term is used clearly indicates otherwise:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.1 "Closing Date Payment Amount" shall have the meaning set forth in the Asset Purchase) Tj
+0 -12 Td
+(Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.2 "Common Stock" means the common stock of On2, par value $0.01.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.3 "Confidential Information" means any and all information disclosed by one Party \(the) Tj
+0 -12 Td
+("Disclosing Party"\) to the other Party \(the "Receiving Party"\), in any manner, prior to) Tj
+0 -12 Td
+(the Effective Date and thereafter during the Term. Confidential Information may include,) Tj
+0 -12 Td
+(but is not limited to, the following types of information and other information of a) Tj
+0 -12 Td
+(similar nature, in any form or medium, in any way perceived: trade secrets, software) Tj
+0 -12 Td
+(licensed on an evaluation basis hereunder \(whether source code, executable code or) Tj
+0 -12 Td
+(otherwise\), source code, inventions, art, drawings, schematics, files, file data,) Tj
+0 -12 Td
+(documentation, diagrams, specifications, know how, processes, formulas, flow charts,) Tj
+0 -12 Td
+(product criteria, research and development records, procedures, test results and samples,) Tj
+0 -12 Td
+(marketing techniques and materials, marketing and development plans, pricing data, price) Tj
+0 -12 Td
+(lists, business plans, information relating to customer identities, supplier or other) Tj
+0 -12 Td
+(source identities, and financial information.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Confidential Information of a Disclosing Party may also include any information described) Tj
+0 -12 Td
+(above, whether or not owned or developed by it, and any such information Disclosing Party) Tj
+0 -12 Td
+(is obligated to keep confidential by way of a written agreement with a third party.) Tj
+0 -12 Td
+(Notwithstanding the foregoing, Confidential Information shall not include any of the) Tj
+0 -12 Td
+(foregoing that \(i\) is or becomes generally available to the public other than as a result) Tj
+0 -12 Td
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Length 4115 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(of a disclosure by the Receiving Party, \(ii\) is rightfully in the possession of Receiving) Tj
+0 -12 Td
+(Party prior to disclosure by Disclosing Party, \(iii\) is received by Receiving Party from a) Tj
+0 -12 Td
+(third party having the right to make such disclosure and not under a confidentiality) Tj
+0 -12 Td
+(obligation to the Disclosing Party, or \(iv\) is independently developed by the Receiving) Tj
+0 -12 Td
+(Party without reference to or use of any Confidential Information of the Disclosing Party.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.4 "Deliverable" means each item to be delivered by Wildform in accordance with Exhibit B) Tj
+0 -12 Td
+(hereto.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.5 "Development Work" means the customization and integration of the Flix Software to be) Tj
+0 -12 Td
+(performed by Wildform and described on Exhibit B hereto) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.6 "Exchange Act" means the Securities and Exchange Act of 1934, as amended.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.7 "Flix Software" means the following software in source code and object code form: Flix) Tj
+0 -12 Td
+(Pro 4 for Windows, Flix Pro 4 for Windows Demo, Flix Pro 3 for Mac, Flix Pro 3 for Mac) Tj
+0 -12 Td
+(Demo, Flix Engine 3.5 for Windows, Flix Engine 3.5 for Windows Demo, Flix Exporter 4 for) Tj
+0 -12 Td
+(Windows \(including Flix FLV player\) Flix Exporter 4 for Windows Demo \(including Flix FLV) Tj
+0 -12 Td
+(player\), Flix Exporter 4 for Mac \(including Flix FLV player\), Flix Exporter 4 for Mac Demo) Tj
+0 -12 Td
+(\(including Flix FLV player\), Flix Lite 3 for Windows, Flix Lite 3 for Windows Demo, Flix) Tj
+0 -12 Td
+(Lite 3 for Mac, Flix Lite 3 for Mac Demo.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.8 "Incorporated Technology" means any technology or materials \(including software source) Tj
+0 -12 Td
+(code\) provided by On2 to Wildform in order for Wildform to perform the Development Work.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.9 "Intellectual Property Rights" means all intellectual property rights arising under) Tj
+0 -12 Td
+(statutory or common law or any other legal system in the world, including that which is) Tj
+0 -12 Td
+(acquired or obtained under a contract with a third) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(party, and whether or not perfected, comprising any of the following: \(i\) copyrights,) Tj
+0 -12 Td
+(copyright registrations, mask works and mask work registrations; \(ii\) rights relating to) Tj
+0 -12 Td
+(the protection of trade secrets and confidential information; \(iii\) patents, patent) Tj
+0 -12 Td
+(applications, reissue patents and reissue applications, continuation and continuation in) Tj
+0 -12 Td
+(part applications, invention registrations, petty patents; \(iv\) trademarks, service marks,) Tj
+0 -12 Td
+(trade names, trade dress, domain names, and registrations for the foregoing, of all kinds) Tj
+0 -12 Td
+(and types; \(v\) any right analogous to those set forth in this definition in foreign) Tj
+0 -12 Td
+(jurisdictions; and \(vi\) any renewals or extensions of the foregoing \(as and to the extent) Tj
+0 -12 Td
+(applicable\) now existing, or hereafter filed, issued or acquired.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.10 "Incorporated Technology Works" shall mean all inventions, intellectual property,) Tj
+0 -12 Td
+(works, derivative works, innovations, or other developments made or developed by Wildform) Tj
+0 -12 Td
+(solely as a result of and in relation to the incorporation of the Incorporated Technology) Tj
+0 -12 Td
+(to the Flix Software, and explicitly excluding the Licensed Assets.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.11 "Nonconformance Notice" shall have the meaning set forth in Section 3.1 hereof.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.12 "Payment Shares" means Two Hundred Eighty Thousand shares of Common Stock, subject to) Tj
+0 -12 Td
+(adjustment from time to time in connection with any stock split, reverse stock split,) Tj
+0 -12 Td
+(stock dividend or other similar change in On2's capitalization.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.13 "Program Errors" means any defect in the Flix Software that 1\) results in the loss or) Tj
+0 -12 Td
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 4030 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(corruption of data on a user's system, 2\) causes the Flix Software to become unstable, 3\)) Tj
+0 -12 Td
+(eliminates the user's ability to perform intended functions in the Flix Software, or 4\)) Tj
+0 -12 Td
+(causes the operating system or any other programs to become unstable or cease to function.) Tj
+0 -12 Td
+(The defect must be caused by the Flix Software in the form provided by Wildform as a) Tj
+0 -12 Td
+(Deliverable.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.14 "Specifications" shall mean the Flix Software customizations and integrations) Tj
+0 -12 Td
+(described on Exhibit B.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1.15 "Term" shall have the meaning set forth in Section 9.1 hereof.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE II) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(TRANSITION SERVICES PROVIDED) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.1 Transition Services. Upon the terms and subject to the conditions set forth in this) Tj
+0 -12 Td
+(Agreement, with respect to each of those services set forth on Exhibit A hereto, which) Tj
+0 -12 Td
+(Exhibit is made a part of this Agreement, Wildform will provide to On2 the services) Tj
+0 -12 Td
+(indicated on such Exhibit \(the "Transition Services"\) during the time period for each such) Tj
+0 -12 Td
+(Transition Service set forth in such Exhibit \(hereinafter referred to as the "Time) Tj
+0 -12 Td
+(Periods" for all of the Transition Services, and the "Time Period" for each Transition) Tj
+0 -12 Td
+(Service\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.2 Personnel. In providing the Transition Services, Wildform, as it deems necessary or) Tj
+0 -12 Td
+(appropriate in its sole discretion, may \(i\) use its personnel, and \(ii\) employ the) Tj
+0 -12 Td
+(services of third parties to the extent such third party services are reasonably necessary) Tj
+0 -12 Td
+(for the efficient performance of any of such Transition Services, provided, however that) Tj
+0 -12 Td
+(the marketing and PR services set forth on Exhibit A shall be supervised by Colby Devitt) Tj
+0 -12 Td
+(or Jonathan Blank.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its) Tj
+0 -12 Td
+(primary contact person for the provision of all of the Transition Services \(collectively,) Tj
+0 -12 Td
+(the "Primary Coordinators"\). The initial Primary Coordinators shall be Chris Schapdick for) Tj
+0 -12 Td
+(On2 and Jonathan Blank for Wildform. Each party may treat an act of a Primary Coordinator) Tj
+0 -12 Td
+(of another party as being authorized by such other party without inquiring behind such act) Tj
+0 -12 Td
+(or ascertaining whether such Primary Coordinator had authority to so act. Wildform and On2) Tj
+0 -12 Td
+(shall advise each other in writing of any change in the Primary Coordinators, setting) Tj
+0 -12 Td
+(forth the name of the Primary Coordinator to be replaced and the name of the replacement,) Tj
+0 -12 Td
+(and certifying that the replacement Primary Coordinator is authorized to act for such) Tj
+0 -12 Td
+(party in all matters relating to this Agreement. Each of On2 and Wildform agree that all) Tj
+0 -12 Td
+(communications relating to the provision of the Transition Services shall be directed to) Tj
+0 -12 Td
+(the Primary Coordinators.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2.4 Level of Transition Services. Wildform shall perform the Transition Services for which) Tj
+0 -12 Td
+(it is responsible hereunder following commonly accepted standards of care in the industry) Tj
+0 -12 Td
+(and exercising the same degree of care as it exercises in performing the same or similar) Tj
+0 -12 Td
+(services for its own business as of the date of this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE III) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(SOFTWARE DELIVERABLES) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.1 Deliverables. Subject to payment by On2 of the Closing Date Payment Amount in) Tj
+0 -12 Td
+(accordance with the Asset Purchase Agreement, Wildform shall deliver each Deliverable in) Tj
+0 -12 Td
+(accordance with the timeframe \(the "Timeframe"\) set forth in Exhibit B, which Exhibit is) Tj
+0 -12 Td
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 3765 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(made a part of this Agreement. On2 will use commercially reasonable efforts to cooperate) Tj
+0 -12 Td
+(with Wildform as necessary in completing the Development Work and delivery of the) Tj
+0 -12 Td
+(Deliverables. Upon receipt of each Deliverable, On2 shall have a period of thirty \(30\)) Tj
+0 -12 Td
+(working days within which to inspect such Deliverable based upon the relevant) Tj
+0 -12 Td
+(Specification \(an "Acceptance Period"\). Should On2 find that any Deliverable does not) Tj
+0 -12 Td
+(substantially conform to the relevant Specification, On2 shall promptly so notify Wildform) Tj
+0 -12 Td
+(in writing, which notice shall provide sufficiently detailed) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(explanation of the non-conformities so as to allow Wildform to reproduce them \(any such) Tj
+0 -12 Td
+(notice is referred to herein as a "Nonconformance Notice"\). Each of the Deliverables shall) Tj
+0 -12 Td
+(be deemed accepted by On2 unless On2 delivers to Wildform a Nonconformance Notice within) Tj
+0 -12 Td
+(thirty \(30\) business days of the delivery of such Deliverable. In the event that Wildform) Tj
+0 -12 Td
+(receives such Nonconformance Notice from On2, Wildform shall make commercially reasonable) Tj
+0 -12 Td
+(efforts to modify such Deliverable and re-deliver it to On2 after any such modification is) Tj
+0 -12 Td
+(completed. Each Deliverable shall be deemed to have been accepted by On2 when either \(i\)) Tj
+0 -12 Td
+(On2 notifies Wildform in writing of its acceptance of such Deliverables or \(ii\) On2 does) Tj
+0 -12 Td
+(not deliver a Nonconformance Notice to Wildform within the Acceptance Period.) Tj
+0 -12 Td
+(Notwithstanding anything herein to the contrary, On2 shall not unreasonably withhold) Tj
+0 -12 Td
+(acceptance of any Deliverable.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3.2 Program Errors. During the Term, Wildform shall resolve Program Errors in the manner) Tj
+0 -12 Td
+(provided in Exhibit A.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE IV) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(COMPENSATION) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(As consideration for the services to be provided by Wildform hereunder, On2 will pay) Tj
+0 -12 Td
+(Wildform a total of \(i\) $160,000 payable as follows: \(a\) $22,500 per month for each of the) Tj
+0 -12 Td
+(four \(4\) months following the Effective Date and $10,000 per month for each of the fifth) Tj
+0 -12 Td
+(and sixth months following the Effective Date with the first payment being payable 30 days) Tj
+0 -12 Td
+(from the Effective Date, and each subsequent payment payable within thirty \(30\) days of) Tj
+0 -12 Td
+(the preceding payment and \(b\) $50,000 upon On2's acceptance of the Deliverables pursuant) Tj
+0 -12 Td
+(to Section 3.1 hereof; and \(ii\) the Payment Shares, issuable upon the 12-month anniversary) Tj
+0 -12 Td
+(of the Effective Date. The foregoing notwithstanding, the payment provided for in this) Tj
+0 -12 Td
+(Article IV is not intended to constitute consideration for the Purchased Assets and) Tj
+0 -12 Td
+(Licensed Assets, payment for the license of which is provided for in the Asset Purchase) Tj
+0 -12 Td
+(Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE V) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(CONFIDENTIALITY) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.1 Use of Confidential Information. The Receiving Party represents and warrants to the) Tj
+0 -12 Td
+(Disclosing Party that:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.1.1 it will keep and maintain all Confidential Information of the Disclosing Party in) Tj
+0 -12 Td
+(strict confidence, using such degree of care as is appropriate to avoid unauthorized use) Tj
+0 -12 Td
+(or disclosure;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.1.2 it will not, directly or indirectly, disclose any Confidential Information to any) Tj
+0 -12 Td
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 4213 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(third party, except as contemplated by this Agreement or with the Disclosing Party's prior) Tj
+0 -12 Td
+(written consent;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.1.3 it will not make use of any Confidential Information for its own purposes, such as) Tj
+0 -12 Td
+(creation of a competitive product; or for the benefit of anyone or any entity other than) Tj
+0 -12 Td
+(as contemplated by this Agreement;) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.1.4 upon the Disclosing Party's written request, at the earlier of the end of the Term,) Tj
+0 -12 Td
+(or receipt of notice from the Disclosing Party of a breach by it of this Agreement or an) Tj
+0 -12 Td
+(Annex, the Receiving Party will deliver promptly to the Disclosing Party or, at the) Tj
+0 -12 Td
+(Receiving Party's option, will destroy all memoranda, notes, records, reports, media and) Tj
+0 -12 Td
+(other documents and materials \(and all copies thereof\) regarding or including any) Tj
+0 -12 Td
+(Confidential Information which the Receiving Party may then possess or have under its) Tj
+0 -12 Td
+(control; and) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.1.5 it will take no action with respect to the Confidential Information that is) Tj
+0 -12 Td
+(inconsistent with its confidential and proprietary nature.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.2 Exceptions to Non-Disclosure Obligations. Notwithstanding the foregoing, the Receiving) Tj
+0 -12 Td
+(Party shall be permitted to disclose Confidential Information without any violation of) Tj
+0 -12 Td
+(this Agreement if such disclosure is required by law, but in such event the Receiving) Tj
+0 -12 Td
+(Party shall notify the Disclosing Party in writing in advance of such disclosure, and) Tj
+0 -12 Td
+(provide the Disclosing Party with copies of any related information so that the Disclosing) Tj
+0 -12 Td
+(Party may take appropriate action to protect its Confidential Information. The Receiving) Tj
+0 -12 Td
+(Party acknowledges that the disclosure of Confidential Information of the Disclosing Party) Tj
+0 -12 Td
+(may cause irreparable injury to the Disclosing Party and damages that may be difficult to) Tj
+0 -12 Td
+(ascertain. The Disclosing Party shall, therefore, be entitled to injunctive relief upon a) Tj
+0 -12 Td
+(disclosure or threatened disclosure of any Confidential Information of the Disclosing) Tj
+0 -12 Td
+(Party in violation of this Agreement, in addition to such other remedies as may be) Tj
+0 -12 Td
+(available at law or in equity. Without limitation of the foregoing, the Receiving Party) Tj
+0 -12 Td
+(shall promptly advise the Disclosing Party in the event that the Receiving Party learns or) Tj
+0 -12 Td
+(has reason to believe that any person or entity that has had access to Confidential) Tj
+0 -12 Td
+(Information of the Disclosing Party through the Receiving Party has violated or intends to) Tj
+0 -12 Td
+(violate the terms of this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5.3 Receiving Party's Duty of Care. Receiving Party shall protect the Confidential) Tj
+0 -12 Td
+(Information from unauthorized use or disclosure by exercising the same degree of care that) Tj
+0 -12 Td
+(Receiving Party uses with respect to information of its own of a similar nature, but in no) Tj
+0 -12 Td
+(event less than reasonable care, until five \(5\) years from the later of the Effective Date) Tj
+0 -12 Td
+(or the date of receipt of such Confidential Information. Notwithstanding the prior) Tj
+0 -12 Td
+(sentence, with respect to Receiving Party's employees, Receiving Party shall only disclose) Tj
+0 -12 Td
+(Confidential Information to a Receiving Party employee who has a need to know such) Tj
+0 -12 Td
+(Confidential Information for purposes of this Agreement or any customer sublicense and is) Tj
+0 -12 Td
+(informed of the confidential nature of the Confidential Information. The foregoing) Tj
+0 -12 Td
+(notwithstanding, each Party shall be liable for any failure by such Party's employees,) Tj
+0 -12 Td
+(agents or representatives to comply with the) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(provisions of this Section 5 as fully as if such employees, agents or representatives were) Tj
+0 -12 Td
+(a party to this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE VI) Tj
+0 -12 Td
+ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 4379 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(WARRANTIES) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(6.1 On2 Warranties. On2 makes the following representations and warranties to Wildform.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\)   Authorization; Power and Authority. On2 \(i\) is a corporation duly) Tj
+0 -12 Td
+(organized under the laws of the state of Delaware, and \(ii\) has the             requisite) Tj
+0 -12 Td
+(corporate power and corporate authority to enter into and             perform its) Tj
+0 -12 Td
+(obligations under this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\)   Exchange Act Reporting. On2 has filed in a timely manner all             documents) Tj
+0 -12 Td
+(that it was required to file under the Exchange Act,             during the twelve \(12\)) Tj
+0 -12 Td
+(months preceding the date of this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\)   Payment Shares. The Payment Shares to be issued by On2 to Wildform) Tj
+0 -12 Td
+(hereunder: \(i\) are duly authorized; and \(ii\) when issued and             exchanged) Tj
+0 -12 Td
+(pursuant to the terms of this Agreement, will be validly             issued, fully paid,) Tj
+0 -12 Td
+(non-assessable and not subject to preemptive             rights; and \(iii\) when issued and) Tj
+0 -12 Td
+(exchanged pursuant to the terms of             this Agreement, shall have been approved) Tj
+0 -12 Td
+(for listing on the American             Stock Exchange \(or such other trading market or) Tj
+0 -12 Td
+(exchange on which             the Common Stock is listed or quoted for trading on the date) Tj
+0 -12 Td
+(in             question\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(6.2 Wildform Warranties. Wildform makes the following representations and warranties to) Tj
+0 -12 Td
+(On2.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\)   Authorization; Power and Authority. Wildform \(i\) is a corporation             duly) Tj
+0 -12 Td
+(organized under the laws of the State of California, \(ii\) has             the requisite) Tj
+0 -12 Td
+(corporate power and corporate authority to enter into             and perform its) Tj
+0 -12 Td
+(obligations under this Agreement, and \(iii\) to the             best of Wildform's) Tj
+0 -12 Td
+(knowledge as of the Effective Date, the             Deliverables marked as Deliverable #2) Tj
+0 -12 Td
+(will not infringe any             Intellectual Property Rights held by any third party.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\)   Investment Representation. Wildform acknowledges that it is aware             that) Tj
+0 -12 Td
+(the Payment Shares have not been registered under the Act.             Wildform represents) Tj
+0 -12 Td
+(and warrants to the Buyer that such Wildform is             acquiring the Payment Shares) Tj
+0 -12 Td
+(for investment purposes and not with a             view to or for sale in connection with) Tj
+0 -12 Td
+(any distribution thereof or             with any present intention of selling the Payment) Tj
+0 -12 Td
+(Shares in             connection with a distribution. Wildform has the capacity to protect) Tj
+0 -12 Td
+(its own interest, can bear the economic risk of its investment, and             has such) Tj
+0 -12 Td
+(knowledge and experience in financial or business matters             that it is capable) Tj
+0 -12 Td
+(of evaluating the merits and risks of the             investment in the Payment Shares.) Tj
+0 -12 Td
+(Wildform acknowledges that an             investment in the Payment Shares represents a) Tj
+0 -12 Td
+(high degree of risk) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(and that there is no assurance that Buyer's business or operations             will be) Tj
+0 -12 Td
+(successful. Wildform has considered carefully the risks             attendant to an) Tj
+0 -12 Td
+(investment in the Payment Shares and acknowledges             that, as a consequence of) Tj
+0 -12 Td
+(such risks, such Wildform could lose its             entire investment in the Payment) Tj
+0 -12 Td
+(Shares. Wildform acknowledges that,             at a reasonable time prior to the) Tj
+0 -12 Td
+(Effective Date, Buyer furnished to             it the information specified in paragraph) Tj
+0 -12 Td
+(\(b\)2\(ii\)\(A\) or \(B\) of, and             in either event the information specified in) Tj
+0 -12 Td
+(paragraph \(b\)\(2\)\(ii\)\(C\)             of, Rule 502 promulgated under Exchange Act.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\)   Restricted Securities. Wildform understands that the Payment Shares             will) Tj
+0 -12 Td
+ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 4607 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(be "restricted securities" under applicable federal securities             laws and the) Tj
+0 -12 Td
+(rules of the Securities and Exchange Commission             promulgated thereunder.) Tj
+0 -12 Td
+(Wildform acknowledges that it may dispose of             the Payment Shares only pursuant) Tj
+0 -12 Td
+(to an effective registration             statement under the Act or an exception from) Tj
+0 -12 Td
+(registration if             available. Wildform further understands that, except as) Tj
+0 -12 Td
+(provided in             the Registration Rights Agreement \(as defined below\), Buyer has no) Tj
+0 -12 Td
+(obligation to register the sale of the Payment Shares or take any             other action) Tj
+0 -12 Td
+(so as to permit sales pursuant to the Act. Wildform             further understands that) Tj
+0 -12 Td
+(applicable state securities laws may impose             additional constraints upon the) Tj
+0 -12 Td
+(sale of securities) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(6.3 No Warranty. EXCEPT AS PROVIDED IN SUBSECTIONS 6.1 AND 6.2 ABOVE, THE DELIVERABLES AND) Tj
+0 -12 Td
+(INCORPORATED TECHNOLOGY ARE PROVIDED "AS-IS" WITHOUT WARRANTY OF ANY KIND AND BOTH PARTIES) Tj
+0 -12 Td
+(EXPRESSLY AGREE AND ACKNOWLEDGE THAT THE DELIVERABLES AND INCORPORATED TECHNOLOGY ARE) Tj
+0 -12 Td
+(BEING PROVIDED WITHOUT ANY REPRESENTATIONS, WARRANTIES OR CONDITIONS WHETHER EXPRESS,) Tj
+0 -12 Td
+(IMPLIED, STATUTORY, ARISING OUT OF A COURSE OF DEALING OR USAGE OF TRADE OR OTHERWISE) Tj
+0 -12 Td
+(INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY,) Tj
+0 -12 Td
+(MERCHANTABLE QUALITY, FITNESS OR ADEQUACY FOR ANY PARTICULAR PURPOSE OR USE, QUALITY,) Tj
+0 -12 Td
+(PRODUCTIVENESS, CAPACITY, OR THAT THE OPERATION OF THE DELIVERABLES OR INCORPORTED) Tj
+0 -12 Td
+(TECHNOLOGY WILL BE ERROR-FREE. NO ORAL OR WRITTEN INFORMATION OR ADVICE GIVEN BY A PARTY,) Tj
+0 -12 Td
+(ITS DIRECTORS, OFFICERS, EMPLOYEES, LICENSORS, SUPPLIERS, AGENTS, OR TO ANYONE ELSE WHO) Tj
+0 -12 Td
+(HAS BEEN INVOLVED IN THE CREATION, PRODUCTION, LICENSING, SUBLICENSING, SUPPLY OR DELIVERY) Tj
+0 -12 Td
+(OF THE DELIVERABLES OR INCORPORATED TECHNOLOGY WILL CREATE A REPRESENTATION, CONDITION, OR) Tj
+0 -12 Td
+(WARRANTY AND NEITHER PARTY MAY NOT RELY ON SUCH INFORMATION OR ADVICE.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE VII) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(INTELLECTUAL PROPERTY RIGHTS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(7.1 The Incorporated Technology Works shall be the sole property of On2, and all right,) Tj
+0 -12 Td
+(title and interest therein shall vest solely in On2 and shall be deemed to be a work made) Tj
+0 -12 Td
+(for hire. To the extent that title to any of the Incorporated Technology Works may not, by) Tj
+0 -12 Td
+(operation of law, vest in On2 or such works may not be considered works made for hire,) Tj
+0 -12 Td
+(Wildform hereby irrevocably assigns to On2 all rights, title and interest in and to such) Tj
+0 -12 Td
+(works. All Incorporated Technology Works shall belong exclusively to On2, which shall have) Tj
+0 -12 Td
+(the right to obtain and to hold in its own name, copyrights, registrations, patents, or) Tj
+0 -12 Td
+(such other protection as may be appropriate to the subject matter, and any extensions and) Tj
+0 -12 Td
+(renewals thereof. Wildform agrees to give On2 and any person designated by On2 such) Tj
+0 -12 Td
+(reasonable assistance, at On2's expense, as is On2 reasonably deems appropriate to) Tj
+0 -12 Td
+(perfect, secure, and protect On2's intellectual property and other rights set forth in) Tj
+0 -12 Td
+(this paragraph. Notwithstanding the foregoing, Wildform shall retain its existing right,) Tj
+0 -12 Td
+(title and interest in and to the Licensed Assets, subject to On2's rights to use such) Tj
+0 -12 Td
+(intellectual property pursuant to the Asset Purchase Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(7.2 On2 Intellectual Property. Wildform acknowledges that On2 retains all right, title,) Tj
+0 -12 Td
+(and interest in and to the Incorporated Technology and the Incorporated Technologies) Tj
+0 -12 Td
+(Works, and in all copies&sbsp;thereof, and no title to the Incorporated Technology or) Tj
+0 -12 Td
+(other rights therein are transferred to Wildform by virtue of this Agreement other than as) Tj
+0 -12 Td
+(explicitly stated herein or reasonably necessary to accomplish the purposes hereof. 7.3) Tj
+0 -12 Td
+(Wildform Intellectual Property. Except for Purchased Assets \(as defined in the Asset) Tj
+0 -12 Td
+(Purchase Agreement\) and Incorporated Technology Works and subject to On2's license rights) Tj
+0 -12 Td
+ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 15 0 R >>
+endobj
+17 0 obj
+<< /Length 3826 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(to the Licensed Assets, Wildform shall retain all right, title and interest in and to the) Tj
+0 -12 Td
+(Deliverables, excluding the Incorporated Technology.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(7.4 Restrictions. Wildform agrees not to cause or permit the porting, reverse engineering,) Tj
+0 -12 Td
+(reverse assembly or reverse compilation of any object code software provided to Wildform) Tj
+0 -12 Td
+(by On2 pursuant to this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE VIII) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(INDEMNIFICATION) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.1 On2's Indemnification of Wildform. On2 agrees to defend, indemnify and hold harmless) Tj
+0 -12 Td
+(Wildform, its officers, directors, employees, agents and customers from and against any) Tj
+0 -12 Td
+(claim, action, damage or costs \(including reasonable attorneys fees\) based on any breach) Tj
+0 -12 Td
+(by On2 of Sections 5, 6 or 7 of this Agreement provided that: \(i\) On2 is promptly notified) Tj
+0 -12 Td
+(in writing of such claim or action, \(ii\) Wildform grants On2 sole control of the defense) Tj
+0 -12 Td
+(and any related settlement negotiations, and \(iii\) Wildform reasonably cooperates with On2) Tj
+0 -12 Td
+(in defense of such claim.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8.2 Wildform's Indemnification of On2. Wildform agrees to defend, indemnify and hold) Tj
+0 -12 Td
+(harmless On2 from and against any claim, action, damage or costs \(including reasonable) Tj
+0 -12 Td
+(attorneys fees\) \(other than an action or claim which is subject to On2's indemnification) Tj
+0 -12 Td
+(of Wildform pursuant to Section 8.1 above\) based on any breach by Wildform of Sections 5,) Tj
+0 -12 Td
+(6 or 7 of this Agreement, provided that: \(i\) Wildform is promptly notified in writing of) Tj
+0 -12 Td
+(such claim or action, \(ii\) On2 grants Wildform sole control of the defense and any related) Tj
+0 -12 Td
+(settlement negotiations, and \(iii\) On2 reasonably cooperates with Wildform in defense of) Tj
+0 -12 Td
+(such claim.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE IX) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(TERM AND TERMINATION) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.1 Term. Except as otherwise set forth in Sections 9.2 and 9.3 or Exhibit A hereof, the) Tj
+0 -12 Td
+(term of this Agreement shall be eighteen \(18\) months \("Term"\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.2 Termination. Either of Wildform or On2 may terminate this Agreement if the other Party) Tj
+0 -12 Td
+(is in material breach of this Agreement and fails to cure such breach within thirty \(30\)) Tj
+0 -12 Td
+(days after written notice. Either of On2 or Wildform may terminate this Agreement if the) Tj
+0 -12 Td
+(other Party becomes bankrupt or a receiver is appointed for a substantial part of its) Tj
+0 -12 Td
+(assets or business, or any order is made approving a petition or answer seeking) Tj
+0 -12 Td
+(reorganization under any applicable bankruptcy law.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.3 Events Upon Termination. Upon the termination of this Agreement by either Party on) Tj
+0 -12 Td
+(account of an uncured material breach by the other Party, without prejudice to any other) Tj
+0 -12 Td
+(rights that either Party may have, the following will occur:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) Wildform will immediately cease all use and distribution of the Incorporated) Tj
+0 -12 Td
+(Technology.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) Wildform will immediately return to On2, or destroy, all copies of the Incorporated) Tj
+0 -12 Td
+(Technology, and all documentation created under this agreement in its possession or) Tj
+0 -12 Td
+(control. Upon written request from On2, Wildform will promptly provide On2 with a written) Tj
+0 -12 Td
+(certification of Wildform's compliance with the foregoing.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(9.4 Sections which Survive Termination or Expiration of this Agreement. Articles 1, 4) Tj
+0 -12 Td
+ET
+endstream
+endobj
+18 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 17 0 R >>
+endobj
+19 0 obj
+<< /Length 4026 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(\(with respect to outstanding payments\), 5, 6, 7, 8, 9 and 10 of this Agreement, any other) Tj
+0 -12 Td
+(provisions of this Agreement incorporated into or applicable to such Sections, and any) Tj
+0 -12 Td
+(other provisions of this Agreement that by their terms extend beyond any termination of) Tj
+0 -12 Td
+(this Agreement, shall survive any) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(termination or expiration hereof for any reason.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ARTICLE X) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(OTHER PROVISIONS) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.1 Status of Parties. Nothing contained in this Agreement nor performance hereunder) Tj
+0 -12 Td
+(shall render either Party, its employees or contractors to be an agent, employee, joint) Tj
+0 -12 Td
+(venturer or partner of the other Party. Neither Party, nor any of its officers or) Tj
+0 -12 Td
+(employees shall have authority to contract for or bind the other Party in any manner, and) Tj
+0 -12 Td
+(each Party agrees that it shall not represent itself as an agent of the other Party or as) Tj
+0 -12 Td
+(otherwise authorized to act for or on behalf of the other Party.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.2 Force Majeure. Any failure by either Party to perform, to the extent and only for so) Tj
+0 -12 Td
+(long as such Party is prevented from performing for one or more of the reasons described) Tj
+0 -12 Td
+(herein, any obligation hereunder arising under or in connection with this Agreement shall) Tj
+0 -12 Td
+(be excused \(to such extent and for such period\) if such failure shall have been caused by) Tj
+0 -12 Td
+(any act or circumstance beyond the reasonable control of such Party, including, but) Tj
+0 -12 Td
+(without limiting the) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(generality of the foregoing, any Act of God, fire, flood, explosion, lightning, windstorm,) Tj
+0 -12 Td
+(earthquake, general shortage of materials, general discontinuation of power supply, court) Tj
+0 -12 Td
+(order or governmental interference, civil commotion, riot, war, strike, labor) Tj
+0 -12 Td
+(disturbances, transportation difficulties or labor shortages.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.3 Notice. All notice and other communications required or permitted to be given under) Tj
+0 -12 Td
+(this Agreement must be in writing and will be effective when delivered personally, via) Tj
+0 -12 Td
+(overnight courier, or sent by facsimile later confirmed by overnight courier, or sent by) Tj
+0 -12 Td
+(registered mail, postage prepaid and addressed to the parties at their respective) Tj
+0 -12 Td
+(addresses set forth in the first paragraph of this Agreement, or at any new address or) Tj
+0 -12 Td
+(addresses subsequently designated in writing by either party to the other.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.5 Severability of Agreement Provisions. It is the desire and intent of the parties that) Tj
+0 -12 Td
+(the provisions contained in this Agreement shall be enforceable to the fullest extent) Tj
+0 -12 Td
+(permitted by law. The invalidity and/or unenforceability in whole or in part of any) Tj
+0 -12 Td
+(provision of this Agreement shall not render invalid or unenforceable any other provision) Tj
+0 -12 Td
+(of this Agreement, which instead will remain in full force and effect.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.6 Entire Agreement. This Agreement constitutes the entire understanding between the) Tj
+0 -12 Td
+(parties regarding to specific subject matter covered herein. This Agreement supersedes any) Tj
+0 -12 Td
+(and all prior written or verbal contracts or understandings between the parties hereto and) Tj
+0 -12 Td
+(neither party shall be bound by any statements or representations made by either party not) Tj
+0 -12 Td
+(embodied in this Agreement. No provisions herein contained shall be waived, modified or) Tj
+0 -12 Td
+(altered, except by an instrument in writing, duly executed by the parties hereto.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance) Tj
+0 -12 Td
+ET
+endstream
+endobj
+20 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 19 0 R >>
+endobj
+21 0 obj
+<< /Length 4280 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(with the laws of the State of New York, without giving effect to any choice of law or) Tj
+0 -12 Td
+(conflict of law provision or rule whether such provision or rule is that of the State of) Tj
+0 -12 Td
+(New York or any other jurisdiction.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.8 Dispute Resolution. Disputes arising in connection with this Agreement shall be) Tj
+0 -12 Td
+(resolved as follows:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(a\) General Intent. The parties intend that all problems and disputes relating to this) Tj
+0 -12 Td
+(Agreement or arising from the transactions contemplated hereby \("Disputes"\) shall be) Tj
+0 -12 Td
+(resolved through the procedures of this Section 10.8; provided, however, that neither) Tj
+0 -12 Td
+(party shall be under any obligation to proceed in accordance with this Section 10.8 with) Tj
+0 -12 Td
+(respect to Disputes concerning any alleged breach of Article V of this Agreement, as to) Tj
+0 -12 Td
+(which a party may take any legal action in a court of law or equity \(without the necessity) Tj
+0 -12 Td
+(of posting any bond\) to assert or enforce a claim that it has against the other party) Tj
+0 -12 Td
+(under this Agreement. The procedures in this Section 10.8 shall not replace or supersede) Tj
+0 -12 Td
+(any other remedy to which a party is entitled under this Agreement or under applicable) Tj
+0 -12 Td
+(law.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(b\) Informal Resolution Efforts. The parties shall initially attempt to resolve Disputes) Tj
+0 -12 Td
+(through informal negotiations conducted by the Primary Coordinator of Wildform and Primary) Tj
+0 -12 Td
+(Coordinator of On2.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(c\) Mediation. If a Dispute cannot be resolved under Subsection 10.8\(b\) above, the Dispute) Tj
+0 -12 Td
+(shall be submitted to mediation by written notice of the party seeking mediation to the) Tj
+0 -12 Td
+(other party. In the mediation process, the parties shall attempt in good faith to resolve) Tj
+0 -12 Td
+(their differences voluntarily with the aid of an impartial mediator, who will attempt to) Tj
+0 -12 Td
+(facilitate negotiations. The mediator shall be selected by agreement of the parties. If) Tj
+0 -12 Td
+(the parties cannot agree on a mediator, the American Arbitration Association or JAMS shall) Tj
+0 -12 Td
+(designate a mediator at the request of either party. Any mediator so designated must be) Tj
+0 -12 Td
+(acceptable to both parties. The mediation shall be confidential, and the mediator may not) Tj
+0 -12 Td
+(testify for either party in any later proceeding relating to the Dispute. Each party shall) Tj
+0 -12 Td
+(bear its own costs in the mediation. The fees and expenses of the mediator shall be shared) Tj
+0 -12 Td
+(equally by the parties.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(\(d\) Court Actions. If the parties cannot resolve a Dispute through mediation pursuant to) Tj
+0 -12 Td
+(Subsection 10.8\(c\) above, either party may seek further redress by taking legal action in) Tj
+0 -12 Td
+(a court of law or equity to assert or enforce a claim that it has against the other party) Tj
+0 -12 Td
+(under this Agreement. The parties agree that any legal action, suit or proceeding arising) Tj
+0 -12 Td
+(out of or relating to) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(this Agreement or the transactions contemplated hereby shall be instituted by a party in a) Tj
+0 -12 Td
+(Federal or state court sitting in the jurisdiction and venue of the other party, which) Tj
+0 -12 Td
+(shall be the exclusive jurisdiction and venue of said legal proceedings and each party) Tj
+0 -12 Td
+(hereto waives any objection which such party may now or hereafter have to the laying of) Tj
+0 -12 Td
+(venue of any such action, suit or proceeding, and irrevocably submits to the jurisdiction) Tj
+0 -12 Td
+(of any such court in any such action, suit or proceeding. Any and all service of process) Tj
+0 -12 Td
+(and any other notice in any such action, suit or proceeding shall be effective against) Tj
+0 -12 Td
+(such party \(or the subsidiary of such party\) when transmitted in accordance with Section) Tj
+0 -12 Td
+(10.8. Nothing contained herein shall be deemed to affect the right of any party hereto to) Tj
+0 -12 Td
+(serve process in any manner permitted by law.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+22 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 21 0 R >>
+endobj
+23 0 obj
+<< /Length 3969 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(10.9 No Implied Waivers. No delay or omission by either party to exercise its rights and) Tj
+0 -12 Td
+(remedies in connection with the breach or default of the other shall operate as or be) Tj
+0 -12 Td
+(construed as a waiver of such rights or remedies as to any subsequent breach.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.10 Counterparts. This Agreement may be executed in any number of counterparts, but all) Tj
+0 -12 Td
+(counterparts hereof shall together constitute but one agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.11 Assignment. Neither party will have the right to assign, pledge or transfer all or) Tj
+0 -12 Td
+(any part of this Agreement without the prior written consent of the other, and any such) Tj
+0 -12 Td
+(purported assignment, pledge or transfer by a party without such prior written consent) Tj
+0 -12 Td
+(shall be void ab initio; provided, however, that either party may assign all or part of) Tj
+0 -12 Td
+(its rights and obligations under this Agreement in connection with a Change of Control \(as) Tj
+0 -12 Td
+(defined in the Asset Purchase Agreement\). In the event of an assignment pursuant to the) Tj
+0 -12 Td
+(proviso contained in the preceding sentence, the surviving entity shall be bound to this) Tj
+0 -12 Td
+(Agreement in place of such assigning party and this Agreement shall inure to the benefit) Tj
+0 -12 Td
+(of such surviving entity.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.12 Capacity. Each party represents one to the other that it is under no incapacity to) Tj
+0 -12 Td
+(enter into or perform this Agreement and that each person signing this Agreement on its) Tj
+0 -12 Td
+(behalf has the authority to do so, and each shall never otherwise assert.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.13 Captions, Gender and Number. The captions appearing in this Agreement are inserted) Tj
+0 -12 Td
+(only as a matter of convenience and for reference and in no way define, limit or describe) Tj
+0 -12 Td
+(the scope and intent of this Agreement or any of the provisions hereof.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(10.14 UN Convention Does Not Apply. The United Nations Convention on Contracts for the) Tj
+0 -12 Td
+(Sale of Goods shall not apply to this Agreement and any products and/or services provided) Tj
+0 -12 Td
+(pursuant thereto.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to) Tj
+0 -12 Td
+(be executed the Effective Date.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(On2 Technologies, Inc                          Wildform, Inc.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(By:                                            By:     ---------------------------------) Tj
+0 -12 Td
+(----------------------------- Name:                                          Name: Title:) Tj
+0 -12 Td
+(Title:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Exhibit A) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Transition Services) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(1. Program Errors. On2 shall promptly report to Wildform any Program Errors accompanied by) Tj
+0 -12 Td
+(documentary evidence in a mutually agreeable form that permits the defect or error to be) Tj
+0 -12 Td
+(reproduced. During the first twelve \(12\) months of the Term, Wildform shall use) Tj
+0 -12 Td
+(commercially reasonable efforts to correct Program Errors within the response times set) Tj
+0 -12 Td
+(forth below. For purposes of the response times set forth below a "Serious" Program Error) Tj
+0 -12 Td
+(shall be defined as a Program Error that \(a\) causes the Deliverables to crash) Tj
+0 -12 Td
+(\(malfunction\), or \(b\) substantially degrades the performance, usability or appearance of) Tj
+0 -12 Td
+(the Deliverables. A "Minor" Program Error shall be defined as a bug that causes a less) Tj
+0 -12 Td
+(than substantial degradation in the performance, usability or appearance of the) Tj
+0 -12 Td
+(Deliverables.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Program Error        Response                           Correction -------------) Tj
+0 -12 Td
+(--------                           ----------) Tj
+0 -12 Td
+ET
+endstream
+endobj
+24 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 23 0 R >>
+endobj
+25 0 obj
+<< /Length 3653 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(Serious              Within 1 business day              Within 8 business days) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Minor                Within 4 business days             Within 15 business days) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Failure by Wildform to provide a correction for a Program Error within the specified) Tj
+0 -12 Td
+(period shall not be deemed a breach of this Agreement provided that Wildform has used) Tj
+0 -12 Td
+(commercially reasonable efforts to correct such Program Error.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Wildform shall not be required to provide corrections for defects in or conflicts with) Tj
+0 -12 Td
+(products developed by other companies, including On2, Macromedia and Microsoft provided) Tj
+0 -12 Td
+(that such defect or conflict cannot reasonably be corrected except through modification of) Tj
+0 -12 Td
+(the product of such other companies. If a Deliverable, including the Macromedia Flash) Tj
+0 -12 Td
+(Player that is shipped with the Deliverable, does not exhibit the Program Error, then no) Tj
+0 -12 Td
+(Program Error shall be deemed to exist.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(2. Deliverable Support During the first twelve \(12\) months of the Term, Wildform) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(will provide On2 with reasonable technical support for the Deliverables via phone and) Tj
+0 -12 Td
+(email during Wildform's normal business hours with respect to the following:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Train On2 personnel in the way the code works.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Train On2 personnel in how the software is designed, maintained and) Tj
+0 -12 Td
+(compiled.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Provide ongoing support during the 12-month term for On2's further) Tj
+0 -12 Td
+(development and integration.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(The foregoing obligations of Wildform shall be limited to a maximum of forty \(40\) hours,) Tj
+0 -12 Td
+(or up to a maximum of two hundred twenty \(220\) emails, whichever accumulates first.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(3. Customer Technical Support email During the first twelve \(12\) months of the Term,) Tj
+0 -12 Td
+(Wildform will provide On2 via email during Wildform's normal business hours reasonable) Tj
+0 -12 Td
+(technical support for customer technical support questions received by On2 as follows:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     During the first thirty \(30\) days of the Term, Wildform will             continue to) Tj
+0 -12 Td
+(respond to customer technical support email questions             via email. The foregoing) Tj
+0 -12 Td
+(support will be provided as follows: \(i\)             customer shall be directed to send) Tj
+0 -12 Td
+(technical support emails will be             sent to On2; \(ii\) On2 shall forward such) Tj
+0 -12 Td
+(emails to Wildform; \(iii\)             Wildform shall respond to On2 within 24 hours,) Tj
+0 -12 Td
+(except for holidays             and weekends; and \(iv\) On2 will, in turn, respond to the) Tj
+0 -12 Td
+(customer.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     For the remaining eleven \(11\) months of the Term, On2 may send             customer) Tj
+0 -12 Td
+(technical support inquiries via email to Wildform and             Wildform shall respond) Tj
+0 -12 Td
+(within 48 hours, except for holidays and             weekends.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     During the first twelve \(12\) months of the Term, Wildform agrees to) Tj
+0 -12 Td
+(forward to On2 Flix related customer technical support emails             received by) Tj
+0 -12 Td
+(Wildform from customers who have purchased the software             from On2 after the) Tj
+0 -12 Td
+ET
+endstream
+endobj
+26 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 25 0 R >>
+endobj
+27 0 obj
+<< /Length 3901 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(Closing. Failure by Wildform to forward these             emails shall not be deemed to be) Tj
+0 -12 Td
+(a breach of this Agreement.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(The foregoing obligations of Wildform, following the initial thirty \(30\) day period, shall) Tj
+0 -12 Td
+(be limited to a maximum of thirty \(30\) hours, or up to a maximum of two hundred \(200\)) Tj
+0 -12 Td
+(emails, whichever accumulates first.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(4. Customer Pre-Purchase Inquiries During the first twelve \(12\) months of the Term,) Tj
+0 -12 Td
+(Wildform will provide On2 via email during Wildform's normal business hours reasonable) Tj
+0 -12 Td
+(technical support for customer pre-purchase inquiries received by On2, including the) Tj
+0 -12 Td
+(following:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     During the first thirty \(30\) days of the Term, Wildform will respond             to) Tj
+0 -12 Td
+(customer pre-purchase email inquiries. The foregoing support will             be provided) Tj
+0 -12 Td
+(as follows: \(i\) customer shall be directed to send             technical support emails) Tj
+0 -12 Td
+(will be sent to On2; \(ii\) On2 shall forward             such emails to Wildform; \(iii\)) Tj
+0 -12 Td
+(Wildform shall respond to On2 within             24 hours, except for holidays and) Tj
+0 -12 Td
+(weekends; and \(iv\) On2 will, in             turn, respond to the customer.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     For the remaining eleven \(11\) months of the Term, On2 may send             customer) Tj
+0 -12 Td
+(pre-purchase inquiries via email to Wildform and Wildform             shall respond within) Tj
+0 -12 Td
+(48 hours, except for holidays and weekends.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(The foregoing obligations of Wildform, following the initial 30 day period, shall be) Tj
+0 -12 Td
+(limited to a maximum of twenty \(20\) hours, or up to a maximum of one hundred twenty five) Tj
+0 -12 Td
+(\(125\) emails, whichever accumulates first.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(5. PR & Marketing During the first twelve \(12\) months of the Term \(except as expressly) Tj
+0 -12 Td
+(noted below\), Wildform will provide On2, via phone and email during Wildform's normal) Tj
+0 -12 Td
+(business hours, reasonable marketing support for the following:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(i\)    Guide the execution of the On2 Flash 8 Flix product launch:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(a.    Provide On2 with the press list for approximately 300 leading                   tech) Tj
+0 -12 Td
+(publications and press, as well as Flash and video                   evangelists and web) Tj
+0 -12 Td
+(sites to publish news of launch and/or do                   product reviews. On2 shall) Tj
+0 -12 Td
+(contact these people directly.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(b.    Assist On2 with doing follow up contact with press to ensure) Tj
+0 -12 Td
+(maximum press coverage, and issue review copies of software                   with) Tj
+0 -12 Td
+(Wildform's assistance.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(c.    Write first draft press releases for product releases. \(All) Tj
+0 -12 Td
+(subsequent drafts shall be written by On2, with Wildform                   providing input) Tj
+0 -12 Td
+(as requested on subsequent drafts.\)) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(d.    Create digital banners, buttons and product screenshots \(based                   on) Tj
+0 -12 Td
+(existing Flix artwork\) announcing On2's next version of                   Flix for) Tj
+0 -12 Td
+(distribution to sites, and press that request them.                   Such digital banners) Tj
+0 -12 Td
+(shall be based on the existing artwork                   used by Wildform in the marketing) Tj
+0 -12 Td
+(of the Flix product line.                   Wildform shall not be responsible for creating) Tj
+0 -12 Td
+(any new logos,                   or other artwork requested by On2 which Wildform does not) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+28 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 27 0 R >>
+endobj
+29 0 obj
+<< /Length 3941 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(already possess. Any additional expenses for additional logos                   or artwork) Tj
+0 -12 Td
+(shall be borne by On2.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ii\)   Wildform will provide the following marketing and promotion of the             new) Tj
+0 -12 Td
+(Flix products:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(a.    Within 10 business days of closing publish one \(1\) issue of                   the) Tj
+0 -12 Td
+(Wildform newsletter featuring the news of On2's purchase                   of Wildform's) Tj
+0 -12 Td
+(Flix assets and instructions to Wildform                   customers on how and where to) Tj
+0 -12 Td
+(buy the new On2 Flix products.                   On2 shall provide the text for these) Tj
+0 -12 Td
+(mailings up to 150 words,                   subject to Wildform's approval, not to be) Tj
+0 -12 Td
+(unreasonably                   withheld.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(b.    Announce in one \(1\) issue of the Wildform newsletter the                   launch of) Tj
+0 -12 Td
+(On2's next version of Flix with introductory upgrade                   offer to Wildform) Tj
+0 -12 Td
+(customers per approval of On2's marketing                   department. This issue will) Tj
+0 -12 Td
+(come out after the release of Flix                   5 with Flash 8 codec. On2 shall) Tj
+0 -12 Td
+(provide the text for these                   mailings up to 150 words, subject to) Tj
+0 -12 Td
+(Wildform's approval, not                   to be unreasonably withheld.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(c.    On2 Flix advertisement in 2 consecutive issues of Wildform's) Tj
+0 -12 Td
+(newsletter. On2 shall provide the text for these mailings up                   to 150) Tj
+0 -12 Td
+(words, subject to Wildform's approval, not to be                   unreasonably withheld.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(d.    In addition to a.-c. above, two \(2\) dedicated On2 branded                   mailings) Tj
+0 -12 Td
+(during the 12 months following closing to Wildform                   Flix customers who) Tj
+0 -12 Td
+(have opted to receive email from Wildform.                   On2 shall provide the text) Tj
+0 -12 Td
+(for these mailings up to 150 words,                   subject to Wildform's approval, not) Tj
+0 -12 Td
+(to be unreasonably                   withheld.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(e.    In the event that Flash 8 is released later than 11 months) Tj
+0 -12 Td
+(following closing and the release of the On2 version of Flix                   is delayed) Tj
+0 -12 Td
+(as a result of this, Wildform will do the dedicated                   mailings and) Tj
+0 -12 Td
+(newsletter promotions after the 12 month period                   for no additional fee,) Tj
+0 -12 Td
+(provided that Wildform will have no                   obligation to do any mailings or) Tj
+0 -12 Td
+(promotions later than 18                   months following closing.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(f.    Wildform represents that as of April 1, 2005, its newsletter                   list) Tj
+0 -12 Td
+(consists of approximately seventy thousand \(70,000\)&bbsp;email) Tj
+0 -12 Td
+(addresses.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(ii\)   Wildform will perform the following marketing services for On2:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(a.    Search Engine Optimization -Assist On2 personnel in optimizing                   the) Tj
+0 -12 Td
+(newly updated Flix product pages based on current                   keywords. - Assist On2) Tj
+0 -12 Td
+(personnel with initial submission of                   new product pages to search) Tj
+0 -12 Td
+(engines.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(b.    Google AdWords sponsored links program) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Delivery of sponsored links advertising data history for) Tj
+0 -12 Td
+(Flix, including keywords, and knowledge of how to best                         manage the) Tj
+0 -12 Td
+(paid links as well as providing the current                         most effective) Tj
+0 -12 Td
+ET
+endstream
+endobj
+30 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 29 0 R >>
+endobj
+31 0 obj
+<< /Length 2688 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(keywords for selling Flix via Google                         AdWords.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(c.    Bring On2 Marketing people up to speed on Internet marketing                   for) Tj
+0 -12 Td
+(Flix:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- How to best to attract traffic to the Flix web site.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- Strategies for up-selling to current Flix customers.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- How to optimize site for search engines) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- How to manage sponsored links) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- Strategies for online advertising and marketing) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- How to market to Flix customers via a newsletter.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(- How to run a newsletter.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(It shall be On2's responsibility and On2 shall ensure that On2 has personnel capable of) Tj
+0 -12 Td
+(understanding and executing software marketing.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(The foregoing obligations of Wildform shall be limited to a maximum of forty five \(45\)) Tj
+0 -12 Td
+(hours, or up to a maximum of three hundred \(300\) emails, whichever accumulates first.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(6. Wildform will establish and maintain the following presence on www.wildform.com site) Tj
+0 -12 Td
+(\(18-month Time Period\):) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(a\) During first 30 days following closing:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Conversion of www.wildform.com/flix, the Flix main page, to explain On2's) Tj
+0 -12 Td
+(purchase of Flix, with links to On2's site \(e.g. On2's main Flix       information page,) Tj
+0 -12 Td
+(and shopping cart\) as well as explanation to current       Wildform Flix on how to) Tj
+0 -12 Td
+(download their license and get continued support.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix in the well of Wildform's front page no       smaller) Tj
+0 -12 Td
+(than 150x75 pixels) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix in the product drop down menu of main       navigation) Tj
+0 -12 Td
+(bar.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix in the main product navigation menu) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix on www.wildform.com/products) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix on www.wildform.com/demos) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(b\) For first 90 days after closing:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix in the product drop down menu of main       navigation) Tj
+0 -12 Td
+(bar. Should Wildform cease to use drop-down menus this may be       removed without) Tj
+0 -12 Td
+ET
+endstream
+endobj
+32 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 31 0 R >>
+endobj
+33 0 obj
+<< /Length 3579 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(penalty provided that a link to the Flix product will be       included in the Wildform) Tj
+0 -12 Td
+(product navigation that replaces the old version.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix in the main product navigation menu. Should) Tj
+0 -12 Td
+(Wildform cease to use main product navigation menus this may be removed       without) Tj
+0 -12 Td
+(penalty provided that a link to the Flix product page will be       included in the) Tj
+0 -12 Td
+(Wildform product navigation that replaces the old version.       .) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Continued presence of www.wildform.com/flix, the Flix main page, to) Tj
+0 -12 Td
+(explain&bbsp;On2's purchase of Flix, with links to On2's site \(e.g. On2's main       Flix) Tj
+0 -12 Td
+(information page, and shopping cart\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(c\) Months 4-12 after closing:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Link to www.wildform.com/flix in the product drop down menu of main       navigation) Tj
+0 -12 Td
+(bar. Should Wildform cease to use drop-down menus Wildform may       substitute a link to) Tj
+0 -12 Td
+(www.wildform.com/flix in the main product navigation       menu. Should Wildform cease to) Tj
+0 -12 Td
+(use main product navigation menus this may       be removed without penalty provided that) Tj
+0 -12 Td
+(a link to the Flix product page       will be included in the Wildform product navigation) Tj
+0 -12 Td
+(that replaces the old       version.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Continued presence of www.wildform.com/flix, the Flix main page, to       explain) Tj
+0 -12 Td
+(On2's purchase of Flix, with links to On2's site \(e.g. On2's main       Flix information) Tj
+0 -12 Td
+(page, and shopping cart\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(d\) Months 13-18:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(*     Continued presence of www.wildform.com/flix, the Flix main page, to       explain) Tj
+0 -12 Td
+(On2's purchase of Flix, with links to On2's site \(e.g. On2's main       Flix information) Tj
+0 -12 Td
+(page, and shopping cart\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(7. Website front end) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(a.    Wildform will deliver the following:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-All  relevant Flix product web pages \(approximately 25\) and                   content,) Tj
+0 -12 Td
+(including product pages, sample videos and faq's                   \(based on existing) Tj
+0 -12 Td
+(artwork\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-All  Flix digital graphics including existing Flix sample videos,) Tj
+0 -12 Td
+(logos, banners, buttons, screenshots and other Flix-related                   artwork) Tj
+0 -12 Td
+(\(based on existing artwork\).) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-All  Wildform Flix tutorials \(approximately 35\) for On2's                   non-exclusive) Tj
+0 -12 Td
+(use. Should any tutorial author request that On2                   remove the tutorial) Tj
+0 -12 Td
+(from On2's website, On2 shall comply with                   such request.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-All  of the following additional resource sections of Wildform's                   site:) Tj
+0 -12 Td
+("Wildform in advertising", Wildform in CDRoms", and                   "Wildform in Email") Tj
+0 -12 Td
+(for On2's nonexclusive use.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(b.    Wildform will provide On2, via phone and email during Wildform's             normal) Tj
+0 -12 Td
+(business hours, reasonable support for the website front end             deliverables.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(It shall be On2's responsibility and On2 shall ensure that On2 has personnel capable of) Tj
+0 -12 Td
+ET
+endstream
+endobj
+34 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 33 0 R >>
+endobj
+35 0 obj
+<< /Length 2279 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(understanding, supporting and maintaining websites and all website materials provided by) Tj
+0 -12 Td
+(Wildform.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(8. Website Back End) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(a.    Wildform will deliver the following pursuant to the Asset Purchase) Tj
+0 -12 Td
+(Agreement, which shall govern On2's use of the following:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     shopping cart system and pages.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     affiliate system, which includes ability to add affiliates,                   and) Tj
+0 -12 Td
+(track affiliate sales.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     promotion code system that lets you create and track                   promotions.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     administrative system that handles:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     software license generation) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     automated customer emails) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     ecommerce transactions) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     banned email address check) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     credit card hash check) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     Whois queries.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     Ability to generate free licenses of Flix) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     Ability to search through all issued licenses) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     Serial code generator) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     Ability to issue invoices) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     Ability to automatically email customers once they install a                   demo) Tj
+0 -12 Td
+(of Flix) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     E-commerce fraud detection tips) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(-     Email list of over 22,000 email addresses from free email) Tj
+0 -12 Td
+(providers and bad customers) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Wildform shall deliver the website front end and website back end electronically. Ensuring) Tj
+0 -12 Td
+(that the website works with On2's own merchant account and databases shall be On2's) Tj
+0 -12 Td
+(responsibility and On2 shall ensure that On2 has personnel capable of handling this) Tj
+0 -12 Td
+(transition.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(During the first twelve \(12\) months of the Term, Wildform will provide On2, via phone and) Tj
+0 -12 Td
+ET
+endstream
+endobj
+36 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 35 0 R >>
+endobj
+37 0 obj
+<< /Length 3032 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+(email during Wildform's normal business hours, reasonable support for the website front) Tj
+0 -12 Td
+(end deliverables. The foregoing obligations of Wildform, shall be limited to a maximum of) Tj
+0 -12 Td
+(forty \(40\) hours, or up to a maximum of two hundred twenty \(220\) emails, whichever) Tj
+0 -12 Td
+(accumulates first.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Wildform shall deliver the deliverables listed in paragraphs 7 and 8 of this exhibit and) Tj
+0 -12 Td
+(shall provide reasonable support for On2's use of these deliverables. However, it is On2's) Tj
+0 -12 Td
+(responsibility to ensure that On2 has personnel capable of handling this transition with) Tj
+0 -12 Td
+(all requisite skillsets including C++ programming, Linux, PHP, MYSQL, HTML etc. It is not) Tj
+0 -12 Td
+(Wildform's responsibility to instruct On2 staff in the basic functioning of computer) Tj
+0 -12 Td
+(systems and languages, nor is it Wildform's responsibility to maintain the deliverables) Tj
+0 -12 Td
+(once they have been delivered, except as specifically set forth herein.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(In the event that Flash 8 is released later than 11 months following closing and the) Tj
+0 -12 Td
+(release of the On2 version of Flix is delayed as a result of this On2 can elect to have) Tj
+0 -12 Td
+(Wildform perform whatever PR and marketing services cannot be performed until immediately) Tj
+0 -12 Td
+(prior to the launch of the On2 version of Flix \(other than the above referenced marketing) Tj
+0 -12 Td
+(emails and reduced website presence that Wildform will provide at no additional cost\) for) Tj
+0 -12 Td
+(a one-time cash payment of $100,000, provided, however that Wildform shall have no) Tj
+0 -12 Td
+(obligation to perform any services beyond the 18 month anniversary of the closing.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Exhibit B) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Deliverables) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(A. Deliverable #1 \(source code for each to be delivered electronically after the Closing) Tj
+0 -12 Td
+(Date, subject to payment of the Closing Payment.\):) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 4 for Windows:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 4 for Windows Demo:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 3 for Mac:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 3 for Mac Demo:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Engine 3.5 for Windows:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Engine 3.5 for Windows Demo:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 4 for Windows \(including Flix FLV player\):) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 4 for Windows Demo \(including Flix FLV player\):) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 4 for Mac \(including Flix FLV player\):) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 4 for Mac Demo \(including Flix FLV player\):) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 3 for Windows:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 3 for Windows Demo:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 3 for Mac:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+ET
+endstream
+endobj
+38 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 37 0 R >>
+endobj
+39 0 obj
+<< /Length 3647 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 3 for Mac Demo:) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro Power Players) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(B. Deliverable #2 \(source code for each to be delivered according to the following) Tj
+0 -12 Td
+(schedule \(the start date shall be after On2 has delivered to Wildform the new Flash 8) Tj
+0 -12 Td
+(video codec with the required Flash 8 player and player specification \(the "Flash 8) Tj
+0 -12 Td
+(Materials"\). The Deliverables shall be provided to On2 in electronic form and in the order) Tj
+0 -12 Td
+(shown below.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro Power Players            Change branding from Wildform to On2.) Tj
+0 -12 Td
+(Delivery within 10 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 5 for Windows            Which shall be comprised of Flix Pro 4 for Windows) Tj
+0 -12 Td
+(with the On2            branding and addition of the new On2 Flash 8 codec.) Tj
+0 -12 Td
+(Update help file.            Change branding from Wildform to On2.            Delivery) Tj
+0 -12 Td
+(within 30 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 5 for Windows Demo            Which shall be comprised of Flix Pro 4 for) Tj
+0 -12 Td
+(Windows Demo with the On2            branding and addition of the new On2 Flash 8 codec.) Tj
+0 -12 Td
+(Update help file.            Change branding from Wildform to On2.            Delivery) Tj
+0 -12 Td
+(within 30 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Engine 5 for Windows            Which shall be comprised of Flix Engine 3.5 for) Tj
+0 -12 Td
+(Windows with the On2            branding and addition of the new On2 Flash 8 codec.) Tj
+0 -12 Td
+(Update help file.            Change branding from Wildform to On2.            Delivery) Tj
+0 -12 Td
+(within 60 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Engine 5 for Windows Demo            Which shall be comprised of Flix Engine) Tj
+0 -12 Td
+(3.5 for Windows Demo with the            On2 branding and addition of the new On2 Flash 8) Tj
+0 -12 Td
+(codec.            Update help file.            Change branding from Wildform to On2.) Tj
+0 -12 Td
+(Delivery within 60 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 5 for Mac            Which shall be comprised of Flix Pro 3 for Mac with) Tj
+0 -12 Td
+(the On2 branding            and addition of the new On2 Flash 8 codec.            Update) Tj
+0 -12 Td
+(help file.            Change branding from Wildform to On2.            Delivery within 90) Tj
+0 -12 Td
+(days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Pro 5 for Mac Demo            Which shall be comprised of Flix Pro 3 for Mac) Tj
+0 -12 Td
+(Demo with the On2            branding and addition of the new On2 Flash 8 codec.) Tj
+0 -12 Td
+(Update help file.            Change branding from Wildform to On2.            Delivery) Tj
+0 -12 Td
+(within 90 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 5 for Windows \(including Flix FLV player\)            Which shall be) Tj
+0 -12 Td
+(comprised of Flix Exporter 4 for Windows with the On2            branding and addition of) Tj
+0 -12 Td
+(the new On2 Flash 8 codec.            Update help file.            Change branding from) Tj
+0 -12 Td
+(Wildform to On2.            Delivery within 90 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 5 for Windows Demo \(including Flix FLV player\)            Which shall) Tj
+0 -12 Td
+(be comprised of Flix Exporter 4 for Windows Demo with the            On2 branding and) Tj
+0 -12 Td
+(addition of the new On2 Flash 8 codec.            Update help file.            Change) Tj
+0 -12 Td
+(branding from Wildform to On2.            Delivery within 90 days.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+40 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 39 0 R >>
+endobj
+41 0 obj
+<< /Length 3316 >>
+stream
+BT
+/F1 10 Tf
+72 720 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 5 for Mac \(including Flix FLV player\)            Which shall be) Tj
+0 -12 Td
+(comprised of Flix Exporter 4 for Mac with the On2            branding and addition of the) Tj
+0 -12 Td
+(new On2 Flash 8 codec.            Update help file.            Change branding from) Tj
+0 -12 Td
+(Wildform to On2.            Delivery within 120 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Exporter 5 for Mac Demo \(including Flix FLV player\)            Which shall be) Tj
+0 -12 Td
+(comprised of Flix Exporter 4 for Mac Demo with the On2            branding and addition of) Tj
+0 -12 Td
+(the new On2 Flash 8 codec. Update help file.            Change branding from Wildform to) Tj
+0 -12 Td
+(On2.            Delivery within 120 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 5 for Windows            Which shall be comprised of Flix Lite 3 for) Tj
+0 -12 Td
+(Windows with the On2            branding and addition of the new On2 Flash 8 codec.) Tj
+0 -12 Td
+(Update help file.            Change branding from Wildform to On2.            Delivery) Tj
+0 -12 Td
+(within 120 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 5 for Windows Demo            Which shall be comprised of Flix Lite 3 for) Tj
+0 -12 Td
+(Windows Demo with the On2) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(branding and addition of the new On2 Flash 8 codec.            Update help file.) Tj
+0 -12 Td
+(Change branding from Wildform to On2.            Delivery within 120 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 5 for Mac            Which shall be comprised of Flix Lite 3 for Mac with) Tj
+0 -12 Td
+(the addition of            the new On2 Flash 8 codec.            Update help file.) Tj
+0 -12 Td
+(Change branding from Wildform to On2.            Delivery within 150 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(o     Flix Lite 5 for Mac Demo            Which shall be comprised of Flix Lite 3 for Mac) Tj
+0 -12 Td
+(Demo with the On2            branding and addition of the new On2 Flash 8 codec.) Tj
+0 -12 Td
+(Update help file.            Change branding from Wildform to On2.            . Delivery) Tj
+0 -12 Td
+(within 150 days.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Aside from the addition of the On2 Flash 8 codec, no other features shall be added to the) Tj
+0 -12 Td
+(above listed Deliverables.) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(Delayed delivery by Wildform of the above listed Deliverables shall not be considered a) Tj
+0 -12 Td
+(violation of this Agreement, provided that Wildform has worked in good faith to provide) Tj
+0 -12 Td
+(the Deliverables in a timely fashion, provided however,) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(that failure to deliver \(a\) the Flix Pro Windows Deliverables prior to the 91-day) Tj
+0 -12 Td
+(anniversary of delivery of the Flash 8 Materials to Wildform or \(ii\) all of the) Tj
+0 -12 Td
+(Deliverables prior to the 270-day anniversary of the delivery of the Flash 8 Materials to) Tj
+0 -12 Td
+(Wildform, shall be considered a violation of this Agreement..) Tj
+0 -12 Td
+() Tj
+0 -12 Td
+(It shall be On2's responsibility and On2 shall ensure that On2 has personnel capable of) Tj
+0 -12 Td
+(understanding, supporting and maintaining the software source code provided by Wildform) Tj
+0 -12 Td
+(pursuant to Deliverables #1 and #2.) Tj
+0 -12 Td
+ET
+endstream
+endobj
+42 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 43 0 R >> >> /Contents 41 0 R >>
+endobj
+43 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 44
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000249 00000 n 
+0000004002 00000 n 
+0000004129 00000 n 
+0000008296 00000 n 
+0000008423 00000 n 
+0000012505 00000 n 
+0000012632 00000 n 
+0000016449 00000 n 
+0000016577 00000 n 
+0000020843 00000 n 
+0000020972 00000 n 
+0000025404 00000 n 
+0000025533 00000 n 
+0000030193 00000 n 
+0000030322 00000 n 
+0000034201 00000 n 
+0000034330 00000 n 
+0000038409 00000 n 
+0000038538 00000 n 
+0000042871 00000 n 
+0000043000 00000 n 
+0000047022 00000 n 
+0000047151 00000 n 
+0000050857 00000 n 
+0000050986 00000 n 
+0000054940 00000 n 
+0000055069 00000 n 
+0000059063 00000 n 
+0000059192 00000 n 
+0000061933 00000 n 
+0000062062 00000 n 
+0000065694 00000 n 
+0000065823 00000 n 
+0000068155 00000 n 
+0000068284 00000 n 
+0000071369 00000 n 
+0000071498 00000 n 
+0000075198 00000 n 
+0000075327 00000 n 
+0000078696 00000 n 
+0000078825 00000 n 
+trailer << /Size 44 /Root 1 0 R >>
+startxref
+78896
+%%EOF

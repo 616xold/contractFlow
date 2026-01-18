@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+  "party_b_name": "LOHA CO. LTD.",
+  "effective_date": null,
+  "term_length": 60,
+  "governing_law": "People's Republic of China",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified (no general limitation of liability cap found in provided excerpts).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "This is a supply/framework contract governed by PRC law with arbitration in Beijing, which can increase enforcement and dispute-resolution complexity for a small SaaS vendor. The excerpts do not show any limitation of liability cap or clear termination-for-convenience notice, increasing commercial risk. The agreement also includes operational obligations (e.g., insurance at 110% invoice value, shipment terms, penalties) that suggest potentially significant exposure without a corresponding liability limitation."
+}

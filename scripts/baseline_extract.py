@@ -87,6 +87,12 @@ def main() -> None:
         help="Embedding batch size for indexing (default: 64)",
     )
     parser.add_argument(
+        "--embedding-cache-dir",
+        type=Path,
+        default=repo_root / "data" / "embeddings",
+        help="Directory for embedding cache files (default: data/embeddings)",
+    )
+    parser.add_argument(
         "--top-k",
         type=int,
         default=3,
@@ -97,6 +103,35 @@ def main() -> None:
         type=int,
         default=1200,
         help="Max chars per chunk in the prompt (default: 1200)",
+    )
+    parser.add_argument(
+        "--chunk-max-chars",
+        type=int,
+        default=2000,
+        help="Max chars per chunk during chunking (default: 2000)",
+    )
+    parser.add_argument(
+        "--use-ocr",
+        action="store_true",
+        help="Enable OCR fallback when extracted text is sparse",
+    )
+    parser.add_argument(
+        "--ocr-min-chars",
+        type=int,
+        default=40,
+        help="Min avg chars per page before OCR fallback (default: 40)",
+    )
+    parser.add_argument(
+        "--ocr-lang",
+        type=str,
+        default="eng",
+        help="OCR language (default: eng)",
+    )
+    parser.add_argument(
+        "--ocr-dpi",
+        type=int,
+        default=200,
+        help="OCR DPI for pdf2image (default: 200)",
     )
     args = parser.parse_args()
 
@@ -121,8 +156,14 @@ def main() -> None:
                 retrieval_backend=args.retrieval_backend,
                 embedding_model=args.embedding_model,
                 embedding_batch_size=args.embedding_batch_size,
+                embedding_cache_dir=args.embedding_cache_dir,
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
+                chunk_max_chars=args.chunk_max_chars,
+                use_ocr=args.use_ocr,
+                ocr_min_chars=args.ocr_min_chars,
+                ocr_lang=args.ocr_lang,
+                ocr_dpi=args.ocr_dpi,
             )
         elif args.retrieval:
             result = extract_fields_retrieval(
@@ -136,8 +177,14 @@ def main() -> None:
                 retrieval_backend=args.retrieval_backend,
                 embedding_model=args.embedding_model,
                 embedding_batch_size=args.embedding_batch_size,
+                embedding_cache_dir=args.embedding_cache_dir,
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
+                chunk_max_chars=args.chunk_max_chars,
+                use_ocr=args.use_ocr,
+                ocr_min_chars=args.ocr_min_chars,
+                ocr_lang=args.ocr_lang,
+                ocr_dpi=args.ocr_dpi,
             )
         else:
             result = extract_fields_naive(
@@ -148,6 +195,10 @@ def main() -> None:
                 strict=args.strict,
                 coerce=not args.no_coerce,
                 structured_outputs=not args.no_structured_outputs,
+                use_ocr=args.use_ocr,
+                ocr_min_chars=args.ocr_min_chars,
+                ocr_lang=args.ocr_lang,
+                ocr_dpi=args.ocr_dpi,
             )
     except Exception as e:
         print(f"Extraction failed: {e}", file=sys.stderr)
