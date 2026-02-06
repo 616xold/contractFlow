@@ -1,0 +1,996 @@
+{
+  "config": {
+    "retrieval_backend": "hybrid",
+    "embedding_model": "text-embedding-3-small",
+    "embedding_batch_size": 64,
+    "embedding_cache_dir": "C:\\Users\\sohai\\contractFlow\\data\\embeddings",
+    "reranker_model": null,
+    "reranker_top_n": null,
+    "top_k": 5,
+    "k_values": [
+      1,
+      3,
+      5
+    ],
+    "chunk_max_chars": 2000,
+    "label_suffix": ".silver.json",
+    "excluded_fields": [
+      "risk_explanation"
+    ],
+    "use_ocr": false
+  },
+  "docs_total": 25,
+  "docs_evaluated": 25,
+  "docs_missing_pdf": 0,
+  "overall": {
+    "opportunities": 150,
+    "mrr": 0.628,
+    "recall@1": 0.52,
+    "recall@3": 0.7133,
+    "recall@5": 0.8067
+  },
+  "per_field": {
+    "doc_type": {
+      "opportunities": 23,
+      "mrr": 0.7406,
+      "missing_label": 0,
+      "no_relevant_chunks": 2,
+      "retrieval_failures": 1,
+      "recall@1": 0.5652,
+      "recall@3": 0.913,
+      "recall@5": 0.9565
+    },
+    "party_a_name": {
+      "opportunities": 21,
+      "mrr": 0.446,
+      "missing_label": 4,
+      "no_relevant_chunks": 0,
+      "retrieval_failures": 7,
+      "recall@1": 0.3333,
+      "recall@3": 0.5238,
+      "recall@5": 0.6667
+    },
+    "party_b_name": {
+      "opportunities": 22,
+      "mrr": 0.3523,
+      "missing_label": 3,
+      "no_relevant_chunks": 0,
+      "retrieval_failures": 8,
+      "recall@1": 0.1818,
+      "recall@3": 0.5,
+      "recall@5": 0.6364
+    },
+    "effective_date": {
+      "opportunities": 16,
+      "mrr": 0.3844,
+      "missing_label": 9,
+      "no_relevant_chunks": 0,
+      "retrieval_failures": 5,
+      "recall@1": 0.25,
+      "recall@3": 0.5,
+      "recall@5": 0.6875
+    },
+    "term_length": {
+      "opportunities": 5,
+      "mrr": 0.6,
+      "missing_label": 14,
+      "no_relevant_chunks": 6,
+      "retrieval_failures": 2,
+      "recall@1": 0.6,
+      "recall@3": 0.6,
+      "recall@5": 0.6
+    },
+    "governing_law": {
+      "opportunities": 17,
+      "mrr": 0.8941,
+      "missing_label": 5,
+      "no_relevant_chunks": 3,
+      "retrieval_failures": 0,
+      "recall@1": 0.8235,
+      "recall@3": 0.9412,
+      "recall@5": 1.0
+    },
+    "termination_notice_days": {
+      "opportunities": 7,
+      "mrr": 1.0,
+      "missing_label": 17,
+      "no_relevant_chunks": 1,
+      "retrieval_failures": 0,
+      "recall@1": 1.0,
+      "recall@3": 1.0,
+      "recall@5": 1.0
+    },
+    "liability_cap": {
+      "opportunities": 8,
+      "mrr": 0.7812,
+      "missing_label": 4,
+      "no_relevant_chunks": 13,
+      "retrieval_failures": 0,
+      "recall@1": 0.625,
+      "recall@3": 0.875,
+      "recall@5": 1.0
+    },
+    "non_solicit_clause_present": {
+      "opportunities": 25,
+      "mrr": 0.828,
+      "missing_label": 0,
+      "no_relevant_chunks": 0,
+      "retrieval_failures": 3,
+      "recall@1": 0.8,
+      "recall@3": 0.84,
+      "recall@5": 0.88
+    },
+    "data_transfer_outside_uk_eu": {
+      "opportunities": 0,
+      "mrr": 0.0,
+      "missing_label": 0,
+      "no_relevant_chunks": 25,
+      "retrieval_failures": 0,
+      "recall@1": 0.0,
+      "recall@3": 0.0,
+      "recall@5": 0.0
+    },
+    "risk_level": {
+      "opportunities": 6,
+      "mrr": 0.2917,
+      "missing_label": 0,
+      "no_relevant_chunks": 19,
+      "retrieval_failures": 3,
+      "recall@1": 0.1667,
+      "recall@3": 0.3333,
+      "recall@5": 0.5
+    }
+  },
+  "failures": [
+    {
+      "doc": "cuad_000_limeenergyco_09_09_1999_ex_10_distributo",
+      "field": "party_a_name",
+      "query": "party a name. Full legal name of the first party. party name preamble parties. between. by and between. disclosing party. provider. company",
+      "gold_value": "Electric City Corp., a Delaware corporation",
+      "targets": [
+        "electric city corp a delaware corporation"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p9_c1",
+          "page_num": 9,
+          "heading": "information shall not include                   information which:",
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p10_c0",
+          "page_num": 10,
+          "heading": null,
+          "score": 0.0315
+        },
+        {
+          "chunk_id": "p4_c1",
+          "page_num": 4,
+          "heading": "1.7      Relationship of Parties.  The relationship between the Company",
+          "score": 0.0311
+        }
+      ]
+    },
+    {
+      "doc": "cuad_000_limeenergyco_09_09_1999_ex_10_distributo",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "Electric City of Illinois LLC",
+      "targets": [
+        "electric city of illinois llc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p4_c2",
+          "page_num": 4,
+          "heading": "Page -3-",
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p9_c5",
+          "page_num": 9,
+          "heading": "Page -8-",
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p10_c0",
+          "page_num": 10,
+          "heading": null,
+          "score": 0.0315
+        }
+      ]
+    },
+    {
+      "doc": "cuad_000_limeenergyco_09_09_1999_ex_10_distributo",
+      "field": "effective_date",
+      "query": "effective date. Date on which the agreement becomes effective, in ISO format YYYY-MM-DD if possible. effective date date of agreement. effective as of. date of this agreement. execution date. commencement date",
+      "gold_value": "1999-09-07",
+      "targets": [
+        "1999 09 07",
+        "1999"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p15_c6",
+          "page_num": 15,
+          "heading": "In witness whereof the parties have executed this Agreement as of the date first",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p9_c3",
+          "page_num": 9,
+          "heading": "4.1      Duration.   Unless  earlier   terminated   otherwise  provided",
+          "score": 0.0323
+        },
+        {
+          "chunk_id": "p2_c2",
+          "page_num": 2,
+          "heading": "1.3      Term.  The term of this  Agreement  shall be ten (10)",
+          "score": 0.0313
+        }
+      ]
+    },
+    {
+      "doc": "cuad_000_limeenergyco_09_09_1999_ex_10_distributo",
+      "field": "non_solicit_clause_present",
+      "query": "non solicit clause present. Whether there is a non-solicitation clause. non-solicitation solicit employees customers. non-solicitation. solicit employees. solicit customers. hire personnel",
+      "gold_value": true,
+      "targets": [
+        "true",
+        "yes"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p13_c0",
+          "page_num": 13,
+          "heading": "Page -11-",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p12_c4",
+          "page_num": 12,
+          "heading": "5.7      Nonsolicitation.",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p9_c1",
+          "page_num": 9,
+          "heading": "information shall not include                   information which:",
+          "score": 0.031
+        }
+      ]
+    },
+    {
+      "doc": "cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23",
+      "field": "party_a_name",
+      "query": "party a name. Full legal name of the first party. party name preamble parties. between. by and between. disclosing party. provider. company",
+      "gold_value": "Kiromic, Inc.",
+      "targets": [
+        "kiromic inc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p4_c0",
+          "page_num": 4,
+          "heading": null,
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p2_c0",
+          "page_num": 2,
+          "heading": null,
+          "score": 0.031
+        },
+        {
+          "chunk_id": "p5_c0_s1",
+          "page_num": 5,
+          "heading": null,
+          "score": 0.0309
+        }
+      ]
+    },
+    {
+      "doc": "cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "Gianluca Rotino",
+      "targets": [
+        "gianluca rotino"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p4_c0",
+          "page_num": 4,
+          "heading": null,
+          "score": 0.0323
+        },
+        {
+          "chunk_id": "p5_c0_s1",
+          "page_num": 5,
+          "heading": null,
+          "score": 0.0311
+        },
+        {
+          "chunk_id": "p3_c0",
+          "page_num": 3,
+          "heading": null,
+          "score": 0.0304
+        }
+      ]
+    },
+    {
+      "doc": "cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve",
+      "field": "doc_type",
+      "query": "doc type. High-level type of document. confidentiality agreement nda msa. agreement type. title of agreement. confidential disclosure agreement. master services agreement",
+      "gold_value": "other",
+      "targets": [
+        "other"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p3_c5",
+          "page_num": 3,
+          "heading": "Signature Page to Amendment and Termination of Joint Venture Agreement",
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p3_c7",
+          "page_num": 3,
+          "heading": "Signature Page to Amendment and Termination of Joint Venture Agreement",
+          "score": 0.0315
+        },
+        {
+          "chunk_id": "p2_c3",
+          "page_num": 2,
+          "heading": "Article 2.D&O Indemnity",
+          "score": 0.0302
+        }
+      ]
+    },
+    {
+      "doc": "cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_",
+      "field": "term_length",
+      "query": "term length. Length of the agreement term in months, if determinable. term length duration. term of this agreement. initial term. duration. expiration",
+      "gold_value": 48,
+      "targets": [
+        "48"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p44_c4",
+          "page_num": 44,
+          "heading": "12.1 Term. This Agreement shall become effective as of the Effective Date and, unless",
+          "score": 0.0328
+        },
+        {
+          "chunk_id": "p7_c7",
+          "page_num": 7,
+          "heading": "1.10 \"Calendar Year\" shall mean each successive period of twelve (12) months commencing on",
+          "score": 0.0313
+        },
+        {
+          "chunk_id": "p44_c3",
+          "page_num": 44,
+          "heading": "ARTICLE 12  TERM AND TERMINATION",
+          "score": 0.031
+        }
+      ]
+    },
+    {
+      "doc": "cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_",
+      "field": "non_solicit_clause_present",
+      "query": "non solicit clause present. Whether there is a non-solicitation clause. non-solicitation solicit employees customers. non-solicitation. solicit employees. solicit customers. hire personnel",
+      "gold_value": true,
+      "targets": [
+        "true",
+        "yes"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p15_c1",
+          "page_num": 15,
+          "heading": "2.3 Non-Competition; Non-Solicitation.",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p1_c15",
+          "page_num": 1,
+          "heading": "2.3 Non-Competition; Non-Solicitation. 9",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p15_c3",
+          "page_num": 15,
+          "heading": "2.3.2 Non-Solicitation. [***], neither Valeant nor Dova (nor any of their respective",
+          "score": 0.0317
+        }
+      ]
+    },
+    {
+      "doc": "cuad_009_pacira_pharmaceuticals_inc_a_r_strategic",
+      "field": "party_a_name",
+      "query": "party a name. Full legal name of the first party. party name preamble parties. between. by and between. disclosing party. provider. company",
+      "gold_value": "PACIRA PHARMACEUTICALS, INC. (F/K/A SKYEPharma, Inc.)",
+      "targets": [
+        "pacira pharmaceuticals inc f k a skyepharma inc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p35_c1",
+          "page_num": 35,
+          "heading": "10.5 Settlement of Claims. The indemnified Party shall not admit liability in respect of,",
+          "score": 0.0311
+        },
+        {
+          "chunk_id": "p37_c1",
+          "page_num": 37,
+          "heading": "11.4 Public Announcements. The Parties shall consult with each other, in advance, with",
+          "score": 0.0305
+        },
+        {
+          "chunk_id": "p48_c0",
+          "page_num": 48,
+          "heading": null,
+          "score": 0.029
+        }
+      ]
+    },
+    {
+      "doc": "cuad_009_pacira_pharmaceuticals_inc_a_r_strategic",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "EKR THERAPEUTICS, INC.",
+      "targets": [
+        "ekr therapeutics inc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p29_c0",
+          "page_num": 29,
+          "heading": null,
+          "score": 0.0292
+        },
+        {
+          "chunk_id": "p48_c1",
+          "page_num": 48,
+          "heading": "21.4 Expenses. Each Party shall pay its own costs, charges and expenses incurred in",
+          "score": 0.0288
+        },
+        {
+          "chunk_id": "p48_c0",
+          "page_num": 48,
+          "heading": null,
+          "score": 0.0284
+        }
+      ]
+    },
+    {
+      "doc": "cuad_010_metlife_inc_remarketing_agreement",
+      "field": "effective_date",
+      "query": "effective date. Date on which the agreement becomes effective, in ISO format YYYY-MM-DD if possible. effective date date of agreement. effective as of. date of this agreement. execution date. commencement date",
+      "gold_value": "2014-09-15",
+      "targets": [
+        "2014 09 15",
+        "2014"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p24_c0_s1",
+          "page_num": 24,
+          "heading": null,
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p5_c1",
+          "page_num": 5,
+          "heading": "Date that:",
+          "score": 0.0308
+        },
+        {
+          "chunk_id": "p7_c0_s1",
+          "page_num": 7,
+          "heading": null,
+          "score": 0.0306
+        }
+      ]
+    },
+    {
+      "doc": "cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat",
+      "field": "non_solicit_clause_present",
+      "query": "non solicit clause present. Whether there is a non-solicitation clause. non-solicitation solicit employees customers. non-solicitation. solicit employees. solicit customers. hire personnel",
+      "gold_value": true,
+      "targets": [
+        "true",
+        "yes"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p10_c0",
+          "page_num": 10,
+          "heading": null,
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p9_c1",
+          "page_num": 9,
+          "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 12",
+          "score": 0.0318
+        },
+        {
+          "chunk_id": "p3_c0",
+          "page_num": 3,
+          "heading": null,
+          "score": 0.0315
+        }
+      ]
+    },
+    {
+      "doc": "cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_",
+      "field": "effective_date",
+      "query": "effective date. Date on which the agreement becomes effective, in ISO format YYYY-MM-DD if possible. effective date date of agreement. effective as of. date of this agreement. execution date. commencement date",
+      "gold_value": "2005-02-04",
+      "targets": [
+        "2005 02 04",
+        "2005"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p4_c1",
+          "page_num": 4,
+          "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p3_c0",
+          "page_num": 3,
+          "heading": null,
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p4_c0",
+          "page_num": 4,
+          "heading": null,
+          "score": 0.032
+        }
+      ]
+    },
+    {
+      "doc": "cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494",
+      "field": "party_a_name",
+      "query": "party a name. Full legal name of the first party. party name preamble parties. between. by and between. disclosing party. provider. company",
+      "gold_value": "Nuance Communications, Inc.",
+      "targets": [
+        "nuance communications inc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p12_c5",
+          "page_num": 12,
+          "heading": "Section 6.01. Confidentiality. Without limiting Section 6.02, all confidential information",
+          "score": 0.0315
+        },
+        {
+          "chunk_id": "p16_c1",
+          "page_num": 16,
+          "heading": "Section 11.01. Counterparts; Entire Agreement; Corporate Power.",
+          "score": 0.0296
+        },
+        {
+          "chunk_id": "p16_c3",
+          "page_num": 16,
+          "heading": "Section 11.02. Dispute Resolution. In the event that either Party, acting reasonably,",
+          "score": 0.0294
+        }
+      ]
+    },
+    {
+      "doc": "cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "Cerence Inc.",
+      "targets": [
+        "cerence inc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p13_c0",
+          "page_num": 13,
+          "heading": null,
+          "score": 0.0302
+        },
+        {
+          "chunk_id": "p16_c1",
+          "page_num": 16,
+          "heading": "Section 11.01. Counterparts; Entire Agreement; Corporate Power.",
+          "score": 0.0294
+        },
+        {
+          "chunk_id": "p16_c3",
+          "page_num": 16,
+          "heading": "Section 11.02. Dispute Resolution. In the event that either Party, acting reasonably,",
+          "score": 0.0285
+        }
+      ]
+    },
+    {
+      "doc": "cuad_015_thriventvariableinsuranceaccountb_201907",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "Thrivent Life Insurance Company",
+      "targets": [
+        "thrivent life insurance company"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p2_c6",
+          "page_num": 2,
+          "heading": "ENTIRE CONTRACT",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p2_c7",
+          "page_num": 2,
+          "heading": "ASSIGNMENT",
+          "score": 0.031
+        },
+        {
+          "chunk_id": "p2_c1",
+          "page_num": 2,
+          "heading": "The following provisions of this contract are amended:",
+          "score": 0.031
+        }
+      ]
+    },
+    {
+      "doc": "cuad_016_reynoldsconsumerproductsinc_20191115_s_1",
+      "field": "party_a_name",
+      "query": "party a name. Full legal name of the first party. party name preamble parties. between. by and between. disclosing party. provider. company",
+      "gold_value": "REYNOLDS CONSUMER PRODUCTS LLC",
+      "targets": [
+        "reynolds consumer products llc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p7_c0",
+          "page_num": 7,
+          "heading": null,
+          "score": 0.0318
+        },
+        {
+          "chunk_id": "p10_c1",
+          "page_num": 10,
+          "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+          "score": 0.0313
+        },
+        {
+          "chunk_id": "p11_c0",
+          "page_num": 11,
+          "heading": null,
+          "score": 0.0313
+        }
+      ]
+    },
+    {
+      "doc": "cuad_016_reynoldsconsumerproductsinc_20191115_s_1",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "PACTIV LLC",
+      "targets": [
+        "pactiv llc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p7_c0",
+          "page_num": 7,
+          "heading": null,
+          "score": 0.0323
+        },
+        {
+          "chunk_id": "p10_c1",
+          "page_num": 10,
+          "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+          "score": 0.0315
+        },
+        {
+          "chunk_id": "p16_c0",
+          "page_num": 16,
+          "heading": null,
+          "score": 0.03
+        }
+      ]
+    },
+    {
+      "doc": "cuad_016_reynoldsconsumerproductsinc_20191115_s_1",
+      "field": "risk_level",
+      "query": "risk level. High-level risk rating from the perspective of a small SaaS vendor. risk assessment. material risk factors",
+      "gold_value": "medium",
+      "targets": [
+        "medium"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p7_c1",
+          "page_num": 7,
+          "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+          "score": 0.0315
+        },
+        {
+          "chunk_id": "p6_c1",
+          "page_num": 6,
+          "heading": "Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019",
+          "score": 0.0313
+        },
+        {
+          "chunk_id": "p3_c0",
+          "page_num": 3,
+          "heading": null,
+          "score": 0.0301
+        }
+      ]
+    },
+    {
+      "doc": "cuad_017_integrityfunds_20200121_485bpos_ex_99_e_",
+      "field": "effective_date",
+      "query": "effective date. Date on which the agreement becomes effective, in ISO format YYYY-MM-DD if possible. effective date date of agreement. effective as of. date of this agreement. execution date. commencement date",
+      "gold_value": "2020-01-18",
+      "targets": [
+        "2020 01 18",
+        "2020"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p6_c5",
+          "page_num": 6,
+          "heading": "provisions hereof or otherwise affect their construction or effect. In Witness Whereof,",
+          "score": 0.0328
+        },
+        {
+          "chunk_id": "p6_c4",
+          "page_num": 6,
+          "heading": "Section 8.3 This Agreement shall be construed in accordance with the laws of the State of",
+          "score": 0.0318
+        },
+        {
+          "chunk_id": "p6_c1",
+          "page_num": 6,
+          "heading": "1940 Act) of the Fund and who have no direct or indirect financial interest in the",
+          "score": 0.0313
+        }
+      ]
+    },
+    {
+      "doc": "cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "Premier Biomedical, Inc.",
+      "targets": [
+        "premier biomedical inc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p4_c1",
+          "page_num": 4,
+          "heading": "Party.     4",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p5_c0",
+          "page_num": 5,
+          "heading": null,
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p5_c0_s1",
+          "page_num": 5,
+          "heading": null,
+          "score": 0.0317
+        }
+      ]
+    },
+    {
+      "doc": "cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg",
+      "field": "party_a_name",
+      "query": "party a name. Full legal name of the first party. party name preamble parties. between. by and between. disclosing party. provider. company",
+      "gold_value": "Dynamic Hearing Pty Ltd",
+      "targets": [
+        "dynamic hearing pty ltd"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p18_c3",
+          "page_num": 18,
+          "heading": "12.2 This Agreement contains the entire agreement between the parties with respect to its",
+          "score": 0.0315
+        },
+        {
+          "chunk_id": "p4_c4",
+          "page_num": 4,
+          "heading": "2.13    Miscellaneous Definitions:",
+          "score": 0.0315
+        },
+        {
+          "chunk_id": "p5_c0",
+          "page_num": 5,
+          "heading": null,
+          "score": 0.0308
+        }
+      ]
+    },
+    {
+      "doc": "cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg",
+      "field": "effective_date",
+      "query": "effective date. Date on which the agreement becomes effective, in ISO format YYYY-MM-DD if possible. effective date date of agreement. effective as of. date of this agreement. execution date. commencement date",
+      "gold_value": "2008-07-20",
+      "targets": [
+        "2008 07 20",
+        "2008"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p16_c3",
+          "page_num": 16,
+          "heading": "11.7    Upon the effective date of expiry or termination of this Agreement for any reason",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p17_c1",
+          "page_num": 17,
+          "heading": "11.8 Upon the Effective Date of expiry or termination of this Agreement for any reason",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p5_c2",
+          "page_num": 5,
+          "heading": "3.1 Term: The initial term of this Agreement shall be five (5) years from the date of",
+          "score": 0.0308
+        }
+      ]
+    },
+    {
+      "doc": "cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc",
+      "field": "risk_level",
+      "query": "risk level. High-level risk rating from the perspective of a small SaaS vendor. risk assessment. material risk factors",
+      "gold_value": "high",
+      "targets": [
+        "high"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p14_c2",
+          "page_num": 14,
+          "heading": "Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 16 of 60",
+          "score": 0.032
+        },
+        {
+          "chunk_id": "p2_c0",
+          "page_num": 2,
+          "heading": null,
+          "score": 0.0265
+        },
+        {
+          "chunk_id": "p43_c8",
+          "page_num": 43,
+          "heading": "1 Reduced to account for the fact that $6 million of sales taxes are already included in",
+          "score": 0.0253
+        }
+      ]
+    },
+    {
+      "doc": "cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s",
+      "field": "party_a_name",
+      "query": "party a name. Full legal name of the first party. party name preamble parties. between. by and between. disclosing party. provider. company",
+      "gold_value": "On2 Technologies, Inc.",
+      "targets": [
+        "on2 technologies inc",
+        "2"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p4_c7",
+          "page_num": 4,
+          "heading": "Disclosing Party that:",
+          "score": 0.0309
+        },
+        {
+          "chunk_id": "p5_c0",
+          "page_num": 5,
+          "heading": null,
+          "score": 0.0302
+        },
+        {
+          "chunk_id": "p5_c2",
+          "page_num": 5,
+          "heading": "5.1.4 upon the Disclosing Party's written request, at the earlier of the end of the Term,",
+          "score": 0.0301
+        }
+      ]
+    },
+    {
+      "doc": "cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s",
+      "field": "party_b_name",
+      "query": "party b name. Full legal name of the second party. party name preamble parties. between. by and between. receiving party. customer. client",
+      "gold_value": "Wildform, Inc.",
+      "targets": [
+        "wildform inc"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p9_c7",
+          "page_num": 9,
+          "heading": "10.6 Entire Agreement. This Agreement constitutes the entire understanding between the",
+          "score": 0.0307
+        },
+        {
+          "chunk_id": "p10_c2_s1",
+          "page_num": 10,
+          "heading": "resolved as follows:",
+          "score": 0.0303
+        },
+        {
+          "chunk_id": "p9_c3",
+          "page_num": 9,
+          "heading": "10.1 Status of Parties. Nothing contained in this Agreement nor performance hereunder",
+          "score": 0.0302
+        }
+      ]
+    },
+    {
+      "doc": "cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s",
+      "field": "risk_level",
+      "query": "risk level. High-level risk rating from the perspective of a small SaaS vendor. risk assessment. material risk factors",
+      "gold_value": "medium",
+      "targets": [
+        "medium"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p3_c9",
+          "page_num": 3,
+          "heading": "2.4 Level of Transition Services. Wildform shall perform the Transition Services for which",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p6_c2",
+          "page_num": 6,
+          "heading": "6.2 Wildform Warranties. Wildform makes the following representations and warranties to",
+          "score": 0.0318
+        },
+        {
+          "chunk_id": "p5_c6",
+          "page_num": 5,
+          "heading": "5.3 Receiving Party's Duty of Care. Receiving Party shall protect the Confidential",
+          "score": 0.0283
+        }
+      ]
+    },
+    {
+      "doc": "cuad_024_operaltd_04_30_2020_ex_4_14_service_agre",
+      "field": "term_length",
+      "query": "term length. Length of the agreement term in months, if determinable. term length duration. term of this agreement. initial term. duration. expiration",
+      "gold_value": 12,
+      "targets": [
+        "12"
+      ],
+      "top_hits": [
+        {
+          "chunk_id": "p4_c1_s1",
+          "page_num": 4,
+          "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+          "score": 0.0325
+        },
+        {
+          "chunk_id": "p5_c0",
+          "page_num": 5,
+          "heading": "9.4 Upon termination or expiration of this Agreement (i) Each Party shall return to the",
+          "score": 0.0317
+        },
+        {
+          "chunk_id": "p5_c4",
+          "page_num": 5,
+          "heading": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES",
+          "score": 0.0306
+        }
+      ]
+    }
+  ]
+}

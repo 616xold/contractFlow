@@ -32,6 +32,71 @@ _FIELD_QUERY_HINTS = {
     "data_transfer_outside_uk_eu": "data transfer outside uk eu cross-border transfer",
     "doc_type": "confidentiality agreement nda msa",
 }
+_FIELD_CLAUSE_ALIASES = {
+    "doc_type": [
+        "agreement type",
+        "title of agreement",
+        "confidential disclosure agreement",
+        "master services agreement",
+    ],
+    "party_a_name": [
+        "between",
+        "by and between",
+        "disclosing party",
+        "provider",
+        "company",
+    ],
+    "party_b_name": [
+        "between",
+        "by and between",
+        "receiving party",
+        "customer",
+        "client",
+    ],
+    "effective_date": [
+        "effective as of",
+        "date of this agreement",
+        "execution date",
+        "commencement date",
+    ],
+    "term_length": [
+        "term of this agreement",
+        "initial term",
+        "duration",
+        "expiration",
+    ],
+    "governing_law": [
+        "law and jurisdiction",
+        "applicable law",
+        "venue",
+        "courts",
+    ],
+    "termination_notice_days": [
+        "termination for convenience",
+        "notice period",
+        "days notice",
+    ],
+    "liability_cap": [
+        "limitation of liability",
+        "liability shall not exceed",
+        "cap on liability",
+        "aggregate liability",
+    ],
+    "non_solicit_clause_present": [
+        "non-solicitation",
+        "solicit employees",
+        "solicit customers",
+        "hire personnel",
+    ],
+    "data_transfer_outside_uk_eu": [
+        "cross-border transfer",
+        "transfer outside",
+        "international transfer",
+        "adequacy safeguards",
+    ],
+    "risk_level": ["risk assessment", "material risk factors"],
+    "risk_explanation": ["risk rationale", "risk reasoning"],
+}
 _FIELD_INSTRUCTIONS = {
     "effective_date": "Return an ISO date (YYYY-MM-DD) if possible.",
     "term_length": "Return the initial term length in months (convert years to months).",
@@ -44,6 +109,9 @@ _MAX_FIELD_RETRIES = 2
 _ORCHESTRATION_BASELINE_CONFIDENCE = 0.58
 _ORCHESTRATION_REPAIR_THRESHOLD = 0.68
 _MAX_ORCHESTRATION_REPAIRS = 6
+_VERIFIER_CONFIDENCE_THRESHOLD = 0.62
+_MAX_VERIFIER_REPAIRS = 4
+_VERIFIER_SKIP_FIELDS = {"risk_level", "risk_explanation"}
 
 
 @dataclass
@@ -71,6 +139,15 @@ class FieldExtractionBase(BaseModel):
     confidence: Annotated[float, Field(ge=0.0, le=1.0)]
 
 
+class FieldVerifierOutput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    decision: Literal["accept", "revise", "unknown"]
+    reason: str
+    confidence: Annotated[float, Field(ge=0.0, le=1.0)]
+    revised_query: Optional[str] = None
+
+
 @dataclass
 class FieldExtractionResult:
     field: str
@@ -94,6 +171,17 @@ class FieldCandidate:
     attempts: int = 1
     prompt_tokens: int = 0
     completion_tokens: int = 0
+
+
+@dataclass
+class FieldVerifierResult:
+    decision: str
+    reason: str
+    confidence: float
+    revised_query: Optional[str]
+    raw_text: str
+    prompt_tokens: Optional[int] = None
+    completion_tokens: Optional[int] = None
 
 
 def load_schema(schema_path: str | Path) -> Dict[str, Any]:
@@ -130,9 +218,16 @@ def _build_field_queries(schema: Dict[str, Any]) -> Dict[str, str]:
         base = field.replace("_", " ").strip()
         desc = meta.get("description", "").strip()
         hint = _FIELD_QUERY_HINTS.get(field, "")
-        pieces = [piece for piece in (base, desc, hint) if piece]
+        aliases = _FIELD_CLAUSE_ALIASES.get(field, [])
+        alias_text = ". ".join(aliases)
+        pieces = [piece for piece in (base, desc, hint, alias_text) if piece]
         queries[field] = ". ".join(pieces) if pieces else base
     return queries
+
+
+def build_field_queries(schema: Dict[str, Any]) -> Dict[str, str]:
+    """Public helper for tools that need field-aware retrieval queries."""
+    return _build_field_queries(schema)
 
 
 def _format_retrieval_context(
@@ -709,8 +804,9 @@ def _should_retry_field(confidence: float, conflict: bool) -> bool:
 
 def _augment_query(query: str, field: str) -> str:
     extra = _FIELD_QUERY_HINTS.get(field, "")
+    alias_text = " ".join(_FIELD_CLAUSE_ALIASES.get(field, []))
     base = field.replace("_", " ")
-    return " ".join(part for part in [query, extra, base, "clause section"] if part).strip()
+    return " ".join(part for part in [query, extra, alias_text, base, "clause section"] if part).strip()
 
 
 def _extract_field_with_retries(
@@ -890,6 +986,188 @@ def _dedupe_issues(issues: list[str]) -> list[str]:
     return deduped
 
 
+def _format_verifier_evidence(evidence: list[Dict[str, Any]], *, max_items: int = 3) -> str:
+    if not evidence:
+        return "none"
+    lines: list[str] = []
+    for item in evidence[: max(0, max_items)]:
+        page = item.get("page_num")
+        heading = item.get("heading")
+        snippet = _truncate_text(str(item.get("snippet", "")).strip(), 220)
+        lines.append(f"- page={page} heading={heading or 'none'} snippet={snippet}")
+    return "\n".join(lines)
+
+
+def _summarize_candidates_for_verifier(
+    candidates: list[FieldCandidate],
+    *,
+    max_items: int = 4,
+) -> str:
+    lines: list[str] = []
+    for candidate in candidates[: max(0, max_items)]:
+        value_text = _truncate_text(json.dumps(candidate.value, ensure_ascii=False), 120)
+        lines.append(
+            f"- source={candidate.source} confidence={round(candidate.confidence, 4)} "
+            f"issues={len(candidate.issues)} evidence={len(candidate.evidence)} value={value_text}"
+        )
+    return "\n".join(lines) if lines else "none"
+
+
+def _deterministic_verifier_checks(
+    field: str,
+    meta: Dict[str, Any],
+    candidate: FieldCandidate,
+    *,
+    coerce: bool,
+) -> Dict[str, Any]:
+    normalized, validation_issues, conflict = _validate_and_normalize_field(
+        field,
+        meta,
+        candidate.value,
+        candidate.evidence,
+        coerce=coerce,
+    )
+    normalized_changed = not _values_equivalent(normalized, candidate.value)
+    return {
+        "conflict": bool(conflict or normalized_changed),
+        "normalized_changed": normalized_changed,
+        "normalized_value": normalized,
+        "validation_issues": validation_issues,
+        "has_evidence": bool(candidate.evidence),
+        "evidence_count": len(candidate.evidence),
+    }
+
+
+def _apply_unknown_policy(field: str, meta: Dict[str, Any], value: Any) -> tuple[Any, Optional[str], bool]:
+    if bool(meta.get("nullable")):
+        return None, None, True
+    expected_type = meta.get("type")
+    enum_vals = meta.get("enum") or []
+    if expected_type == "string" and isinstance(enum_vals, list):
+        normalized_enum = _normalize_enum_value(enum_vals, "unknown")
+        if normalized_enum is not None:
+            return normalized_enum, None, True
+    return value, f"verifier returned unknown for non-nullable field '{field}'", False
+
+
+def _call_verifier_for_field(
+    *,
+    field: str,
+    meta: Dict[str, Any],
+    selected: FieldCandidate,
+    candidates: list[FieldCandidate],
+    deterministic_checks: Dict[str, Any],
+    model: str,
+    client: OpenAI,
+    structured_outputs: bool,
+) -> FieldVerifierResult:
+    field_desc = meta.get("description", "").strip()
+    type_label = _build_field_type_label(meta)
+    selected_value_text = json.dumps(selected.value, ensure_ascii=False)
+    evidence_text = _format_verifier_evidence(selected.evidence)
+    candidate_summary = _summarize_candidates_for_verifier(candidates)
+    checks_text = json.dumps(
+        {
+            "conflict": deterministic_checks.get("conflict"),
+            "normalized_changed": deterministic_checks.get("normalized_changed"),
+            "validation_issues": deterministic_checks.get("validation_issues", []),
+            "has_evidence": deterministic_checks.get("has_evidence"),
+            "evidence_count": deterministic_checks.get("evidence_count"),
+        },
+        ensure_ascii=False,
+    )
+
+    system_prompt = (
+        "You are a strict verifier for legal contract extraction.\n"
+        "Decide if the currently selected field value is supported by evidence.\n"
+        "Return ONLY JSON with keys: decision, reason, confidence, revised_query.\n"
+        "decision must be one of: accept, revise, unknown.\n"
+        "Use revise when better retrieval may fix the field.\n"
+        "Use unknown when evidence is insufficient and no confident value should be asserted."
+    )
+    user_prompt = (
+        f"Field: {field}\n"
+        f"Type: {type_label}\n"
+        f"Description: {field_desc}\n"
+        f"Selected value: {selected_value_text}\n"
+        f"Selected confidence: {round(selected.confidence, 4)}\n"
+        f"Selected issues: {selected.issues}\n\n"
+        f"Evidence:\n{evidence_text}\n\n"
+        f"Alternative candidates:\n{candidate_summary}\n\n"
+        f"Deterministic checks: {checks_text}\n\n"
+        "Rules:\n"
+        "- If deterministic checks show conflict, prefer revise or unknown.\n"
+        "- revised_query should be short and clause-focused when decision=revise.\n"
+        "- If decision is accept or unknown, revised_query must be null."
+    )
+
+    input_messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    response: Any
+    raw_output: str
+    parsed_obj: FieldVerifierOutput
+
+    if structured_outputs and hasattr(client.responses, "parse"):
+        try:
+            response = client.responses.parse(
+                model=model,
+                input=input_messages,
+                text_format=FieldVerifierOutput,
+                reasoning={"effort": "none"},
+                temperature=0,
+                max_output_tokens=350,
+            )
+            raw_output = _extract_response_text(response)
+            parsed = getattr(response, "output_parsed", None)
+            if parsed is None:
+                parsed_obj = FieldVerifierOutput.model_validate(_safe_parse_json(raw_output))
+            else:
+                parsed_obj = parsed
+        except Exception:
+            response = client.responses.create(
+                model=model,
+                input=input_messages,
+                reasoning={"effort": "none"},
+                temperature=0,
+                max_output_tokens=350,
+            )
+            raw_output = _extract_response_text(response)
+            parsed_obj = FieldVerifierOutput.model_validate(_safe_parse_json(raw_output))
+    else:
+        response = client.responses.create(
+            model=model,
+            input=input_messages,
+            reasoning={"effort": "none"},
+            temperature=0,
+            max_output_tokens=350,
+        )
+        raw_output = _extract_response_text(response)
+        parsed_obj = FieldVerifierOutput.model_validate(_safe_parse_json(raw_output))
+
+    usage = getattr(response, "usage", None)
+    prompt_tokens = getattr(usage, "input_tokens", None)
+    completion_tokens = getattr(usage, "output_tokens", None)
+
+    revised_query = parsed_obj.revised_query.strip() if isinstance(parsed_obj.revised_query, str) else None
+    if parsed_obj.decision != "revise":
+        revised_query = None
+    if parsed_obj.decision == "revise" and not revised_query:
+        revised_query = None
+
+    return FieldVerifierResult(
+        decision=parsed_obj.decision,
+        reason=parsed_obj.reason.strip(),
+        confidence=float(parsed_obj.confidence),
+        revised_query=revised_query,
+        raw_text=raw_output,
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
+    )
+
+
 def call_llm_for_schema(
     contract_text: str,
     schema: Dict[str, Any],
@@ -1057,6 +1335,8 @@ def extract_fields_retrieval(
     embedding_model: str = "text-embedding-3-small",
     embedding_batch_size: int = 64,
     embedding_cache_dir: Optional[str | Path] = None,
+    reranker_model: Optional[str] = None,
+    reranker_top_n: int = 20,
     top_k: int = 3,
     max_chunk_chars: int = 1200,
     chunk_max_chars: int = 2000,
@@ -1087,6 +1367,8 @@ def extract_fields_retrieval(
         embedding_model=embedding_model,
         embedding_batch_size=embedding_batch_size,
         embedding_cache_dir=embedding_cache_dir,
+        reranker_model=reranker_model,
+        reranker_top_n=reranker_top_n,
     )
     field_queries = _build_field_queries(schema)
     field_hits: Dict[str, list[RetrievalHit]] = {}
@@ -1102,6 +1384,9 @@ def extract_fields_retrieval(
         "model": getattr(retriever, "model", None),
         "cache_path": getattr(retriever, "cache_path", None),
         "cache_hit": getattr(retriever, "cache_hit", None),
+        "config": getattr(retriever, "config", None),
+        "reranker_model": reranker_model,
+        "reranker_top_n": reranker_top_n if reranker_model else None,
         "top_k": top_k,
         "max_chunk_chars": max_chunk_chars,
         "chunk_max_chars": chunk_max_chars,
@@ -1160,6 +1445,8 @@ def extract_fields_field_agents(
     embedding_model: str = "text-embedding-3-small",
     embedding_batch_size: int = 64,
     embedding_cache_dir: Optional[str | Path] = None,
+    reranker_model: Optional[str] = None,
+    reranker_top_n: int = 20,
     top_k: int = 3,
     max_chunk_chars: int = 1200,
     chunk_max_chars: int = 2000,
@@ -1191,6 +1478,8 @@ def extract_fields_field_agents(
         embedding_model=embedding_model,
         embedding_batch_size=embedding_batch_size,
         embedding_cache_dir=embedding_cache_dir,
+        reranker_model=reranker_model,
+        reranker_top_n=reranker_top_n,
     )
     field_queries = _build_field_queries(schema)
 
@@ -1267,6 +1556,9 @@ def extract_fields_field_agents(
         "model": getattr(retriever, "model", None),
         "cache_path": getattr(retriever, "cache_path", None),
         "cache_hit": getattr(retriever, "cache_hit", None),
+        "config": getattr(retriever, "config", None),
+        "reranker_model": reranker_model,
+        "reranker_top_n": reranker_top_n if reranker_model else None,
         "top_k": top_k,
         "max_chunk_chars": max_chunk_chars,
         "chunk_max_chars": chunk_max_chars,
@@ -1299,6 +1591,8 @@ def extract_fields_orchestrated(
     embedding_model: str = "text-embedding-3-small",
     embedding_batch_size: int = 64,
     embedding_cache_dir: Optional[str | Path] = None,
+    reranker_model: Optional[str] = None,
+    reranker_top_n: int = 20,
     top_k: int = 3,
     max_chunk_chars: int = 1200,
     chunk_max_chars: int = 2000,
@@ -1308,14 +1602,22 @@ def extract_fields_orchestrated(
     ocr_dpi: int = 200,
     repair_confidence_threshold: float = _ORCHESTRATION_REPAIR_THRESHOLD,
     max_repairs: int = _MAX_ORCHESTRATION_REPAIRS,
+    enable_verifier: bool = True,
+    verifier_confidence_threshold: float = _VERIFIER_CONFIDENCE_THRESHOLD,
+    verifier_max_repairs: int = _MAX_VERIFIER_REPAIRS,
+    verifier_model: Optional[str] = None,
 ) -> ExtractionResult:
-    """Orchestrated extraction: global baseline + field agents + targeted repairs."""
+    """Orchestrated extraction with verifier: baseline + field agents + repairs + judge loop."""
     if top_k < 1:
         raise ValueError("top_k must be >= 1 for orchestrated extraction.")
     if max_repairs < 0:
         raise ValueError("max_repairs must be >= 0 for orchestrated extraction.")
     if not (0.0 <= repair_confidence_threshold <= 1.0):
         raise ValueError("repair_confidence_threshold must be between 0 and 1.")
+    if not (0.0 <= verifier_confidence_threshold <= 1.0):
+        raise ValueError("verifier_confidence_threshold must be between 0 and 1.")
+    if verifier_max_repairs < 0:
+        raise ValueError("verifier_max_repairs must be >= 0 for orchestrated extraction.")
 
     schema = load_schema(schema_path)
     chunks = chunk_pdf(
@@ -1336,6 +1638,8 @@ def extract_fields_orchestrated(
         embedding_model=embedding_model,
         embedding_batch_size=embedding_batch_size,
         embedding_cache_dir=embedding_cache_dir,
+        reranker_model=reranker_model,
+        reranker_top_n=reranker_top_n,
     )
     field_queries = _build_field_queries(schema)
 
@@ -1502,6 +1806,173 @@ def extract_fields_orchestrated(
         if result.raw_text.strip():
             raw_outputs.append(f"REPAIR_AGENT {field}\n{result.raw_text}")
 
+    verifier_model_name = verifier_model or model
+    verifier_meta_by_field: Dict[str, Any] = {}
+    verifier_decision_counts = {"accept": 0, "revise": 0, "unknown": 0, "skipped": 0}
+    verifier_disagreement_fields: list[str] = []
+    verifier_repair_fields: list[str] = []
+    verifier_repairs_used = 0
+
+    if enable_verifier:
+        for field, meta in schema.items():
+            selected = selected_by_field[field]
+            candidates = field_candidates[field]
+            should_skip = field in _VERIFIER_SKIP_FIELDS
+            deterministic_checks = _deterministic_verifier_checks(field, meta, selected, coerce=coerce)
+
+            if should_skip:
+                verifier_decision_counts["skipped"] += 1
+                verifier_meta_by_field[field] = {
+                    "decision": "skipped",
+                    "reason": "field is deterministically derived downstream",
+                    "confidence": 1.0,
+                    "revised_query": None,
+                    "repaired": False,
+                    "deterministic_checks": deterministic_checks,
+                    "repair_performed": False,
+                }
+                continue
+
+            verifier_result = _call_verifier_for_field(
+                field=field,
+                meta=meta,
+                selected=selected,
+                candidates=candidates,
+                deterministic_checks=deterministic_checks,
+                model=verifier_model_name,
+                client=client,
+                structured_outputs=structured_outputs,
+            )
+            total_prompt_tokens += verifier_result.prompt_tokens or 0
+            total_completion_tokens += verifier_result.completion_tokens or 0
+            if verifier_result.raw_text.strip():
+                raw_outputs.append(f"VERIFIER_AGENT {field}\n{verifier_result.raw_text}")
+
+            decision = verifier_result.decision
+            reason = verifier_result.reason
+            revised_query = verifier_result.revised_query
+            repaired = False
+            unknown_applied = False
+            forced_by_deterministic = False
+            repair_budget_exhausted = False
+
+            if deterministic_checks["conflict"] and decision == "accept":
+                decision = "revise"
+                forced_by_deterministic = True
+                reason = f"{reason} Deterministic checks flagged a conflict."
+                if not revised_query:
+                    revised_query = _build_repair_query(
+                        field=field,
+                        base_query=field_queries.get(field, field.replace("_", " ")),
+                        current=selected,
+                        baseline_value=baseline_values.get(field),
+                    )
+
+            if decision == "accept" and verifier_result.confidence < verifier_confidence_threshold:
+                decision = "revise"
+                forced_by_deterministic = True
+                reason = f"{reason} Verifier confidence below threshold."
+                if not revised_query:
+                    revised_query = _build_repair_query(
+                        field=field,
+                        base_query=field_queries.get(field, field.replace("_", " ")),
+                        current=selected,
+                        baseline_value=baseline_values.get(field),
+                    )
+
+            if decision == "revise":
+                verifier_disagreement_fields.append(field)
+                issues.append(f"verifier requested revision for field '{field}'")
+                if verifier_repairs_used < verifier_max_repairs:
+                    query = revised_query or _build_repair_query(
+                        field=field,
+                        base_query=field_queries.get(field, field.replace("_", " ")),
+                        current=selected_by_field[field],
+                        baseline_value=baseline_values.get(field),
+                    )
+                    value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
+                        field,
+                        meta,
+                        retriever,
+                        query,
+                        model=model,
+                        client=client,
+                        structured_outputs=structured_outputs,
+                        top_k=top_k + 2,
+                        max_chunk_chars=max_chunk_chars,
+                        coerce=coerce,
+                    )
+                    repair_candidate = FieldCandidate(
+                        source="verifier_repair_agent",
+                        value=value,
+                        confidence=result.confidence,
+                        evidence=result.evidence,
+                        issues=field_issues,
+                        attempts=result.attempts,
+                        prompt_tokens=field_prompt_tokens,
+                        completion_tokens=field_completion_tokens,
+                    )
+                    field_candidates[field].append(repair_candidate)
+                    selected_by_field[field] = _select_best_candidate(field_candidates[field])
+                    verifier_repairs_used += 1
+                    verifier_repair_fields.append(field)
+                    repaired = True
+
+                    total_prompt_tokens += field_prompt_tokens
+                    total_completion_tokens += field_completion_tokens
+                    if result.raw_text.strip():
+                        raw_outputs.append(f"VERIFIER_REPAIR_AGENT {field}\n{result.raw_text}")
+                else:
+                    repair_budget_exhausted = True
+
+            if decision == "unknown":
+                verifier_disagreement_fields.append(field)
+                issues.append(f"verifier marked field '{field}' as unknown")
+                updated_value, unknown_issue, applied = _apply_unknown_policy(
+                    field,
+                    meta,
+                    selected_by_field[field].value,
+                )
+                if applied:
+                    unknown_applied = True
+                    candidate_issues = list(selected_by_field[field].issues)
+                    if unknown_issue:
+                        candidate_issues.append(unknown_issue)
+                    unknown_candidate = FieldCandidate(
+                        source="verifier_unknown",
+                        value=updated_value,
+                        confidence=min(selected_by_field[field].confidence, verifier_result.confidence),
+                        evidence=selected_by_field[field].evidence,
+                        issues=candidate_issues,
+                        attempts=selected_by_field[field].attempts,
+                        prompt_tokens=selected_by_field[field].prompt_tokens,
+                        completion_tokens=selected_by_field[field].completion_tokens,
+                    )
+                    field_candidates[field].append(unknown_candidate)
+                    selected_by_field[field] = unknown_candidate
+                elif unknown_issue:
+                    issues.append(unknown_issue)
+
+            if decision in verifier_decision_counts:
+                verifier_decision_counts[decision] += 1
+            else:
+                verifier_decision_counts["unknown"] += 1
+
+            verifier_meta_by_field[field] = {
+                "decision": decision,
+                "reason": reason,
+                "confidence": round(verifier_result.confidence, 4),
+                "revised_query": revised_query,
+                "repaired": repaired,
+                "unknown_applied": unknown_applied,
+                "forced_by_deterministic": forced_by_deterministic,
+                "repair_performed": repaired,
+                "repair_budget_exhausted": repair_budget_exhausted,
+                "deterministic_checks": deterministic_checks,
+                "prompt_tokens": verifier_result.prompt_tokens,
+                "completion_tokens": verifier_result.completion_tokens,
+            }
+
     values: Dict[str, Any] = {}
     field_meta: Dict[str, Any] = {}
     selected_source_counts: Dict[str, int] = {}
@@ -1520,6 +1991,7 @@ def extract_fields_orchestrated(
             "issues": selected.issues,
             "prompt_tokens": selected.prompt_tokens or None,
             "completion_tokens": selected.completion_tokens or None,
+            "verifier": verifier_meta_by_field.get(field),
             "candidates": [
                 {
                     "source": candidate.source,
@@ -1568,6 +2040,9 @@ def extract_fields_orchestrated(
         "model": getattr(retriever, "model", None),
         "cache_path": getattr(retriever, "cache_path", None),
         "cache_hit": getattr(retriever, "cache_hit", None),
+        "config": getattr(retriever, "config", None),
+        "reranker_model": reranker_model,
+        "reranker_top_n": reranker_top_n if reranker_model else None,
         "top_k": top_k,
         "max_chunk_chars": max_chunk_chars,
         "chunk_max_chars": chunk_max_chars,
@@ -1584,7 +2059,32 @@ def extract_fields_orchestrated(
             "selected_source_counts": selected_source_counts,
             "baseline_used_fallback_full_text": baseline_used_fallback_full_text,
             "baseline_issues": baseline_issues,
-            "passes": ["global_baseline", "field_agent", "repair_agent"],
+            "verifier_enabled": enable_verifier,
+            "verifier_model": verifier_model_name if enable_verifier else None,
+            "verifier_confidence_threshold": verifier_confidence_threshold if enable_verifier else None,
+            "verifier_max_repairs": verifier_max_repairs if enable_verifier else None,
+            "verifier_repairs_used": verifier_repairs_used if enable_verifier else 0,
+            "verifier_repair_fields": sorted(set(verifier_repair_fields)) if enable_verifier else [],
+            "verifier_decisions": verifier_decision_counts if enable_verifier else None,
+            "verifier_disagreement_fields": sorted(set(verifier_disagreement_fields))
+            if enable_verifier
+            else [],
+            "verifier_disagreement_rate": (
+                round(len(set(verifier_disagreement_fields)) / max(1, len(schema)), 4)
+                if enable_verifier
+                else None
+            ),
+            "passes": (
+                [
+                    "global_baseline",
+                    "field_agent",
+                    "repair_agent",
+                    "verifier_agent",
+                    "verifier_repair_agent",
+                ]
+                if enable_verifier
+                else ["global_baseline", "field_agent", "repair_agent"]
+            ),
         },
     }
     retrieval_meta["coverage"] = _compute_evidence_coverage(field_meta, exclude_derived=True)

@@ -15,24 +15,30 @@ This roadmap is optimized for interview signal: clear agent roles, measurable ga
   - selected source counts (`global_baseline`, `field_agent`, `repair_agent`)
   - pass list and baseline coverage
 
-## Stage 2: Retrieval Intelligence (Next)
+## Stage 2: Retrieval Intelligence (Implemented Core)
 
-- Add hybrid retrieval backend (`bm25 + embeddings`) with reciprocal-rank fusion.
-- Add field-specific query expansion from schema descriptions and clause aliases.
-- Add cross-encoder reranker (optional local model) for top-20 -> top-k reranking.
-- Add retrieval diagnostics:
-  - MRR / Recall@k against evidence-bearing chunks on labeled subset.
-  - per-field retrieval failure report.
+- Implemented:
+  - hybrid retrieval backend (`bm25 + embeddings`) with reciprocal-rank fusion.
+  - field-specific query expansion with clause aliases.
+  - optional cross-encoder reranker for top-N -> top-k reranking.
+  - retrieval diagnostics script with MRR / Recall@k and per-field failure report.
+- Next refinements:
+  - add stronger relevance supervision than value-match heuristics.
+  - add per-field query templates tuned by contract type.
 
-## Stage 3: Verifier/Judge Agent (Next)
+## Stage 3: Verifier/Judge Agent (Implemented Core)
 
-- Add a dedicated verifier pass that consumes:
-  - extracted value
-  - evidence snippets
-  - deterministic checks (date normalization, term units, risk rules)
-- Verifier returns one of: `accept`, `revise`, `unknown`.
-- If `revise`, orchestrator triggers retrieval+repair with targeted query templates.
-- Track verifier outcomes and disagreement rates in metadata.
+- Implemented:
+  - dedicated verifier pass consuming selected value, evidence, alternative candidates, and deterministic checks.
+  - verifier decisions: `accept`, `revise`, `unknown`.
+  - judge-triggered retrieval repair loop with query overrides.
+  - verifier trace metadata in `_meta.retrieval.orchestration`:
+    - decision counts
+    - disagreement fields/rate
+    - verifier repairs used + fields
+- Next refinements:
+  - optional second-pass verifier after judge-repair for hard fields.
+  - field-specific verifier prompt templates by contract type.
 
 ## Stage 4: Evaluation Harness (Next)
 

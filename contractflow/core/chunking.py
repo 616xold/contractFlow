@@ -72,6 +72,7 @@ class ChunkRetriever(Protocol):
     model: Optional[str]
     cache_path: Optional[str]
     cache_hit: Optional[bool]
+    config: Optional[Dict[str, Any]]
 
     def retrieve(self, query: str, *, top_k: int = 5) -> List[RetrievalHit]:
         ...
@@ -84,6 +85,7 @@ class BM25Retriever:
     model: Optional[str] = None
     cache_path: Optional[str] = None
     cache_hit: Optional[bool] = None
+    config: Optional[Dict[str, Any]] = None
 
     def retrieve(self, query: str, *, top_k: int = 5) -> List[RetrievalHit]:
         return retrieve(query, self.index, top_k=top_k)
@@ -97,12 +99,15 @@ class EmbeddingRetriever:
     model: Optional[str] = None
     cache_path: Optional[str] = None
     cache_hit: Optional[bool] = None
+    config: Optional[Dict[str, Any]] = None
 
     def __post_init__(self) -> None:
         if not self.model:
             self.model = self.index.model
         self.cache_path = self.index.cache_path
         self.cache_hit = self.index.cache_hit
+        if self.config is None:
+            self.config = {"embedding_model": self.model}
 
     def retrieve(self, query: str, *, top_k: int = 5) -> List[RetrievalHit]:
         if not query.strip():
@@ -116,6 +121,123 @@ class EmbeddingRetriever:
             hits.append(RetrievalHit(chunk=chunk, score=score))
         hits.sort(key=lambda hit: hit.score, reverse=True)
         return hits[: max(top_k, 0)]
+
+
+@dataclass
+class HybridRetriever:
+    bm25: BM25Retriever
+    embeddings: EmbeddingRetriever
+    rrf_k: int = 60
+    bm25_weight: float = 1.0
+    embedding_weight: float = 1.0
+    candidate_pool: int = 30
+    backend: str = "hybrid-rrf"
+    model: Optional[str] = None
+    cache_path: Optional[str] = None
+    cache_hit: Optional[bool] = None
+    config: Optional[Dict[str, Any]] = None
+
+    def __post_init__(self) -> None:
+        self.model = self.embeddings.model
+        self.cache_path = self.embeddings.cache_path
+        self.cache_hit = self.embeddings.cache_hit
+        if self.config is None:
+            self.config = {
+                "rrf_k": self.rrf_k,
+                "bm25_weight": self.bm25_weight,
+                "embedding_weight": self.embedding_weight,
+                "candidate_pool": self.candidate_pool,
+                "embedding_model": self.model,
+            }
+
+    def retrieve(self, query: str, *, top_k: int = 5) -> List[RetrievalHit]:
+        if not query.strip() or top_k < 1:
+            return []
+
+        pool = max(top_k, self.candidate_pool)
+        bm25_hits = self.bm25.retrieve(query, top_k=pool)
+        embedding_hits = self.embeddings.retrieve(query, top_k=pool)
+
+        chunk_lookup: Dict[str, Chunk] = {}
+        fused_scores: Dict[str, float] = {}
+
+        for rank, hit in enumerate(bm25_hits, start=1):
+            chunk_lookup[hit.chunk.chunk_id] = hit.chunk
+            fused_scores[hit.chunk.chunk_id] = fused_scores.get(hit.chunk.chunk_id, 0.0) + (
+                self.bm25_weight / (self.rrf_k + rank)
+            )
+
+        for rank, hit in enumerate(embedding_hits, start=1):
+            chunk_lookup[hit.chunk.chunk_id] = hit.chunk
+            fused_scores[hit.chunk.chunk_id] = fused_scores.get(hit.chunk.chunk_id, 0.0) + (
+                self.embedding_weight / (self.rrf_k + rank)
+            )
+
+        fused_hits = [
+            RetrievalHit(chunk=chunk_lookup[chunk_id], score=score)
+            for chunk_id, score in fused_scores.items()
+        ]
+        fused_hits.sort(key=lambda hit: hit.score, reverse=True)
+        return fused_hits[:top_k]
+
+
+class CrossEncoderReranker:
+    def __init__(self, *, model_name: str) -> None:
+        self.model_name = model_name
+        try:
+            from sentence_transformers import CrossEncoder
+        except Exception as exc:  # pragma: no cover - optional dependency
+            raise RuntimeError(
+                "Cross-encoder reranking requires sentence-transformers. "
+                "Install with: pip install sentence-transformers"
+            ) from exc
+        self._model = CrossEncoder(model_name)
+
+    def score(self, query: str, docs: List[str]) -> List[float]:
+        pairs = [[query, doc] for doc in docs]
+        scores = self._model.predict(pairs)
+        return [float(score) for score in scores]
+
+
+@dataclass
+class RerankingRetriever:
+    base: ChunkRetriever
+    reranker: CrossEncoderReranker
+    candidate_pool: int = 20
+    backend: str = "reranked"
+    model: Optional[str] = None
+    cache_path: Optional[str] = None
+    cache_hit: Optional[bool] = None
+    config: Optional[Dict[str, Any]] = None
+
+    def __post_init__(self) -> None:
+        self.model = getattr(self.base, "model", None)
+        self.cache_path = getattr(self.base, "cache_path", None)
+        self.cache_hit = getattr(self.base, "cache_hit", None)
+        self.backend = f"{getattr(self.base, 'backend', 'retriever')}+rerank"
+        base_config = getattr(self.base, "config", None) or {}
+        self.config = {
+            "base_backend": getattr(self.base, "backend", None),
+            "base_config": base_config,
+            "reranker_model": self.reranker.model_name,
+            "reranker_top_n": self.candidate_pool,
+        }
+
+    def retrieve(self, query: str, *, top_k: int = 5) -> List[RetrievalHit]:
+        if not query.strip() or top_k < 1:
+            return []
+        pool = max(top_k, self.candidate_pool)
+        base_hits = self.base.retrieve(query, top_k=pool)
+        if not base_hits:
+            return []
+        docs = [hit.chunk.combined_text() for hit in base_hits]
+        rerank_scores = self.reranker.score(query, docs)
+        reranked_hits = [
+            RetrievalHit(chunk=hit.chunk, score=score)
+            for hit, score in zip(base_hits, rerank_scores)
+        ]
+        reranked_hits.sort(key=lambda hit: hit.score, reverse=True)
+        return reranked_hits[:top_k]
 
 
 def chunk_pdf(
@@ -308,13 +430,16 @@ def build_retriever(
     **kwargs: Any,
 ) -> ChunkRetriever:
     """Build a retriever backend over chunks (bm25 by default)."""
+    chunk_list = list(chunks)
     normalized = backend.lower().strip()
+    retriever: ChunkRetriever
+
     if normalized == "bm25":
         k1 = float(kwargs.get("k1", 1.5))
         b = float(kwargs.get("b", 0.75))
-        index = build_bm25_index(chunks, k1=k1, b=b)
-        return BM25Retriever(index=index)
-    if normalized in {"embeddings", "embedding", "openai-embeddings", "openai"}:
+        index = build_bm25_index(chunk_list, k1=k1, b=b)
+        retriever = BM25Retriever(index=index, config={"k1": k1, "b": b})
+    elif normalized in {"embeddings", "embedding", "openai-embeddings", "openai"}:
         model = str(kwargs.get("embedding_model") or kwargs.get("model") or "text-embedding-3-small")
         batch_size = int(kwargs.get("batch_size") or kwargs.get("embedding_batch_size") or 64)
         cache_dir = kwargs.get("cache_dir") or kwargs.get("embedding_cache_dir")
@@ -322,14 +447,91 @@ def build_retriever(
         if client is not None and not isinstance(client, OpenAI):
             raise TypeError("client must be an OpenAI instance when provided.")
         index = build_embedding_index(
-            chunks,
+            chunk_list,
             model=model,
             batch_size=batch_size,
             client=client,
             cache_dir=cache_dir,
         )
-        return EmbeddingRetriever(index=index, client=client, model=model)
-    raise ValueError(f"Unsupported retrieval backend: {backend!r}")
+        retriever = EmbeddingRetriever(
+            index=index,
+            client=client,
+            model=model,
+            config={
+                "embedding_model": model,
+                "embedding_batch_size": batch_size,
+                "embedding_cache_dir": str(cache_dir) if cache_dir is not None else None,
+            },
+        )
+    elif normalized in {"hybrid", "hybrid-rrf", "bm25+embeddings", "bm25_embeddings"}:
+        k1 = float(kwargs.get("k1", 1.5))
+        b = float(kwargs.get("b", 0.75))
+        bm25_index = build_bm25_index(chunk_list, k1=k1, b=b)
+        bm25_retriever = BM25Retriever(index=bm25_index, config={"k1": k1, "b": b})
+
+        model = str(kwargs.get("embedding_model") or kwargs.get("model") or "text-embedding-3-small")
+        batch_size = int(kwargs.get("batch_size") or kwargs.get("embedding_batch_size") or 64)
+        cache_dir = kwargs.get("cache_dir") or kwargs.get("embedding_cache_dir")
+        client = kwargs.get("client")
+        if client is not None and not isinstance(client, OpenAI):
+            raise TypeError("client must be an OpenAI instance when provided.")
+        embedding_index = build_embedding_index(
+            chunk_list,
+            model=model,
+            batch_size=batch_size,
+            client=client,
+            cache_dir=cache_dir,
+        )
+        embedding_retriever = EmbeddingRetriever(
+            index=embedding_index,
+            client=client,
+            model=model,
+            config={
+                "embedding_model": model,
+                "embedding_batch_size": batch_size,
+                "embedding_cache_dir": str(cache_dir) if cache_dir is not None else None,
+            },
+        )
+
+        rrf_k = int(kwargs.get("rrf_k") or 60)
+        bm25_weight = float(kwargs.get("bm25_weight") or 1.0)
+        embedding_weight = float(kwargs.get("embedding_weight") or 1.0)
+        candidate_pool = int(kwargs.get("candidate_pool") or kwargs.get("hybrid_candidate_pool") or 30)
+        retriever = HybridRetriever(
+            bm25=bm25_retriever,
+            embeddings=embedding_retriever,
+            rrf_k=rrf_k,
+            bm25_weight=bm25_weight,
+            embedding_weight=embedding_weight,
+            candidate_pool=candidate_pool,
+            config={
+                "rrf_k": rrf_k,
+                "bm25_weight": bm25_weight,
+                "embedding_weight": embedding_weight,
+                "candidate_pool": candidate_pool,
+                "k1": k1,
+                "b": b,
+                "embedding_model": model,
+                "embedding_batch_size": batch_size,
+                "embedding_cache_dir": str(cache_dir) if cache_dir is not None else None,
+            },
+        )
+    else:
+        raise ValueError(f"Unsupported retrieval backend: {backend!r}")
+
+    reranker_model = kwargs.get("reranker_model")
+    if reranker_model:
+        reranker_top_n = int(kwargs.get("reranker_top_n") or kwargs.get("rerank_top_n") or 20)
+        if reranker_top_n < 1:
+            raise ValueError("reranker_top_n must be >= 1")
+        reranker = CrossEncoderReranker(model_name=str(reranker_model))
+        retriever = RerankingRetriever(
+            base=retriever,
+            reranker=reranker,
+            candidate_pool=reranker_top_n,
+        )
+
+    return retriever
 
 
 def retrieve(query: str, index: ChunkIndex, *, top_k: int = 5) -> List[RetrievalHit]:

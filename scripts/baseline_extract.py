@@ -78,7 +78,7 @@ def main() -> None:
         "--retrieval-backend",
         type=str,
         default="bm25",
-        help="Retrieval backend (default: bm25)",
+        help="Retrieval backend: bm25, embeddings, or hybrid (default: bm25)",
     )
     parser.add_argument(
         "--embedding-model",
@@ -99,6 +99,18 @@ def main() -> None:
         help="Directory for embedding cache files (default: data/embeddings)",
     )
     parser.add_argument(
+        "--reranker-model",
+        type=str,
+        default=None,
+        help="Optional cross-encoder reranker model (requires sentence-transformers)",
+    )
+    parser.add_argument(
+        "--reranker-top-n",
+        type=int,
+        default=20,
+        help="Candidate pool size before reranking (default: 20)",
+    )
+    parser.add_argument(
         "--top-k",
         type=int,
         default=3,
@@ -115,6 +127,29 @@ def main() -> None:
         type=int,
         default=2000,
         help="Max chars per chunk during chunking (default: 2000)",
+    )
+    parser.add_argument(
+        "--disable-verifier",
+        action="store_true",
+        help="Disable verifier/judge pass in orchestrated mode",
+    )
+    parser.add_argument(
+        "--verifier-confidence-threshold",
+        type=float,
+        default=0.62,
+        help="Verifier confidence threshold before forcing revise (default: 0.62)",
+    )
+    parser.add_argument(
+        "--verifier-max-repairs",
+        type=int,
+        default=4,
+        help="Max verifier-triggered repairs (default: 4)",
+    )
+    parser.add_argument(
+        "--verifier-model",
+        type=str,
+        default=None,
+        help="Optional model override for verifier/judge pass (default: same as --model)",
     )
     parser.add_argument(
         "--use-ocr",
@@ -163,6 +198,8 @@ def main() -> None:
                 embedding_model=args.embedding_model,
                 embedding_batch_size=args.embedding_batch_size,
                 embedding_cache_dir=args.embedding_cache_dir,
+                reranker_model=args.reranker_model,
+                reranker_top_n=args.reranker_top_n,
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
                 chunk_max_chars=args.chunk_max_chars,
@@ -170,6 +207,10 @@ def main() -> None:
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_verifier=not args.disable_verifier,
+                verifier_confidence_threshold=args.verifier_confidence_threshold,
+                verifier_max_repairs=args.verifier_max_repairs,
+                verifier_model=args.verifier_model,
             )
         elif args.orchestrated:
             result = extract_fields_orchestrated(
@@ -184,6 +225,8 @@ def main() -> None:
                 embedding_model=args.embedding_model,
                 embedding_batch_size=args.embedding_batch_size,
                 embedding_cache_dir=args.embedding_cache_dir,
+                reranker_model=args.reranker_model,
+                reranker_top_n=args.reranker_top_n,
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
                 chunk_max_chars=args.chunk_max_chars,
@@ -205,6 +248,8 @@ def main() -> None:
                 embedding_model=args.embedding_model,
                 embedding_batch_size=args.embedding_batch_size,
                 embedding_cache_dir=args.embedding_cache_dir,
+                reranker_model=args.reranker_model,
+                reranker_top_n=args.reranker_top_n,
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
                 chunk_max_chars=args.chunk_max_chars,

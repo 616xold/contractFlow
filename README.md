@@ -28,6 +28,7 @@ Repository Layout
   - inspect_chunks.py: Prints chunk headings and snippets for tuning chunking.
   - evaluate.py: Compares predictions vs gold labels and reports accuracy + coverage.
   - ablation_eval.py: Runs naive vs retrieval vs field_agents and evaluates each.
+  - retrieval_diagnostics.py: Reports retrieval MRR/Recall@k and per-field failures.
   - build_cuad_pdfs.py: Generates PDFs from the public CUAD dataset text.
   - bootstrap_labels.py: Generates silver labels from an extraction mode.
 - data/
@@ -86,7 +87,9 @@ Extraction Modes
      - Per-field agent extraction with evidence/confidence.
      - Candidate selection and disagreement detection per field.
      - Targeted repair loop for low-confidence/conflicting fields.
-     - _meta.retrieval.orchestration records pass-level trace and selected sources.
+     - Verifier/judge pass returns `accept` / `revise` / `unknown`.
+     - Judge-triggered repair loop for uncertain/conflicting fields.
+     - _meta.retrieval.orchestration records pass-level trace, verifier outcomes, and disagreement rate.
 
 Chunking and Retrieval
 ----------------------
@@ -98,6 +101,9 @@ Chunking and Retrieval
 - Retrieval backends:
   - BM25 (local scoring).
   - Embeddings via OpenAI embeddings API with cosine similarity.
+  - Hybrid BM25 + embeddings with reciprocal-rank fusion (RRF).
+- Optional reranker:
+  - Cross-encoder reranking over top-N candidates (requires sentence-transformers).
 - Both return top-k chunks with page numbers and headings.
 
 Evidence and Coverage
@@ -140,8 +146,20 @@ CLI Usage Examples
 - Orchestrated multi-pass extraction:
   python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated
 
+- Orchestrated extraction without verifier:
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --disable-verifier
+
+- Orchestrated extraction with custom verifier settings:
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --verifier-confidence-threshold 0.65 --verifier-max-repairs 6
+
 - Field agents (embeddings backend):
   python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend embeddings
+
+- Field agents (hybrid backend):
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend hybrid
+
+- Field agents with reranker:
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend hybrid --reranker-model cross-encoder/ms-marco-MiniLM-L-6-v2 --reranker-top-n 20
 
 - Inspect chunk headings:
   python scripts/inspect_chunks.py data/raw_pdfs/nda_harvard.pdf --max-chars 200
@@ -158,6 +176,9 @@ CLI Usage Examples
 - Run ablations (naive vs retrieval vs field_agents vs orchestrated):
   python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver.json
 
+- Retrieval diagnostics (MRR/Recall@k + failure report):
+  python scripts/retrieval_diagnostics.py --labels-dir data/labels --label-suffix .silver.json --retrieval-backend hybrid --top-k 5 --k-values 1,3,5 --out data/retrieval_diag_hybrid.json
+
 - Generate PDFs from CUAD text:
   python scripts/build_cuad_pdfs.py --limit 25
 
@@ -169,5 +190,6 @@ Known Gaps and Next Steps
 - Expand labeled datasets in data/labels/.
 - Improve heading heuristics and chunking for long contracts.
 - OCR fallback requires system dependencies (Poppler for pdf2image, Tesseract for pytesseract).
-- Improve query hints for difficult fields (party names, liability cap).
-- Add stronger evaluation metrics (e.g., partial credit, evidence precision/recall).
+- Curate more gold labels (silver labels are not a reliable benchmark).
+- Add stronger retrieval relevance labels beyond value-match heuristics.
+- Optional reranker dependency: `pip install sentence-transformers`.
