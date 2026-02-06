@@ -17,6 +17,7 @@ from contractflow.core.extractor import (
     ExtractionResult,
     extract_fields_field_agents,
     extract_fields_naive,
+    extract_fields_orchestrated,
     extract_fields_retrieval,
 )
 
@@ -28,7 +29,7 @@ def main() -> None:
 
     load_dotenv(repo_root / ".env")
 
-    parser = argparse.ArgumentParser(description="Baseline ContractFlow extractor (single LLM call).")
+    parser = argparse.ArgumentParser(description="ContractFlow extractor CLI (naive, retrieval, field agents, orchestrated).")
     parser.add_argument("pdf_path", type=Path, help="Path to the contract PDF")
     parser.add_argument(
         "--schema",
@@ -67,6 +68,11 @@ def main() -> None:
         "--field-agents",
         action="store_true",
         help="Use per-field retrieval and extraction agents",
+    )
+    retrieval_group.add_argument(
+        "--orchestrated",
+        action="store_true",
+        help="Use orchestrated extraction (global baseline + field agents + repair loop)",
     )
     parser.add_argument(
         "--retrieval-backend",
@@ -146,6 +152,27 @@ def main() -> None:
         result: ExtractionResult
         if args.field_agents:
             result = extract_fields_field_agents(
+                args.pdf_path,
+                args.schema,
+                model=args.model,
+                validate=not args.no_validate,
+                strict=args.strict,
+                coerce=not args.no_coerce,
+                structured_outputs=not args.no_structured_outputs,
+                retrieval_backend=args.retrieval_backend,
+                embedding_model=args.embedding_model,
+                embedding_batch_size=args.embedding_batch_size,
+                embedding_cache_dir=args.embedding_cache_dir,
+                top_k=args.top_k,
+                max_chunk_chars=args.max_chunk_chars,
+                chunk_max_chars=args.chunk_max_chars,
+                use_ocr=args.use_ocr,
+                ocr_min_chars=args.ocr_min_chars,
+                ocr_lang=args.ocr_lang,
+                ocr_dpi=args.ocr_dpi,
+            )
+        elif args.orchestrated:
+            result = extract_fields_orchestrated(
                 args.pdf_path,
                 args.schema,
                 model=args.model,

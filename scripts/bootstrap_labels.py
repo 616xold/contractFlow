@@ -18,6 +18,7 @@ from contractflow.core.extractor import (
     ExtractionResult,
     extract_fields_field_agents,
     extract_fields_naive,
+    extract_fields_orchestrated,
     extract_fields_retrieval,
 )
 
@@ -52,7 +53,7 @@ def main() -> None:
         "--mode",
         type=str,
         default="field_agents",
-        choices=["naive", "retrieval", "field_agents"],
+        choices=["naive", "retrieval", "field_agents", "orchestrated"],
         help="Extraction mode to use for labeling",
     )
     parser.add_argument("--model", type=str, default=DEFAULT_MODEL, help="OpenAI model name")
@@ -196,6 +197,27 @@ def _extract_label(pdf_path: Path, args: argparse.Namespace) -> ExtractionResult
         )
     if args.mode == "retrieval":
         return extract_fields_retrieval(
+            pdf_path,
+            args.schema,
+            model=args.model,
+            validate=not args.no_validate,
+            strict=args.strict,
+            coerce=not args.no_coerce,
+            structured_outputs=not args.no_structured_outputs,
+            retrieval_backend=args.retrieval_backend,
+            embedding_model=args.embedding_model,
+            embedding_batch_size=args.embedding_batch_size,
+            embedding_cache_dir=args.embedding_cache_dir,
+            top_k=args.top_k,
+            max_chunk_chars=args.max_chunk_chars,
+            chunk_max_chars=args.chunk_max_chars,
+            use_ocr=args.use_ocr,
+            ocr_min_chars=args.ocr_min_chars,
+            ocr_lang=args.ocr_lang,
+            ocr_dpi=args.ocr_dpi,
+        )
+    if args.mode == "orchestrated":
+        return extract_fields_orchestrated(
             pdf_path,
             args.schema,
             model=args.model,

@@ -36,6 +36,7 @@ Repository Layout
   - labels/: gold and silver labels, labeling templates, and manifest.
 - docs/
   - domain.md: field definitions and risk heuristics.
+  - agentic_roadmap.md: staged plan for agentic orchestration and evaluation upgrades.
 
 Data Flow (High-Level)
 ----------------------
@@ -78,6 +79,14 @@ Extraction Modes
        - Retry with augmented query when confidence is low or conflicts detected.
      - Apply deterministic verifiers and risk heuristics.
      - _meta.retrieval.coverage reports evidence coverage.
+
+4) Orchestrated agents (multi-pass)
+   - extractor.extract_fields_orchestrated():
+     - Global baseline extraction from retrieved context.
+     - Per-field agent extraction with evidence/confidence.
+     - Candidate selection and disagreement detection per field.
+     - Targeted repair loop for low-confidence/conflicting fields.
+     - _meta.retrieval.orchestration records pass-level trace and selected sources.
 
 Chunking and Retrieval
 ----------------------
@@ -128,6 +137,9 @@ CLI Usage Examples
 - Field agents (BM25):
   python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents
 
+- Orchestrated multi-pass extraction:
+  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated
+
 - Field agents (embeddings backend):
   python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend embeddings
 
@@ -137,10 +149,13 @@ CLI Usage Examples
 - Evaluate predictions:
   python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds
 
+- Evaluate with bootstrap confidence intervals:
+  python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds --bootstrap-samples 1000
+
 - Evaluate against silver labels:
   python scripts/evaluate.py --labels-dir data/labels --label-suffix .silver.json --preds-dir data/preds
 
-- Run ablations (naive vs retrieval vs field_agents):
+- Run ablations (naive vs retrieval vs field_agents vs orchestrated):
   python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver.json
 
 - Generate PDFs from CUAD text:

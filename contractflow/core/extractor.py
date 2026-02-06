@@ -41,6 +41,9 @@ _FIELD_INSTRUCTIONS = {
 }
 _CONFIDENCE_RETRY_THRESHOLD = 0.55
 _MAX_FIELD_RETRIES = 2
+_ORCHESTRATION_BASELINE_CONFIDENCE = 0.58
+_ORCHESTRATION_REPAIR_THRESHOLD = 0.68
+_MAX_ORCHESTRATION_REPAIRS = 6
 
 
 @dataclass
@@ -79,6 +82,18 @@ class FieldExtractionResult:
     prompt_tokens: Optional[int] = None
     completion_tokens: Optional[int] = None
     attempts: int = 1
+
+
+@dataclass
+class FieldCandidate:
+    source: str
+    value: Any
+    confidence: float
+    evidence: list[Dict[str, Any]]
+    issues: list[str]
+    attempts: int = 1
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
 
 
 def load_schema(schema_path: str | Path) -> Dict[str, Any]:
@@ -781,6 +796,100 @@ def _is_better_field_result(
     return len(candidate_issues) < len(current_issues)
 
 
+def _group_issues_by_field(issues: list[str]) -> Dict[str, list[str]]:
+    grouped: Dict[str, list[str]] = {}
+    for issue in issues:
+        match = re.search(r"field\s+'([a-zA-Z0-9_]+)'", issue, flags=re.IGNORECASE)
+        if not match:
+            continue
+        field = match.group(1)
+        grouped.setdefault(field, []).append(issue)
+    return grouped
+
+
+def _baseline_candidate_confidence(value: Any, field_issues: list[str]) -> float:
+    if value is None:
+        base = 0.2
+    elif isinstance(value, str) and not value.strip():
+        base = 0.25
+    else:
+        base = _ORCHESTRATION_BASELINE_CONFIDENCE
+    penalty = min(0.25, 0.05 * len(field_issues))
+    return max(0.0, min(1.0, base - penalty))
+
+
+def _values_equivalent(left: Any, right: Any) -> bool:
+    if left is None or right is None:
+        return left is None and right is None
+    if isinstance(left, str) and isinstance(right, str):
+        return left.strip().lower() == right.strip().lower()
+    return left == right
+
+
+def _field_candidate_score(candidate: FieldCandidate) -> float:
+    score = candidate.confidence
+    if candidate.value is None:
+        score -= 0.35
+    if isinstance(candidate.value, str) and not candidate.value.strip():
+        score -= 0.15
+    if candidate.evidence:
+        score += min(0.15, 0.05 * len(candidate.evidence))
+    score -= min(0.3, 0.06 * len(candidate.issues))
+    return score
+
+
+def _select_best_candidate(candidates: list[FieldCandidate]) -> FieldCandidate:
+    if not candidates:
+        raise ValueError("No candidates available for selection.")
+    best = candidates[0]
+    best_score = _field_candidate_score(best)
+    for candidate in candidates[1:]:
+        score = _field_candidate_score(candidate)
+        if score > best_score:
+            best = candidate
+            best_score = score
+            continue
+        if abs(score - best_score) <= 1e-9:
+            if candidate.confidence > best.confidence:
+                best = candidate
+                best_score = score
+                continue
+            if (
+                abs(candidate.confidence - best.confidence) <= 1e-9
+                and len(candidate.issues) < len(best.issues)
+            ):
+                best = candidate
+                best_score = score
+    return best
+
+
+def _build_repair_query(
+    *,
+    field: str,
+    base_query: str,
+    current: FieldCandidate,
+    baseline_value: Any,
+) -> str:
+    parts: list[str] = [base_query, _FIELD_QUERY_HINTS.get(field, ""), "exact clause text evidence"]
+    if baseline_value is not None and str(baseline_value).strip():
+        parts.append(f"baseline candidate: {baseline_value}")
+    if current.value is not None and str(current.value).strip():
+        parts.append(f"current candidate: {current.value}")
+    return ". ".join(part.strip() for part in parts if part and part.strip())
+
+
+def _dedupe_issues(issues: list[str]) -> list[str]:
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for issue in issues:
+        normalized = issue.strip()
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        deduped.append(normalized)
+    return deduped
+
+
 def call_llm_for_schema(
     contract_text: str,
     schema: Dict[str, Any],
@@ -1171,6 +1280,320 @@ def extract_fields_field_agents(
         raw_text="\n\n".join(raw_outputs).strip(),
         json_result=normalized,
         issues=issues or None,
+        prompt_tokens=total_prompt_tokens or None,
+        completion_tokens=total_completion_tokens or None,
+        retrieval=retrieval_meta,
+    )
+
+
+def extract_fields_orchestrated(
+    pdf_path: str | Path,
+    schema_path: str | Path,
+    *,
+    model: str = DEFAULT_MODEL,
+    validate: bool = True,
+    strict: bool = False,
+    coerce: bool = True,
+    structured_outputs: bool = True,
+    retrieval_backend: str = "bm25",
+    embedding_model: str = "text-embedding-3-small",
+    embedding_batch_size: int = 64,
+    embedding_cache_dir: Optional[str | Path] = None,
+    top_k: int = 3,
+    max_chunk_chars: int = 1200,
+    chunk_max_chars: int = 2000,
+    use_ocr: bool = False,
+    ocr_min_chars: int = 40,
+    ocr_lang: str = "eng",
+    ocr_dpi: int = 200,
+    repair_confidence_threshold: float = _ORCHESTRATION_REPAIR_THRESHOLD,
+    max_repairs: int = _MAX_ORCHESTRATION_REPAIRS,
+) -> ExtractionResult:
+    """Orchestrated extraction: global baseline + field agents + targeted repairs."""
+    if top_k < 1:
+        raise ValueError("top_k must be >= 1 for orchestrated extraction.")
+    if max_repairs < 0:
+        raise ValueError("max_repairs must be >= 0 for orchestrated extraction.")
+    if not (0.0 <= repair_confidence_threshold <= 1.0):
+        raise ValueError("repair_confidence_threshold must be between 0 and 1.")
+
+    schema = load_schema(schema_path)
+    chunks = chunk_pdf(
+        pdf_path,
+        max_chunk_chars=chunk_max_chars,
+        use_ocr=use_ocr,
+        ocr_min_chars=ocr_min_chars,
+        ocr_lang=ocr_lang,
+        ocr_dpi=ocr_dpi,
+    )
+    if not chunks:
+        raise ValueError("No text extracted. Is this a scanned PDF? Use OCR.")
+
+    client = OpenAI()
+    retriever: ChunkRetriever = build_retriever(
+        chunks,
+        backend=retrieval_backend,
+        embedding_model=embedding_model,
+        embedding_batch_size=embedding_batch_size,
+        embedding_cache_dir=embedding_cache_dir,
+    )
+    field_queries = _build_field_queries(schema)
+
+    field_hits: Dict[str, list[RetrievalHit]] = {}
+    for field, query in field_queries.items():
+        field_hits[field] = retriever.retrieve(query, top_k=top_k)
+
+    total_hits = sum(len(hits) for hits in field_hits.values())
+    baseline_used_fallback_full_text = total_hits == 0
+
+    if baseline_used_fallback_full_text:
+        baseline_context = read_pdf_text(
+            pdf_path,
+            use_ocr=use_ocr,
+            ocr_min_chars=ocr_min_chars,
+            ocr_lang=ocr_lang,
+            ocr_dpi=ocr_dpi,
+        )
+        baseline_result = call_llm_for_schema(
+            baseline_context,
+            schema,
+            model=model,
+            client=client,
+            validate=validate,
+            strict=strict,
+            coerce=coerce,
+            structured_outputs=structured_outputs,
+            context_label="Contract text",
+            context_tag="CONTRACT_TEXT",
+        )
+    else:
+        retrieval_context = _format_retrieval_context(field_hits, max_chunk_chars=max_chunk_chars)
+        baseline_result = call_llm_for_schema(
+            retrieval_context,
+            schema,
+            model=model,
+            client=client,
+            validate=validate,
+            strict=strict,
+            coerce=coerce,
+            structured_outputs=structured_outputs,
+            context_label="Retrieved excerpts",
+            context_tag="RETRIEVED_EXCERPTS",
+        )
+
+    baseline_values = dict(baseline_result.json_result)
+    baseline_issues = baseline_result.issues or []
+    baseline_issues_by_field = _group_issues_by_field(baseline_issues)
+
+    total_prompt_tokens = baseline_result.prompt_tokens or 0
+    total_completion_tokens = baseline_result.completion_tokens or 0
+    issues: list[str] = []
+    issues.extend(baseline_issues)
+    raw_outputs: list[str] = []
+    if baseline_result.raw_text.strip():
+        raw_outputs.append(f"GLOBAL_BASELINE\n{baseline_result.raw_text}")
+
+    field_candidates: Dict[str, list[FieldCandidate]] = {}
+    disagreement_fields: list[str] = []
+
+    for field, meta in schema.items():
+        baseline_value = baseline_values.get(field)
+        baseline_field_issues = baseline_issues_by_field.get(field, [])
+        candidates: list[FieldCandidate] = [
+            FieldCandidate(
+                source="global_baseline",
+                value=baseline_value,
+                confidence=_baseline_candidate_confidence(baseline_value, baseline_field_issues),
+                evidence=[],
+                issues=baseline_field_issues,
+            )
+        ]
+
+        query = field_queries.get(field, field.replace("_", " "))
+        if baseline_value is not None and str(baseline_value).strip():
+            query = f"{query}. baseline candidate {baseline_value}"
+
+        value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
+            field,
+            meta,
+            retriever,
+            query,
+            model=model,
+            client=client,
+            structured_outputs=structured_outputs,
+            top_k=top_k,
+            max_chunk_chars=max_chunk_chars,
+            coerce=coerce,
+        )
+        candidates.append(
+            FieldCandidate(
+                source="field_agent",
+                value=value,
+                confidence=result.confidence,
+                evidence=result.evidence,
+                issues=field_issues,
+                attempts=result.attempts,
+                prompt_tokens=field_prompt_tokens,
+                completion_tokens=field_completion_tokens,
+            )
+        )
+
+        if not _values_equivalent(candidates[0].value, candidates[1].value):
+            disagreement_fields.append(field)
+
+        total_prompt_tokens += field_prompt_tokens
+        total_completion_tokens += field_completion_tokens
+        if result.raw_text.strip():
+            raw_outputs.append(f"FIELD_AGENT {field}\n{result.raw_text}")
+
+        field_candidates[field] = candidates
+
+    selected_by_field: Dict[str, FieldCandidate] = {}
+    repair_queue: list[str] = []
+    for field, candidates in field_candidates.items():
+        selected = _select_best_candidate(candidates)
+        selected_by_field[field] = selected
+        needs_repair = (
+            selected.confidence < repair_confidence_threshold
+            or selected.value is None
+            or (field in disagreement_fields and selected.source == "global_baseline")
+        )
+        if needs_repair:
+            repair_queue.append(field)
+
+    repaired_fields: list[str] = []
+    for field in repair_queue[:max_repairs]:
+        meta = schema[field]
+        current = selected_by_field[field]
+        repair_query = _build_repair_query(
+            field=field,
+            base_query=field_queries.get(field, field.replace("_", " ")),
+            current=current,
+            baseline_value=baseline_values.get(field),
+        )
+        value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
+            field,
+            meta,
+            retriever,
+            repair_query,
+            model=model,
+            client=client,
+            structured_outputs=structured_outputs,
+            top_k=top_k + 1,
+            max_chunk_chars=max_chunk_chars,
+            coerce=coerce,
+        )
+        repair_candidate = FieldCandidate(
+            source="repair_agent",
+            value=value,
+            confidence=result.confidence,
+            evidence=result.evidence,
+            issues=field_issues,
+            attempts=result.attempts,
+            prompt_tokens=field_prompt_tokens,
+            completion_tokens=field_completion_tokens,
+        )
+        field_candidates[field].append(repair_candidate)
+        selected_by_field[field] = _select_best_candidate(field_candidates[field])
+        repaired_fields.append(field)
+
+        total_prompt_tokens += field_prompt_tokens
+        total_completion_tokens += field_completion_tokens
+        if result.raw_text.strip():
+            raw_outputs.append(f"REPAIR_AGENT {field}\n{result.raw_text}")
+
+    values: Dict[str, Any] = {}
+    field_meta: Dict[str, Any] = {}
+    selected_source_counts: Dict[str, int] = {}
+    for field, candidates in field_candidates.items():
+        selected = selected_by_field[field]
+        values[field] = selected.value
+        if selected.issues:
+            issues.extend(selected.issues)
+
+        selected_source_counts[selected.source] = selected_source_counts.get(selected.source, 0) + 1
+        field_meta[field] = {
+            "source": selected.source,
+            "confidence": round(selected.confidence, 4),
+            "evidence": selected.evidence,
+            "attempts": selected.attempts,
+            "issues": selected.issues,
+            "prompt_tokens": selected.prompt_tokens or None,
+            "completion_tokens": selected.completion_tokens or None,
+            "candidates": [
+                {
+                    "source": candidate.source,
+                    "score": round(_field_candidate_score(candidate), 4),
+                    "confidence": round(candidate.confidence, 4),
+                    "value": candidate.value,
+                    "issues": candidate.issues,
+                    "evidence_count": len(candidate.evidence),
+                    "attempts": candidate.attempts,
+                }
+                for candidate in candidates
+            ],
+        }
+
+    risk_level, risk_explanation = _compute_risk(values)
+    if values.get("risk_level") != risk_level:
+        issues.append(
+            f"risk_level overridden by deterministic rules (was {values.get('risk_level')!r})"
+        )
+        if "risk_level" in field_meta:
+            field_meta["risk_level"]["derived"] = True
+            field_meta["risk_level"]["derived_reason"] = "deterministic risk rules"
+    values["risk_level"] = risk_level
+
+    if values.get("risk_explanation") != risk_explanation:
+        issues.append("risk_explanation overridden by deterministic rules")
+        if "risk_explanation" in field_meta:
+            field_meta["risk_explanation"]["derived"] = True
+            field_meta["risk_explanation"]["derived_reason"] = "deterministic risk rules"
+    values["risk_explanation"] = risk_explanation
+
+    normalized: Dict[str, Any] = values
+    validation_issues: list[str] = []
+    if validate:
+        normalized, validation_issues = _validate_and_normalize_to_schema(schema, values, coerce=coerce)
+        if validation_issues:
+            if strict:
+                formatted = "\n".join(f"- {issue}" for issue in validation_issues)
+                raise ValueError(f"LLM output did not match schema:\n{formatted}")
+            issues.extend(validation_issues)
+
+    retrieval_meta = {
+        "enabled": True,
+        "mode": "orchestrated_agents",
+        "backend": retriever.backend,
+        "model": getattr(retriever, "model", None),
+        "cache_path": getattr(retriever, "cache_path", None),
+        "cache_hit": getattr(retriever, "cache_hit", None),
+        "top_k": top_k,
+        "max_chunk_chars": max_chunk_chars,
+        "chunk_max_chars": chunk_max_chars,
+        "use_ocr": use_ocr,
+        "total_chunks": len(chunks),
+        "total_hits": total_hits,
+        "fields": field_meta,
+        "baseline_coverage": _compute_retrieval_hit_coverage(field_hits),
+        "orchestration": {
+            "repair_confidence_threshold": repair_confidence_threshold,
+            "max_repairs": max_repairs,
+            "repaired_fields": repaired_fields,
+            "disagreement_fields": sorted(set(disagreement_fields)),
+            "selected_source_counts": selected_source_counts,
+            "baseline_used_fallback_full_text": baseline_used_fallback_full_text,
+            "baseline_issues": baseline_issues,
+            "passes": ["global_baseline", "field_agent", "repair_agent"],
+        },
+    }
+    retrieval_meta["coverage"] = _compute_evidence_coverage(field_meta, exclude_derived=True)
+
+    final_issues = _dedupe_issues(issues)
+    return ExtractionResult(
+        raw_text="\n\n".join(raw_outputs).strip(),
+        json_result=normalized,
+        issues=final_issues or None,
         prompt_tokens=total_prompt_tokens or None,
         completion_tokens=total_completion_tokens or None,
         retrieval=retrieval_meta,

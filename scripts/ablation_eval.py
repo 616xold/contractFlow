@@ -17,6 +17,7 @@ from contractflow.core.extractor import (
     ExtractionResult,
     extract_fields_field_agents,
     extract_fields_naive,
+    extract_fields_orchestrated,
     extract_fields_retrieval,
 )
 from scripts.evaluate import evaluate_predictions
@@ -57,8 +58,8 @@ def main() -> None:
     parser.add_argument(
         "--modes",
         type=str,
-        default="naive,retrieval,field_agents",
-        help="Comma-separated modes (naive,retrieval,field_agents)",
+        default="naive,retrieval,field_agents,orchestrated",
+        help="Comma-separated modes (naive,retrieval,field_agents,orchestrated)",
     )
     parser.add_argument("--model", type=str, default=DEFAULT_MODEL, help="OpenAI model name")
     parser.add_argument("--no-validate", action="store_true", help="Disable schema validation")
@@ -141,6 +142,18 @@ def main() -> None:
         help="Partial match threshold for evaluation",
     )
     parser.add_argument(
+        "--bootstrap-samples",
+        type=int,
+        default=0,
+        help="Bootstrap samples for 95 percent CI in evaluation summaries (default: 0)",
+    )
+    parser.add_argument(
+        "--bootstrap-seed",
+        type=int,
+        default=42,
+        help="Seed for bootstrap sampling (default: 42)",
+    )
+    parser.add_argument(
         "--skip-extraction",
         action="store_true",
         help="Skip extraction and only run evaluation",
@@ -198,6 +211,8 @@ def main() -> None:
             schema_path=args.schema,
             label_suffix=args.label_suffix,
             partial_threshold=args.partial_threshold,
+            bootstrap_samples=args.bootstrap_samples,
+            bootstrap_seed=args.bootstrap_seed,
         )
         results[mode] = summary
 
@@ -258,6 +273,27 @@ def _run_mode(
             )
         elif mode == "field_agents":
             result = extract_fields_field_agents(
+                pdf_path,
+                args.schema,
+                model=args.model,
+                validate=not args.no_validate,
+                strict=args.strict,
+                coerce=not args.no_coerce,
+                structured_outputs=not args.no_structured_outputs,
+                retrieval_backend=args.retrieval_backend,
+                embedding_model=args.embedding_model,
+                embedding_batch_size=args.embedding_batch_size,
+                embedding_cache_dir=args.embedding_cache_dir,
+                top_k=args.top_k,
+                max_chunk_chars=args.max_chunk_chars,
+                chunk_max_chars=args.chunk_max_chars,
+                use_ocr=args.use_ocr,
+                ocr_min_chars=args.ocr_min_chars,
+                ocr_lang=args.ocr_lang,
+                ocr_dpi=args.ocr_dpi,
+            )
+        elif mode == "orchestrated":
+            result = extract_fields_orchestrated(
                 pdf_path,
                 args.schema,
                 model=args.model,

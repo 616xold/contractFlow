@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import re
 import sys
 from difflib import SequenceMatcher
@@ -55,6 +56,18 @@ def main() -> None:
         default=None,
         help="Optional path to write JSON summary",
     )
+    parser.add_argument(
+        "--bootstrap-samples",
+        type=int,
+        default=0,
+        help="Bootstrap samples for 95 percent CI on overall doc-level accuracy (default: 0, disabled)",
+    )
+    parser.add_argument(
+        "--bootstrap-seed",
+        type=int,
+        default=42,
+        help="Random seed for bootstrap sampling (default: 42)",
+    )
     args = parser.parse_args()
 
     summary = evaluate_predictions(
@@ -63,6 +76,8 @@ def main() -> None:
         schema_path=args.schema,
         label_suffix=args.label_suffix,
         partial_threshold=args.partial_threshold,
+        bootstrap_samples=args.bootstrap_samples,
+        bootstrap_seed=args.bootstrap_seed,
     )
 
     _print_summary(summary)
@@ -79,6 +94,8 @@ def evaluate_predictions(
     schema_path: Path,
     label_suffix: str = ".gold.json",
     partial_threshold: float = 0.85,
+    bootstrap_samples: int = 0,
+    bootstrap_seed: int = 42,
 ) -> Dict[str, Any]:
     schema = _load_json(schema_path)
     label_paths = sorted(labels_dir.glob(f"*{label_suffix}"))
@@ -105,6 +122,8 @@ def evaluate_predictions(
     overall_exact = 0
     overall_partial = 0
     overall_total = 0
+    doc_exact_accuracies: list[float] = []
+    doc_partial_accuracies: list[float] = []
 
     for label_path in label_paths:
         base = label_path.name
@@ -177,6 +196,8 @@ def evaluate_predictions(
         evaluated_docs += 1
         accuracy_exact = (exact_correct / total) if total else 0.0
         accuracy_partial = (partial_correct / total) if total else 0.0
+        doc_exact_accuracies.append(accuracy_exact)
+        doc_partial_accuracies.append(accuracy_partial)
 
         coverage = (meta.get("retrieval") or {}).get("coverage") or {}
         evidence_ratio = coverage.get("evidence_ratio")
@@ -223,6 +244,16 @@ def evaluate_predictions(
         "docs_missing_preds": missing_preds,
         "overall_accuracy_exact": round((overall_exact / overall_total) if overall_total else 0.0, 4),
         "overall_accuracy_partial": round((overall_partial / overall_total) if overall_total else 0.0, 4),
+        "overall_accuracy_exact_ci95": _bootstrap_mean_ci(
+            doc_exact_accuracies,
+            samples=bootstrap_samples,
+            seed=bootstrap_seed,
+        ),
+        "overall_accuracy_partial_ci95": _bootstrap_mean_ci(
+            doc_partial_accuracies,
+            samples=bootstrap_samples,
+            seed=bootstrap_seed + 1,
+        ),
         "field_accuracy": field_accuracy,
         "evidence_coverage": {
             "avg_evidence_ratio": round(_mean(evidence_ratios), 4) if evidence_ratios else None,
@@ -327,11 +358,49 @@ def _mean(values: list[float]) -> float:
     return sum(values) / len(values) if values else 0.0
 
 
+def _bootstrap_mean_ci(
+    values: list[float],
+    *,
+    samples: int,
+    seed: int,
+) -> Dict[str, float] | None:
+    if samples <= 0 or not values:
+        return None
+    rng = random.Random(seed)
+    n = len(values)
+    means: list[float] = []
+    for _ in range(samples):
+        draw = [values[rng.randrange(n)] for _ in range(n)]
+        means.append(sum(draw) / n)
+    means.sort()
+    lower_index = max(0, int((samples - 1) * 0.025))
+    upper_index = min(samples - 1, int((samples - 1) * 0.975))
+    mean_value = sum(values) / n
+    return {
+        "mean": round(mean_value, 4),
+        "lower": round(means[lower_index], 4),
+        "upper": round(means[upper_index], 4),
+        "samples": samples,
+    }
+
+
 def _print_summary(summary: Dict[str, Any]) -> None:
     print(f"docs_total={summary['docs_total']} docs_evaluated={summary['docs_evaluated']}")
     print(f"docs_missing_preds={summary['docs_missing_preds']}")
     print(f"overall_accuracy_exact={summary['overall_accuracy_exact']}")
     print(f"overall_accuracy_partial={summary['overall_accuracy_partial']}")
+    exact_ci = summary.get("overall_accuracy_exact_ci95")
+    partial_ci = summary.get("overall_accuracy_partial_ci95")
+    if exact_ci:
+        print(
+            f"overall_accuracy_exact_ci95={exact_ci['lower']}..{exact_ci['upper']} "
+            f"(samples={exact_ci['samples']})"
+        )
+    if partial_ci:
+        print(
+            f"overall_accuracy_partial_ci95={partial_ci['lower']}..{partial_ci['upper']} "
+            f"(samples={partial_ci['samples']})"
+        )
     print("field_accuracy:")
     for field, stats in summary["field_accuracy"].items():
         print(
