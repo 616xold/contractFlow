@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Domini Advisor Trust",
+  "party_b_name": "Domini Social Investments LLC",
+  "effective_date": "2005-02-04",
+  "term_length": null,
+  "governing_law": "Commonwealth of Massachusetts",
+  "termination_notice_days": 60,
+  "liability_cap": "Sponsor not liable for any error of judgment or mistake of law or for any act or omission, except for willful misfeasance, bad faith, gross negligence, or reckless disregard of obligations.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement contains a broad limitation of liability in favor of the Sponsor, with liability only for willful misfeasance, bad faith, gross negligence, or reckless disregard, which can significantly limit remedies. Key commercial protections for a small SaaS vendor (clear term/termination notice and a defined monetary liability cap) are not specified in the provided excerpts. The document is also not a standard SaaS contract type and appears to allocate substantial responsibilities and compliance-related duties, increasing operational and legal risk."
+}

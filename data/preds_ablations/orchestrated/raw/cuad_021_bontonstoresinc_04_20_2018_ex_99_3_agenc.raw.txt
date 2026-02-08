@@ -1,0 +1,124 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Merchant","party_b_name":"Agent/Purchaser","effective_date":null,"term_length":null,"governing_law":"State of Delaware","termination_notice_days":7,"liability_cap":"Subject to the Wind-Down Budget and the Wind-Down Cap (amount not specified in provided excerpts).","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"The agreement appears to be a bankruptcy-related agency/sale arrangement (GOB sale) with court oversight and specialized obligations, which is atypical and operationally complex for a small SaaS vendor. Remedies include a large escrow deposit ($32.7M) and liquidated damages mechanics tied to Bankruptcy Court findings, indicating high-stakes enforcement. The excerpts do not show a clear, standard limitation of liability in favor of a vendor, increasing uncertainty and risk."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":3,"heading":"Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 5 of 60","snippet":"(iii) time is of the essence in effectuating this Agreement and proceeding with the GOB Sale at the Stores uninterrupted;"},{"page_num":23,"heading":null,"snippet":"may use Merchant's employees in the conduct of the Sale to the extent Agent deems necessary for the Sale... (each such employee, a \"Retained Employee\")."}],"confidence":0.62,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": null,
+  "party_b_name": "THE BON-TON STORES, INC.",
+  "party_a_evidence": [],
+  "party_b_evidence": [
+    {
+      "page_num": 35,
+      "heading": "Second-Lien Notes By: Name: Its:",
+      "snippet": "THE BON-TON STORES, INC., on behalf of itself and the other entities comprising Merchant"
+    },
+    {
+      "page_num": 20,
+      "heading": null,
+      "snippet": "Agent shall indemnify and hold harmless Merchant"
+    },
+    {
+      "page_num": 34,
+      "heading": "15.14 Agent/Purchaser. Each party hereto acknowledges and agrees that any payment",
+      "snippet": "any payment obligation of Purchaser and Agent hereunder is binding upon both the Agent and Purchaser"
+    }
+  ],
+  "party_a_confidence": 0.1,
+  "party_b_confidence": 0.78
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":33,"heading":"15.5 No Waiver.","snippet":"No consent or waiver by any Party, express or implied, to or of any breach"},{"page_num":34,"heading":"15.14 Agent/Purchaser.","snippet":"Each party hereto acknowledges and agrees that any payment obligation of Purchaser and Agent hereunder is binding upon both the Agent and Purchaser"}],"confidence":0.12,"value":""}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":34,"heading":"15.14 Agent/Purchaser.","snippet":"obligation of Purchaser and Agent hereunder is binding upon both the Agent and Purchaser"},{"page_num":20,"heading":null,"snippet":"Agent shall indemnify and hold harmless Merchant from and against any and all costs"}],"confidence":0.12,"value":""}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":43,"heading":"none","snippet":"...the assumption and assignment of such Lease or Contract will become effective automatically pursuant to the Approval Order on the date"},{"page_num":43,"heading":"Schedule A","snippet":"...Cure Amount Effective Date of Assignment"}],"confidence":0.18,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":17,"heading":"Section 6. Sale Term.","snippet":"Section 6. Sale Term."},{"page_num":20,"heading":"8.8 Sale Reconciliation. On each Wednesday during the Sale Term, Agent and Merchant shall","snippet":"On each Wednesday during the Sale Term, Agent and Merchant shall cooperate to reconcile Expenses... Within thirty (30) days after the end of the Sale Term"}],"confidence":0.18,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":33,"heading":"15.3 Governing Law/Exclusive Jurisdiction. This Agreement shall be governed by and","snippet":"This Agreement shall be governed by and interpreted in accordance with the laws of the State of Delaware"}],"confidence":0.98,"value":"State of Delaware"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":17,"heading":"6.1 Term.","snippet":"Agent may, in its discretion, earlier terminate the GOB Sale on a Store- by- Store basis upon not less than seven (7) days' prior written notice"}],"confidence":0.62,"value":7}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":28,"heading":"12.1 Merchant's Liability Insurance. Until the Designation Rights Termination Date or as","snippet":"Merchant shall continue to maintain, subject to the Wind-Down Budget and the Wind-Down Cap, in such amounts as it currently has in effect, all of its liability insurance policies"},{"page_num":14,"heading":"4.1 Subject to and only upon entry of the Approval Order, in addition to and not subject","snippet":"in addition to and not subject to the Wind-Down Payment or Wind-Down Cap, Agent shall be unconditionally responsible for all \"Expenses,\""}],"confidence":0.18,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":50,"heading":null,"snippet":"...Agent shall not distribute handbills, leaflets or other written materials to customers outside of any Stores' premises...; provided that Agent may solicit customers in the Stores themselves."}],"confidence":0.34,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":19,"heading":null,"snippet":"Merchant in order for Merchant to comply with its privacy policy and applicable laws governing the use and dissemination of confidential consumer personal data);"}],"confidence":0.12,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":34,"heading":"15.11 Deposit. Pursuant to the Bidding Procedures, Agent has provided a cash deposit in","snippet":"In the event the Closing fails to occur... only upon entry of a final and non-appealable order of the Bankruptcy Court... Merchant shall be entitled to retain the Deposit as liquidated damages"}],"confidence":0.22,"value":"high"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":34,"heading":"15.11 Deposit. Pursuant to the Bidding Procedures, Agent has provided a cash deposit in","snippet":"In the event the Closing fails to occur... Merchant shall be entitled to retain the Deposit as liquidated damages as Merchant's sole remedy for such breach."},{"page_num":12,"heading":"3.3 Proceeds of GOB Sales.","snippet":"Agent shall exercise sole signatory authority and control with respect to the Agency Accounts."},{"page_num":7,"heading":null,"snippet":"the Bankruptcy Court retains exclusive jurisdiction over the enforcement and interpretation of, and over and all matters arising from, this Agreement;"}],"confidence":0.34,"value":"null"}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":3,"heading":"Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 5 of 60","snippet":"time is of the essence in effectuating this Agreement and proceeding with the GOB Sale at the Stores uninterrupted;"},{"page_num":23,"heading":null,"snippet":"may use Merchant's employees in the conduct of the Sale to the extent Agent deems necessary for the Sale... (each such employee, a \"Retained Employee\")."}],"confidence":0.72,"value":"other"}
+
+REPAIR_AGENT party_a_name
+{"evidence":[{"page_num":20,"heading":null,"snippet":"Agent shall indemnify and hold harmless Merchant from and against any and all costs..."},{"page_num":33,"heading":"15.5 No Waiver. No consent or waiver by any Party, express or implied, to or of any breach","snippet":"No consent or waiver by any Party, express or implied, to or of any breach or default by the other..."},{"page_num":33,"heading":"15.8 Execution in Counterparts. This Agreement may be executed in one or more","snippet":"At the request of any Party, each other Party shall re-execute original forms hereof and deliver them to all other Parties."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":29,"heading":"12.2 Merchant's Casualty Insurance. Until the Designation Rights Termination Date or as","snippet":"From and after the date of this Agreement, all such policies will also name Purchaser as an additional named insured or loss payee, as applicable (as its interest may appear)."},{"page_num":43,"heading":"none","snippet":"...the assumption and assignment of such Lease or Contract will become effective automatically pursuant to the Approval Order on the date"},{"page_num":17,"heading":"6.1 Term. Subject to satisfaction of the conditions precedent set forth in Section 10","snippet":"...provided that the Sale Commencement Date shall occur no later than April 19, 2018."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":17,"heading":"Section 6. Sale Term.","snippet":"Section 6. Sale Term."},{"page_num":20,"heading":"8.8 Sale Reconciliation. On each Wednesday during the Sale Term, Agent and Merchant shall","snippet":"Within thirty (30) days after the end of the Sale Term, or as soon as"},{"page_num":23,"heading":"9.3 Payroll Matters. During the Sale Term, Merchant shall process the payroll for all","snippet":"During the Sale Term, Merchant shall process the payroll for all"}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":17,"heading":"6.1 Term. Subject to satisfaction of the conditions precedent set forth in Section 10","snippet":"Agent may, in its discretion, earlier terminate the GOB Sale on a Store- by- Store basis upon not less than seven (7) days' prior written notice"}],"confidence":0.74,"value":7}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":10,"heading":"Case 18-10248-MFW Doc 632-1 Filed 04/18/18 Page 12 of 60","snippet":"(c) Wind-Down Funding... (the \"Wind-Down Payment\"), in the amount of $93,800,000 (the \"Wind-Down Cap\")"}],"confidence":0.34,"value":"$93,800,000 (the \"Wind-Down Cap\")"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"The evidence snippets describe an operational agreement related to conducting a sale at stores (e.g., “GOB Sale,” “Agent,” “Merchant,” “Retained Employee”), which does not match an NDA or an MSA. Classifying the document as 'other' is therefore supported.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"revise","reason":"No supporting evidence is provided for party_a_name. The selected value \"Merchant\" appears to be a role label rather than a full legal entity name, and deterministic checks indicate has_evidence=false (evidence_count=0). Better retrieval from the contract’s party/intro section may yield the actual legal name.","confidence":0.78,"revised_query":"Find the contract preamble/introductory paragraph defining the parties (e.g., \"This Agreement is between...\") and extract the full legal name of the party labeled \"Merchant\" (Party A)."}
+
+VERIFIER_REPAIR_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"EXHIBIT 99.3 Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 2 of 60","snippet":"AGENCY AGREEMENT This Agency Agreement (\"Agreement\") is made as of April 18, 2018, by and between The Bon-Ton Stores, Inc. and its associated chapter 11 debtors in possession (collectively, \"Merchant\")"}],"confidence":0.78,"value":"The Bon-Ton Stores, Inc. and its associated chapter 11 debtors in possession"}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly names “THE BON-TON STORES, INC.” in a signature/party identification context (“By: Name: Its:” and “on behalf of itself and the other entities comprising Merchant”), supporting it as a party name. No conflicting party_b_name is presented in the provided snippets.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"unknown","reason":"The provided evidence does not state a specific calendar date on which the agreement becomes effective. It references relative timing (e.g., “From and after the date of this Agreement”) and other effective dates for assignments/leases or a deadline for the Sale Commencement Date, but none identifies the agreement’s effective date in YYYY-MM-DD form. Therefore, asserting a non-null effective_date is not supported, but keeping it null is also not directly evidenced as an explicit absence—so the correct status is unknown.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"revise","reason":"Evidence references a defined \"Sale Term\" but does not state its duration in months. The term length may be specified elsewhere (e.g., definition of Sale Term, effective date/termination section, or a schedule). Better targeted retrieval could determine a month length; null is not yet supported as the only possible value.","confidence":0.62,"revised_query":"Locate the clause defining \"Sale Term\" (start/end dates or duration) and any term/termination section stating the agreement term length; extract the duration in months."}
+
+VERIFIER_REPAIR_AGENT term_length
+{"evidence":[{"page_num":17,"heading":"6.1 Term. Subject to satisfaction of the conditions precedent set forth in Section 10","snippet":"the GOB Sale shall commence... (the \"Sale Commencement Date\") and shall end... no later than August 31, 2018 (the \"Sale Termination Date\"...\"Sale Term\"), provided that the Sale Commencement Date shall occur no later than April 19, 2018."}],"confidence":0.32,"value":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence clause (15.3 Governing Law/Exclusive Jurisdiction) explicitly states the agreement is governed by and interpreted in accordance with the laws of the State of Delaware, matching the selected value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The evidence explicitly states termination may occur upon \"not less than seven (7) days' prior written notice,\" which directly supports a termination notice period of 7 days.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"revise","reason":"No supporting evidence was provided for the selected value, and an alternative candidate asserts a specific Wind-Down Cap amount ($93,800,000) that could be the liability cap if confirmed in the contract. Additional retrieval of the limitation of liability / wind-down cap clause is needed to verify the correct cap language and amount.","confidence":0.74,"revised_query":"Retrieve the contract clause defining the \"Wind-Down Cap\" and any limitation of liability cap (including the dollar amount and how it applies), plus any related \"Wind-Down Budget\" language."}
+
+VERIFIER_REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":10,"heading":"Case 18-10248-MFW Doc 632-1 Filed 04/18/18 Page 12 of 60","snippet":"...the \"Wind-Down Payment\"), in the amount of $93,800,000 (the \"Wind-Down Cap\")..."}],"confidence":0.42,"value":"$93,800,000 (the \"Wind-Down Cap\")"}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the selected value (false). Without reviewing the contract text, we cannot confirm whether a non-solicitation clause is present or absent; targeted retrieval could resolve this.","confidence":0.74,"revised_query":"non-solicitation clause; non-solicit; solicitation of employees; solicitation of customers/clients; no hire/no poach"}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":50,"heading":null,"snippet":"On \"shopping center\" property, Agent shall not distribute handbills, leaflets or other written materials to customers outside of any Stores' premises... provided that Agent may solicit customers in the Stores themselves."}],"confidence":0.34,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

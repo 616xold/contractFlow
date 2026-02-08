@@ -1,0 +1,114 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"NUANCE COMMUNICATIONS, INC.","party_b_name":"CERENCE INC.","effective_date":null,"term_length":null,"governing_law":"State of Delaware","termination_notice_days":null,"liability_cap":"Not specified in provided excerpts (Section 7.01 Limitation on Liability referenced but cap amount/standard not shown).","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"The agreement appears to be an intellectual property/license arrangement with broad, perpetual, irrevocable license grants and detailed confidentiality obligations, which can create long-tail operational and compliance risk. The limitation of liability section is referenced but the actual cap is not visible in the excerpts, increasing uncertainty around exposure. Governing law and exclusive Delaware jurisdiction may also increase enforcement and litigation burden for a small SaaS vendor."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":12,"heading":"Section 6.01. Confidentiality. Without limiting Section 6.02, all confidential information","snippet":"all confidential information of a Party disclosed to the other Party under this Agreement shall be deemed confidential and proprietary information of the disclosing Party"},{"page_num":12,"heading":"Section 6.02. Disclosure of Confidential Technical Information. Except as expressly","snippet":"the Receiving Party shall not... disclose any Confidential Technical Information to any Person without prior written consent of the Disclosing Party"}],"confidence":0.62,"value":"nda"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "NUANCE COMMUNICATIONS, INC.",
+  "party_b_name": "CERENCE INC.",
+  "party_a_evidence": [
+    {
+      "page_num": 21,
+      "heading": "IN WITNESS WHEREOF, the Parties have caused this Intellectual Property Agreement to be",
+      "snippet": "executed by their duly authorized representatives. NUANCE COMMUNICATIONS, INC."
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 21,
+      "heading": "CERENCE INC.",
+      "snippet": "CERENCE INC."
+    }
+  ],
+  "party_a_confidence": 0.86,
+  "party_b_confidence": 0.86
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"INTELLECTUAL PROPERTY AGREEMENT","snippet":"by and between\nNuance Communications, Inc.\nand\nCerence Inc."},{"page_num":2,"heading":"Source: CERENCE INC., 8-K, 10/2/2019","snippet":"by and between NUANCE COMMUNICATIONS, INC., a Delaware corporation (\"Nuance\"), and CERENCE INC., a Delaware corporation (\"SpinCo\")."}],"confidence":0.95,"value":"Nuance Communications, Inc."}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":21,"heading":"CERENCE INC.","snippet":"CERENCE INC.\nBy: /s/ Leanne Fitzgerald Name: Leanne Fitzgerald Title: Vice President and Secretary"}],"confidence":0.78,"value":"Cerence Inc."}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":15,"heading":"Section 10.01. Further Assurances.","snippet":"...each of the Parties shall use reasonable best efforts, prior to, on and after the Distribution Date, to take... all actions... to consummate, and make effective, the transactions contemplated by this Agreement."},{"page_num":7,"heading":"Section 3.01. License Grants.","snippet":"Subject to the terms and conditions of this Agreement, as of the Distribution Date, Nuance hereby grants to SpinCo..."}],"confidence":0.18,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":15,"heading":"Section 9.03. Effect of Termination; Survival.","snippet":"In the event of any termination of this Agreement prior to the Distribution... ARTICLE I, ARTICLE VI, ARTICLE VII, this Section 9.03 and ARTICLE XI shall survive any termination of this Agreement."},{"page_num":20,"heading":"Section 11.14. Survival of Covenants.","snippet":"...the covenants in this Agreement and the Liabilities for the breach of any obligations in this Agreement shall survive the Spin-Off and shall remain in full force and effect."}],"confidence":0.12,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":16,"heading":"Section 11.03. Governing Law; Jurisdiction.","snippet":"shall be governed by, and construed in accordance with, the Laws of the State of Delaware,"}],"confidence":0.98,"value":"State of Delaware"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":15,"heading":"Section 9.02. Termination prior to the Distribution. This Agreement may be terminated by","snippet":"Nuance at any time, in its sole discretion, prior to the Distribution; provided, however, that this Agreement shall automatically terminate upon the termination of the Separation Agreement"}],"confidence":0.22,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":13,"heading":"6.09 of the Separation Agreement, none of Nuance, SpinCo or any other member of either","snippet":"Group shall in any event have any Liability to the other or to any other member of the other's Group under this Agreement for any indirect, special, punitive or consequential damages,"}],"confidence":0.18,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":7,"heading":"Section 3.01. License Grants.","snippet":"Nuance hereby grants to SpinCo and the members of the SpinCo Group a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable, transferable..."}],"confidence":0.12,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":14,"heading":"Section 8.01. No Assignment or Transfer Without Consent.","snippet":"Except as expressly set forth in this Agreement, neither this Agreement nor any of the rights, interests or obligations under this Agreement... shall be assigned... by either Party without the prior written consent of the other Party."}],"confidence":0.18,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":16,"heading":"Section 11.03. Governing Law; Jurisdiction. Any disputes relating to, arising out of or","snippet":"Any disputes relating to, arising out of or resulting from this Agreement... shall be governed by... the Laws of the State of Delaware,"},{"page_num":16,"heading":"Section 11.02. Dispute Resolution. In the event that either Party, acting reasonably,","snippet":"...the Parties shall work together in good faith to resolve any such alleged"}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":9,"heading":"Section 4.01. License Grants.","snippet":"SpinCo hereby grants to Nuance... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable, transferable... sublicensable... license under the SpinCo Patents"},{"page_num":10,"heading":null,"snippet":"SpinCo hereby grants to Nuance... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable... license to install, access, use, reproduce... modify... create improvements and derivative works"},{"page_num":16,"heading":"Section 11.03. Governing Law; Jurisdiction. Any disputes relating to, arising out of or","snippet":"Any disputes relating to, arising out of or resulting from this Agreement... shall be governed by... the Laws of the State of Delaware"}],"confidence":0.22,"value":""}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":12,"heading":"Section 6.01. Confidentiality. Without limiting Section 6.02, all confidential information","snippet":"all confidential information of a Party disclosed to the other Party under this Agreement shall be deemed confidential"},{"page_num":12,"heading":"Section 6.02. Disclosure of Confidential Technical Information. Except as expressly","snippet":"the Receiving Party shall not... disclose any Confidential Technical Information to any Person without prior written consent of the Disclosing Party"}],"confidence":0.62,"value":"other"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":7,"heading":"Section 3.01. License Grants.","snippet":"Subject to the terms and conditions of this Agreement, as of the Distribution Date, Nuance hereby grants to SpinCo"},{"page_num":3,"heading":"RECITALS","snippet":"pursuant to the Separation Agreement and the other Ancillary Agreements, as of the Distribution Date, the Nuance IP has been allocated"}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":15,"heading":"Section 9.02. Termination prior to the Distribution. This Agreement may be terminated by","snippet":"This Agreement may be terminated by Nuance at any time, in its sole discretion, prior to the Distribution; provided, however, that this Agreement shall automatically terminate upon the termination of the Separation Agreement..."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":15,"heading":"Section 9.02. Termination prior to the Distribution. This Agreement may be terminated by","snippet":"Nuance at any time, in its sole discretion, prior to the Distribution; provided, however, that this Agreement shall automatically terminate upon the termination of the Separation Agreement in accordance with its terms."},{"page_num":16,"heading":"Source: CERENCE INC., 8-K, 10/2/2019","snippet":"breach within thirty (30) days of such notice (a \"Dispute\")."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":13,"heading":"Section 7.01. Limitation on Liability. Without limiting the terms set forth in Section","snippet":"Section 7.01. Limitation on Liability. Without limiting the terms set forth in Section"},{"page_num":13,"heading":"ARTICLE VII LIMITATION OF LIABILITY AND WARRANTY DISCLAIMER","snippet":"ARTICLE VII LIMITATION OF LIABILITY AND WARRANTY DISCLAIMER"},{"page_num":2,"heading":"Section 7.01. Limitation on Liability 11 Section 7.02. Disclaimer of Representations and","snippet":"Section 7.01. Limitation on Liability 11 Section 7.02. Disclaimer of Representations and"}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":7,"heading":"Section 3.01. License Grants.","snippet":"Nuance hereby grants to SpinCo and the members of the SpinCo Group a worldwide, non- exclusive, fully paid-up, perpetual and irrevocable, transferable"}],"confidence":0.12,"value":false}
+
+VERIFIER_AGENT doc_type
+{"decision":"revise","reason":"The evidence shows the agreement contains confidentiality provisions (Sections 6.01–6.02), but confidentiality clauses alone do not establish the document is an NDA; many MSAs and other commercial agreements include similar sections. There is no evidence of the document title or overall purpose indicating it is specifically a Non-Disclosure Agreement.","confidence":0.74,"revised_query":"Find the document title/recitals or opening section stating the agreement type (e.g., 'Non-Disclosure Agreement', 'Master Services Agreement') and the primary purpose of the agreement."}
+
+VERIFIER_REPAIR_AGENT doc_type
+{"evidence":[{"page_num":9,"heading":"Section 4.01. License Grants.","snippet":"Section 4.01. License Grants.\n(a) Patents. Subject to the terms and conditions of this Agreement, as of the Distribution\nDate, SpinCo hereby grants to Nuance... license under the SpinCo Patents"},{"page_num":12,"heading":"Section 6.02. Disclosure of Confidential Technical Information. Except as expressly","snippet":"Section 6.02. Disclosure of Confidential Technical Information. Except as expressly\npermitted by this Agreement... the Receiving Party shall not... disclose any\nConfidential Technical Information"}],"confidence":0.72,"value":"other"}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly names the first party as “Nuance Communications, Inc.” on page 1 and again as “NUANCE COMMUNICATIONS, INC.” on page 2. This supports the selected value with only capitalization differences.","confidence":0.97,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence snippet explicitly shows the party name as \"CERENCE INC.\", matching the selected value with no conflicts or validation issues.","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"revise","reason":"Evidence references the agreement being effective \"as of the Distribution Date\" but does not provide the actual calendar date. A better retrieval targeting the definition of \"Distribution Date\" or an \"Effective Date\" clause/recitals could yield the effective date in ISO format.","confidence":0.74,"revised_query":"Locate the clause/definitions section defining \"Distribution Date\" (or any \"Effective Date\"/\"This Agreement is effective as of\" language) and extract the specific calendar date."}
+
+VERIFIER_REPAIR_AGENT effective_date
+{"evidence":[{"page_num":15,"heading":"Section 10.01. Further Assurances.","snippet":"...each of the Parties shall use reasonable best efforts, prior to, on and after the Distribution Date, to take... all actions... to consummate, and make effective, the transactions contemplated by this Agreement."},{"page_num":3,"heading":"RECITALS","snippet":"...pursuant to the Separation Agreement and the other Ancillary Agreements, as of the Distribution Date, the Nuance IP has been allocated to the Nuance Group and the SpinCo IP has been allocated to the SpinCo Group;"}],"confidence":0.18,"value":null}
+
+VERIFIER_AGENT term_length
+{"decision":"unknown","reason":"The only provided evidence discusses termination conditions (including automatic termination upon another agreement’s termination) but does not state a fixed agreement term or a determinable length in months. Therefore, the term length cannot be determined from the evidence, and asserting null is not sufficiently supported as a definitive conclusion.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states the agreement “shall be governed by, and construed in accordance with, the Laws of the State of Delaware,” which directly supports the selected governing_law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The cited termination clause (Section 9.02) allows termination prior to the Distribution at Nuance’s sole discretion and does not state any notice period. The other snippet references a 30-day cure period for breach/dispute, not a termination-for-convenience notice requirement. Therefore, there is no supported number of notice days for termination for convenience, making null appropriate.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support any liability cap language. The selected value is a meta-statement about missing information rather than an extracted cap term from the contract, so the correct extraction is unknown based on the current record.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"unknown","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. Without contract text or cited clause language, the boolean value cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

@@ -1,0 +1,124 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Shenzhen LOHAS Supply Chain Management Co., Ltd.","party_b_name":"unknown","effective_date":null,"term_length":60,"governing_law":"People's Republic of China","termination_notice_days":null,"liability_cap":"Not specified; contract includes late-delivery penalties and force majeure provisions but no overall liability cap is stated in the provided excerpts.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"This is a PRC-governed international supply framework with arbitration in Beijing, which can be costly and difficult for a small SaaS vendor to navigate. The excerpts do not show a clear limitation of liability, creating potentially uncapped exposure. Termination for convenience notice is not specified, and cancellation rights appear limited (e.g., only after extended force majeure), reducing flexibility."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"Exhibit 10.16 SUPPLY CONTRACT... 1.1 This is a framework agreement, the terms and conditions are applied to all purchase orders"}],"confidence":0.86,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+  "party_b_name": null,
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+      "snippet": "The buyer/End-User: Shenzhen LOHAS Supply Chain Management Co., Ltd."
+    },
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+      "snippet": "The Contract is concluded and signed by the Buyer and Seller"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+      "snippet": "The seller:"
+    },
+    {
+      "page_num": 4,
+      "heading": null,
+      "snippet": "THE BUYER: THE SELLER: SIGNATURE: SIGNATURE:"
+    }
+  ],
+  "party_a_confidence": 0.92,
+  "party_b_confidence": 0.18
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"The buyer/End-User: Shenzhen LOHAS Supply Chain Management Co., Ltd."}],"confidence":0.93,"value":"Shenzhen LOHAS Supply Chain Management Co., Ltd."}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":4,"heading":null,"snippet":"One copy for the Sellers, two copies for the Buyers. The Contract becomes effective after signed by both parties. THE BUYER: THE SELLER: SIGNATURE: SIGNATURE:"},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"Source: LOHA CO. LTD., F-1, 12/9/2019"}],"confidence":0.18,"value":""}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":4,"heading":null,"snippet":"The Contract becomes effective after signed by both parties."},{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."}],"confidence":0.18,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":4,"heading":null,"snippet":"23. The Contract is valid for 5 years, beginning from and ended on ."}],"confidence":0.9,"value":60}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":4,"heading":null,"snippet":"21. Law application It will be governed by the law of the People's Republic of China"}],"confidence":0.98,"value":"People's Republic of China"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."},{"page_num":1,"heading":"2.2 The seller shall be confirmed within three working days after receipt of order. If the","snippet":"any party shall not unilaterally cancel the order before the two sides agreed ."}],"confidence":0.22,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"17. FORCE MAJEURE: The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure..."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"18. LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time... the Sellers agree to pay a penalty which shall be deducted..."}],"confidence":0.18,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"20. This final price is the confidential information. Dissemination, distribution or duplication of this price is strictly prohibited."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"17. FORCE MAJEURE: The Sellers shall not be held responsible for the delay in shipment or non-delivery..."},{"page_num":4,"heading":null,"snippet":"21. Law application It will be governed by the law of the People's Republic of China..."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"9. PORT OF DESTINATION: SHENZHEN, GUANGDONG, CHINA"}],"confidence":0.32,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":2,"heading":null,"snippet":"INSURANCE: To be covered by the Seller for 110% invoice value against All Risks and War Risk."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time... the Sellers agree to pay a penalty which shall be deducted by the paying bank from the payment."}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure... In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"Should the Sellers fail to make delivery on time... the Buyers shall agree to postpone the delivery on condition that the Sellers agree to pay a penalty"},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"The Arbitration shall take place in Beijing and the decision of the Arbitration Committee shall be final and binding upon both parties; neither party shall seek recourse to a law court"}],"confidence":0.62,"value":"The risk level is elevated because the seller is excused from liability for delays or non-delivery due to force majeure, potentially impacting the buyer’s supply continuity, with cancellation only after a prolonged event. While there is a late-delivery penalty, the buyer must agree to postpone delivery, which may limit immediate remedies. Dispute resolution is confined to final and binding arbitration in Beijing with no court appeal, increasing enforcement and forum risk for the buyer."}
+
+REPAIR_AGENT party_b_name
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"Source: LOHA CO. LTD., F-1, 12/9/2019"},{"page_num":4,"heading":null,"snippet":"One copy for the Sellers, two copies for the Buyers. The Contract becomes effective after signed by both parties. THE BUYER: THE SELLER: SIGNATURE: SIGNATURE:"}],"confidence":0.32,"value":""}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":4,"heading":null,"snippet":"The Contract becomes effective after signed by both parties."},{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."},{"page_num":4,"heading":null,"snippet":"The Contract is valid for 5 years, beginning from and ended on ."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."},{"page_num":1,"heading":"2.2 The seller shall be confirmed within three working days after receipt of order. If the","snippet":"any party shall not unilaterally cancel the order before the two sides agreed ."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"18. LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time as stipulated in the Contract... the Sellers agree to pay a penalty which shall be deducted by the paying bank from the payment."},{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"17. FORCE MAJEURE: The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure..."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"20. This final price is the confidential information. Dissemination, distribution or duplication of this price is strictly prohibited."}],"confidence":0.12,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"9. PORT OF DESTINATION: SHENZHEN, GUANGDONG, CHINA"},{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."},{"page_num":4,"heading":null,"snippet":"21. Law application It will be governed by the law of the People's Republic of China"}],"confidence":0.32,"value":"unknown"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"The evidence clearly identifies the document as a “SUPPLY CONTRACT” and a “framework agreement” for purchase orders, which is neither an NDA nor an MSA. Therefore, classifying doc_type as “other” is supported.","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"Evidence explicitly identifies the Buyer/End-User as “Shenzhen LOHAS Supply Chain Management Co., Ltd.”, which supports the selected party_a_name as the first party.","confidence":0.96,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"revise","reason":"The field is non-nullable but the selected value is null. Evidence indicates party roles (BUYER/SELLER) and references a company name (\"LOHA CO. LTD.\") but does not clearly identify the full legal name of the second party. Additional targeted retrieval around the signature block and party identification section is likely to resolve the correct Party B name.","confidence":0.74,"revised_query":"Locate the contract section defining the parties (e.g., \"Buyer\"/\"Seller\" names) and the signature block; extract the full legal name of the second party (Party B). Search for lines near \"THE BUYER:\" and \"THE SELLER:\" and any header listing company names."}
+
+VERIFIER_REPAIR_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply","snippet":"The buyer/End-User: Shenzhen LOHAS Supply Chain Management Co., Ltd."}],"confidence":0.62,"value":"Shenzhen LOHAS Supply Chain Management Co., Ltd."}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence states the contract becomes effective after being signed by both parties, but no specific calendar date is provided (the date fields appear blank). Therefore the effective_date cannot be determined and null is supported.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"Evidence states: \"The Contract is valid for 5 years\". 5 years is determinable as 60 months, matching the selected value.","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states: \"It will be governed by the law of the People's Republic of China,\" which directly supports the selected governing_law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The provided evidence discusses cancellation rights tied to specific conditions (accident lasting more than 10 weeks) and a restriction on unilateral cancellation absent mutual agreement, but it does not specify any notice period (in days) for termination for convenience. Therefore, asserting a numeric termination_notice_days is unsupported, and null is appropriate.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support the statement that there is no overall liability cap. Without contract text addressing limitation of liability, the field cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero cited excerpts, the boolean value cannot be verified; targeted retrieval of any non-solicitation language could confirm presence/absence.","confidence":0.74,"revised_query":"Search for non-solicitation language (e.g., \"non-solicit\", \"solicit\", \"customers\", \"clients\", \"employees\", \"recruit\", \"poach\", \"hire away\") and extract the clause if present."}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":"Source: LOHA CO. LTD., F-1, 12/9/2019","snippet":"20. This final price is the confidential information. Dissemination, distribution or duplication of this price is strictly prohibited."}],"confidence":0.22,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding international data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

@@ -1,0 +1,931 @@
+{
+  "doc_type": "other",
+  "party_a_name": "On2 Technologies, Inc.",
+  "party_b_name": "Wildform, Inc.",
+  "effective_date": null,
+  "term_length": 18,
+  "governing_law": "State of New York",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 47382,
+    "output_tokens": 5255,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier requested revision for field 'doc_type'",
+      "verifier requested revision for field 'party_a_name'",
+      "verifier requested revision for field 'party_b_name'",
+      "verifier marked field 'termination_notice_days' as unknown",
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier marked field 'non_solicit_clause_present' as unknown",
+      "verifier returned unknown for non-nullable field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 151,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 11,
+              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to",
+              "snippet": "IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to be executed the Effective Date."
+            },
+            {
+              "page_num": 3,
+              "heading": "2.1 Transition Services. Upon the terms and subject to the conditions set forth in this",
+              "snippet": "Agreement, with respect to each of those services set forth on Exhibit A hereto,"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 741,
+          "completion_tokens": 125,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The provided evidence indicates a services/transition services arrangement but does not clearly establish the document as a Master Services Agreement (e.g., explicit title 'Master Services Agreement' or 'MSA'). Given competing candidates of 'other' and lack of definitive labeling in the snippets, additional retrieval focused on the document title/intro is needed to confirm doc_type.",
+            "confidence": 0.63,
+            "revised_query": "Find the document title and opening paragraph identifying the agreement type (e.g., 'Master Services Agreement', 'Services Agreement', 'Transition Services Agreement') on page 1 or cover page.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "msa",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 455,
+            "completion_tokens": 135
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "msa",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.96,
+              "confidence": 0.86,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "SUPPORT AND MAINTENANCE AGREEMENT",
+              "snippet": "SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 (the \"Effective Date\"), between On2 Technologies, Inc., a Delaware corporation (\"On2\"), and Wildform, Inc."
+            },
+            {
+              "page_num": 11,
+              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to",
+              "snippet": "On2 Technologies, Inc                          Wildform, Inc."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 959,
+          "completion_tokens": 139,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence only shows the shorthand party name “On2” in an operational clause (representatives) and does not confirm the full legal name required for party_a_name. An alternative candidate suggests “On2 Technologies, Inc.” but no supporting excerpt is provided. Better retrieval from the parties/recitals/intro section is needed to confirm the full legal entity name.",
+            "confidence": 0.74,
+            "revised_query": "Find the contract section defining the parties (preamble/recitals/“This Agreement is between…”) and extract the full legal name for “On2” (e.g., “On2 Technologies, Inc.”).",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "On2",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 474,
+            "completion_tokens": 144
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "On2 Technologies, Inc.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "On2",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": -0.01,
+              "confidence": 0.35,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.01,
+              "confidence": 0.35,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 1.03,
+              "confidence": 0.93,
+              "value": "On2 Technologies, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 11,
+              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to",
+              "snippet": "be executed the Effective Date.\nOn2 Technologies, Inc                          Wildform, Inc."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1023,
+          "completion_tokens": 78,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence shows the counterparty is referred to as “Wildform,” but does not confirm the full legal name (e.g., whether it is “Wildform, Inc.”). Since the field requires the full legal name, additional retrieval from the parties/introductory clause or signature block is needed.",
+            "confidence": 0.74,
+            "revised_query": "Find the contract’s introductory/parties clause or signature block stating Wildform’s full legal name (e.g., 'Wildform, Inc.'), including any entity type and jurisdiction.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Wildform",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 481,
+            "completion_tokens": 125
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Wildform, Inc.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Wildform",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.04,
+              "confidence": 0.35,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.4,
+              "confidence": 0.35,
+              "value": "Wildform",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "Wildform, Inc.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "SUPPORT AND MAINTENANCE AGREEMENT",
+              "snippet": "SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 (the \"Effective Date\"), between On2 Technologies, Inc., a Delaware corporation (\"On2\"), and Wildform, Inc."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1745,
+          "completion_tokens": 173,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The agreement states it is “dated as of April __, 2005,” leaving the day blank. Since the effective date is incomplete and cannot be reliably normalized to YYYY-MM-DD, null is appropriate.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 425,
+            "completion_tokens": 69
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.12,
+              "confidence": 0.42,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.02,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "9.1 Term. Except as otherwise set forth in Sections 9.2 and 9.3 or Exhibit A hereof, the",
+              "snippet": "term of this Agreement shall be eighteen (18) months (\"Term\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 491,
+          "completion_tokens": 81,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"term of this Agreement shall be eighteen (18) months (\\\"Term\\\")\", which directly supports a term length of 18 months.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 18,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 393,
+            "completion_tokens": 63
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 18,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": 18,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance",
+              "snippet": "10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance"
+            },
+            {
+              "page_num": 10,
+              "heading": null,
+              "snippet": "with the laws of the State of New York, without giving effect to any choice of law or conflict of law provision or rule whether such provision or rule is that of the State of New York or any other jurisdiction."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 701,
+          "completion_tokens": 136,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The Governing Law clause states the agreement is governed by and construed in accordance with the laws of the State of New York.",
+            "confidence": 0.97,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "State of New York",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 454,
+            "completion_tokens": 53
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "State of New York",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.93,
+              "value": "State of New York",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support a 30-day termination-for-convenience notice period. Deterministic checks indicate has_evidence=false and evidence_count=0, so the value cannot be verified from the contract text.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 30,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 366,
+            "completion_tokens": 72
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 30,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.23,
+              "confidence": 0.58,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence excerpts were provided to support either a specific liability cap or the statement that it is not specified. Without contract text, the liability cap cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Not specified in provided excerpts",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 375,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Not specified in provided excerpts",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. Without contract text or clause excerpts, the boolean value cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 342,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.28,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers. Without any clause text, it cannot be determined whether the agreement explicitly allows transfers outside the UK/EU, so the value must remain unknown.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 69
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.56,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "9.3 Events Upon Termination.",
+              "snippet": "Wildform will immediately return to On2, or destroy, all copies of the Incorporated Technology... Upon written request from On2, Wildform will promptly provide On2 with a written certification"
+            },
+            {
+              "page_num": 6,
+              "heading": "6.2 Wildform Warranties. Wildform makes the following representations and warranties to",
+              "snippet": "Wildform... to the best of Wildform's knowledge as of the Effective Date, the Deliverables marked as Deliverable #2 will not infringe any Intellectual Property Rights held by any third party."
+            },
+            {
+              "page_num": 3,
+              "heading": "2.4 Level of Transition Services. Wildform shall perform the Transition Services for which",
+              "snippet": "following commonly accepted standards of care in the industry and exercising the same degree of care as it exercises in performing the same or similar services"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 846,
+          "completion_tokens": 205,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.71,
+              "confidence": 0.56,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The agreement includes confidentiality obligations and injunctive relief language, which can increase exposure if a dispute arises. It also contains indemnification provisions and IP-related warranties, creating potential liability for breaches or third-party claims. No explicit liability cap is shown in the provided excerpts, which raises risk for a small SaaS vendor.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The agreement includes confidentiality obligations and injunctive relief language, which can increase exposure if a dispute arises. It also contains indemnification provisions and IP-related warranties, creating potential liability for breaches or third-party claims. No explicit liability cap is shown in the provided excerpts, which raises risk for a small SaaS vendor.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.49,
+              "confidence": 0.34,
+              "value": "null",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "doc_type",
+          "party_a_name",
+          "party_b_name",
+          "effective_date",
+          "termination_notice_days",
+          "liability_cap"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation",
+          "termination_notice_days"
+        ],
+        "selected_source_counts": {
+          "verifier_repair_agent": 3,
+          "field_agent": 4,
+          "verifier_unknown": 2,
+          "global_baseline": 3
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 3,
+        "verifier_repair_fields": [
+          "doc_type",
+          "party_a_name",
+          "party_b_name"
+        ],
+        "verifier_decisions": {
+          "accept": 3,
+          "revise": 3,
+          "unknown": 4,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "doc_type",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "party_a_name",
+          "party_b_name",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.5833,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 6,
+        "fields_without_evidence": [
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.6,
+        "evidence_snippets_total": 9,
+        "unique_evidence_pages": 6,
+        "avg_confidence": 0.722,
+        "min_confidence": 0.42
+      }
+    }
+  }
+}

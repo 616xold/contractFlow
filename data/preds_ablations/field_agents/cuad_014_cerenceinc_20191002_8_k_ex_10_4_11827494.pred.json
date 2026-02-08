@@ -1,5 +1,5 @@
 {
-  "doc_type": "other",
+  "doc_type": "nda",
   "party_a_name": "NUANCE COMMUNICATIONS, INC.",
   "party_b_name": "CERENCE INC.",
   "effective_date": null,
@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 17839,
-    "output_tokens": 2282,
+    "input_tokens": 20361,
+    "output_tokens": 2791,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -34,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,25 +47,27 @@
       "total_chunks": 159,
       "fields": {
         "doc_type": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.72,
           "evidence": [
             {
               "page_num": 12,
-              "heading": "Section 6.01. Confidentiality. Without limiting Section 6.02, all confidential information",
-              "snippet": "all confidential information of a Party disclosed to the other Party under this Agreement shall be deemed confidential and proprietary information"
+              "heading": "Section 6.02. Disclosure of Confidential Technical Information. Except as expressly",
+              "snippet": "the Receiving Party shall not... disclose any Confidential Technical Information to any Person without prior written consent of the Disclosing Party"
             },
             {
-              "page_num": 1,
-              "heading": "Section 6.01. Confidentiality 10 Section 6.02. Disclosure of Confidential Technical",
-              "snippet": "Section 6.01. Confidentiality ... Section 6.02. Disclosure of Confidential Technical Information"
+              "page_num": 12,
+              "heading": "Section 6.01. Confidentiality. Without limiting Section 6.02, all confidential information",
+              "snippet": "all confidential information of a Party disclosed to the other Party under this Agreement shall be deemed confidential"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 765,
-          "completion_tokens": 129
+          "prompt_tokens": 753,
+          "completion_tokens": 124
         },
         "party_a_name": {
+          "source": "party_roles_agent",
           "confidence": 0.86,
           "evidence": [
             {
@@ -70,26 +78,78 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 483,
-          "completion_tokens": 78
+          "prompt_tokens": 532,
+          "completion_tokens": 74,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.84,
+              "confidence": 0.74,
+              "value": "NUANCE COMMUNICATIONS, INC.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "NUANCE COMMUNICATIONS, INC.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.74,
+          "source": "party_roles_agent",
+          "confidence": 0.84,
           "evidence": [
             {
               "page_num": 21,
               "heading": "CERENCE INC.",
-              "snippet": "CERENCE INC.\nBy: /s/ Leanne Fitzgerald Name: Leanne Fitzgerald Title: Vice President and Secretary"
+              "snippet": "CERENCE INC."
+            },
+            {
+              "page_num": 21,
+              "heading": "CERENCE INC.",
+              "snippet": "[Signature page to the Intellectual Property Agreement]"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 483,
-          "completion_tokens": 68
+          "prompt_tokens": 532,
+          "completion_tokens": 74,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "NUANCE COMMUNICATIONS, INC.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.94,
+              "confidence": 0.84,
+              "value": "CERENCE INC.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
+            {
+              "page_num": 15,
+              "heading": "Section 10.01. Further Assurances.",
+              "snippet": "...each of the Parties shall use reasonable best efforts, prior to, on and after the Distribution Date, to take... all actions... to consummate, and make effective, the transactions contemplated by this Agreement."
+            },
             {
               "page_num": 14,
               "heading": "Source: CERENCE INC., 8-K, 10/2/2019",
@@ -98,24 +158,31 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2256,
-          "completion_tokens": 183
+          "prompt_tokens": 2346,
+          "completion_tokens": 264
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
-              "page_num": 18,
-              "heading": "Section 11.08. Notices.",
-              "snippet": "All notices or other communications under this Agreement shall be in writing and shall be deemed to be duly given (a) when delivered in person..."
+              "page_num": 19,
+              "heading": null,
+              "snippet": "...applicable national and international laws and regulations relating to import and/or export control... within the scope of this Agreement."
+            },
+            {
+              "page_num": 20,
+              "heading": "Section 11.17. Interpretation. Words in the singular shall be held to include the plural",
+              "snippet": "...words of similar import, unless otherwise stated, shall be construed to refer to this Agreement as a whole..."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1770,
-          "completion_tokens": 155
+          "prompt_tokens": 2193,
+          "completion_tokens": 254
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -130,112 +197,123 @@
           "completion_tokens": 73
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.22,
           "evidence": [
             {
               "page_num": 15,
               "heading": "Section 9.02. Termination prior to the Distribution. This Agreement may be terminated by",
-              "snippet": "Nuance at any time, in its sole discretion, prior to the Distribution; provided, however, that this Agreement shall automatically terminate upon the termination of the Separation Agreement in accordance with its terms."
-            },
-            {
-              "page_num": 16,
-              "heading": "Source: CERENCE INC., 8-K, 10/2/2019",
-              "snippet": "breach within thirty (30) days of such notice (a \"Dispute\")."
+              "snippet": "Nuance at any time, in its sole discretion, prior to the Distribution; provided, however, that this Agreement shall automatically terminate upon the termination of the Separation Agreement"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1613,
-          "completion_tokens": 318
+          "prompt_tokens": 1501,
+          "completion_tokens": 182
         },
         "liability_cap": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.12,
           "evidence": [
             {
               "page_num": 13,
-              "heading": "6.09 of the Separation Agreement, none of Nuance, SpinCo or any other member of either",
-              "snippet": "Group shall in any event have any Liability to the other or to any other member of the other's Group under this Agreement for any indirect, special, punitive or consequential damages,"
+              "heading": "Section 7.01. Limitation on Liability. Without limiting the terms set forth in Section",
+              "snippet": "Section 7.01. Limitation on Liability. Without limiting the terms set forth in Section"
+            },
+            {
+              "page_num": 2,
+              "heading": "Section 7.01. Limitation on Liability 11 Section 7.02. Disclaimer of Representations and",
+              "snippet": "Section 7.01. Limitation on Liability 11 Section 7.02. Disclaimer of Representations and"
+            },
+            {
+              "page_num": 13,
+              "heading": "ARTICLE VII LIMITATION OF LIABILITY AND WARRANTY DISCLAIMER",
+              "snippet": "ARTICLE VII LIMITATION OF LIABILITY AND WARRANTY DISCLAIMER"
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
           "prompt_tokens": 1282,
-          "completion_tokens": 198
+          "completion_tokens": 304
         },
         "non_solicit_clause_present": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.12,
           "evidence": [
             {
               "page_num": 7,
               "heading": "Section 3.01. License Grants.",
-              "snippet": "Subject to the terms and conditions of this Agreement, as of the Distribution Date, Nuance hereby grants to SpinCo... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable... license"
-            },
-            {
-              "page_num": 9,
-              "heading": "Section 4.01. License Grants.",
-              "snippet": "Subject to the terms and conditions of this Agreement, as of the Distribution Date, SpinCo hereby grants to Nuance... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable... license"
+              "snippet": "Nuance hereby grants to SpinCo and the members of the SpinCo Group a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable, transferable..."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2189,
-          "completion_tokens": 229
+          "prompt_tokens": 2151,
+          "completion_tokens": 236
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
-              "page_num": 4,
-              "heading": null,
-              "snippet": "...owned by the Nuance Group as of immediately prior to the Distribution pursuant to a Nuance Data Agreement... which Data is used in the SpinCo Business..."
+              "page_num": 14,
+              "heading": "Section 8.01. No Assignment or Transfer Without Consent.",
+              "snippet": "Except as expressly set forth in this Agreement, neither this Agreement nor any of the rights, interests or obligations under this Agreement... shall be assigned... by either Party without the prior written consent of the other Party."
             },
             {
-              "page_num": 6,
-              "heading": null,
-              "snippet": "\"SpinCo Data\" means any Data that is (i) owned by a Third Party and licensed to the Nuance Group or SpinCo Group... pursuant to a SpinCo Data Agreement..."
+              "page_num": 7,
+              "heading": "Section 2.02. Recordation. The relevant assignee Party shall have the sole responsibility,",
+              "snippet": "...file the Intellectual Property Assignment Agreements and any other forms or documents with the appropriate Governmental Authorities as required to record the transfer..."
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 1744,
-          "completion_tokens": 203
+          "prompt_tokens": 2017,
+          "completion_tokens": 358
         },
         "risk_level": {
-          "confidence": 0.35,
+          "source": "field_agent",
+          "confidence": 0.25,
           "evidence": [
             {
-              "page_num": 9,
-              "heading": "Section 4.01. License Grants.",
-              "snippet": "SpinCo hereby grants to Nuance ... a worldwide, non- exclusive, fully paid-up, perpetual and irrevocable, transferable ... sublicensable ... license under the SpinCo Patents"
+              "page_num": 16,
+              "heading": "Section 11.03. Governing Law; Jurisdiction. Any disputes relating to, arising out of or",
+              "snippet": "Any disputes relating to, arising out of or resulting from this Agreement, including to its execution, performance, or enforcement, shall be governed by, and construed in accordance with, the Laws of the State of Delaware,"
             },
             {
               "page_num": 17,
-              "heading": "Section 11.05. Court-Ordered Interim Relief.",
-              "snippet": "each Party shall be entitled to interim measures of protection duly granted by a court of competent jurisdiction... to preserve the status quo... prevent the destruction or loss of documents... prevent the transfer... of assets."
+              "heading": "Section 11.05. Court-Ordered Interim Relief. In accordance with Section 11.03 and Section",
+              "snippet": "each Party shall be entitled to interim measures of protection duly granted by a court of competent jurisdiction: (1) to preserve the status quo pending resolution of the Dispute; ..."
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2010,
-          "completion_tokens": 278,
+          "prompt_tokens": 2196,
+          "completion_tokens": 263,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
+          "source": "field_agent",
           "confidence": 0.34,
           "evidence": [
             {
+              "page_num": 9,
+              "heading": "Section 4.01. License Grants.",
+              "snippet": "SpinCo hereby grants to Nuance and the members of the Nuance Group a worldwide, non- exclusive, fully paid-up, perpetual and irrevocable, transferable ... sublicensable ... license under the SpinCo Patents"
+            },
+            {
               "page_num": 10,
               "heading": null,
-              "snippet": "SpinCo hereby grants to Nuance... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable, transferable... sublicensable... license to install, access, use... modify... further develop... sell... distribute and market products"
+              "snippet": "SpinCo hereby grants to Nuance ... a worldwide, non-exclusive, fully paid-up, perpetual and irrevocable, transferable ... sublicensable ... license to install, access, use, reproduce ... modify ... further develop, sell, manufacture, distribute"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2499,
-          "completion_tokens": 370,
+          "completion_tokens": 390,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -245,9 +323,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 14,
-        "unique_evidence_pages": 12,
-        "avg_confidence": 0.42,
+        "evidence_snippets_total": 17,
+        "unique_evidence_pages": 10,
+        "avg_confidence": 0.428,
         "min_confidence": 0.12
       }
     }

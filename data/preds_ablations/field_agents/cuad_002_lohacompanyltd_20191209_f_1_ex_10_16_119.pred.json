@@ -1,9 +1,9 @@
 {
   "doc_type": "other",
-  "party_a_name": "LOHA CO. LTD.",
-  "party_b_name": "LOHA CO. LTD.",
+  "party_a_name": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+  "party_b_name": null,
   "effective_date": null,
-  "term_length": 720,
+  "term_length": 60,
   "governing_law": "People's Republic of China",
   "termination_notice_days": null,
   "liability_cap": null,
@@ -15,16 +15,17 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 29408,
-    "output_tokens": 2999,
+    "input_tokens": 30128,
+    "output_tokens": 2701,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
-      "normalized term_length from years to months",
+      "Field 'party_b_name' must be a non-empty string",
       "Field 'liability_cap' must be a non-empty string",
       "risk_explanation overridden by deterministic rules",
+      "Field 'party_b_name' is null but not nullable",
       "Field 'liability_cap' is null but not nullable"
     ],
     "retrieval": {
@@ -34,6 +35,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,6 +48,7 @@
       "total_chunks": 14,
       "fields": {
         "doc_type": {
+          "source": "field_agent",
           "confidence": 0.86,
           "evidence": [
             {
@@ -51,48 +59,102 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1247,
+          "prompt_tokens": 1111,
           "completion_tokens": 92
         },
         "party_a_name": {
-          "confidence": 0.62,
+          "source": "party_roles_agent",
+          "confidence": 0.92,
           "evidence": [
             {
-              "page_num": 3,
-              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The buyer/End-User: Shenzhen LOHAS Supply Chain Management Co., Ltd."
             },
             {
               "page_num": 1,
-              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The Contract is concluded and signed by the Buyer and Seller"
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
-          "prompt_tokens": 967,
-          "completion_tokens": 130
+          "prompt_tokens": 924,
+          "completion_tokens": 114,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.02,
+              "confidence": 0.92,
+              "value": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.32,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
-              "page_num": 3,
-              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
+              "page_num": 4,
+              "heading": null,
+              "snippet": "One copy for the Sellers, two copies for the Buyers. The Contract becomes effective after signed by both parties. THE BUYER: THE SELLER: SIGNATURE: SIGNATURE:"
             },
             {
               "page_num": 1,
+              "heading": "2.2 The seller shall be confirmed within three working days after receipt of order. If the",
+              "snippet": "2.4 Seller's note, only the buyer entrust the entrusted party issued orders, the product delivery and payment has the force of law."
+            },
+            {
+              "page_num": 3,
               "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
               "snippet": "Source: LOHA CO. LTD., F-1, 12/9/2019"
             }
           ],
           "attempts": 1,
-          "issues": [],
-          "prompt_tokens": 2713,
-          "completion_tokens": 251
+          "issues": [
+            "Field 'party_b_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2623,
+          "completion_tokens": 304,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.04,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.13,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
@@ -109,25 +171,25 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 3032,
-          "completion_tokens": 236
+          "completion_tokens": 220
         },
         "term_length": {
-          "confidence": 0.92,
+          "source": "field_agent",
+          "confidence": 0.9,
           "evidence": [
             {
               "page_num": 4,
-              "heading": "none",
+              "heading": null,
               "snippet": "23. The Contract is valid for 5 years, beginning from and ended on ."
             }
           ],
-          "attempts": 2,
-          "issues": [
-            "normalized term_length from years to months"
-          ],
-          "prompt_tokens": 2737,
-          "completion_tokens": 150
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1047,
+          "completion_tokens": 55
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.96,
           "evidence": [
             {
@@ -138,74 +200,73 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 983,
+          "prompt_tokens": 889,
           "completion_tokens": 62
         },
         "termination_notice_days": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
               "page_num": 3,
               "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
               "snippet": "In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."
+            },
+            {
+              "page_num": 1,
+              "heading": "2.2 The seller shall be confirmed within three working days after receipt of order. If the",
+              "snippet": "any party shall not unilaterally cancel the order before the two sides agreed ."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2869,
-          "completion_tokens": 209
+          "prompt_tokens": 2890,
+          "completion_tokens": 256
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "17. FORCE MAJEURE: The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure..."
+            },
+            {
               "page_num": 1,
               "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "The seller shall be liable for any damage and loss of the commodity, expenses incurred on account of improper packing, and any damage attributable to inadequate or improper protective measures taken by the seller..."
-            },
-            {
-              "page_num": 3,
-              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure..."
-            },
-            {
-              "page_num": 3,
-              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "18. LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time as stipulated in the Contract... the Sellers agree to pay a penalty..."
+              "snippet": "The seller shall be liable for any damage and loss of the commodity, expenses incurred on account of improper packing..."
             }
           ],
           "attempts": 1,
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 3152,
-          "completion_tokens": 417
+          "prompt_tokens": 3053,
+          "completion_tokens": 234
         },
         "non_solicit_clause_present": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
               "page_num": 3,
               "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
               "snippet": "20. This final price is the confidential information. Dissemination, distribution or duplication of this price is strictly prohibited."
-            },
-            {
-              "page_num": 3,
-              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "17. FORCE MAJEURE: The Sellers shall not be held responsible for the delay in shipment or non-delivery..."
             }
           ],
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 2866,
-          "completion_tokens": 357
+          "completion_tokens": 241
         },
         "data_transfer_outside_uk_eu": {
-          "confidence": 0.32,
+          "source": "field_agent",
+          "confidence": 0.34,
           "evidence": [
             {
               "page_num": 2,
-              "heading": null,
+              "heading": "none",
               "snippet": "9. PORT OF DESTINATION: SHENZHEN, GUANGDONG, CHINA"
             },
             {
@@ -214,37 +275,39 @@
               "snippet": "The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
-          "prompt_tokens": 3139,
-          "completion_tokens": 232
+          "prompt_tokens": 3071,
+          "completion_tokens": 179
         },
         "risk_level": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.55,
           "evidence": [
-            {
-              "page_num": 3,
-              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
-              "snippet": "The Arbitration shall take place in Beijing and the decision of the Arbitration Committee shall be final and binding upon both parties; neither party shall seek recourse to a law court..."
-            },
             {
               "page_num": 4,
               "heading": null,
-              "snippet": "It will be governed by the law of the People's Republic of China... Conflicts between these two languages... shall be subject to Chinese version."
+              "snippet": "21. Law application It will be governed by the law of the People's Republic of China ,otherwise it is governed by United Nations Convention on Contract for the International Sale of Goods."
+            },
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "18. LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time... the Sellers agree to pay a penalty which shall be deducted by the paying bank from the payment."
             },
             {
               "page_num": 3,
               "heading": null,
-              "snippet": "Where necessary, the Buyers shall be at liberty to eliminate the defect(s) themselves at the Sellers' expenses. If the Sellers fail to answer the Buyers within one weeks... the claim shall be reckoned as having been accepted"
+              "snippet": "If the Sellers fail to answer the Buyers within one weeks after receipt of the aforesaid claim, the claim shall be reckoned as having been accepted by the Sellers."
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2938,
-          "completion_tokens": 368
+          "prompt_tokens": 3054,
+          "completion_tokens": 321
         },
         "risk_explanation": {
-          "confidence": 0.42,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 2,
@@ -254,18 +317,18 @@
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "The Buyer shall open an irrevocable letter of credit with the bank within 30 days after signing the contract... 80%... will be paid against the documents... The remaining 20%... will be paid against the documents"
+              "snippet": "The Buyer shall open an irrevocable letter of credit with the bank within 30 days after signing the contract, in favor of the Seller, for 100% value of the total contract value."
             },
             {
               "page_num": 4,
               "heading": null,
-              "snippet": "It will be governed by the law of the People's Republic of China... Conflicts between these two languages... shall be subject to Chinese version."
+              "snippet": "It will be governed by the law of the People's Republic of China... Conflicts between these two languages arising there from, if any, shall be subject to Chinese version."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2765,
-          "completion_tokens": 495,
+          "prompt_tokens": 1040,
+          "completion_tokens": 236,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -277,7 +340,7 @@
         "evidence_ratio": 1.0,
         "evidence_snippets_total": 20,
         "unique_evidence_pages": 4,
-        "avg_confidence": 0.48,
+        "avg_confidence": 0.4955,
         "min_confidence": 0.12
       }
     }

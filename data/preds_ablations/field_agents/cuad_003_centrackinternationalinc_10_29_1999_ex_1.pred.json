@@ -1,7 +1,7 @@
 {
   "doc_type": "other",
-  "party_a_name": "John J. Lofquist",
-  "party_b_name": "Anna",
+  "party_a_name": "Centrack International, a Florida corporation",
+  "party_b_name": "i-on interactive, a Florida corporation",
   "effective_date": null,
   "term_length": 6,
   "governing_law": null,
@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_003_centrackinternationalinc_10_29_1999_ex_1.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 19553,
-    "output_tokens": 1930,
+    "input_tokens": 21134,
+    "output_tokens": 2523,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -34,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,48 +47,102 @@
       "total_chunks": 24,
       "fields": {
         "doc_type": {
-          "confidence": 0.93,
+          "source": "field_agent",
+          "confidence": 0.78,
           "evidence": [
             {
               "page_num": 1,
               "heading": "WEB SITE HOSTING AGREEMENT",
               "snippet": "This WEB SITE HOSTING AGREEMENT (\"this Agreement\") is entered into this 6th day of April,"
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "The Customer acknowledges that this Agreement is explicitly not an agreement for i-on to provide content creation or maintenance services for the Hosted Site."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 688,
-          "completion_tokens": 66
+          "completion_tokens": 104
         },
         "party_a_name": {
-          "confidence": 0.62,
+          "source": "party_roles_agent",
+          "confidence": 0.96,
           "evidence": [
             {
-              "page_num": 6,
-              "heading": "----------------------------- Name: John J. Lofquist                  Name:   Anna",
-              "snippet": "----------------------------- Name: John J. Lofquist                  Name:   Anna"
+              "page_num": 1,
+              "heading": "1999 by and between Centrack International, a Florida corporation (\"the Customer\"), and",
+              "snippet": "1999 by and between Centrack International, a Florida corporation (\"the Customer\"), and"
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 1612,
-          "completion_tokens": 181
+          "prompt_tokens": 681,
+          "completion_tokens": 111,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Centrack International",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.01,
+              "confidence": 0.96,
+              "value": "Centrack International, a Florida corporation",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.62,
+          "source": "party_roles_agent",
+          "confidence": 0.96,
           "evidence": [
             {
-              "page_num": 6,
-              "heading": "----------------------------- Name: John J. Lofquist                  Name:   Anna",
-              "snippet": "----------------------------- Name: John J. Lofquist                  Name:   Anna"
+              "page_num": 1,
+              "heading": "i-on interactive, a Florida corporation (\"i-on\").",
+              "snippet": "i-on interactive, a Florida corporation (\"i-on\")."
+            },
+            {
+              "page_num": 5,
+              "heading": "MISCELLANEOUS",
+              "snippet": "This Agreement constitutes the entire understanding and agreement between the parties hereto and supersedes any and all prior or contemporaneous representations, understandings, and agreements between the Customer and i-on with respect to the subject matter hereof, all of which are merged herein."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
-          "prompt_tokens": 680,
-          "completion_tokens": 68
+          "prompt_tokens": 681,
+          "completion_tokens": 112,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 1.01,
+              "confidence": 0.86,
+              "value": "i-on interactive",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.06,
+              "confidence": 0.96,
+              "value": "i-on interactive, a Florida corporation",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
@@ -93,40 +153,48 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2001,
+          "prompt_tokens": 2060,
           "completion_tokens": 158
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
               "page_num": 4,
               "heading": "TERM AND TERMINATION",
-              "snippet": "The term of this Agreement for the Hosted Site shall commence upon April 1, 1999 and shall continue for a period of six (6) months, unless earlier terminated"
+              "snippet": "The term of this Agreement for the Hosted Site shall commence upon April 1, 1999 and shall continue for a period of six (6) months, unless earlier terminated in accordance with provisions hereof."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 715,
-          "completion_tokens": 76
+          "completion_tokens": 83
         },
         "governing_law": {
-          "confidence": 0.22,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
               "page_num": 4,
               "heading": null,
-              "snippet": "Transmission or storage of any information, data, or material in violation of United States or state regulation or law is prohibited"
+              "snippet": "Transmission or storage of any information, data, or material in violation of United States or state regulation or law is prohibited..."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "...otherwise violate any local, state, national, or International law."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [
             "Field 'governing_law' must be a non-empty string"
           ],
-          "prompt_tokens": 2345,
-          "completion_tokens": 128
+          "prompt_tokens": 2367,
+          "completion_tokens": 182
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.93,
           "evidence": [
             {
@@ -141,6 +209,7 @@
           "completion_tokens": 81
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.93,
           "evidence": [
             {
@@ -155,6 +224,7 @@
           "completion_tokens": 106
         },
         "non_solicit_clause_present": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -174,26 +244,23 @@
           "completion_tokens": 194
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.22,
           "evidence": [
             {
               "page_num": 4,
               "heading": null,
-              "snippet": "Transmission or storage of any information, data, or material in violation of United States or state regulation or law is prohibited"
-            },
-            {
-              "page_num": 4,
-              "heading": null,
-              "snippet": "...otherwise violate any local, state, national, or International law."
+              "snippet": "Transmission or storage of any information, data, or material in violation of United States or state regulation or law is prohibited, including but not limited to, material protected by copyright, trademark, trade secret, or any other statute."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2755,
-          "completion_tokens": 187
+          "prompt_tokens": 2522,
+          "completion_tokens": 182
         },
         "risk_level": {
-          "confidence": 0.55,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 2,
@@ -201,24 +268,25 @@
               "snippet": "The Customer acknowledges that failure to pay such fees in a timely manner will result in the interruption or discontinuation of services for the Hosted Site."
             },
             {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "The Customer is solely responsible for all customer support required by users of Hosted Site."
+              "page_num": 2,
+              "heading": "RESPONSIBILITIES OF THE CUSTOMER",
+              "snippet": "The Customer is solely responsible for all content on the Hosted Site... as well as the accuracy and validity of any information or data contained within"
             },
             {
-              "page_num": 2,
-              "heading": "additional charge, limited to:",
-              "snippet": "Additional Web site administration services will be billed at $200 per hour."
+              "page_num": 4,
+              "heading": null,
+              "snippet": "Any conduct by the Customer that in i-on's sole discretion restricts or inhibits any other user... from using and enjoying any of i-on's services is strictly prohibited."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2398,
-          "completion_tokens": 251,
+          "prompt_tokens": 935,
+          "completion_tokens": 164,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
@@ -240,7 +308,7 @@
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 2451,
-          "completion_tokens": 434,
+          "completion_tokens": 377,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -250,9 +318,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 12,
+        "evidence_snippets_total": 14,
         "unique_evidence_pages": 4,
-        "avg_confidence": 0.575,
+        "avg_confidence": 0.624,
         "min_confidence": 0.12
       }
     }

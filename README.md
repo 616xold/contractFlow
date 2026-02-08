@@ -1,195 +1,194 @@
-ContractFlow Overview
-=====================
+# ContractFlow
 
-ContractFlow is a baseline contract extractor focused on NDAs and simple commercial agreements.
-It reads PDFs, extracts a fixed schema into JSON, and computes a risk summary. The project
-is structured to evolve into an agentic pipeline with retrieval, evidence, validation, and
-evaluation.
+Agentic contract extraction from PDF with retrieval, field-level specialists, verifier loops, and auditable risk judging.
 
-Goals
------
-- Extract structured fields from contracts (party names, dates, term, governing law, etc).
-- Provide deterministic validation and normalization of outputs.
-- Support agentic retrieval and per-field extraction with evidence.
-- Track evaluation metrics against gold labels.
+This project is built as a portfolio-grade AI engineering system: not just "one prompt", but a measurable multi-agent pipeline with explicit evidence, confidence, arbitration, and ablations.
 
-Repository Layout
------------------
-- contractflow/core/
-  - pdf_utils.py: PDF text extraction (per-page + full text), optional OCR fallback.
-  - chunking.py: Chunking, BM25 retrieval, embeddings retrieval, and retrieval helpers.
-  - extractor.py: LLM extraction pipelines (naive, retrieval context, field agents).
-- contractflow/schemas/
-  - contract_schema.json: JSON schema for all extraction fields.
-  - models.py: Pydantic model for structured outputs.
-- scripts/
-  - baseline_extract.py: Single-document extractor CLI.
-  - bulk_extract.py: Batch extractor CLI over a folder of PDFs.
-  - inspect_chunks.py: Prints chunk headings and snippets for tuning chunking.
-  - evaluate.py: Compares predictions vs gold labels and reports accuracy + coverage.
-  - ablation_eval.py: Runs naive vs retrieval vs field_agents and evaluates each.
-  - retrieval_diagnostics.py: Reports retrieval MRR/Recall@k and per-field failures.
-  - build_cuad_pdfs.py: Generates PDFs from the public CUAD dataset text.
-  - bootstrap_labels.py: Generates silver labels from an extraction mode.
-- data/
-  - raw_pdfs/: source documents.
-  - preds/: extraction outputs and raw model outputs.
-  - labels/: gold and silver labels, labeling templates, and manifest.
-- docs/
-  - domain.md: field definitions and risk heuristics.
-  - agentic_roadmap.md: staged plan for agentic orchestration and evaluation upgrades.
+## Why This Project
 
-Data Flow (High-Level)
-----------------------
-1) PDF ingestion
-   - pdf_utils.read_pdf_pages() extracts per-page text using pypdf.
-2) Chunking + retrieval (optional)
-   - chunking.chunk_pdf() splits pages into sections using heading heuristics.
-   - Retrieval uses BM25 or embeddings and returns top-k chunk hits.
-3) LLM extraction
-   - Naive: one call over the full document.
-   - Retrieval context: one call over concatenated retrieved excerpts.
-   - Field agents: per-field calls using retrieved excerpts, evidence snippets, and confidence.
-4) Verification and normalization
-   - Type validation/coercion per schema.
-   - Deterministic normalization for effective_date and term_length.
-   - Risk level and explanation derived from domain heuristics.
-5) Evaluation
-   - evaluate.py compares predictions to gold labels and reports accuracy and coverage.
+Contract extraction pipelines fail in different ways:
 
-Extraction Modes
-----------------
-1) Naive (single call)
-   - extractor.extract_fields_naive(): full PDF text -> one LLM call -> schema validation.
+- one-shot prompts miss clause-level details
+- retrieval alone can reduce context cost but still mis-extract fields
+- high-stakes outputs need verification and deterministic guardrails
 
-2) Retrieval context (single call with excerpts)
-   - extractor.extract_fields_retrieval():
-     - Build chunk index.
-     - Retrieve top-k chunks per field.
-     - Assemble excerpts into a single prompt.
-     - One LLM call with schema validation.
-     - _meta.retrieval.coverage reports retrieval hit coverage.
+ContractFlow addresses this with staged agentic execution and evaluation-first development.
 
-3) Field agents (per-field agent loop)
-   - extractor.extract_fields_field_agents():
-     - Build chunk index.
-     - For each field:
-       - Build a field-specific query.
-       - Retrieve top-k chunks.
-       - Run a per-field LLM call that returns value + evidence + confidence.
-       - Retry with augmented query when confidence is low or conflicts detected.
-     - Apply deterministic verifiers and risk heuristics.
-     - _meta.retrieval.coverage reports evidence coverage.
+## What Makes It Agentic
 
-4) Orchestrated agents (multi-pass)
-   - extractor.extract_fields_orchestrated():
-     - Global baseline extraction from retrieved context.
-     - Per-field agent extraction with evidence/confidence.
-     - Candidate selection and disagreement detection per field.
-     - Targeted repair loop for low-confidence/conflicting fields.
-     - Verifier/judge pass returns `accept` / `revise` / `unknown`.
-     - Judge-triggered repair loop for uncertain/conflicting fields.
-     - _meta.retrieval.orchestration records pass-level trace, verifier outcomes, and disagreement rate.
+1. **Retriever agent**
+- Chunks contracts by page/section heading and returns top-k evidence chunks.
 
-Chunking and Retrieval
-----------------------
-- chunking.py detects headings using:
-  - Section/Article prefixes.
-  - Numbered headings (e.g. "1. Definitions").
-  - All-caps lines.
-  - Title-case headings.
-- Retrieval backends:
-  - BM25 (local scoring).
-  - Embeddings via OpenAI embeddings API with cosine similarity.
-  - Hybrid BM25 + embeddings with reciprocal-rank fusion (RRF).
-- Optional reranker:
-  - Cross-encoder reranking over top-N candidates (requires sentence-transformers).
-- Both return top-k chunks with page numbers and headings.
+2. **Field agents**
+- One agent per schema field.
+- Each returns `value + evidence snippets + confidence + issues`.
 
-Evidence and Coverage
----------------------
-- Field agents return evidence snippets and a confidence score.
-- Coverage metrics:
-  - Retrieval context: hit_ratio based on retrieval hits per field.
-  - Field agents: evidence_ratio and confidence stats based on evidence snippets.
+3. **Verifier/Judge agent**
+- Decides `accept`, `revise`, or `unknown`.
+- Can trigger targeted retrieval + repair passes.
 
-Schema and Validation
----------------------
-- contract_schema.json is the source of truth for field definitions and types.
-- extractor.py enforces:
-  - Required keys and types.
-  - Enum constraints.
-  - Non-empty strings for required fields.
-  - "unknown" reserved for data_transfer_outside_uk_eu only.
-- Normalization:
-  - effective_date normalized to ISO if possible.
-  - term_length normalized to months if specified in years.
+4. **Risk judge (v2)**
+- Deterministic policy score plus optional LLM arbitration.
+- Full factor trace persisted in `_meta.retrieval.risk`.
 
-Risk Heuristics
----------------
-Risk is derived deterministically from docs/domain.md:
-- Start from medium.
-- High if liability is uncapped, governing law is outside UK/EU, or data transfer is "yes".
-- Low if liability <= 12 months, governing law is England & Wales, and term <= 12 months.
+## Architecture
 
-CLI Usage Examples
-------------------
-- Single extraction (naive):
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf
+```mermaid
+flowchart LR
+    A[PDF] --> B[OCR-aware text extraction]
+    B --> C[Chunk + index by page/heading]
+    C --> D[Retriever]
+    D --> E[Global baseline extractor]
+    D --> F[Field agents]
+    F --> G[Candidate selector]
+    G --> H[Verifier/Judge<br/>accept | revise | unknown]
+    H -->|revise| D
+    H --> I[Schema normalization + validation]
+    I --> J[Risk Engine V2<br/>rules + optional judge]
+    J --> K[Final JSON + audit metadata]
+```
 
-- Retrieval context (BM25):
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --retrieval
+## Benchmark Snapshot (Committee Silver, 25 Docs)
 
-- Field agents (BM25):
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents
+Benchmark date: **February 8, 2026**  
+Canonical artifact: `data/benchmarks/portfolio_benchmark.json`
 
-- Orchestrated multi-pass extraction:
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated
+| Mode | Exact Accuracy | Partial Accuracy | Exact CI95 | Avg Total Tokens / Doc | Delta Exact vs Naive |
+|---|---:|---:|---:|---:|---:|
+| naive | 0.7067 | 0.7233 | 0.6733..0.7367 | 11,474 | +0.0000 |
+| retrieval | 0.7000 | 0.7067 | 0.6400..0.7533 | 6,038 | -0.0067 |
+| field_agents | 0.7800 | 0.7800 | 0.7367..0.8267 | 25,155 | +0.0733 |
+| orchestrated | **0.8467** | **0.8567** | **0.8167..0.8800** | 58,935 | **+0.1400** |
 
-- Orchestrated extraction without verifier:
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --disable-verifier
+### Accuracy Diagram
 
-- Orchestrated extraction with custom verifier settings:
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --verifier-confidence-threshold 0.65 --verifier-max-repairs 6
+```mermaid
+xychart-beta
+    title "Exact Accuracy by Mode (25 docs)"
+    x-axis ["naive", "retrieval", "field_agents", "orchestrated"]
+    y-axis "exact accuracy" 0 --> 1
+    bar [0.7067, 0.7000, 0.7800, 0.8467]
+```
 
-- Field agents (embeddings backend):
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend embeddings
+### Token Usage Diagram
 
-- Field agents (hybrid backend):
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend hybrid
+```mermaid
+xychart-beta
+    title "Average Total Tokens per Doc"
+    x-axis ["naive", "retrieval", "field_agents", "orchestrated"]
+    y-axis "tokens" 0 --> 60000
+    bar [11474, 6038, 25155, 58935]
+```
 
-- Field agents with reranker:
-  python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents --retrieval-backend hybrid --reranker-model cross-encoder/ms-marco-MiniLM-L-6-v2 --reranker-top-n 20
+## Field-Level Signal (Orchestrated Exact Accuracy)
 
-- Inspect chunk headings:
-  python scripts/inspect_chunks.py data/raw_pdfs/nda_harvard.pdf --max-chars 200
+- Strong fields:
+  - `doc_type`: 0.96
+  - `party_a_name`: 0.96
+  - `party_b_name`: 0.96
+  - `non_solicit_clause_present`: 1.00
+  - `data_transfer_outside_uk_eu`: 1.00
+  - `risk_level`: 1.00
+- Main bottleneck:
+  - `liability_cap`: 0.24
+- Secondary bottlenecks:
+  - `effective_date`: 0.76
+  - `termination_notice_days`: 0.80
+  - `risk_explanation`: 0.64
 
-- Evaluate predictions:
-  python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds
+## Risk Engine V2
 
-- Evaluate with bootstrap confidence intervals:
-  python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds --bootstrap-samples 1000
+Implemented in `contractflow/core/risk_engine.py` with policy in `docs/risk_policy.json`.
 
-- Evaluate against silver labels:
-  python scripts/evaluate.py --labels-dir data/labels --label-suffix .silver.json --preds-dir data/preds
+- 3 output classes: `low`, `medium`, `high`
+- weighted factors: liability, governing law region, transfer posture, term, termination, non-solicit
+- uncertainty-aware scoring from evidence/confidence coverage
+- hard-trigger floors for high-risk combinations
+- optional LLM judge arbitration
+- normal behavior on uncertainty:
+  - missing values remain `unknown`
+  - not auto-promoted to `uncapped` or `outside`
 
-- Run ablations (naive vs retrieval vs field_agents vs orchestrated):
-  python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver.json
+Current caveat: committee-silver risk labels are single-class (`high`), so risk-level accuracy is inflated. Add low/medium gold labels for proper calibration.
 
-- Retrieval diagnostics (MRR/Recall@k + failure report):
-  python scripts/retrieval_diagnostics.py --labels-dir data/labels --label-suffix .silver.json --retrieval-backend hybrid --top-k 5 --k-values 1,3,5 --out data/retrieval_diag_hybrid.json
+## Repository Layout
 
-- Generate PDFs from CUAD text:
-  python scripts/build_cuad_pdfs.py --limit 25
+- `contractflow/core/`
+  - `pdf_utils.py`: PDF text extraction + OCR fallback
+  - `chunking.py`: chunking, BM25/embeddings/hybrid retrieval
+  - `extractor.py`: naive/retrieval/field_agents/orchestrated pipelines
+  - `risk_engine.py`: policy-driven risk scoring + judge arbitration
+- `contractflow/schemas/`
+  - `contract_schema.json`
+  - `models.py`
+- `scripts/`
+  - `baseline_extract.py`, `bulk_extract.py`, `inspect_chunks.py`
+  - `evaluate.py`, `evaluate_risk.py`, `ablation_eval.py`
+  - `retrieval_diagnostics.py`, `bootstrap_labels.py`, `build_cuad_pdfs.py`
+- `docs/`
+  - `domain.md`, `agentic_roadmap.md`, `risk_policy.json`
+- `data/`
+  - `raw_pdfs/`, `labels/`, `preds_ablations/`, `benchmarks/`
 
-- Bootstrap silver labels:
-  python scripts/bootstrap_labels.py --label-suffix .silver.json --mode field_agents
+## Quickstart
 
-Known Gaps and Next Steps
--------------------------
-- Expand labeled datasets in data/labels/.
-- Improve heading heuristics and chunking for long contracts.
-- OCR fallback requires system dependencies (Poppler for pdf2image, Tesseract for pytesseract).
-- Curate more gold labels (silver labels are not a reliable benchmark).
-- Add stronger retrieval relevance labels beyond value-match heuristics.
-- Optional reranker dependency: `pip install sentence-transformers`.
+### 1) Install
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Set API key:
+
+```bash
+set OPENAI_API_KEY=your_key_here
+```
+
+Optional OCR dependencies (for scanned PDFs): Poppler + Tesseract.
+
+### 2) Run One Document
+
+```bash
+# Naive
+python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf
+
+# Retrieval context
+python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --retrieval
+
+# Field agents
+python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents
+
+# Orchestrated with verifier/judge
+python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated
+```
+
+### 3) Reproduce Evaluation
+
+```bash
+# Evaluate one mode (with CI95)
+python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds_ablations/orchestrated --label-suffix .silver_committee.json --bootstrap-samples 1000 --out data/benchmarks/eval_orchestrated_committee_latest.json
+
+# Evaluate risk outputs
+python scripts/evaluate_risk.py --labels-dir data/labels --preds-dir data/preds_ablations/orchestrated --label-suffix .silver_committee.json --out data/benchmarks/risk_eval_orchestrated_committee_latest.json
+
+# Full ablation report
+python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver_committee.json --preds-root data/preds_ablations --skip-extraction --bootstrap-samples 1000 --out data/benchmarks/ablation_latest.json
+```
+
+## Interview-Ready Artifacts
+
+- System roadmap: `docs/agentic_roadmap.md`
+- Domain and risk policy rationale: `docs/domain.md`
+- Portfolio benchmark summary: `data/benchmarks/portfolio_benchmark.json`
+- Orchestrated eval report: `data/benchmarks/eval_orchestrated_committee_latest.json`
+- Risk eval report: `data/benchmarks/risk_eval_orchestrated_committee_latest.json`
+
+## Next High-Impact Improvements
+
+1. Build a **gold risk set** with low/medium/high balance.
+2. Improve `liability_cap` extraction with a dedicated clause parser and normalization schema.
+3. Add **cost-aware orchestration**: dynamic early-exit when verifier confidence is already high.
+4. Add **calibration curves** for field confidence and risk confidence.
+

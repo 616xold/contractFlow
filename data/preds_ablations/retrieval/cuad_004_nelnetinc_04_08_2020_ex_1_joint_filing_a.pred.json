@@ -1,52 +1,57 @@
 {
   "doc_type": "other",
-  "party_a_name": null,
-  "party_b_name": null,
+  "party_a_name": "Butterfield Family Trust",
+  "party_b_name": "Shelby J. Butterfield",
   "effective_date": "2020-03-27",
   "term_length": null,
   "governing_law": null,
   "termination_notice_days": null,
-  "liability_cap": "Not specified",
+  "liability_cap": "No liability cap specified; each party responsible for completeness and accuracy of its own information, not the other's except where known or should have known inaccurate.",
   "non_solicit_clause_present": false,
   "data_transfer_outside_uk_eu": "unknown",
   "risk_level": "low",
-  "risk_explanation": "This is a joint filing agreement for SEC Schedule 13G/13D filings rather than a commercial services contract. The excerpt contains no payment terms, IP, confidentiality, data processing, or broad indemnity provisions that typically drive SaaS vendor risk. Key legal terms like governing law, termination rights, and liability caps are not specified in the provided text, limiting exposure based on this excerpt.",
+  "risk_explanation": "This is a joint filing agreement for SEC Schedule 13G/13D purposes rather than a commercial services contract. It contains no payment terms, service obligations, data processing commitments, or broad indemnities typical of SaaS agreements. Key commercial risk terms (governing law, termination, liability cap) are largely absent, limiting vendor exposure in a SaaS context.",
   "_meta": {
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.pdf",
     "model": "gpt-5.2",
     "mode": "retrieval",
-    "input_tokens": 3385,
-    "output_tokens": 170,
+    "input_tokens": 3995,
+    "output_tokens": 200,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
-      "Field 'party_a_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
-      "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
       "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
     ],
     "retrieval": {
       "enabled": true,
       "mode": "retrieval_context",
-      "backend": "bm25",
-      "model": null,
-      "cache_path": null,
-      "cache_hit": null,
+      "backend": "openai-embeddings",
+      "model": "text-embedding-3-small",
+      "cache_path": "C:\\Users\\sohai\\contractFlow\\data\\embeddings\\embeddings_text-embedding-3-small_8e4c400498139d0820bf54fb713175ac9f8623aa74edb99e93a44260ff75c083.json",
+      "cache_hit": true,
+      "config": {
+        "embedding_model": "text-embedding-3-small",
+        "embedding_batch_size": 64,
+        "embedding_cache_dir": "C:\\Users\\sohai\\contractFlow\\data\\embeddings"
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
       "use_ocr": false,
       "total_chunks": 4,
-      "total_hits": 12,
+      "total_hits": 36,
       "used_fallback_full_text": false,
       "coverage": {
         "fields_total": 12,
         "fields_with_hits": 12,
         "fields_without_hits": [],
         "hit_ratio": 1.0,
-        "total_hits": 12,
-        "avg_hits_per_field": 1.0
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
       }
     }
   }

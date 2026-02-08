@@ -1,0 +1,3141 @@
+{
+  "docs_total": 25,
+  "docs_evaluated": 25,
+  "docs_missing_preds": 0,
+  "overall_accuracy_exact": 0.7067,
+  "overall_accuracy_partial": 0.7233,
+  "overall_accuracy_exact_ci95": {
+    "mean": 0.7067,
+    "lower": 0.6733,
+    "upper": 0.7367,
+    "samples": 1000
+  },
+  "overall_accuracy_partial_ci95": {
+    "mean": 0.7233,
+    "lower": 0.6967,
+    "upper": 0.75,
+    "samples": 1000
+  },
+  "field_accuracy": {
+    "doc_type": {
+      "exact_correct": 23,
+      "partial_correct": 23,
+      "total": 25,
+      "accuracy_exact": 0.92,
+      "accuracy_partial": 0.92,
+      "avg_similarity": 0.92,
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      }
+    },
+    "party_a_name": {
+      "exact_correct": 17,
+      "partial_correct": 18,
+      "total": 25,
+      "accuracy_exact": 0.68,
+      "accuracy_partial": 0.72,
+      "avg_similarity": 0.8683,
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 7,
+        "value_mismatch": 1
+      }
+    },
+    "party_b_name": {
+      "exact_correct": 18,
+      "partial_correct": 19,
+      "total": 25,
+      "accuracy_exact": 0.72,
+      "accuracy_partial": 0.76,
+      "avg_similarity": 0.8247,
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 5,
+        "value_mismatch": 1
+      }
+    },
+    "effective_date": {
+      "exact_correct": 23,
+      "partial_correct": 24,
+      "total": 25,
+      "accuracy_exact": 0.92,
+      "accuracy_partial": 0.96,
+      "avg_similarity": 0.984,
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 1,
+        "value_mismatch": 1
+      }
+    },
+    "term_length": {
+      "exact_correct": 24,
+      "partial_correct": 24,
+      "total": 25,
+      "accuracy_exact": 0.96,
+      "accuracy_partial": 0.96,
+      "avg_similarity": 0.96,
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 0,
+        "value_mismatch": 0
+      }
+    },
+    "governing_law": {
+      "exact_correct": 22,
+      "partial_correct": 23,
+      "total": 25,
+      "accuracy_exact": 0.88,
+      "accuracy_partial": 0.92,
+      "avg_similarity": 0.9386,
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 1,
+        "value_mismatch": 1
+      }
+    },
+    "termination_notice_days": {
+      "exact_correct": 21,
+      "partial_correct": 21,
+      "total": 25,
+      "accuracy_exact": 0.84,
+      "accuracy_partial": 0.84,
+      "avg_similarity": 0.84,
+      "error_buckets": {
+        "missing": 3,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 0,
+        "value_mismatch": 1
+      }
+    },
+    "liability_cap": {
+      "exact_correct": 2,
+      "partial_correct": 3,
+      "total": 25,
+      "accuracy_exact": 0.08,
+      "accuracy_partial": 0.12,
+      "avg_similarity": 0.4579,
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 21,
+        "value_mismatch": 1
+      }
+    },
+    "non_solicit_clause_present": {
+      "exact_correct": 25,
+      "partial_correct": 25,
+      "total": 25,
+      "accuracy_exact": 1.0,
+      "accuracy_partial": 1.0,
+      "avg_similarity": 1.0,
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 0,
+        "value_mismatch": 0
+      }
+    },
+    "data_transfer_outside_uk_eu": {
+      "exact_correct": 25,
+      "partial_correct": 25,
+      "total": 25,
+      "accuracy_exact": 1.0,
+      "accuracy_partial": 1.0,
+      "avg_similarity": 1.0,
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 0,
+        "value_mismatch": 0
+      }
+    },
+    "risk_level": {
+      "exact_correct": 12,
+      "partial_correct": 12,
+      "total": 25,
+      "accuracy_exact": 0.48,
+      "accuracy_partial": 0.48,
+      "avg_similarity": 0.48,
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 13,
+        "value_mismatch": 0
+      }
+    },
+    "risk_explanation": {
+      "exact_correct": 0,
+      "partial_correct": 0,
+      "total": 25,
+      "accuracy_exact": 0.0,
+      "accuracy_partial": 0.0,
+      "avg_similarity": 0.0586,
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 25,
+        "value_mismatch": 0
+      }
+    }
+  },
+  "error_buckets": {
+    "missing": 7,
+    "wrong_type": 0,
+    "wrong_enum": 0,
+    "span_mismatch": 75,
+    "value_mismatch": 6
+  },
+  "evidence_coverage": {
+    "avg_evidence_ratio": null,
+    "avg_hit_ratio": null,
+    "docs_with_evidence_ratio": 0,
+    "docs_with_hit_ratio": 0
+  },
+  "docs": [
+    {
+      "doc": "cuad_000_limeenergyco_09_09_1999_ex_10_distributo",
+      "label_path": "data\\labels\\cuad_000_limeenergyco_09_09_1999_ex_10_distributo.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_000_limeenergyco_09_09_1999_ex_10_distributo.pred.json",
+      "status": "evaluated",
+      "fields_exact": 7,
+      "fields_partial": 8,
+      "fields_total": 12,
+      "accuracy_exact": 0.5833,
+      "accuracy_partial": 0.6667,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 1
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "electric city corp.",
+          "pred": "electric city corp., a delaware corporation",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.6102,
+          "error_bucket": "span_mismatch"
+        },
+        "party_b_name": {
+          "gold": "electric city of illinois l.l.c.",
+          "pred": "electric city of illinois llc",
+          "exact": false,
+          "partial": true,
+          "similarity": 0.9667,
+          "error_bucket": "value_mismatch"
+        },
+        "effective_date": {
+          "gold": "1999-09-07",
+          "pred": "1999-09-07",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 120,
+          "pred": 120,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of illinois",
+          "pred": "state of illinois",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 30,
+          "pred": null,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "missing"
+        },
+        "liability_cap": {
+          "gold": "no explicit limitation of liability cap stated in provided excerpts.",
+          "pred": "no explicit monetary limitation of liability cap stated; agreement includes mutual indemnification obligations.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.625,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": true,
+          "pred": true,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "the agreement appears to be a long-term (10-year) distribution arrangement with significant commercial obligations and limited flexibility, which is high risk for a small saas vendor. the provided excerpts do not show any explicit limitation of liability, increasing exposure. there is also a non-solicitation/non-interference restriction extending beyond the term, adding post-termination constraints.",
+          "pred": "primary risk driver: governing law (governing law appears outside uk/eu.); secondary driver: liability cap (liability cap text could not be normalized.); mitigating factor: non-solicit clause (non-solicit obligations are present.); some critical factors have limited evidence or confidence. final risk level: high.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0087,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo",
+      "label_path": "data\\labels\\cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo.pred.json",
+      "status": "evaluated",
+      "fields_exact": 8,
+      "fields_partial": 8,
+      "fields_total": 12,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.6667,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 4,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "google inc",
+          "pred": "whitesmoke inc.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.5,
+          "error_bucket": "span_mismatch"
+        },
+        "party_b_name": {
+          "gold": "google inc",
+          "pred": "google inc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2011-08-01",
+          "pred": "2011-08-01",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 24,
+          "pred": 24,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "english law",
+          "pred": "english law",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "each party's total liability is limited to the greater of: (a) [*] euros; and (b) [*]% of the total payment due to the distributor in the relevant contract year (subject to clauses 9.1 and 9.2).",
+          "pred": "each party's total liability in any contract year is limited to the greater of: (a) [*] euros ([*] euros); and (b) [*]% of the total payment due to the distributor in the relevant contract year pursuant to clause 4 (payment terms).",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.7624,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "the agreement contains a liability cap, but the key monetary and percentage figures are redacted, making exposure hard to assess. termination rights are largely for breach/insolvency/change of control rather than clear termination-for-convenience, which can reduce flexibility. the contract also imposes detailed distribution/compliance obligations and audit rights, increasing operational risk for a small vendor.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0204,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119",
+      "label_path": "data\\labels\\cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119.pred.json",
+      "status": "evaluated",
+      "fields_exact": 8,
+      "fields_partial": 8,
+      "fields_total": 12,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.6667,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 4,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "shenzhen lohas supply chain management co., ltd.",
+          "pred": "shenzhen lohas supply chain management co., ltd.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "shenzhen lohas supply chain management co., ltd.",
+          "pred": "the seller",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.2182,
+          "error_bucket": "span_mismatch"
+        },
+        "effective_date": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 60,
+          "pred": 60,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "people's republic of china",
+          "pred": "people's republic of china (otherwise united nations convention on contracts for the international sale of goods)",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.3796,
+          "error_bucket": "span_mismatch"
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "not specified in provided excerpts",
+          "pred": "penalty for late delivery capped at 5% of the total value of the goods involved in the late delivery (plus stated 30% penalty upon cancellation for very late delivery)",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.2132,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is a goods supply framework with prc governing law and mandatory arbitration in beijing, which is typically high friction and costly for a small foreign vendor. the contract includes significant financial penalties (late delivery penalties up to 5% and an additional stated 30% penalty on cancellation) and lacks a clear general limitation of liability. key commercial details are deferred to purchase orders, increasing uncertainty and operational risk.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0338,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_003_centrackinternationalinc_10_29_1999_ex_1",
+      "label_path": "data\\labels\\cuad_003_centrackinternationalinc_10_29_1999_ex_1.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_003_centrackinternationalinc_10_29_1999_ex_1.pred.json",
+      "status": "evaluated",
+      "fields_exact": 6,
+      "fields_partial": 8,
+      "fields_total": 12,
+      "accuracy_exact": 0.5,
+      "accuracy_partial": 0.6667,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 4,
+        "value_mismatch": 2
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "centrack international, a florida corporation",
+          "pred": "centrack international, inc.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.7143,
+          "error_bucket": "span_mismatch"
+        },
+        "party_b_name": {
+          "gold": "i-on interactive, a florida corporation",
+          "pred": "i-on interactive, inc.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.6552,
+          "error_bucket": "span_mismatch"
+        },
+        "effective_date": {
+          "gold": "1999-04-01",
+          "pred": "1999-04-06",
+          "exact": false,
+          "partial": true,
+          "similarity": 0.9,
+          "error_bucket": "value_mismatch"
+        },
+        "term_length": {
+          "gold": 6,
+          "pred": 6,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of florida",
+          "pred": "state of florida",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 30,
+          "pred": 30,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "one (1) month's fees and the remaining portion of any prepaid fees",
+          "pred": "limited to one (1) month's fees and the remaining portion of any prepaid fees",
+          "exact": false,
+          "partial": true,
+          "similarity": 0.9209,
+          "error_bucket": "value_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "governing law appears outside the uk/eu.",
+          "pred": "the agreement includes a strong limitation of liability capping damages to one month\u2019s fees (plus any remaining prepaid fees) and excludes consequential damages, which is generally favorable to the service provider. however, the customer has broad indemnification obligations and the service can be interrupted for nonpayment, which may create operational and dispute risk. termination for convenience requires 30 days\u2019 notice, and the initial term is six months with auto-renewal, which is moderate commitment.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0148,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a",
+      "label_path": "data\\labels\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.pred.json",
+      "status": "evaluated",
+      "fields_exact": 8,
+      "fields_partial": 8,
+      "fields_total": 12,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.6667,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 4,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "butterfield family trust",
+          "pred": "shelby j. butterfield",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.5,
+          "error_bucket": "span_mismatch"
+        },
+        "party_b_name": {
+          "gold": "butterfield family trust",
+          "pred": "butterfield family trust",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2020-03-27",
+          "pred": "2020-03-27",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "no liability cap specified; each party responsible for completeness and accuracy of its own information, not the other's except where known or should have known inaccurate.",
+          "pred": "not specified",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1429,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "low",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "this is a joint filing agreement for sec schedule 13g/13d purposes rather than a commercial services contract. it contains no payment terms, service obligations, data processing commitments, or broad indemnities typical of saas agreements. key commercial risk terms (governing law, termination, liability cap) are largely absent, limiting vendor exposure in a saas context.",
+          "pred": "this is a joint filing agreement for sec schedule 13g/13d purposes and does not contain typical commercial terms like payment, service obligations, ip, or broad indemnities. it allocates responsibility for accuracy of each party\u2019s own information and disclaims responsibility for the other party\u2019s information absent knowledge of inaccuracy. overall exposure for a small saas vendor is minimal because it is not a saas/customer contract.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1866,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse",
+      "label_path": "data\\labels\\cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse.pred.json",
+      "status": "evaluated",
+      "fields_exact": 7,
+      "fields_partial": 7,
+      "fields_total": 12,
+      "accuracy_exact": 0.5833,
+      "accuracy_partial": 0.5833,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 4,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "adams golf",
+          "pred": "tom watson",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.3,
+          "error_bucket": "span_mismatch"
+        },
+        "party_b_name": {
+          "gold": "adams golf, ltd.",
+          "pred": "adams golf, ltd.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2005-01-13",
+          "pred": "2005-01-13",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of kansas",
+          "pred": "state of kansas",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 15,
+          "pred": null,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "missing"
+        },
+        "liability_cap": {
+          "gold": "unspecified (confidential/redacted repayment schedule; no clear general liability cap stated in provided excerpts)",
+          "pred": "no explicit limitation of liability cap stated.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.3567,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "the agreement appears to be an endorsement/consulting arrangement with broad exclusivity obligations and morality/termination-for-cause provisions, which can create operational and reputational risk. key commercial terms and any limitation of liability are redacted or not provided, increasing uncertainty. dispute resolution is arbitration in kansas, which may be burdensome for a small vendor.",
+          "pred": "this is an endorsement/consulting agreement with broad exclusivity obligations and morality-based termination rights, which can create operational and reputational risk. it includes mutual indemnities but no stated limitation of liability cap, increasing potential exposure. term length and some key commercial terms are redacted, adding uncertainty.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1583,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23",
+      "label_path": "data\\labels\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.pred.json",
+      "status": "evaluated",
+      "fields_exact": 8,
+      "fields_partial": 8,
+      "fields_total": 12,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.6667,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 4,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "kiromic, inc, a delaware corporation",
+          "pred": "kiromic, inc.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.4889,
+          "error_bucket": "span_mismatch"
+        },
+        "party_b_name": {
+          "gold": "gianluca rotino",
+          "pred": "gianluca rotino",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2018-07-01",
+          "pred": "2018-07-01",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of texas",
+          "pred": "state of texas",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "not specified in provided excerpts.",
+          "pred": "no liability cap stated.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.2456,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "the agreement includes broad confidentiality and ip/work product obligations and references indemnity exposure related to third-party rights, which can create meaningful risk for a small saas vendor. there is no clear liability cap or limitation of liability in the provided excerpts, increasing potential downside. termination appears to be allowed on prior written notice but without a specified notice period, adding some operational uncertainty.",
+          "pred": "the agreement contains broad confidentiality and ip assignment provisions, including assignment of all inventions created in the course of services, which can be risky for a small vendor if roles are reversed or scope is unclear. termination is allowed on written notice but no notice period is specified, creating uncertainty. there is no stated limitation of liability, which increases exposure if disputes arise.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1434,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve",
+      "label_path": "data\\labels\\cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "veoneer ab",
+          "pred": "veoneer ab",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "nissin kogyo co., ltd.",
+          "pred": "nissin kogyo co., ltd.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2019-10-30",
+          "pred": "2019-10-30",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "japan",
+          "pred": "japan",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "not specified in provided excerpts",
+          "pred": "not specified",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.5532,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is an amendment/termination of a joint venture agreement rather than a standard saas contract, so many vendor-protective commercial terms (liability cap, termination notice, data processing) are not stated here. it includes survival of liability for pre-closing breaches and indemnity obligations for directors and officers, which can create open-ended exposure. because key risk-limiting terms are absent/unclear, overall risk is medium for a small saas vendor.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0333,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_",
+      "label_path": "data\\labels\\cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "dova pharmaceuticals, inc.",
+          "pred": "dova pharmaceuticals, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "valeant pharmaceuticals north america llc",
+          "pred": "valeant pharmaceuticals north america llc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2018-09-26",
+          "pred": "2018-09-26",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 48,
+          "pred": 48,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "[***] (state law; jurisdiction redacted)",
+          "pred": null,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1714,
+          "error_bucket": "missing"
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "not specified in provided excerpts (see section 11.4 limitation of liability; details not included).",
+          "pred": "no general monetary liability cap stated; limitation excludes consequential/indirect damages, with carve-outs for indemnification and confidentiality breaches.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.246,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": true,
+          "pred": true,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is a complex co-promotion agreement with extensive operational, compliance, audit, and indemnification obligations that are not typical for a small saas vendor. there is no clear overall cap on liability, and indemnification plus confidentiality-breach carve-outs can create significant uncapped exposure. governing law and several key notice/cure periods are redacted, increasing uncertainty and negotiation risk.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.085,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_009_pacira_pharmaceuticals_inc_a_r_strategic",
+      "label_path": "data\\labels\\cuad_009_pacira_pharmaceuticals_inc_a_r_strategic.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_009_pacira_pharmaceuticals_inc_a_r_strategic.pred.json",
+      "status": "evaluated",
+      "fields_exact": 10,
+      "fields_partial": 10,
+      "fields_total": 12,
+      "accuracy_exact": 0.8333,
+      "accuracy_partial": 0.8333,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "pacira pharmaceuticals, inc.",
+          "pred": "pacira pharmaceuticals, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "ekr therapeutics, inc.",
+          "pred": "ekr therapeutics, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2007-08-10",
+          "pred": "2007-08-10",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "new york",
+          "pred": "new york",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "[**] us dollars ($[**])",
+          "pred": "ppi liability limited to [**] us dollars ($[**]) (section 10.8); ekr liability limited to [**] us dollars ($[**]) (section 10.9), with stated exceptions.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1538,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "governing law appears outside the uk/eu.",
+          "pred": "this is a complex strategic licensing/distribution agreement with significant operational, regulatory, and indemnity obligations rather than a simple services contract. liability caps are heavily redacted ([**]) and include multiple exceptions, making financial exposure unclear. term is long (15 years from first commercial launch or until last patent claim expiry, with renewals) and termination for convenience notice is also redacted, increasing lock-in and uncertainty.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0161,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_010_metlife_inc_remarketing_agreement",
+      "label_path": "data\\labels\\cuad_010_metlife_inc_remarketing_agreement.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_010_metlife_inc_remarketing_agreement.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "metlife, inc.",
+          "pred": "metlife, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "deutsche bank securities inc.",
+          "pred": "deutsche bank securities inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2014-09-15",
+          "pred": "2014-08-26",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.7,
+          "error_bucket": "span_mismatch"
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of new york",
+          "pred": "state of new york",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 5,
+          "pred": 5,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "no remarketing agent shall be required to contribute any amount in excess of the amount by which the total price at which the applicable securities remarketed by it and distributed to the public were offered to the public exceeds the amount of any damages which such remarketing agent has otherwise been required to pay.",
+          "pred": "no explicit general monetary cap on liability; contribution section limits a remarketing agent's contribution to the amount by which the public offering price exceeds damages otherwise required to be paid.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.2414,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is a capital markets remarketing agreement, not a typical saas customer contract, and it contains broad indemnification obligations tied to securities law disclosures with no clear overall liability cap for the company. termination is largely event/condition-driven and not a simple convenience termination framework. the complexity and regulatory exposure would be high risk for a small saas vendor to take on or adapt.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0437,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat",
+      "label_path": "data\\labels\\cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 1
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "edge communications solutions, llc",
+          "pred": "edge communications solutions, llc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "fte networks, inc.",
+          "pred": "fte networks, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2016-02-17",
+          "pred": "2016-02-17",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 36,
+          "pred": 36,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of texas",
+          "pred": "state of texas",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 15,
+          "pred": 30,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "value_mismatch"
+        },
+        "liability_cap": {
+          "gold": "not expressly stated as a general limitation of liability cap in the provided excerpts (insurance requirements include cgl $1,000,000 per occurrence/$2,000,000 aggregate and umbrella/excess $5,000,000).",
+          "pred": "no explicit limitation of liability cap stated in the provided text.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.4259,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": true,
+          "pred": true,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "governing law appears outside the uk/eu.",
+          "pred": "the agreement contains broad indemnification obligations (including duty to defend) in favor of edge and the customer, with no stated cap on liability. termination rights are largely framed around subcontractor default and allow edge to take over work after a cure period, creating operational and financial exposure. there is also a non-solicitation clause with liquidated damages, increasing potential cost if breached.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0265,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_",
+      "label_path": "data\\labels\\cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "domini advisor trust",
+          "pred": "domini advisor trust",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "domini social investments llc",
+          "pred": "domini social investments llc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2005-02-04",
+          "pred": "2005-02-04",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "commonwealth of massachusetts",
+          "pred": "commonwealth of massachusetts",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 60,
+          "pred": 60,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "sponsor not liable for any error of judgment or mistake of law or for any act or omission, except for willful misfeasance, bad faith, gross negligence, or reckless disregard of obligations.",
+          "pred": "no monetary cap stated; sponsor liability limited to willful misfeasance, bad faith, gross negligence, or reckless disregard (exculpation for other acts/omissions).",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.5748,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "the agreement contains a broad limitation of liability in favor of the sponsor, with liability only for willful misfeasance, bad faith, gross negligence, or reckless disregard, which can significantly limit remedies. key commercial protections for a small saas vendor (clear term/termination notice and a defined monetary liability cap) are not specified in the provided excerpts. the document is also not a standard saas contract type and appears to allocate substantial responsibilities and compliance-related duties, increasing operational and legal risk.",
+          "pred": "the agreement includes a strong limitation of liability for the sponsor (exculpation except for willful misfeasance, bad faith, gross negligence, or reckless disregard) and does not state any monetary liability cap. termination is allowed for convenience but requires 60 days\u2019 notice, which reduces flexibility. the contract is governed by massachusetts law, and there are no data transfer terms to assess privacy/export risk.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0395,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex",
+      "label_path": "data\\labels\\cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "nda",
+          "pred": "nda",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "___________________________ (the \"franchisee\")",
+          "pred": "___________________________ (the \"franchisee\")",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "___________________________ (the \"member\")",
+          "pred": "___________________________ (the \"member\")",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 24,
+          "pred": null,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "missing"
+        },
+        "governing_law": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "no liability cap stated; includes injunctive relief and payment of court costs and reasonable attorneys' fees.",
+          "pred": "no explicit monetary liability cap stated; includes obligation to pay court costs and reasonable attorney's fees for injunctive relief enforcement.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.6587,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": true,
+          "pred": true,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "governing law appears outside the uk/eu.",
+          "pred": "the agreement contains broad confidentiality obligations that survive indefinitely and strong non-compete restrictions, including a two-year post-term non-compete within a three-mile radius. it also includes injunctive relief and fee-shifting (court costs and reasonable attorney\u2019s fees) without any stated liability cap. these terms are onerous and create significant enforcement and cost exposure.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0093,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494",
+      "label_path": "data\\labels\\cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "nuance communications, inc.",
+          "pred": "nuance communications, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "cerence inc.",
+          "pred": "cerence inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2019-09-30",
+          "pred": "2019-09-30",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of delaware",
+          "pred": "state of delaware",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "unknown (section 7.01 limitation on liability referenced but cap amount/standard not provided in excerpts)",
+          "pred": "no monetary liability cap stated; excludes indirect, special, punitive or consequential damages.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.3776,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is an intellectual property agreement with broad, perpetual, worldwide, sublicensable license grants, which can create long-lived obligations and downstream sublicense risk. liability terms disclaim warranties and exclude consequential damages but do not include a clear monetary cap, leaving potential exposure for direct damages. termination is very limited (generally only by mutual written agreement, with a pre-distribution termination right), reducing flexibility if the relationship becomes problematic.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0137,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_015_thriventvariableinsuranceaccountb_201907",
+      "label_path": "data\\labels\\cuad_015_thriventvariableinsuranceaccountb_201907.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_015_thriventvariableinsuranceaccountb_201907.pred.json",
+      "status": "evaluated",
+      "fields_exact": 8,
+      "fields_partial": 8,
+      "fields_total": 12,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.6667,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 2,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "thrivent financial for lutherans",
+          "pred": "thrivent financial for lutherans",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "thrivent financial for lutherans",
+          "pred": null,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0556,
+          "error_bucket": "missing"
+        },
+        "effective_date": {
+          "gold": "2019-07-01",
+          "pred": "2019-07-01",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "no explicit liability cap stated; includes a maintenance of solvency provision requiring extra payments or benefit reductions if the society's solvency becomes impaired (interest at 5% per year on unpaid amounts).",
+          "pred": null,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0377,
+          "error_bucket": "missing"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is an insurance contract endorsement transferring obligations from thrivent life insurance company to thrivent financial for lutherans and adding solvency-related provisions. it includes a potential requirement for extra payments if solvency is impaired, which can create financial exposure. key commercial terms typical for saas (liability cap, termination, governing law, data transfer) are not stated in the provided text, increasing uncertainty.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0114,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_016_reynoldsconsumerproductsinc_20191115_s_1",
+      "label_path": "data\\labels\\cuad_016_reynoldsconsumerproductsinc_20191115_s_1.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_016_reynoldsconsumerproductsinc_20191115_s_1.pred.json",
+      "status": "evaluated",
+      "fields_exact": 8,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 1
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "msa",
+          "pred": "msa",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "reynolds consumer products llc",
+          "pred": "reynolds consumer products llc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "pactiv llc",
+          "pred": "pactiv llc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2019-11-01",
+          "pred": "2019-11-01",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of illinois and the united states of america",
+          "pred": "state of illinois, united states of america",
+          "exact": false,
+          "partial": true,
+          "similarity": 0.913,
+          "error_bucket": "value_mismatch"
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "no explicit overall monetary cap stated in the provided excerpts; agreement excludes indirect/consequential damages and requires specified insurance limits (e.g., $10,000,000 per occurrence for certain coverages).",
+          "pred": "no general monetary liability cap stated; indirect/consequential damages are waived, with carve-outs (including indemnification, ip infringement, confidentiality breaches, payment obligations, and intentional misconduct).",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0574,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "the agreement contains broad indemnities and significant carve-outs from the indirect-damages waiver (including for confidentiality and ip), which can create uncapped exposure in key risk areas. there is no clear overall liability cap and termination mechanics are tied to purchase schedules and material breach/cure processes rather than a simple convenience termination. governing law/venue is illinois with exclusive jurisdiction in specified illinois courts, which may be unfavorable for a small vendor outside that forum.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0731,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_017_integrityfunds_20200121_485bpos_ex_99_e_",
+      "label_path": "data\\labels\\cuad_017_integrityfunds_20200121_485bpos_ex_99_e_.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_017_integrityfunds_20200121_485bpos_ex_99_e_.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "integrity short term government fund",
+          "pred": "integrity short term government fund",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "integrity funds distributor, llc",
+          "pred": "integrity funds distributor, llc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2020-01-18",
+          "pred": "2020-01-18",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 24,
+          "pred": 24,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of kansas",
+          "pred": "state of kansas",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 60,
+          "pred": 60,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "no explicit monetary liability cap stated; agreement includes mutual indemnification obligations tied to securities law liabilities (e.g., 1933 act/1940 act) without a stated cap.",
+          "pred": "no explicit monetary liability cap stated; agreement includes mutual indemnification provisions with carve-outs (e.g., willful misfeasance, bad faith, gross negligence).",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.6886,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "the agreement contains broad indemnification provisions related to securities law disclosures and litigation expenses, with no stated monetary cap on liability. termination requires 60\u201390 days\u2019 notice, which may limit flexibility. governing law is kansas, which may increase enforcement and dispute-resolution burden for a small saas vendor.",
+          "pred": "the agreement contains broad mutual indemnification obligations tied to securities law disclosures and marketing materials, with no explicit monetary cap on liability. termination for convenience is available but requires 60 days\u2019 notice for the fund (and 90 days for the distributor), which may reduce flexibility. overall risk is moderate due to uncapped indemnity exposure and regulatory-driven obligations, though the scope is specific to distribution/underwriting services rather than general saas delivery.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1935,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_",
+      "label_path": "data\\labels\\cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_.pred.json",
+      "status": "evaluated",
+      "fields_exact": 10,
+      "fields_partial": 10,
+      "fields_total": 12,
+      "accuracy_exact": 0.8333,
+      "accuracy_partial": 0.8333,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "nda",
+          "pred": "other",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "party_a_name": {
+          "gold": "marv enterprises, llc",
+          "pred": "marv enterprises, llc",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "premier biomedical, inc.",
+          "pred": "premier biomedical, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2020-05-12",
+          "pred": "2020-05-12",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "commonwealth of pennsylvania",
+          "pred": "commonwealth of pennsylvania",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "not specified",
+          "pred": "not specified",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is an intellectual property licensing/joint venture agreement rather than a standard saas contract, with significant payment obligations, royalty provisions, and license reversion triggers for nonpayment. it contains broad confidentiality obligations without clear term limits and no stated limitation of liability. the structure and financial/operational commitments create high commercial and legal risk for a small saas vendor.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0156,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic",
+      "label_path": "data\\labels\\cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "bravatek technologies, inc.",
+          "pred": "bravatek solutions, inc.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.7234,
+          "error_bucket": "span_mismatch"
+        },
+        "party_b_name": {
+          "gold": "sibannac, inc.",
+          "pred": "sibannac, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2017-11-30",
+          "pred": "2017-11-30",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 12,
+          "pred": 12,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of texas",
+          "pred": "state of texas",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 90,
+          "pred": 90,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "no explicit limitation of liability cap stated; agreement includes mutual indemnification for third-party claims (including attorneys' fees and costs).",
+          "pred": "no liability cap stated",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.2722,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "the agreement appears to include broad mutual indemnification obligations for third-party claims, with no stated cap on liability, which can create uncapped financial exposure. it also has a 90-day termination notice requirement, reducing flexibility to exit quickly. confidentiality is present but there is no clear limitation-of-liability framework typical for saas vendors.",
+          "pred": "the agreement includes mutual indemnification for third-party claims but does not include any explicit limitation of liability, which can create uncapped exposure. confidentiality obligations extend for five years after termination, and termination for convenience requires 90 days' notice, reducing flexibility. there are no data protection or cross-border transfer terms, which increases compliance uncertainty if any personal data is involved.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.1559,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg",
+      "label_path": "data\\labels\\cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg.pred.json",
+      "status": "evaluated",
+      "fields_exact": 7,
+      "fields_partial": 7,
+      "fields_total": 12,
+      "accuracy_exact": 0.5833,
+      "accuracy_partial": 0.5833,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 5,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "nda",
+          "pred": "other",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "party_a_name": {
+          "gold": "intricon corporation",
+          "pred": "intricon corporation",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "intricon corporation",
+          "pred": "dynamic hearing pty ltd",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.2326,
+          "error_bucket": "span_mismatch"
+        },
+        "effective_date": {
+          "gold": "2008-10-01",
+          "pred": "2008-10-01",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 60,
+          "pred": 60,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "victoria, australia",
+          "pred": "victoria, australia",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 90,
+          "pred": 90,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "excludes indirect/consequential damages; no clear monetary liability cap stated in provided excerpts (subject to clause 10.3).",
+          "pred": "dynamic hearing's aggregate liability to intricon is capped at $5m (maximum).",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.3385,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "the excerpts show broad exclusions of indirect/consequential damages and other limitation language, but no clear monetary liability cap is visible, which can create uncertainty for a small vendor. termination provisions are referenced but the notice period for termination for convenience is not provided in the excerpts. governing law and party names are not clearly stated in the provided text, increasing interpretive and enforcement risk.",
+          "pred": "this is a strategic alliance/license agreement with significant payment, audit, and reporting obligations and broad indemnities, which increases operational and financial risk. liability is capped for dynamic hearing at $5m and consequential damages are excluded, but the cap is one-sided and indemnity exposure remains. termination for convenience requires 3 months' notice and generally cannot occur within the first two years, reducing flexibility.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0205,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc",
+      "label_path": "data\\labels\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.pred.json",
+      "status": "evaluated",
+      "fields_exact": 8,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.6667,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 1
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "the bon-ton stores, inc. and its associated chapter 11 debtors in possession",
+          "pred": "the bon-ton stores, inc. and its associated chapter 11 debtors in possession (collectively, \"merchant\")",
+          "exact": false,
+          "partial": true,
+          "similarity": 0.8706,
+          "error_bucket": "value_mismatch"
+        },
+        "party_b_name": {
+          "gold": "the bon-ton stores, inc.",
+          "pred": "(a) a contractual joint venture comprised of ga retail, inc. and tiger capital group, llc (collectively, the \"agent\") and (b) wilmington savings fund society, fsb, as the indenture agent and collateral trustee for the 8.00% second-lien senior secured notes due 2021 (the \"notes trustee\" and collectively with agent, \"purchaser\")",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0122,
+          "error_bucket": "span_mismatch"
+        },
+        "effective_date": {
+          "gold": "2018-04-18",
+          "pred": "2018-04-18",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of delaware",
+          "pred": "state of delaware",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 7,
+          "pred": 7,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "subject to the wind-down budget and the wind-down cap (amount not specified in excerpt)",
+          "pred": "purchaser shall not be liable for any claims against merchant except as expressly provided for in this agreement (no specific monetary cap stated).",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.2533,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "this is a complex bankruptcy-related agency/liquidation agreement with extensive operational obligations, escrow/trust arrangements, and court-supervised processes, which is atypical and high-risk for a small saas vendor. there is no clear monetary limitation of liability; instead it broadly limits purchaser liability only to what is expressly assumed, creating uncertainty rather than a defined cap. term/termination mechanics are specialized (store-by-store vacate notice) and not a simple convenience termination framework.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.02,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s",
+      "label_path": "data\\labels\\cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 1,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "on2 technologies, inc.",
+          "pred": "on2 technologies, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "wildform, inc.",
+          "pred": "wildform, inc.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 18,
+          "pred": 18,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "state of new york",
+          "pred": "state of new york",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": 30,
+          "pred": null,
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "missing"
+        },
+        "liability_cap": {
+          "gold": "not specified in provided excerpts",
+          "pred": "no explicit limitation of liability cap stated in the provided text.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.4554,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "the agreement contains broad confidentiality obligations and indemnities but no explicit limitation of liability cap, which can expose a small saas vendor to uncapped damages and defense costs. termination is only for cause (material breach with a 30-day cure) or insolvency, with no termination-for-convenience right stated. the contract also includes ip/work-made-for-hire and assignment provisions that can create significant ownership and compliance risk depending on the vendor\u2019s role.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0495,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e",
+      "label_path": "data\\labels\\cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e.pred.json",
+      "status": "evaluated",
+      "fields_exact": 10,
+      "fields_partial": 10,
+      "fields_total": 12,
+      "accuracy_exact": 0.8333,
+      "accuracy_partial": 0.8333,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 2,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "natalija tunevic",
+          "pred": "natalija tunevic",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "mitchell's web advance, plc",
+          "pred": "mitchell vitalis",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.4762,
+          "error_bucket": "span_mismatch"
+        },
+        "effective_date": {
+          "gold": "2018-01-11",
+          "pred": "2018-01-11",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "high",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_explanation": {
+          "gold": "liability appears uncapped or not specified; governing law appears outside the uk/eu.",
+          "pred": "the agreement text provided does not specify governing law, termination rights/notice, or any limitation of liability, which creates significant legal and financial uncertainty. it also grants the company broad rights to use the client\u2019s trademarks and display work in its portfolio, but lacks other standard protections and operational clauses. these omissions increase risk for a small saas/vendor if disputes arise.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0729,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    },
+    {
+      "doc": "cuad_024_operaltd_04_30_2020_ex_4_14_service_agre",
+      "label_path": "data\\labels\\cuad_024_operaltd_04_30_2020_ex_4_14_service_agre.silver_committee.json",
+      "pred_path": "data\\preds_ablations\\naive\\cuad_024_operaltd_04_30_2020_ex_4_14_service_agre.pred.json",
+      "status": "evaluated",
+      "fields_exact": 9,
+      "fields_partial": 9,
+      "fields_total": 12,
+      "accuracy_exact": 0.75,
+      "accuracy_partial": 0.75,
+      "coverage": {},
+      "error_buckets": {
+        "missing": 0,
+        "wrong_type": 0,
+        "wrong_enum": 0,
+        "span_mismatch": 3,
+        "value_mismatch": 0
+      },
+      "fields": {
+        "doc_type": {
+          "gold": "other",
+          "pred": "other",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_a_name": {
+          "gold": "pc financial services private limited",
+          "pred": "pc financial services private limited",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "party_b_name": {
+          "gold": "mobimagic co., ltd.",
+          "pred": "mobimagic co., ltd.",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "effective_date": {
+          "gold": "2019-04-01",
+          "pred": "2019-04-01",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "term_length": {
+          "gold": 12,
+          "pred": 12,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "governing_law": {
+          "gold": "india",
+          "pred": "india",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "termination_notice_days": {
+          "gold": null,
+          "pred": null,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "liability_cap": {
+          "gold": "the aggregate amount of fees and expenses owed by pc financial to mobimagic for services performed under this agreement",
+          "pred": "total cumulative liability will not exceed the aggregate amount of fees and expenses owed by pc financial to mobimagic for services performed under this agreement.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.847,
+          "error_bucket": "span_mismatch"
+        },
+        "non_solicit_clause_present": {
+          "gold": false,
+          "pred": false,
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "data_transfer_outside_uk_eu": {
+          "gold": "unknown",
+          "pred": "unknown",
+          "exact": true,
+          "partial": true,
+          "similarity": 1.0,
+          "error_bucket": null
+        },
+        "risk_level": {
+          "gold": "high",
+          "pred": "medium",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0,
+          "error_bucket": "span_mismatch"
+        },
+        "risk_explanation": {
+          "gold": "governing law appears outside the uk/eu.",
+          "pred": "the agreement includes a broad limitation of liability capped at the aggregate fees/expenses owed and excludes consequential damages, which can materially limit recovery for a vendor. termination is only for material breach with a 30-day cure period and no clear termination-for-convenience right, reducing flexibility. data protection obligations are stated at a high level without detailed security, audit, or cross-border transfer terms, creating compliance ambiguity.",
+          "exact": false,
+          "partial": false,
+          "similarity": 0.0199,
+          "error_bucket": "span_mismatch"
+        }
+      }
+    }
+  ]
+}

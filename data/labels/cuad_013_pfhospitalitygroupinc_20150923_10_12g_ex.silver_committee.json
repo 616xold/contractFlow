@@ -1,0 +1,14 @@
+{
+  "doc_type": "nda",
+  "party_a_name": "___________________________ (the \"Franchisee\")",
+  "party_b_name": "___________________________ (the \"Member\")",
+  "effective_date": null,
+  "term_length": 24,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "No liability cap stated; includes injunctive relief and payment of court costs and reasonable attorneys' fees.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU."
+}

@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 17677,
-    "output_tokens": 2091,
+    "input_tokens": 18173,
+    "output_tokens": 2402,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -34,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,7 +47,8 @@
       "total_chunks": 19,
       "fields": {
         "doc_type": {
-          "confidence": 0.9,
+          "source": "field_agent",
+          "confidence": 0.78,
           "evidence": [
             {
               "page_num": 3,
@@ -51,43 +58,96 @@
             {
               "page_num": 2,
               "heading": "Article 1.Amendment and Termination of JV Agreement",
-              "snippet": "As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... under the JV Agreement shall terminate"
+              "snippet": "As of the VNBJ Closing, except as expressly set forth in this Amendment, the JV Agreement shall immediately cease to have any application or effect..."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 725,
-          "completion_tokens": 115
+          "completion_tokens": 113
         },
         "party_a_name": {
+          "source": "party_roles_agent",
           "confidence": 0.62,
           "evidence": [
             {
               "page_num": 3,
               "heading": "Veoneer AB",
               "snippet": "Veoneer AB"
+            },
+            {
+              "page_num": 3,
+              "heading": "Veoneer AB",
+              "snippet": "Veoneer US, Inc."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 931,
-          "completion_tokens": 49
+          "prompt_tokens": 517,
+          "completion_tokens": 114,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Veoneer AB",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Veoneer AB",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "party_b_name": {
+          "source": "party_roles_agent",
           "confidence": 0.62,
           "evidence": [
             {
               "page_num": 3,
               "heading": "Veoneer AB",
-              "snippet": "Nissin Kogyo Co., Ltd.\nBy: /s/ Yasushi Kawaguchi Name: Yasushi Kawaguchi Title: Representative Director,"
+              "snippet": "Nissin Kogyo Co., Ltd."
+            },
+            {
+              "page_num": 3,
+              "heading": "Veoneer AB",
+              "snippet": "President for and on behalf of each of the Nissin Parties"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 931,
-          "completion_tokens": 84
+          "prompt_tokens": 517,
+          "completion_tokens": 115,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "Nissin Kogyo Co., Ltd.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Nissin Kogyo Co., Ltd.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -102,26 +162,28 @@
           "completion_tokens": 93
         },
         "term_length": {
-          "confidence": 0.12,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
               "page_num": 1,
-              "heading": "2016 by and among Autoliv ASP, Inc. (\"Autoliv ASP\"), Autoliv AB (\"Autoliv AB\") and Autoliv",
-              "snippet": "...as amended, supplemented or otherwise modified from time to time in accordance with the terms thereof and in effect on the date hereof (the \"JV Agreement\")."
+              "heading": "JOINT VENTURE AGREEMENT",
+              "snippet": "This AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT (this \"Amendment\") is made and entered into effective as of October 30, 2019 (the \"Effective Date\")"
             },
             {
               "page_num": 2,
               "heading": "Article 1.Amendment and Termination of JV Agreement",
-              "snippet": "As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate..."
+              "snippet": "As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2576,
-          "completion_tokens": 263
+          "prompt_tokens": 2607,
+          "completion_tokens": 244
         },
         "governing_law": {
-          "confidence": 0.98,
+          "source": "field_agent",
+          "confidence": 0.99,
           "evidence": [
             {
               "page_num": 3,
@@ -131,11 +193,12 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1023,
+          "prompt_tokens": 858,
           "completion_tokens": 63
         },
         "termination_notice_days": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
               "page_num": 2,
@@ -148,12 +211,13 @@
               "snippet": "As of the VNBZ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
-          "prompt_tokens": 1812,
-          "completion_tokens": 264
+          "prompt_tokens": 1559,
+          "completion_tokens": 211
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -166,11 +230,32 @@
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 1995,
+          "prompt_tokens": 1844,
           "completion_tokens": 158
         },
         "non_solicit_clause_present": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "JOINT VENTURE AGREEMENT",
+              "snippet": "This AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT (this \"Amendment\") is made and entered into effective as of October 30, 2019"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "NOW, THEREFORE, the Veoneer Parties and the Nissin Parties hereby agree as follows:"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2234,
+          "completion_tokens": 202
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
+          "confidence": 0.12,
           "evidence": [
             {
               "page_num": 2,
@@ -179,52 +264,35 @@
             },
             {
               "page_num": 1,
-              "heading": "JOINT VENTURE AGREEMENT",
-              "snippet": "This AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT... by and among... (the \"Veoneer Parties\")... and... (the \"Nissin Parties\")"
-            }
-          ],
-          "attempts": 2,
-          "issues": [],
-          "prompt_tokens": 2234,
-          "completion_tokens": 202
-        },
-        "data_transfer_outside_uk_eu": {
-          "confidence": 0.12,
-          "evidence": [
-            {
-              "page_num": 2,
-              "heading": "Article 1.Amendment and Termination of JV Agreement",
-              "snippet": "As of the VNBJ Closing, except as expressly set forth in this Amendment, the JV Agreement shall immediately cease to have any application or effect with respect to VNBJ..."
-            },
-            {
-              "page_num": 1,
               "heading": "2016 to engage in the JV Business through Veoneer Nissin Brake Systems Japan, Co., Ltd.",
-              "snippet": "...Veoneer Nissin Brake Systems Japan, Co., Ltd. (\"VNBJ\"), Veoneer Nissin Brake Systems America, LLC... Veoneer Nissin Brake Systems (Zhongshan), Co., Ltd. (\"VNBZ\")..."
+              "snippet": "(\"VNBJ\"), Veoneer Nissin Brake Systems America, LLC... (\"VNBA\"), Veoneer Nissin Brake Systems (Zhongshan), Co., Ltd. (\"VNBZ\")"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2448,
-          "completion_tokens": 261
+          "completion_tokens": 282
         },
         "risk_level": {
+          "source": "field_agent",
           "confidence": 0.55,
           "evidence": [
             {
               "page_num": 2,
               "heading": "ANRA.",
-              "snippet": "...the termination of the JV Agreement... shall not release any... Party from liability for the breach of any of its representations, warranties, covenants or agreements... that arise prior to the... Closing..."
+              "snippet": "the termination of the JV Agreement... shall not release any Veoneer Party or any Nissin Party from liability for the breach of any of its representations, warranties, covenants or agreements"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 743,
-          "completion_tokens": 80,
+          "completion_tokens": 78,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.74,
           "evidence": [
             {
               "page_num": 2,
@@ -232,20 +300,20 @@
               "snippet": "the termination of the JV Agreement with respect to VNBJ, VNBZ or the Veoneer Parties shall not release any Veoneer Party or any Nissin Party from liability for the breach... that arise prior to the VNBJ Closing or the VNBZ Closing"
             },
             {
-              "page_num": 2,
-              "heading": "Article 2.D&O Indemnity",
-              "snippet": "the Nissin Parties agree to cause each of VNBJ and VNBZ to comply... with respect to the indemnification or reimbursement... of all Directors and Officers... with respect to any Liabilities arising prior to the VNBJ Closing or the VNBZ Closing"
-            },
-            {
               "page_num": 3,
               "heading": "Article 4.Effectiveness",
               "snippet": "This Amendment shall only become effective upon the VNBJ Closing... and shall terminate without any force or effect in the event that the VNBJ SPA and the VNBZ SPA are terminated"
+            },
+            {
+              "page_num": 2,
+              "heading": "Article 2.D&O Indemnity",
+              "snippet": "the Nissin Parties agree to cause each of VNBJ and VNBZ to comply... with respect to the indemnification or reimbursement... of all Directors and Officers... with respect to any Liabilities arising prior"
             }
           ],
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 1483,
-          "completion_tokens": 459,
+          "completion_tokens": 526,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -255,9 +323,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 15,
+        "evidence_snippets_total": 17,
         "unique_evidence_pages": 3,
-        "avg_confidence": 0.482,
+        "avg_confidence": 0.475,
         "min_confidence": 0.12
       }
     }

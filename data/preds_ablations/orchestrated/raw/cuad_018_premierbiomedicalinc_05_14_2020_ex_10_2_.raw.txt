@@ -1,0 +1,114 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Marv Enterprises, LLC","party_b_name":"Premier Biomedical, Inc.","effective_date":"2020-05-12","term_length":null,"governing_law":"Commonwealth of Pennsylvania","termination_notice_days":null,"liability_cap":"Not specified","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"The agreement appears to be an intellectual property/licensing and joint venture arrangement with significant payment and royalty obligations and reversion of license rights upon non-payment. There is no stated liability cap in the provided excerpts, increasing exposure for a small SaaS vendor. The confidentiality obligations are broad and ongoing, and the governing law/venue is Pennsylvania, which may add litigation and compliance burden."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":4,"heading":"Party.     4","snippet":"7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship with the other Parties..."},{"page_num":5,"heading":null,"snippet":"\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party..."},{"page_num":5,"heading":null,"snippet":"Copies; Return of Confidential Information... promptly returned to the Disclosing Party or... destroyed, upon the Disclosing Party's request"}],"confidence":0.86,"value":"nda"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Marv Enterprises, LLC",
+  "party_b_name": "Premier Biomedical, Inc.",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
+      "snippet": "by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. (OTC Pink: BIEI), a Nevada corporation (\"Premier\"), Technology Health, Inc."
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
+      "snippet": "by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. (OTC Pink: BIEI), a Nevada corporation (\"Premier\"), Technology Health, Inc."
+    }
+  ],
+  "party_a_confidence": 0.9,
+  "party_b_confidence": 0.75
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement","snippet":"...by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc.... (\"Premier\"), Technology Health, Inc.... (\"THI\")..."}],"confidence":0.62,"value":"Marv Enterprises, LLC"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement","snippet":"...by and between: Marv Enterprises, LLC... (\"Marv\"), Premier Biomedical, Inc.... (\"Premier\"), Technology Health, Inc.... (\"THI\"), Each shall be referred to as a \"Party\"..."}],"confidence":0.25,"value":""}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement","snippet":"(this \"Agreement\") is entered into on May 12, 2020 (\"Effective Date\")"}],"confidence":0.98,"value":"2020-05-12"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":2,"heading":null,"snippet":"commencing with the one-year anniversary of the effective date of this Agreement"},{"page_num":3,"heading":null,"snippet":"the one-year anniversary of this Agreement until a total amount of $40,000,000 has been paid"}],"confidence":0.22,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":5,"heading":null,"snippet":"This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania"}],"confidence":0.98,"value":"Commonwealth of Pennsylvania"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Marv shall notify THI for a time period being the lesser of (i) at least sixty (60) days before the IP Cost is due..."}],"confidence":0.18,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement","snippet":"(this \"Agreement\") is entered into on May 12, 2020 (\"Effective Date\"), concerning the pursuits set forth herein for the collective development, implementation and commercialization..."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":null,"snippet":"filed to preserve Intellectual Property. Reimbursement for pre-paid IP Costs shall be in accordance with 2 (b) 2 above."},{"page_num":3,"heading":null,"snippet":"(d) Royalty Payments. 1. Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of:"}],"confidence":0.12,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":4,"heading":"Party.     4","snippet":"7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship..."}],"confidence":0.18,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":5,"heading":null,"snippet":"Copies; Return of Confidential Information. The parties may copy or otherwise reproduce any written Confidential Information; provided, however, that all such Confidential Information and copies thereof shall be promptly returned... or... destroyed"},{"page_num":5,"heading":null,"snippet":"8. VENUE. This Agreement... shall be governed by... the laws of the Commonwealth of Pennsylvania... Venue for any action... shall be in... Mercer County, Pennsylvania."},{"page_num":3,"heading":null,"snippet":"the one-year anniversary of this Agreement until a total amount of $40,000,000 has been paid to Premier... If THI does not make the obligatory payments... the Exclusive License will revert back to Premier."}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":3,"heading":null,"snippet":"If THI denies payment, THI shall have no obligation to pay IP Costs associated with the Application or Patent in that country, but the license and all associated rights for that Application or Patent shall revert to Marv."},{"page_num":4,"heading":null,"snippet":"Premier and THI will jointly cooperate in developing Covid-19 Licensed Products, to be memorialized by them in a Technology Acquisition and Financing Agreement."},{"page_num":4,"heading":null,"snippet":"Premier may partner with other organizations as needed to effectuate the development of technology in the Field of Covid-19 Treatments."}],"confidence":0.62,"value":"The risk level is driven by provisions that can cause loss of rights: if THI does not affirm or denies paying required IP costs, the license and associated rights in that country revert to Marv. The joint venture’s development and commercialization activities are also to be memorialized in a separate agreement, creating dependency on additional documentation. In addition, Premier may partner with other organizations, which can introduce coordination and control risks around development and IP."}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":3,"heading":null,"snippet":"the one-year anniversary of this Agreement until a total amount of $40,000,000 has been paid to Premier."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Before payment of any IP Cost, Marv shall notify THI for a time period being the lesser of (i) at least sixty (60) days before the IP Cost is due"},{"page_num":2,"heading":null,"snippet":"By written notice to Marv and at least ninety (90) days before the non-extendable due date for the filing of a national phase application of an Application"}],"confidence":0.12,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement","snippet":"This Intellectual Property Agreement (this \"Agreement\") is entered into on May 12, 2020 (\"Effective Date\"), concerning the pursuits set forth herein..."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":5,"heading":null,"snippet":"Copies; Return of Confidential Information. The parties may copy or otherwise reproduce any written Confidential Information; provided, however, that all such Confidential Information and copies thereof shall be promptly returned..."}],"confidence":0.18,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":4,"heading":"Party.     4","snippet":"7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship... disclosing, using or disseminating such confidential information"},{"page_num":5,"heading":null,"snippet":"8. VENUE. This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania..."}],"confidence":0.18,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":5,"heading":null,"snippet":"Venue for any action brought under this Agreement shall be in the appropriate court in Mercer County, Pennsylvania."},{"page_num":4,"heading":"Party.     4","snippet":"Each Party agrees to refrain from, either during period of this Agreement or at any other time thereafter, disclosing, using or disseminating such confidential information... at any other time thereafter"}],"confidence":0.58,"value":"medium"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"The evidence shows a standalone confidentiality section defining Confidential Information and requiring return/destruction of confidential materials—core provisions characteristic of a non-disclosure agreement. No conflicting evidence suggests a different document type.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly states the agreement is \"by and between: Marv Enterprises, LLC\" and identifies it as a party (\"Marv\"), supporting the selected value as the first party’s full legal name.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly lists the agreement as being between Marv Enterprises, LLC and \"Premier Biomedical, Inc.\" (a Nevada corporation), supporting the selected party_b_name.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence explicitly states the Agreement is entered into on May 12, 2020 (\"Effective Date\"), which supports the selected effective_date value normalized to ISO format as 2020-05-12. No conflicts or validation issues are indicated.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"revise","reason":"Evidence references a “one-year anniversary” but does not clearly state the full agreement term length; it may indicate a 12-month period or a milestone for payments/commencement. Better retrieval should target the Term/Duration/Effective Date and termination/renewal clauses to determine if a fixed term exists in months.","confidence":0.63,"revised_query":"term of this Agreement duration initial term one-year anniversary effective date termination renewal"}
+
+VERIFIER_REPAIR_AGENT term_length
+{"evidence":[{"page_num":3,"heading":null,"snippet":"the one-year anniversary of this Agreement until a total amount of $40,000,000 has been paid to Premier."},{"page_num":2,"heading":null,"snippet":"December 31st, commencing with the one-year anniversary of the effective date of this Agreement,"}],"confidence":0.22,"value":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence snippet explicitly states the agreement is governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania, matching the selected value exactly.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"revise","reason":"The only evidence mentions a 60-day notification period related to an IP Cost due date, not termination for convenience. This suggests the contract may contain a notice period, but the provided snippet is not tied to termination. Better retrieval focused on termination/notice clauses could confirm whether a termination-for-convenience notice period exists and its length.","confidence":0.63,"revised_query":"termination for convenience notice period days (\"terminate\" OR \"termination\") AND (\"for convenience\" OR \"without cause\") AND \"notice\""}
+
+VERIFIER_REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Before payment of any IP Cost, Marv shall notify THI for a time period being the lesser of (i) at least sixty (60) days before the IP Cost is due"},{"page_num":2,"heading":null,"snippet":"By written notice to Marv and at least ninety (90) days before the non-extendable due date for the filing of a national phase application of an Application"}],"confidence":0.12,"value":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence was provided to support the assertion that a liability cap is \"Not specified.\" Without contract text or clause excerpts, the field cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"unknown","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero cited contract text, the boolean value cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

@@ -1,0 +1,891 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Kiromic, Inc, a Delaware corporation",
+  "party_b_name": "Gianluca Rotino",
+  "effective_date": "2018-07-01",
+  "term_length": null,
+  "governing_law": "State of Texas",
+  "termination_notice_days": null,
+  "liability_cap": "No explicit limitation of liability cap stated in the provided excerpts.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 58873,
+    "output_tokens": 4135,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 22,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities"
+            },
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "1. Services and Compensation. Consultant agrees to act as a consultant to Company... and perform the services described on Exhibit A"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1067,
+          "completion_tokens": 109,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence describes the document as a \"Consulting Agreement\" for retaining a consultant and detailing services/compensation. This is neither an NDA nor an MSA, so classifying doc_type as \"other\" is supported.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 424,
+            "completion_tokens": 72
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.88,
+              "confidence": 0.78,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\")"
+            },
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "Consultant agrees to act as a consultant to Company"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 802,
+          "completion_tokens": 134,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"Kiromic, Inc, a Delaware corporation (the 'Company')\" in the opening paragraph, which supports the selected party_a_name as the full legal name of the first party.",
+            "confidence": 0.95,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Kiromic, Inc, a Delaware corporation",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 448,
+            "completion_tokens": 71
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Kiromic, Inc.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.03,
+              "confidence": 0.93,
+              "value": "Kiromic, Inc, a Delaware corporation",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "Kiromic, Inc",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities"
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 803,
+          "completion_tokens": 134,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly names the consultant as “Gianluca Rotino” (page 1: “to retain Gianluca Rotino (‘Consultant’)”), which supports this being the second party’s full legal name in the agreement. No conflicting party name is shown in the provided snippets, and deterministic checks indicate no conflict.",
+            "confidence": 0.96,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Gianluca Rotino",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 436,
+            "completion_tokens": 94
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Gianluca Rotino",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.05,
+              "confidence": 0.95,
+              "value": "Gianluca Rotino",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Gianluca Rotino",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "none",
+              "snippet": "This letter agreement will be effective as of July 1, 2018."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2038,
+          "completion_tokens": 165,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"This letter agreement will be effective as of July 1, 2018,\" which directly supports the selected effective_date value normalized to ISO format as 2018-07-01.",
+            "confidence": 0.9,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2018-07-01",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 382,
+            "completion_tokens": 71
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "2018-07-01",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "5. Term and Termination. This Agreement will commence on the Effective Date and will continue until termination as provided below."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2339,
+          "completion_tokens": 184,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence states the agreement commences on the Effective Date and continues until termination, with termination allowed upon prior written notice. No fixed duration or month-based term is provided, so term length in months is not determinable and null is supported.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 419,
+            "completion_tokens": 76
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "This Agreement shall be governed by the laws of the State of Texas, without reference to its conflicts of law principles."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 936,
+          "completion_tokens": 66,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"This Agreement shall be governed by the laws of the State of Texas,\" which directly supports the selected governing_law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "State of Texas",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 384,
+            "completion_tokens": 58
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "State of Texas",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "State of Texas",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2819,
+          "completion_tokens": 116,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence states termination may occur upon prior written notice but does not specify any number of days. Therefore, the correct extracted value for termination_notice_days is null.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 389,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.02,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence excerpts were provided to support the statement that there is no explicit liability cap. Without contract text, the liability cap cannot be verified or safely asserted.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "No explicit limitation of liability cap stated in the provided excerpts.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 387,
+            "completion_tokens": 59
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "No explicit limitation of liability cap stated in the provided excerpts.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero evidence snippets, the field cannot be verified; targeted retrieval could confirm presence/absence by locating any non-solicitation language.",
+            "confidence": 0.74,
+            "revised_query": "non-solicitation clause (solicit customers/clients/employees; non-solicit; non-interference)",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 96
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.28,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "Consultant will indemnify Company and hold it harmless from"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "and against all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation by Company"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 890,
+          "completion_tokens": 101,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "This is a consulting agreement with broad confidentiality and IP assignment obligations, which can be operationally and legally burdensome for a small SaaS vendor. Termination is allowed on prior written notice but the notice period is not specified in the excerpts, creating uncertainty. No explicit liability cap is shown, which can increase exposure if disputes arise.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "This is a consulting agreement with broad confidentiality and IP assignment obligations, which can be operationally and legally burdensome for a small SaaS vendor. Termination is allowed on prior written notice but the notice period is not specified in the excerpts, creating uncertainty. No explicit liability cap is shown, which can increase exposure if disputes arise.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.57,
+              "confidence": 0.42,
+              "value": "The agreement allows either party to terminate on written notice, which can create continuity and delivery risk if the relationship ends abruptly. It also imposes broad confidentiality and invention-assignment/return obligations, increasing the risk of disputes over ownership or use of work product. These provisions together justify a higher risk assessment due to potential operational disruption and IP-related exposure.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "term_length",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu",
+          "risk_level"
+        ],
+        "disagreement_fields": [
+          "effective_date",
+          "liability_cap",
+          "party_a_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 6,
+          "party_roles_agent": 2,
+          "global_baseline": 3,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 1,
+        "verifier_repair_fields": [
+          "non_solicit_clause_present"
+        ],
+        "verifier_decisions": {
+          "accept": 7,
+          "revise": 1,
+          "unknown": 2,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "liability_cap",
+          "non_solicit_clause_present"
+        ],
+        "verifier_disagreement_rate": 0.25,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7,
+        "evidence_snippets_total": 11,
+        "unique_evidence_pages": 4,
+        "avg_confidence": 0.67,
+        "min_confidence": 0.22
+      }
+    }
+  }
+}

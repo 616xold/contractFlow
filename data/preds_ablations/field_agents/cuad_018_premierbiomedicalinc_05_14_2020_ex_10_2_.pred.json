@@ -1,7 +1,7 @@
 {
-  "doc_type": "other",
+  "doc_type": "nda",
   "party_a_name": "Marv Enterprises, LLC",
-  "party_b_name": null,
+  "party_b_name": "Premier Biomedical, Inc.",
   "effective_date": "2020-05-12",
   "term_length": null,
   "governing_law": "Commonwealth of Pennsylvania",
@@ -15,18 +15,16 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 26286,
-    "output_tokens": 2481,
+    "input_tokens": 28059,
+    "output_tokens": 2636,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
-      "Field 'party_b_name' must be a non-empty string",
       "Field 'liability_cap' must be a non-empty string",
       "risk_level overridden by deterministic rules (was 'medium')",
       "risk_explanation overridden by deterministic rules",
-      "Field 'party_b_name' is null but not nullable",
       "Field 'liability_cap' is null but not nullable"
     ],
     "retrieval": {
@@ -36,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -43,60 +47,104 @@
       "total_chunks": 21,
       "fields": {
         "doc_type": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.78,
           "evidence": [
             {
               "page_num": 4,
               "heading": "Party.     4",
-              "snippet": "7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship..."
+              "snippet": "7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship with the other Parties... disclosing, using or disseminating such confidential information"
             },
             {
               "page_num": 5,
               "heading": null,
-              "snippet": "\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party..."
+              "snippet": "\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party... (b) was already in the Recipient's possession... or (c) is or becomes generally available to the public"
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "Copies; Return of Confidential Information... all such Confidential Information and copies thereof shall be promptly returned to the Disclosing Party or... destroyed"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 952,
-          "completion_tokens": 103
+          "prompt_tokens": 1056,
+          "completion_tokens": 178
         },
         "party_a_name": {
-          "confidence": 0.62,
+          "source": "party_roles_agent",
+          "confidence": 0.9,
           "evidence": [
             {
               "page_num": 1,
               "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
-              "snippet": "...by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. ... (\"Premier\"), Technology Health, Inc. ... (\"THI\")..."
+              "snippet": "by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. (OTC Pink: BIEI), a Nevada corporation (\"Premier\"), Technology Health, Inc."
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2789,
-          "completion_tokens": 222
-        },
-        "party_b_name": {
-          "confidence": 0.18,
-          "evidence": [
+          "prompt_tokens": 933,
+          "completion_tokens": 138,
+          "candidates": [
             {
-              "page_num": 4,
-              "heading": null,
-              "snippet": "5. REQUIREMENT. The Parties agree that Marv and/or Mitchell S. Felder shall have no obligation and/or involvement in any capital raising activities for THI or Premier"
+              "source": "field_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "Marv Enterprises, LLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
             },
             {
-              "page_num": 6,
-              "heading": null,
-              "snippet": "13.     EXPENSES ASSOCIATED WITH THIS AGREEMENT. Marv shall be reimbursed in full for the cost(s) of all legal expenses associated with this agreement by THI."
+              "source": "party_roles_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": "Marv Enterprises, LLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.85,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
+              "snippet": "by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. (OTC Pink: BIEI), a Nevada corporation (\"Premier\"), Technology Health, Inc."
             }
           ],
           "attempts": 2,
-          "issues": [
-            "Field 'party_b_name' must be a non-empty string"
-          ],
-          "prompt_tokens": 2605,
-          "completion_tokens": 243
+          "issues": [],
+          "prompt_tokens": 933,
+          "completion_tokens": 139,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.04,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.9,
+              "confidence": 0.85,
+              "value": "Premier Biomedical, Inc.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -111,45 +159,48 @@
           "completion_tokens": 83
         },
         "term_length": {
-          "confidence": 0.12,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
-              "page_num": 1,
-              "heading": "2010 Agreement/2020 Agreement to THI;                NOW, THEREFORE, for good and adequate",
-              "snippet": "To the extent that terms in the 2010 Agreement/2020 Agreement are not contradicted or revised here, the terms as stated in 2010 Agreement/2020 Agreement remain in full effect"
+              "page_num": 2,
+              "heading": null,
+              "snippet": "...commencing with the one-year anniversary of the effective date of this Agreement, THI shall furnish to Marv a statement..."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
           "prompt_tokens": 2714,
-          "completion_tokens": 243
+          "completion_tokens": 162
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
               "page_num": 5,
               "heading": null,
-              "snippet": "This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania including all matters of construction, validity, performance, and enforcement"
+              "snippet": "This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1112,
-          "completion_tokens": 82
+          "completion_tokens": 70
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
               "page_num": 3,
               "heading": null,
-              "snippet": "Before payment of any IP Cost, Marv shall notify THI for a time period being the lesser of (i) at least sixty (60) days before the IP Cost is due..."
+              "snippet": "Before payment of any IP Cost, Marv shall notify THI for a time period being the lesser of (i) at least sixty (60) days before the IP Cost is due"
             },
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "By written notice to Marv and at least ninety (90) days before the non-extendable due date for the filing of a national phase application..."
+              "snippet": "By written notice to Marv and at least ninety (90) days before the non-extendable due date for the filing of a national phase application of an Application"
             },
             {
               "page_num": 2,
@@ -159,122 +210,107 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2706,
-          "completion_tokens": 231
+          "prompt_tokens": 2819,
+          "completion_tokens": 307
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "...until a total amount of $40,000,000 has been paid to Premier. This royalty is separate and distinct from the royalty obligation to Marv as stated in 2(d)1."
-            },
-            {
-              "page_num": 5,
-              "heading": null,
-              "snippet": "...\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party..."
+              "page_num": 1,
+              "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
+              "snippet": "This Intellectual Property Agreement (this \"Agreement\") is entered into on May 12, 2020 (\"Effective Date\")..."
             }
           ],
           "attempts": 1,
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 2702,
-          "completion_tokens": 223
+          "prompt_tokens": 2982,
+          "completion_tokens": 169
         },
         "non_solicit_clause_present": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "filed to preserve Intellectual Property. Reimbursement for pre-paid IP Costs shall be in accordance with 2 (b) 2 above."
+            },
             {
               "page_num": 3,
               "heading": null,
               "snippet": "(d) Royalty Payments. 1. Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of:"
-            },
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "2. Extension of Application. By written notice to Marv and at least ninety (90) days before the non-extendable due date for the filing of a national phase application of an Application,"
-            },
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "5. The grant of each license hereunder includes the right to grant sublicenses to Related Companies for so long as it remains a Related Companies."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2702,
-          "completion_tokens": 205
+          "completion_tokens": 250
         },
         "data_transfer_outside_uk_eu": {
-          "confidence": 0.22,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
               "page_num": 4,
               "heading": "Party.     4",
-              "snippet": "7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship... refraining from... disclosing, using or disseminating such confidential information"
-            },
-            {
-              "page_num": 5,
-              "heading": null,
-              "snippet": "8. VENUE. This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania..."
+              "snippet": "7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship..."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
           "prompt_tokens": 2872,
-          "completion_tokens": 206
+          "completion_tokens": 148
         },
         "risk_level": {
-          "confidence": 0.55,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
-              "page_num": 3,
+              "page_num": 5,
               "heading": null,
-              "snippet": "If THI does not make the obligatory payments as stated in 2(b) by the dates stated, the Exclusive License will revert back to Premier."
-            },
-            {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of:"
+              "snippet": "Copies; Return of Confidential Information. The parties may copy or otherwise reproduce any written Confidential Information; provided, however, that all such Confidential Information and copies thereof shall be promptly returned... or... destroyed"
             },
             {
               "page_num": 5,
               "heading": null,
-              "snippet": "\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party... or (c) is or becomes generally available to the public other than as a result of a breach"
+              "snippet": "8. VENUE. This Agreement... shall be governed by... the laws of the Commonwealth of Pennsylvania... Venue for any action... shall be in... Mercer County, Pennsylvania."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 947,
-          "completion_tokens": 167,
+          "prompt_tokens": 924,
+          "completion_tokens": 125,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
               "page_num": 3,
               "heading": null,
-              "snippet": "If THI denies payment, THI shall have no obligation to pay IP Costs associated with the Application or Patent in that country, but the license and all associated rights for that Application or Patent shall revert to Marv."
-            },
-            {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of: a. Licensed Product...; and b. any service performed by THI... that directly or indirectly uses Licensed Product."
+              "snippet": "Royalty payments are payable from THI to Marv Enterprises, LLC and will be in the amount of 5% of the Fair Market Value of... Licensed Product... and... any service performed... that directly or indirectly uses Licensed Product."
             },
             {
               "page_num": 4,
-              "heading": "Party.     4",
-              "snippet": "Each Party agrees to hold in confidence confidential information acquired in the course of this relationship... refrain from... disclosing, using or disseminating such confidential information..."
+              "heading": null,
+              "snippet": "the 150,000,000 (one hundred and fifty million) stock warrants previously ceded to Mitchell S. Felder... shall not be eliminated, cancelled, or altered in any way"
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "The Parties agree that the relationship contemplated by this Agreement is a nonexclusive engagement/venture"
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2969,
-          "completion_tokens": 473,
+          "prompt_tokens": 1089,
+          "completion_tokens": 229,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -284,9 +320,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 18,
-        "unique_evidence_pages": 6,
-        "avg_confidence": 0.408,
+        "evidence_snippets_total": 15,
+        "unique_evidence_pages": 5,
+        "avg_confidence": 0.521,
         "min_confidence": 0.12
       }
     }

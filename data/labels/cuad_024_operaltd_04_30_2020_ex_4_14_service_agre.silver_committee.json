@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "PC Financial Services Private Limited",
+  "party_b_name": "Mobimagic Co., Ltd.",
+  "effective_date": "2019-04-01",
+  "term_length": 12,
+  "governing_law": "India",
+  "termination_notice_days": null,
+  "liability_cap": "the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU."
+}

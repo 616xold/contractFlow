@@ -102,15 +102,18 @@ def evaluate_predictions(
     if not label_paths:
         raise ValueError(f"No label files found in {labels_dir} with suffix {label_suffix}")
 
+    bucket_keys = ["missing", "wrong_type", "wrong_enum", "span_mismatch", "value_mismatch"]
     field_stats: Dict[str, Dict[str, Any]] = {
         field: {
             "exact_correct": 0,
             "partial_correct": 0,
             "total": 0,
             "avg_similarity": 0.0,
+            "error_buckets": {bucket: 0 for bucket in bucket_keys},
         }
         for field in schema.keys()
     }
+    error_buckets_global: Dict[str, int] = {bucket: 0 for bucket in bucket_keys}
     docs: list[Dict[str, Any]] = []
 
     evidence_ratios: list[float] = []
@@ -158,15 +161,17 @@ def evaluate_predictions(
         partial_correct = 0
         total = 0
         per_field: Dict[str, Any] = {}
+        doc_error_buckets: Dict[str, int] = {bucket: 0 for bucket in bucket_keys}
 
         for field, meta_def in schema.items():
-            gold_value = gold_fields.get(field, None)
-            pred_value = pred_fields.get(field, None)
-            norm_gold = _normalize_value(gold_value, meta_def)
-            norm_pred = _normalize_value(pred_value, meta_def)
+            gold_value_raw = gold_fields.get(field, None)
+            pred_value_raw = pred_fields.get(field, None)
+            norm_gold = _normalize_value(gold_value_raw, meta_def)
+            norm_pred = _normalize_value(pred_value_raw, meta_def)
             is_exact = norm_gold == norm_pred
             similarity = _field_similarity(norm_gold, norm_pred, meta_def)
             is_partial = is_exact or similarity >= partial_threshold
+            error_bucket: str | None = None
 
             total += 1
             if is_exact:
@@ -181,12 +186,26 @@ def evaluate_predictions(
                 field_stats[field]["partial_correct"] += 1
             field_stats[field]["avg_similarity"] += similarity
 
+            if not is_exact:
+                error_bucket = _classify_error_bucket(
+                    gold_raw=gold_value_raw,
+                    pred_raw=pred_value_raw,
+                    norm_gold=norm_gold,
+                    norm_pred=norm_pred,
+                    meta=meta_def,
+                    is_partial=is_partial,
+                )
+                field_stats[field]["error_buckets"][error_bucket] += 1
+                error_buckets_global[error_bucket] += 1
+                doc_error_buckets[error_bucket] += 1
+
             per_field[field] = {
                 "gold": norm_gold,
                 "pred": norm_pred,
                 "exact": is_exact,
                 "partial": is_partial,
                 "similarity": round(similarity, 4),
+                "error_bucket": error_bucket,
             }
 
         overall_exact += exact_correct
@@ -219,6 +238,7 @@ def evaluate_predictions(
                 "accuracy_exact": round(accuracy_exact, 4),
                 "accuracy_partial": round(accuracy_partial, 4),
                 "coverage": coverage,
+                "error_buckets": doc_error_buckets,
                 "fields": per_field,
             }
         )
@@ -236,6 +256,7 @@ def evaluate_predictions(
             "accuracy_exact": round((exact / total) if total else 0.0, 4),
             "accuracy_partial": round((partial / total) if total else 0.0, 4),
             "avg_similarity": round(avg_similarity, 4),
+            "error_buckets": stats["error_buckets"],
         }
 
     summary = {
@@ -255,6 +276,7 @@ def evaluate_predictions(
             seed=bootstrap_seed + 1,
         ),
         "field_accuracy": field_accuracy,
+        "error_buckets": error_buckets_global,
         "evidence_coverage": {
             "avg_evidence_ratio": round(_mean(evidence_ratios), 4) if evidence_ratios else None,
             "avg_hit_ratio": round(_mean(hit_ratios), 4) if hit_ratios else None,
@@ -315,6 +337,87 @@ def _normalize_value(value: Any, meta: Dict[str, Any]) -> Any:
             if text_lower == str(enum_value).strip().lower():
                 return str(enum_value)
     return text_lower
+
+
+def _classify_error_bucket(
+    *,
+    gold_raw: Any,
+    pred_raw: Any,
+    norm_gold: Any,
+    norm_pred: Any,
+    meta: Dict[str, Any],
+    is_partial: bool,
+) -> str:
+    if _is_missing_value(pred_raw) and not _is_missing_value(gold_raw):
+        return "missing"
+
+    if not _is_type_compatible(pred_raw, meta):
+        return "wrong_type"
+
+    if _has_enum(meta) and not _is_enum_value_valid(pred_raw, meta):
+        return "wrong_enum"
+
+    expected = meta.get("type")
+    if expected == "string" and not is_partial:
+        return "span_mismatch"
+
+    return "value_mismatch"
+
+
+def _is_missing_value(value: Any) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str):
+        return value.strip() == ""
+    return False
+
+
+def _is_type_compatible(value: Any, meta: Dict[str, Any]) -> bool:
+    expected = meta.get("type")
+    nullable = bool(meta.get("nullable"))
+    if value is None:
+        return nullable
+
+    if expected == "string":
+        return isinstance(value, str)
+    if expected == "integer":
+        if isinstance(value, bool):
+            return False
+        if isinstance(value, int):
+            return True
+        if isinstance(value, float):
+            return value.is_integer()
+        if isinstance(value, str):
+            return _first_int(value) is not None
+        return False
+    if expected == "boolean":
+        if isinstance(value, bool):
+            return True
+        if isinstance(value, int):
+            return value in (0, 1)
+        if isinstance(value, str):
+            cleaned = value.strip().lower()
+            return cleaned in {"true", "t", "yes", "y", "1", "false", "f", "no", "n", "0"}
+        return False
+    return True
+
+
+def _has_enum(meta: Dict[str, Any]) -> bool:
+    enum_vals = meta.get("enum")
+    return isinstance(enum_vals, list) and len(enum_vals) > 0
+
+
+def _is_enum_value_valid(value: Any, meta: Dict[str, Any]) -> bool:
+    enum_vals = meta.get("enum")
+    if not isinstance(enum_vals, list):
+        return True
+    if value is None:
+        return bool(meta.get("nullable"))
+    normalized = _normalize_value(value, meta)
+    enum_norm = {str(item).strip().lower() for item in enum_vals}
+    if isinstance(normalized, str):
+        return normalized.strip().lower() in enum_norm
+    return normalized in enum_vals
 
 
 def _field_similarity(gold: Any, pred: Any, meta: Dict[str, Any]) -> float:
@@ -408,6 +511,15 @@ def _print_summary(summary: Dict[str, Any]) -> None:
             f"({stats['accuracy_exact']}), partial {stats['partial_correct']}/{stats['total']} "
             f"({stats['accuracy_partial']})"
         )
+        buckets = stats.get("error_buckets") or {}
+        bucket_text = ", ".join(f"{k}={v}" for k, v in buckets.items() if v)
+        if bucket_text:
+            print(f"    error_buckets: {bucket_text}")
+
+    global_buckets = summary.get("error_buckets") or {}
+    bucket_text = ", ".join(f"{k}={v}" for k, v in global_buckets.items() if v)
+    if bucket_text:
+        print(f"error_buckets_global: {bucket_text}")
 
     coverage = summary.get("evidence_coverage", {})
     if coverage:

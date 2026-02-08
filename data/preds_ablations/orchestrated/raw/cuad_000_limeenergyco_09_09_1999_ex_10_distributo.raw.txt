@@ -1,0 +1,134 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Electric City Corp.","party_b_name":"Electric City of Illinois L.L.C.","effective_date":null,"term_length":120,"governing_law":"State of Illinois","termination_notice_days":30,"liability_cap":"No consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing; no specific monetary cap stated.","non_solicit_clause_present":true,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"The agreement includes broad non-solicitation/non-interference restrictions lasting through the term and up to 12–18 months after, which can materially constrain a counterparty’s hiring and customer activities. There is no clear monetary limitation of liability (only a limited exclusion for consequential/liquidated damages in a specific late-delivery scenario), increasing exposure. The term is long (10 years) and termination appears primarily for cause with notice, reducing flexibility."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":8,"heading":"3.5      Service of  Products  in  Territory.  Within  thirty (30) days","snippet":"3.6.     Non-Disclosure  of  Confidential  Information.   None  of  the parties   hereto... shall during the term of this Agreement or thereafter disclose any confidential  information"}],"confidence":0.62,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": null,
+  "party_b_name": null,
+  "party_a_evidence": [
+    {
+      "page_num": 4,
+      "heading": "Page -3-",
+      "snippet": "This Agreement does not create                   the\nrelationship  of principal  and agent between the Company                   and the\nDistributor for any purpose whatsoever."
+    },
+    {
+      "page_num": 9,
+      "heading": "Page -8-",
+      "snippet": "the Distributor's failure to make                   full and  prompt\npayment  to the  Company of all sums due and                   owing to it;"
+    },
+    {
+      "page_num": 2,
+      "heading": "1.2      License.  The Company  hereby grants the  Distributor",
+      "snippet": "The Company  hereby grants the  Distributor\nthe right to do business  and use the name  \"Electric                            City of\nIllinois\""
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 4,
+      "heading": "Page -3-",
+      "snippet": "This Agreement does not create                   the\nrelationship  of principal  and agent between the Company                   and the\nDistributor for any purpose whatsoever."
+    },
+    {
+      "page_num": 9,
+      "heading": "Page -8-",
+      "snippet": "the Distributor's failure to make                   full and  prompt\npayment  to the  Company of all sums due and                   owing to it;"
+    },
+    {
+      "page_num": 2,
+      "heading": "1.2      License.  The Company  hereby grants the  Distributor",
+      "snippet": "The Company  hereby grants the  Distributor"
+    }
+  ],
+  "party_a_confidence": 0.18,
+  "party_b_confidence": 0.18
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"DISTRIBUTOR AGREEMENT","snippet":"THIS  DISTRIBUTOR  AGREEMENT (the  \"Agreement\")  is made by and between Electric City\nCorp.,  a Delaware  corporation  (\"Company\")  and Electric City of Illinois LLC\n(\"Distributor\") this 7th day of September, 1999."}],"confidence":0.93,"value":"Electric City Corp."}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":15,"heading":"In witness whereof the parties have executed this Agreement as of the date first","snippet":"Electric City Corp.                       Electric City of Illinois L.L.C."},{"page_num":14,"heading":"Page -12-","snippet":"If to the Distributor to:                   Electric City of Illinois L.L.C."}],"confidence":0.86,"value":"Electric City of Illinois L.L.C."}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":9,"heading":"4.1      Duration.   Unless  earlier   terminated   otherwise  provided","snippet":"this Agreement, subject to the commencement date established in Section 1.3, shall be effective immediately."},{"page_num":2,"heading":"1.3      Term.  The term of this  Agreement  shall be ten (10)","snippet":"The term of this Agreement... shall commence on the date upon which the Company delivers to Distributor the last Sample"}],"confidence":0.22,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":2,"heading":"1.3      Term.","snippet":"The term of this Agreement shall be ten (10) years (the \"Term\")"},{"page_num":2,"heading":"1.3      Term.","snippet":"the Agreement shall be renewable on an annual basis for one (1) year terms for up to another ten (10) years"}],"confidence":0.95,"value":120}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":15,"heading":"6.9      Governing Law.","snippet":"This Agreement is to be construed according to the laws of the State of Illinois."}],"confidence":0.98,"value":"State of Illinois"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":9,"heading":"4.2      Termination  for  Cause.   Either  party  may  terminate  this","snippet":"Agreement upon 30 days"}],"confidence":0.42,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":5,"heading":null,"snippet":"...neither the Distributor nor the Company shall have a liability for consequential or liquidated damages pertaining to late delivery unless Company specifically acknowledges and agrees in writing to the same."}],"confidence":0.22,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":12,"heading":"5.7      Nonsolicitation.","snippet":"During the Term of this Agreement and for a period of twelve (12) months thereafter, the Distributor... agrees that it will not directly or indirectly solicit or hire any executive, managerial or technical employee"},{"page_num":13,"heading":"Page -11-","snippet":"Term of the Agreement and for a period of eighteen (18) months thereafter, nor will Distributor solicit any customer or potential customer of Company to purchase a competitive product during that period."}],"confidence":0.98,"value":true}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":1,"heading":"1.1      Grant  and   Acceptance.   Company  hereby   appoints","snippet":"Distributor also acknowledges that if its customers have sites, locations or operations outside the Market, in the market of another exclusive distributor of the Products..."}],"confidence":0.22,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":11,"heading":"5.3      Indemnification.  Company and Distributor  agree to indemnify,","snippet":"Company and Distributor agree to indemnify, defend and hold each other harmless from any and all suits, claims, obligations, liabilities, damages, losses... relating to or arising out of... any breach... (b) any negligence or fault;"}],"confidence":0.62,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":5,"heading":null,"snippet":"neither the Distributor nor the Company shall have a liability for consequential or liquidated damages pertaining to late delivery unless Company specifically acknowledges and agrees in writing"},{"page_num":12,"heading":"5.4      Product Liability  Insurance.  Company will carry a reasonable","snippet":"Company will carry a reasonable amount of product liability insurance... and will name the Distributor as an additional insured under that policy."},{"page_num":5,"heading":null,"snippet":"Company shall not be liable for its failure to perform due to any occurrence beyond the Company's reasonable control"}],"confidence":0.44,"value":"The agreement limits the Company’s exposure for late delivery by excluding consequential or liquidated damages unless expressly agreed in writing, reducing potential financial risk from shipment delays. It also includes a force majeure-style carveout for events beyond the Company’s reasonable control, further limiting liability for nonperformance. Product liability risk is partially mitigated because the Company must maintain product liability insurance and name the Distributor as an additional insured."}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":8,"heading":"3.5      Service of  Products  in  Territory.  Within  thirty (30) days","snippet":"the Company and the Distributor shall mutually agree upon a reasonable schedule of charges for after market parts and services... so that such charges do not adversely affect the marketability of the Products."},{"page_num":8,"heading":"3.6.     Non-Disclosure  of  Confidential  Information.","snippet":"None of the parties hereto... shall during the term of this Agreement or thereafter disclose any confidential information obtained or acquired by them in connection with the Products and the business of the other"}],"confidence":0.72,"value":"other"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":9,"heading":"4.1      Duration.   Unless  earlier   terminated   otherwise  provided","snippet":"this Agreement, subject to the commencement date established in Section 1.3, shall be effective immediately."},{"page_num":2,"heading":"1.3      Term.  The term of this  Agreement  shall be ten (10)","snippet":"The term of this Agreement ... shall commence on the date upon which the Company delivers to Distributor the last Sample"}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":9,"heading":"4.2      Termination  for  Cause.   Either  party  may  terminate  this","snippet":"Agreement upon 30 days"}],"confidence":0.32,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":5,"heading":null,"snippet":"neither the Distributor nor the Company shall have a liability for consequential or liquidated damages pertaining to late delivery unless Company specifically acknowledges and agrees in writing to the same."}],"confidence":0.22,"value":""}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":1,"heading":"1.1      Grant  and   Acceptance.   Company  hereby   appoints","snippet":"Distributor as Company's exclusive distributor within the Market... Distributor also acknowledges that if its customers have sites, locations or operations outside the Market..."}],"confidence":0.32,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":11,"heading":"5.3      Indemnification.  Company and Distributor  agree to indemnify,","snippet":"Company and Distributor  agree to indemnify, defend  and hold each other  harmless  from any and all suits, claims, obligations, liabilities, damages, losses and the like (including attorneys'  fees and costs)"},{"page_num":13,"heading":"Page -11-","snippet":"Term of the  Agreement  and for a period of  eighteen (18) months thereafter,  nor will Distributor solicit any customer  or  potential  customer  of Company to purchase a competitive product during that period."},{"page_num":12,"heading":"5.7      Nonsolicitation.","snippet":"During the Term of this Agreement and for a period of twelve (12) months thereafter... will not directly or indirectly solicit or hire any executive, managerial or technical employee of the Company"}],"confidence":0.62,"value":"medium"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"Evidence shows this is a broader commercial agreement (e.g., distributor/service terms) that includes a confidentiality clause (3.6) but is not primarily an NDA or an MSA. Therefore classifying doc_type as 'other' is supported.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly states the agreement is made between “Electric City Corp., a Delaware corporation (\"Company\")” and “Electric City of Illinois LLC (\"Distributor\")”, supporting Electric City Corp. as the first party’s full legal name.","confidence":0.96,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly names the second party as “Electric City of Illinois L.L.C.” in both the notice/address clause (“If to the Distributor to: Electric City of Illinois L.L.C.”) and the signature block alongside the other party (“Electric City Corp.”). No conflicting party B name appears in the provided snippets.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"revise","reason":"Evidence indicates the Agreement’s effectiveness is tied to a “commencement date established in Section 1.3” and that the term “shall commence on the date upon which the Company delivers to Distributor the last Sample,” which implies an effective/commencement date exists but is event-based and not extracted as a calendar date. The selected value null is therefore not well-supported as the best value; further retrieval may confirm whether a specific date is stated elsewhere or whether the effective date must be represented as an event-triggered date (thus null).","confidence":0.74,"revised_query":"Section 1.3 (Term/Commencement date) and any definition of 'Commencement Date' or 'Effective Date'—does the agreement state a specific calendar date or only that it commences upon delivery of the last Sample?"}
+
+VERIFIER_REPAIR_AGENT effective_date
+{"evidence":[{"page_num":9,"heading":"4.1      Duration.   Unless  earlier   terminated   otherwise  provided","snippet":"this Agreement, subject to the commencement date established in Section 1.3, shall be effective immediately."},{"page_num":2,"heading":"1.3      Term.  The term of this  Agreement  shall be ten (10)","snippet":"which shall commence on the date upon which the Company delivers to Distributor the last Sample"}],"confidence":0.22,"value":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"Evidence states the initial term is ten (10) years. Ten years converts to 120 months, matching the selected value. The renewal language describes optional additional one-year renewals up to another ten years, but does not change the determinable base term length.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states: \"This Agreement is to be construed according to the laws of the State of Illinois,\" which directly supports the selected governing law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"unknown","reason":"No evidence was provided to support a 30-day termination-for-convenience notice period, and deterministic checks indicate has_evidence=false/evidence_count=0. Without contract text, the value cannot be verified.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"revise","reason":"No evidence was provided to support the selected liability cap text. The field requires a monetary cap on liability; the selected value describes a damages exclusion and explicitly notes no monetary cap stated, but without contract excerpt this cannot be verified. Better retrieval should target the Limitation of Liability / Damages clauses to confirm whether any cap exists or if only exclusions apply.","confidence":0.74,"revised_query":"Limitation of Liability clause: liability cap amount (e.g., fees paid/12 months) and exclusions of consequential/incidental/liquidated damages; late delivery damages limitation"}
+
+VERIFIER_REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":5,"heading":null,"snippet":"neither the Distributor nor the Company shall have a liability for consequential or liquidated damages pertaining to late delivery unless Company specifically acknowledges and agrees in writing to the same."}],"confidence":0.22,"value":""}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"accept","reason":"Evidence explicitly includes a section titled “Nonsolicitation” and states the Distributor will not solicit or hire certain employees and will not solicit customers/potential customers for competitive products during specified periods, which constitutes a non-solicitation clause.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

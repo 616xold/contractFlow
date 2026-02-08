@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 20260,
-    "output_tokens": 2029,
+    "input_tokens": 21469,
+    "output_tokens": 2206,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -34,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,69 +47,103 @@
       "total_chunks": 6,
       "fields": {
         "doc_type": {
-          "confidence": 0.72,
-          "evidence": [
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "For any Product or Solution sold to any perspective clients introduced by Bravatek... Bravatek will receive a lead-finder fee... payable NET 30 days after each client payment"
-            },
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information... related to client projects... products, services and business of each of the parties."
-            },
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "7) Term The term of this Agreement is twelve (12) months... 10) Indemnification COMPANY shall indemnify Bravatek..."
-            }
-          ],
-          "attempts": 1,
-          "issues": [],
-          "prompt_tokens": 1145,
-          "completion_tokens": 164
-        },
-        "party_a_name": {
-          "confidence": 0.72,
-          "evidence": [
-            {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "Bravatek Technologies,\nInc.  Sibannac, Inc."
-            },
-            {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "Bravatek Technologies,\nInc.  Sibannac, Inc.     By: /s/ Thomas A.Cellucci  By: /s/ David Mersky"
-            }
-          ],
-          "attempts": 1,
-          "issues": [],
-          "prompt_tokens": 1115,
-          "completion_tokens": 107
-        },
-        "party_b_name": {
+          "source": "field_agent",
           "confidence": 0.86,
           "evidence": [
             {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "Bravatek Technologies,\nInc.  Sibannac, Inc."
-            },
-            {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "By: /s/ Thomas A.Cellucci  By: /s/ David Mersky     Name: Thomas\nA. Cellucci  Name: David Mersky"
+              "page_num": 1,
+              "heading": "Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this",
+              "snippet": "Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1115,
-          "completion_tokens": 107
+          "prompt_tokens": 1136,
+          "completion_tokens": 75
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Bravatek Technologies, Inc.  Sibannac, Inc."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Any notices required under this Agreement shall be delivered to: Bravatek Technologies, Inc."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 609,
+          "completion_tokens": 123,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.88,
+              "confidence": 0.78,
+              "value": "Bravatek Technologies, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.03,
+              "confidence": 0.93,
+              "value": "Bravatek Technologies, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Bravatek Technologies, Inc.  Sibannac, Inc."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Sibannac, Inc. 2122 E Highland Avenue, STE 425 Phoenix, AZ 85016"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 609,
+          "completion_tokens": 123,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.88,
+              "confidence": 0.78,
+              "value": "Sibannac, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.03,
+              "confidence": 0.93,
+              "value": "Sibannac, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
-          "confidence": 0.72,
+          "source": "field_agent",
+          "confidence": 0.78,
           "evidence": [
             {
               "page_num": 3,
@@ -111,31 +151,33 @@
               "snippet": "Date: November 30, 2017  Date: November 30, 2017"
             },
             {
-              "page_num": 3,
+              "page_num": 2,
               "heading": null,
-              "snippet": "This Agreement shall not be considered accepted, approved or otherwise effective until signed by the appropriate parties."
+              "snippet": "The term of this Agreement is twelve (12) months from the date hereof"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 933,
-          "completion_tokens": 112
+          "completion_tokens": 109
         },
         "term_length": {
-          "confidence": 0.95,
+          "source": "field_agent",
+          "confidence": 0.98,
           "evidence": [
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "The term of this Agreement is twelve (12) months from the date hereof, and will be automatically renewed for one (1) additional twelve month period unless either party shall notify the other in writing of its intention not to renew."
+              "snippet": "7) Term The term of this Agreement is twelve (12) months from the date hereof, and will be automatically renewed for one (1) additional twelve month period"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1139,
-          "completion_tokens": 85
+          "completion_tokens": 72
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -150,7 +192,8 @@
           "completion_tokens": 72
         },
         "termination_notice_days": {
-          "confidence": 0.93,
+          "source": "field_agent",
+          "confidence": 0.9,
           "evidence": [
             {
               "page_num": 2,
@@ -164,12 +207,13 @@
           "completion_tokens": 58
         },
         "liability_cap": {
-          "confidence": 0.12,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "10) Indemnification COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs..."
+              "snippet": "10) Indemnification COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs incurred in connection with any third-party claim"
             },
             {
               "page_num": 3,
@@ -177,29 +221,36 @@
               "snippet": "attorney's fees and court costs, incurred in connection with any third-party claim, action or proceeding arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
           "prompt_tokens": 2824,
-          "completion_tokens": 280
+          "completion_tokens": 229
         },
         "non_solicit_clause_present": {
-          "confidence": 0.22,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this",
+              "snippet": "COMPANY agrees to use its best efforts to promote and support project lead finding and after-sales support of Bravatek by:"
+            },
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects of party and products, services and business of each of the parties."
+              "snippet": "5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects..."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2805,
-          "completion_tokens": 213
+          "completion_tokens": 265
         },
         "data_transfer_outside_uk_eu": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
               "page_num": 2,
@@ -215,41 +266,43 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2922,
-          "completion_tokens": 268
+          "completion_tokens": 272
         },
         "risk_level": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "COMPANY and Bravatek agree to maintain in strict confidence and not to disclose or disseminate, or to use for any purposes other than performance of the projects, the Confidential Information disclosed."
-            },
             {
               "page_num": 3,
               "heading": null,
               "snippet": "attorney's fees and court costs, incurred in connection with any third-party claim, action or proceeding arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."
             },
             {
-              "page_num": 3,
+              "page_num": 2,
               "heading": null,
-              "snippet": "This Agreement shall not be assignable by either party without the prior written consent of the other party."
+              "snippet": "Bravatek will receive a lead-finder fee... minimum of 10% to maximum of 20% of project revenue... payable NET 30 days after each client payment"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "COMPANY and Bravatek agree to maintain in strict confidence and not to disclose or disseminate, or to use for any purposes other than performance of the projects, the Confidential Information disclosed."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1137,
-          "completion_tokens": 167,
+          "completion_tokens": 182,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
-          "confidence": 0.74,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "10) Indemnification COMPANY shall indemnify Bravatek... for any and all damages, costs, expenses... including reasonable attorney's fees and court costs incurred in connection with any third-party claim... arising from the negligence... of COMPANY"
+              "snippet": "10) Indemnification COMPANY shall indemnify Bravatek... for any and all damages, costs, expenses... incurred in connection with any third-party claim... arising from the negligence or intentional misconduct of COMPANY"
             },
             {
               "page_num": 3,
@@ -265,7 +318,7 @@
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 2821,
-          "completion_tokens": 396,
+          "completion_tokens": 397,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -275,10 +328,10 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 17,
+        "evidence_snippets_total": 16,
         "unique_evidence_pages": 3,
-        "avg_confidence": 0.64,
-        "min_confidence": 0.12
+        "avg_confidence": 0.694,
+        "min_confidence": 0.18
       }
     }
   }

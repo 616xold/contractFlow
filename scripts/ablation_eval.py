@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 
 # Ensure repo root is on PYTHONPATH when running as a script.
@@ -148,6 +149,23 @@ def main() -> None:
         help="Optional model override for verifier/judge pass (default: same as --model)",
     )
     parser.add_argument(
+        "--disable-risk-judge",
+        action="store_true",
+        help="Disable risk judge arbitration (use rules-only risk scoring)",
+    )
+    parser.add_argument(
+        "--risk-judge-model",
+        type=str,
+        default=None,
+        help="Optional model override for risk judge (default: same as --model)",
+    )
+    parser.add_argument(
+        "--risk-policy-path",
+        type=Path,
+        default=REPO_ROOT / "docs" / "risk_policy.json",
+        help="Path to risk policy JSON (default: docs/risk_policy.json)",
+    )
+    parser.add_argument(
         "--use-ocr",
         action="store_true",
         help="Enable OCR fallback when extracted text is sparse",
@@ -210,11 +228,31 @@ def main() -> None:
         default=None,
         help="Optional path to write JSON summary",
     )
+    parser.add_argument(
+        "--fixed-benchmark",
+        action="store_true",
+        help="Run the canonical 25-doc committee benchmark and emit a single report artifact.",
+    )
+    parser.add_argument(
+        "--fixed-benchmark-out",
+        type=Path,
+        default=REPO_ROOT / "data" / "benchmarks" / "portfolio_benchmark.json",
+        help="Output artifact path for --fixed-benchmark mode",
+    )
     args = parser.parse_args()
 
     from dotenv import load_dotenv
 
     load_dotenv(REPO_ROOT / ".env")
+
+    if args.fixed_benchmark:
+        args.labels_dir = REPO_ROOT / "data" / "labels"
+        args.label_suffix = ".silver_committee.json"
+        args.modes = "naive,retrieval,field_agents,orchestrated"
+        args.max_pdfs = 25
+        args.bootstrap_samples = max(args.bootstrap_samples, 1000)
+        if args.out is None:
+            args.out = args.fixed_benchmark_out
 
     modes = [mode.strip() for mode in args.modes.split(",") if mode.strip()]
     pdf_paths = sorted(args.in_dir.glob("*.pdf"))
@@ -251,11 +289,33 @@ def main() -> None:
         )
         results[mode] = summary
 
-    _print_ablation_summary(results)
+    pairwise = _build_pairwise_report(results, modes)
+    _print_ablation_summary(results, pairwise)
 
     if args.out:
+        output_payload = {
+            "generated_at": datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z"),
+            "config": {
+                "labels_dir": str(args.labels_dir),
+                "label_suffix": args.label_suffix,
+                "schema": str(args.schema),
+                "modes": modes,
+                "max_pdfs": args.max_pdfs,
+                "skip_extraction": args.skip_extraction,
+                "bootstrap_samples": args.bootstrap_samples,
+                "bootstrap_seed": args.bootstrap_seed,
+                "fixed_benchmark": args.fixed_benchmark,
+                "disable_risk_judge": args.disable_risk_judge,
+                "risk_judge_model": args.risk_judge_model,
+                "risk_policy_path": str(args.risk_policy_path) if args.risk_policy_path else None,
+            },
+            "summaries": results,
+            "pairwise_comparisons": pairwise,
+        }
+        for mode, summary in results.items():
+            output_payload[mode] = summary
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
+        args.out.write_text(json.dumps(output_payload, indent=2) + "\n", encoding="utf-8")
 
 
 def _run_mode(
@@ -284,10 +344,9 @@ def _run_mode(
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
-                enable_verifier=not args.disable_verifier,
-                verifier_confidence_threshold=args.verifier_confidence_threshold,
-                verifier_max_repairs=args.verifier_max_repairs,
-                verifier_model=args.verifier_model,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
         elif mode == "retrieval":
             result = extract_fields_retrieval(
@@ -311,6 +370,9 @@ def _run_mode(
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
         elif mode == "field_agents":
             result = extract_fields_field_agents(
@@ -334,6 +396,9 @@ def _run_mode(
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
         elif mode == "orchestrated":
             result = extract_fields_orchestrated(
@@ -357,6 +422,9 @@ def _run_mode(
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
         else:
             raise ValueError(f"Unknown mode: {mode}")
@@ -391,7 +459,7 @@ def _write_outputs(
     out_path.write_text(json.dumps(pred_payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def _print_ablation_summary(results: dict) -> None:
+def _print_ablation_summary(results: dict, pairwise: dict) -> None:
     print("ablation_summary:")
     for mode, summary in results.items():
         print(
@@ -399,6 +467,148 @@ def _print_ablation_summary(results: dict) -> None:
             f"partial={summary['overall_accuracy_partial']} "
             f"docs={summary['docs_evaluated']}"
         )
+    if pairwise:
+        print("pairwise_comparisons:")
+        for pair_key, stats in pairwise.items():
+            exact = stats["exact"]
+            partial = stats["partial"]
+            print(
+                f"  {pair_key}: exact_delta={exact['mean_delta']} "
+                f"(w/t/l={exact['wins']}/{exact['ties']}/{exact['losses']}), "
+                f"partial_delta={partial['mean_delta']} "
+                f"(w/t/l={partial['wins']}/{partial['ties']}/{partial['losses']})"
+            )
+
+
+def _build_pairwise_report(results: dict, modes: list[str]) -> dict:
+    pairwise: dict = {}
+    for idx, baseline in enumerate(modes):
+        for challenger in modes[idx + 1 :]:
+            base_summary = results.get(baseline, {})
+            chall_summary = results.get(challenger, {})
+            pair_key = f"{baseline}__vs__{challenger}"
+            pairwise[pair_key] = _compare_mode_pair(base_summary, chall_summary, baseline, challenger)
+    return pairwise
+
+
+def _compare_mode_pair(
+    baseline_summary: dict,
+    challenger_summary: dict,
+    baseline_name: str,
+    challenger_name: str,
+) -> dict:
+    baseline_docs = _index_doc_metrics(baseline_summary.get("docs", []))
+    challenger_docs = _index_doc_metrics(challenger_summary.get("docs", []))
+    common_docs = sorted(set(baseline_docs.keys()) & set(challenger_docs.keys()))
+
+    doc_deltas = []
+    deltas_exact: list[float] = []
+    deltas_partial: list[float] = []
+    wins_exact = ties_exact = losses_exact = 0
+    wins_partial = ties_partial = losses_partial = 0
+
+    for doc in common_docs:
+        base_doc = baseline_docs[doc]
+        chall_doc = challenger_docs[doc]
+        delta_exact = float(chall_doc["accuracy_exact"]) - float(base_doc["accuracy_exact"])
+        delta_partial = float(chall_doc["accuracy_partial"]) - float(base_doc["accuracy_partial"])
+        deltas_exact.append(delta_exact)
+        deltas_partial.append(delta_partial)
+
+        outcome_exact = _delta_outcome(delta_exact)
+        outcome_partial = _delta_outcome(delta_partial)
+        if outcome_exact == "win":
+            wins_exact += 1
+        elif outcome_exact == "loss":
+            losses_exact += 1
+        else:
+            ties_exact += 1
+
+        if outcome_partial == "win":
+            wins_partial += 1
+        elif outcome_partial == "loss":
+            losses_partial += 1
+        else:
+            ties_partial += 1
+
+        doc_deltas.append(
+            {
+                "doc": doc,
+                "baseline_accuracy_exact": round(float(base_doc["accuracy_exact"]), 4),
+                "challenger_accuracy_exact": round(float(chall_doc["accuracy_exact"]), 4),
+                "delta_exact": round(delta_exact, 4),
+                "outcome_exact": outcome_exact,
+                "baseline_accuracy_partial": round(float(base_doc["accuracy_partial"]), 4),
+                "challenger_accuracy_partial": round(float(chall_doc["accuracy_partial"]), 4),
+                "delta_partial": round(delta_partial, 4),
+                "outcome_partial": outcome_partial,
+            }
+        )
+
+    field_delta_exact = _field_accuracy_delta(
+        baseline_summary.get("field_accuracy", {}),
+        challenger_summary.get("field_accuracy", {}),
+        metric="accuracy_exact",
+    )
+    field_delta_partial = _field_accuracy_delta(
+        baseline_summary.get("field_accuracy", {}),
+        challenger_summary.get("field_accuracy", {}),
+        metric="accuracy_partial",
+    )
+
+    return {
+        "baseline": baseline_name,
+        "challenger": challenger_name,
+        "docs_compared": len(common_docs),
+        "exact": {
+            "mean_delta": round(_mean(deltas_exact), 4) if deltas_exact else 0.0,
+            "wins": wins_exact,
+            "ties": ties_exact,
+            "losses": losses_exact,
+        },
+        "partial": {
+            "mean_delta": round(_mean(deltas_partial), 4) if deltas_partial else 0.0,
+            "wins": wins_partial,
+            "ties": ties_partial,
+            "losses": losses_partial,
+        },
+        "field_delta_exact": field_delta_exact,
+        "field_delta_partial": field_delta_partial,
+        "doc_deltas": doc_deltas,
+    }
+
+
+def _index_doc_metrics(docs: list[dict]) -> dict:
+    out: dict = {}
+    for doc in docs:
+        if doc.get("status") != "evaluated":
+            continue
+        name = doc.get("doc")
+        if not isinstance(name, str) or not name:
+            continue
+        out[name] = doc
+    return out
+
+
+def _field_accuracy_delta(baseline_field: dict, challenger_field: dict, *, metric: str) -> dict:
+    out: dict = {}
+    for field in sorted(set(baseline_field.keys()) | set(challenger_field.keys())):
+        base = float((baseline_field.get(field) or {}).get(metric, 0.0))
+        chall = float((challenger_field.get(field) or {}).get(metric, 0.0))
+        out[field] = round(chall - base, 4)
+    return out
+
+
+def _delta_outcome(delta: float, eps: float = 1e-9) -> str:
+    if delta > eps:
+        return "win"
+    if delta < -eps:
+        return "loss"
+    return "tie"
+
+
+def _mean(values: list[float]) -> float:
+    return sum(values) / len(values) if values else 0.0
 
 
 if __name__ == "__main__":

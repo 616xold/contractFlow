@@ -1,7 +1,7 @@
 {
-  "doc_type": "other",
-  "party_a_name": null,
-  "party_b_name": null,
+  "doc_type": "nda",
+  "party_a_name": "On2",
+  "party_b_name": "Wildform",
   "effective_date": null,
   "term_length": 18,
   "governing_law": "State of New York",
@@ -15,20 +15,16 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 21116,
-    "output_tokens": 2462,
+    "input_tokens": 21439,
+    "output_tokens": 2749,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
-      "Field 'party_a_name' must be a non-empty string",
-      "Field 'party_b_name' must be a non-empty string",
       "Field 'liability_cap' must be a non-empty string",
       "risk_level overridden by deterministic rules (was 'medium')",
       "risk_explanation overridden by deterministic rules",
-      "Field 'party_a_name' is null but not nullable",
-      "Field 'party_b_name' is null but not nullable",
       "Field 'liability_cap' is null but not nullable"
     ],
     "retrieval": {
@@ -38,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -45,109 +47,171 @@
       "total_chunks": 151,
       "fields": {
         "doc_type": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.78,
           "evidence": [
             {
-              "page_num": 4,
-              "heading": "CONFIDENTIALITY",
-              "snippet": "CONFIDENTIALITY"
+              "page_num": 5,
+              "heading": "5.2 Exceptions to Non-Disclosure Obligations. Notwithstanding the foregoing, the Receiving",
+              "snippet": "5.2 Exceptions to Non-Disclosure Obligations... the Receiving Party shall be permitted to disclose Confidential Information without any violation of this Agreement..."
             },
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "...not under a confidentiality obligation to the Disclosing Party, or (iv) is independently developed by the Receiving Party without reference to or use of any Confidential Information..."
+              "snippet": "...is rightfully in the possession of Receiving Party prior to disclosure by Disclosing Party... or (iv) is independently developed by the Receiving Party..."
+            },
+            {
+              "page_num": 5,
+              "heading": "5.2 Exceptions to Non-Disclosure Obligations. Notwithstanding the foregoing, the Receiving",
+              "snippet": "The Disclosing Party shall, therefore, be entitled to injunctive relief upon a disclosure or threatened disclosure of any Confidential Information..."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 566,
-          "completion_tokens": 90
+          "prompt_tokens": 799,
+          "completion_tokens": 180
         },
         "party_a_name": {
-          "confidence": 0.35,
+          "source": "party_roles_agent",
+          "confidence": 0.62,
           "evidence": [
+            {
+              "page_num": 3,
+              "heading": "2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its",
+              "snippet": "Each of On2 and Wildform shall appoint a representative to act as its primary contact person"
+            },
             {
               "page_num": 3,
               "heading": "2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its",
               "snippet": "The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."
             }
           ],
-          "attempts": 1,
-          "issues": [
-            "Field 'party_a_name' must be a non-empty string"
-          ],
-          "prompt_tokens": 2129,
-          "completion_tokens": 213
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 938,
+          "completion_tokens": 159,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.01,
+              "confidence": 0.35,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "On2",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.35,
+          "source": "party_roles_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 3,
               "heading": "2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its",
-              "snippet": "The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."
+              "snippet": "Each of On2 and Wildform shall appoint a representative to act as its primary contact person"
+            },
+            {
+              "page_num": 10,
+              "heading": "resolved as follows:",
+              "snippet": "The parties shall initially attempt to resolve Disputes through informal negotiations conducted by the Primary Coordinator of Wildform and Primary Coordinator of On2."
             }
           ],
-          "attempts": 1,
-          "issues": [
-            "Field 'party_b_name' must be a non-empty string"
-          ],
-          "prompt_tokens": 2138,
-          "completion_tokens": 160
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 938,
+          "completion_tokens": 160,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.11,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Wildform",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
         },
         "effective_date": {
-          "confidence": 0.32,
+          "source": "field_agent",
+          "confidence": 0.42,
           "evidence": [
             {
               "page_num": 1,
               "heading": "SUPPORT AND MAINTENANCE AGREEMENT",
               "snippet": "SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 (the \"Effective Date\"), between On2 Technologies, Inc."
-            },
-            {
-              "page_num": 11,
-              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to",
-              "snippet": "be executed the Effective Date."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
           "prompt_tokens": 1745,
-          "completion_tokens": 193
+          "completion_tokens": 158
         },
         "term_length": {
-          "confidence": 0.98,
+          "source": "field_agent",
+          "confidence": 0.97,
           "evidence": [
             {
               "page_num": 8,
               "heading": "9.1 Term. Except as otherwise set forth in Sections 9.2 and 9.3 or Exhibit A hereof, the",
               "snippet": "term of this Agreement shall be eighteen (18) months (\"Term\")."
+            },
+            {
+              "page_num": 3,
+              "heading": "1.15 \"Term\" shall have the meaning set forth in Section 9.1 hereof.",
+              "snippet": "1.15 \"Term\" shall have the meaning set forth in Section 9.1 hereof."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 491,
-          "completion_tokens": 81
+          "completion_tokens": 133
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.93,
           "evidence": [
             {
               "page_num": 9,
-              "heading": "10.7 Governing Law; Forum.",
+              "heading": "10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance",
               "snippet": "10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance"
             },
             {
               "page_num": 10,
               "heading": null,
-              "snippet": "with the laws of the State of New York, without giving effect to any choice of law or conflict of law provision or rule whether such provision or rule is that of the State of New York or any other jurisdiction."
+              "snippet": "with the laws of the State of New York, without giving effect to any choice of law or conflict of law provision or rule whether such provision or rule is that of the State of New York"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 701,
-          "completion_tokens": 125
+          "completion_tokens": 131
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.32,
           "evidence": [
             {
@@ -158,91 +222,101 @@
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 1798,
-          "completion_tokens": 181
+          "prompt_tokens": 1818,
+          "completion_tokens": 166
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
-              "page_num": 14,
-              "heading": "Flix products:",
-              "snippet": "...two (2) dedicated On2 branded mailings during the 12 months following closing to Wildform Flix customers..."
-            }
-          ],
-          "attempts": 1,
-          "issues": [
-            "Field 'liability_cap' must be a non-empty string"
-          ],
-          "prompt_tokens": 2381,
-          "completion_tokens": 158
-        },
-        "non_solicit_clause_present": {
-          "confidence": 0.18,
-          "evidence": [
-            {
-              "page_num": 5,
-              "heading": "5.3 Receiving Party's Duty of Care. Receiving Party shall protect the Confidential",
-              "snippet": "Receiving Party shall protect the Confidential Information from unauthorized use or disclosure... until five (5) years..."
+              "page_num": 8,
+              "heading": "8.2 Wildform's Indemnification of On2. Wildform agrees to defend, indemnify and hold",
+              "snippet": "Wildform agrees to defend, indemnify and hold harmless On2 from and against any claim, action, damage or costs (including reasonable attorneys fees) ..."
             }
           ],
           "attempts": 2,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2321,
+          "completion_tokens": 159
+        },
+        "non_solicit_clause_present": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "8.1 On2's Indemnification of Wildform. On2 agrees to defend, indemnify and hold harmless",
+              "snippet": "Wildform, its officers, directors, employees, agents and customers from and against any claim, action, damage or costs... based on any breach by On2 of Sections 5, 6 or 7 of this Agreement"
+            },
+            {
+              "page_num": 16,
+              "heading": "a.    Wildform will deliver the following:",
+              "snippet": "Should any tutorial author request that On2 remove the tutorial from On2's website, On2 shall comply with such request."
+            }
+          ],
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2687,
-          "completion_tokens": 234
+          "prompt_tokens": 2213,
+          "completion_tokens": 185
         },
         "data_transfer_outside_uk_eu": {
-          "confidence": 0.15,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
               "page_num": 1,
               "heading": "1.3 \"Confidential Information\" means any and all information disclosed by one Party (the",
-              "snippet": "\"Confidential Information\" means any and all information disclosed by one Party ... to the other Party ... in any manner..."
+              "snippet": "\"Confidential Information\" means any and all information disclosed by one Party ... to the other Party ..."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2006,
-          "completion_tokens": 240
+          "prompt_tokens": 1995,
+          "completion_tokens": 238
         },
         "risk_level": {
+          "source": "field_agent",
           "confidence": 0.55,
           "evidence": [
             {
               "page_num": 8,
-              "heading": "8.2 Wildform's Indemnification of On2. Wildform agrees to defend, indemnify and hold",
-              "snippet": "Wildform agrees to defend, indemnify and hold harmless On2 from and against any claim, action, damage or costs (including reasonable attorneys fees)..."
-            },
-            {
-              "page_num": 5,
-              "heading": "5.3 Receiving Party's Duty of Care. Receiving Party shall protect the Confidential",
-              "snippet": "Receiving Party shall protect the Confidential Information... but in no event less than reasonable care, until five (5) years... each Party shall be liable for any failure by such Party's employees..."
+              "heading": "9.3 Events Upon Termination.",
+              "snippet": "Wildform will immediately return to On2, or destroy, all copies of the Incorporated Technology... Upon written request from On2, Wildform will promptly provide On2 with a written certification"
             },
             {
               "page_num": 6,
-              "heading": "6.2 Wildform Warranties. Wildform makes the following representations and warranties to",
-              "snippet": "...to the best of Wildform's knowledge... the Deliverables... will not infringe any Intellectual Property Rights held by any third party."
+              "heading": "6.2 Wildform Warranties.",
+              "snippet": "to the best of Wildform's knowledge as of the Effective Date, the Deliverables marked as Deliverable #2 will not infringe any Intellectual Property Rights held by any third party."
+            },
+            {
+              "page_num": 3,
+              "heading": "2.4 Level of Transition Services.",
+              "snippet": "Wildform shall perform the Transition Services... following commonly accepted standards of care in the industry"
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2257,
-          "completion_tokens": 347,
+          "prompt_tokens": 846,
+          "completion_tokens": 173,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
-          "confidence": 0.42,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 4,
               "heading": null,
-              "snippet": "Each of the Deliverables shall be deemed accepted by On2 unless On2 delivers to Wildform a Nonconformance Notice within thirty (30) business days of the delivery of such Deliverable."
+              "snippet": "Upon receipt of each Deliverable, On2 shall have a period of thirty (30) working days within which to inspect such Deliverable... Each of the Deliverables shall be deemed accepted by On2 unless On2 delivers... a \"Nonconformance Notice\""
             },
             {
               "page_num": 8,
               "heading": "8.2 Wildform's Indemnification of On2. Wildform agrees to defend, indemnify and hold",
-              "snippet": "Wildform agrees to defend, indemnify and hold harmless On2 from and against any claim, action, damage or costs (including reasonable attorneys fees)"
+              "snippet": "Wildform agrees to defend, indemnify and hold harmless On2 from and against any claim, action, damage or costs (including reasonable attorneys fees)..."
             },
             {
               "page_num": 6,
@@ -253,7 +327,7 @@
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 2217,
-          "completion_tokens": 440,
+          "completion_tokens": 466,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -263,9 +337,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 13,
-        "unique_evidence_pages": 10,
-        "avg_confidence": 0.432,
+        "evidence_snippets_total": 17,
+        "unique_evidence_pages": 8,
+        "avg_confidence": 0.508,
         "min_confidence": 0.12
       }
     }

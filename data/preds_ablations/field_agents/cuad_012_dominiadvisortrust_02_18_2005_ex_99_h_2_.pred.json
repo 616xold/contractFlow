@@ -1,7 +1,7 @@
 {
   "doc_type": "other",
   "party_a_name": "Domini Advisor Trust",
-  "party_b_name": "Domini",
+  "party_b_name": "Domini Social Investments LLC",
   "effective_date": null,
   "term_length": null,
   "governing_law": "Commonwealth of Massachusetts",
@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 28522,
-    "output_tokens": 2400,
+    "input_tokens": 24191,
+    "output_tokens": 2371,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -34,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,92 +47,143 @@
       "total_chunks": 15,
       "fields": {
         "doc_type": {
-          "confidence": 0.74,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
-            {
-              "page_num": 1,
-              "heading": "Exhibit h(2)                               SPONSORSHIP AGREEMENT",
-              "snippet": "SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,"
-            },
             {
               "page_num": 3,
               "heading": null,
-              "snippet": "8. Severability. If any provision of this Agreement shall become or shall be found to be invalid..."
+              "snippet": "4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission in the oversight, administration or management of the Trust..."
             },
             {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment..."
-            }
-          ],
-          "attempts": 2,
-          "issues": [],
-          "prompt_tokens": 2366,
-          "completion_tokens": 303
-        },
-        "party_a_name": {
-          "confidence": 0.93,
-          "evidence": [
-            {
-              "page_num": 1,
-              "heading": "Exhibit h(2)                               SPONSORSHIP AGREEMENT",
-              "snippet": "SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,\na Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC,"
-            }
-          ],
-          "attempts": 2,
-          "issues": [],
-          "prompt_tokens": 2541,
-          "completion_tokens": 247
-        },
-        "party_b_name": {
-          "confidence": 0.42,
-          "evidence": [
-            {
-              "page_num": 1,
-              "heading": "W I T N E S S E T H:",
-              "snippet": "...the Trust wishes to engage Domini to provide certain oversight, administrative and management services, and Domini is willing to provide such oversight, administrative and management services to the Trust..."
+              "page_num": 4,
+              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and",
+              "snippet": "The undersigned Trustee of the Trust has executed this Agreement not individually but as a Trustee under the Trust's Declaration of Trust, dated October 6, 2004, as amended..."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2817,
-          "completion_tokens": 172
+          "prompt_tokens": 885,
+          "completion_tokens": 147
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit h(2)                               SPONSORSHIP AGREEMENT",
+              "snippet": "SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,\na Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 521,
+          "completion_tokens": 106,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "Domini Advisor Trust",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.04,
+              "confidence": 0.99,
+              "value": "Domini Advisor Trust",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit h(2)                               SPONSORSHIP AGREEMENT",
+              "snippet": "SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,\na Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC, a\nMassachusetts limited liability company (\"Domini\" or the \"Sponsor\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 522,
+          "completion_tokens": 107,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "Domini Social Investments LLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.04,
+              "confidence": 0.99,
+              "value": "Domini Social Investments LLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.22,
           "evidence": [
             {
               "page_num": 4,
               "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and",
-              "snippet": "...all as of the day and year first above written."
+              "snippet": "delivered in their names and on their behalf by the undersigned, thereunto duly authorized, all as of the day and year first above written."
             },
             {
               "page_num": 4,
               "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and",
-              "snippet": "...Declaration of Trust, dated October 6, 2004, as amended..."
-            }
-          ],
-          "attempts": 2,
-          "issues": [],
-          "prompt_tokens": 2610,
-          "completion_tokens": 197
-        },
-        "term_length": {
-          "confidence": 0.12,
-          "evidence": [
-            {
-              "page_num": 1,
-              "heading": "W I T N E S S E T H:",
-              "snippet": "...Domini is willing to provide such oversight, administrative and management services to the Trust on the terms and conditions hereinafter set forth; NOW, THEREFORE..."
+              "snippet": "Declaration of Trust, dated October 6, 2004, as amended,"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2759,
-          "completion_tokens": 162
+          "prompt_tokens": 2490,
+          "completion_tokens": 232
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission in the oversight, administration or management of the Trust..."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "This Agreement shall be construed and enforced and interpreted in accordance with and governed by the laws of the Commonwealth of Massachusetts..."
+            },
+            {
+              "page_num": 4,
+              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and",
+              "snippet": "...executed and delivered in their names and on their behalf by the undersigned... all as of the day and year first above written."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2524,
+          "completion_tokens": 278
         },
         "governing_law": {
-          "confidence": 0.99,
+          "source": "field_agent",
+          "confidence": 0.98,
           "evidence": [
             {
               "page_num": 4,
@@ -140,6 +197,7 @@
           "completion_tokens": 75
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
@@ -154,6 +212,7 @@
           "completion_tokens": 140
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.22,
           "evidence": [
             {
@@ -162,20 +221,26 @@
               "snippet": "The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or... reckless disregard of its obligations"
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 2465,
-          "completion_tokens": 163
+          "prompt_tokens": 2439,
+          "completion_tokens": 166
         },
         "non_solicit_clause_present": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.12,
           "evidence": [
             {
               "page_num": 3,
               "heading": null,
-              "snippet": "4. Limitation of Liability of the Sponsor... 5. Activities of the Sponsor. The services of the Sponsor to the Trust are not to be deemed to be exclusive, Domini being free to render oversight, administrative and/or other services to other parties."
+              "snippet": "4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment or mistake of law..."
+            },
+            {
+              "page_num": 1,
+              "heading": "W I T N E S S E T H:",
+              "snippet": "1. Duties of the Sponsor. Subject to the direction and control of the Board of Trustees of the Trust, the Sponsor shall perform such oversight, administrative and management services..."
             },
             {
               "page_num": 3,
@@ -183,26 +248,28 @@
               "snippet": "8. Severability. If any provision of this Agreement shall become or shall be found to be invalid... 9. Notice. Any notices under this Agreement shall be in writing..."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
           "prompt_tokens": 2789,
-          "completion_tokens": 314
+          "completion_tokens": 303
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
               "page_num": 3,
               "heading": null,
-              "snippet": "...Domini shall not enter into any such subcontract unless the Trustees of the Trust shall have found the subcontracting party to be qualified..."
+              "snippet": "Domini shall not enter into any such subcontract unless the Trustees of the Trust shall have found the subcontracting party to be qualified to perform the obligations sought to be subcontracted;"
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2902,
-          "completion_tokens": 193
+          "prompt_tokens": 2868,
+          "completion_tokens": 200
         },
         "risk_level": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
@@ -214,11 +281,12 @@
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 2728,
-          "completion_tokens": 220,
+          "completion_tokens": 198,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
@@ -235,7 +303,7 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 923,
-          "completion_tokens": 214,
+          "completion_tokens": 209,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -245,9 +313,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 14,
+        "evidence_snippets_total": 16,
         "unique_evidence_pages": 3,
-        "avg_confidence": 0.418,
+        "avg_confidence": 0.462,
         "min_confidence": 0.12
       }
     }

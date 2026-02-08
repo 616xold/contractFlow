@@ -1,0 +1,912 @@
+{
+  "doc_type": "nda",
+  "party_a_name": "IntriCon Corporation",
+  "party_b_name": "INTRICON CORPORATION",
+  "effective_date": "2008-10-01",
+  "term_length": 60,
+  "governing_law": "Victoria, Australia",
+  "termination_notice_days": 90,
+  "liability_cap": "No specific monetary liability cap stated in the provided excerpts; agreement includes exclusions of indirect/consequential damages and indemnities subject to section 10.3.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 45803,
+    "output_tokens": 4460,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier requested revision for field 'doc_type'",
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier marked field 'non_solicit_clause_present' as unknown",
+      "verifier returned unknown for non-nullable field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 109,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 11,
+              "heading": "7.0    Confidentiality",
+              "snippet": "not disclose any Confidential Information to any person, except in confidence as permitted by this Agreement;"
+            },
+            {
+              "page_num": 11,
+              "heading": "7.0    Confidentiality",
+              "snippet": "not use any Confidential Information except as reasonably necessary for the purpose of putting this Agreement into  effect (Permitted Purpose);"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1030,
+          "completion_tokens": 102,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The evidence shows a confidentiality clause, but that alone does not establish the document is an NDA; confidentiality provisions commonly appear in MSAs and other agreements. There is no evidence of the document title or overall purpose (e.g., “Non-Disclosure Agreement,” “Confidentiality Agreement,” or mutual/unilateral NDA framing) to support classifying the entire document as an NDA.",
+            "confidence": 0.74,
+            "revised_query": "Find the document title/introductory section stating the agreement type (e.g., “Non-Disclosure Agreement”/“Confidentiality Agreement”) and the stated purpose of disclosure/Permitted Purpose.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "nda",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 416,
+            "completion_tokens": 144
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "nda",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "repair_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Arden Hills, Minnesota 55112  United States                   and",
+              "snippet": "This Agreement is entered into and is effective as of the 1st day of October, 2008 (Commencement Date) by and between IntriCon  Corporation, a Pennsylvania Corporation... (hereinafter  IntriCon) and Dynamic Hearing Pty Ltd"
+            },
+            {
+              "page_num": 19,
+              "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
+              "snippet": "DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1054,
+          "completion_tokens": 150,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the agreement is between “IntriCon Corporation, a Pennsylvania Corporation” and another party, and the signature block also lists “INTRICON CORPORATION,” supporting the selected party_a_name as IntriCon Corporation.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "IntriCon Corporation",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 509,
+            "completion_tokens": 75
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Dynamic Hearing Pty Ltd",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "Dynamic Hearing",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "DYNAMIC HEARING PTY LTD",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 1.0,
+              "confidence": 0.9,
+              "value": "IntriCon Corporation",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 19,
+              "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
+              "snippet": "IntriCon may not assign or transfer any of its rights or obligations under this Agreement without the prior written consent of  Dynamic Hearing."
+            },
+            {
+              "page_num": 19,
+              "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
+              "snippet": "DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 927,
+          "completion_tokens": 131,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence shows the signature block listing the parties as “DYNAMIC HEARING PTY LTD” and “INTRICON CORPORATION,” supporting that the second party’s full legal name is INTRICON CORPORATION.",
+            "confidence": 0.84,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "INTRICON CORPORATION",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 466,
+            "completion_tokens": 70
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "IntriCon Corporation",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "IntriCon",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "INTRICON CORPORATION",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Arden Hills, Minnesota 55112  United States                   and",
+              "snippet": "This Agreement is entered into and is effective as of the 1st day of October, 2008 (Commencement Date)"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2155,
+          "completion_tokens": 201,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"This Agreement is entered into and is effective as of the 1st day of October, 2008,\" which supports the selected effective_date of 2008-10-01 in ISO format. No conflicts are indicated by deterministic checks.",
+            "confidence": 0.97,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2008-10-01",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 410,
+            "completion_tokens": 82
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2008-07-20",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.0,
+              "confidence": 0.95,
+              "value": "2008-10-01",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "3.1 Term: The initial term of this Agreement shall be five (5) years from the date of",
+              "snippet": "The initial term of this Agreement shall be five (5) years from the date of execution"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 994,
+          "completion_tokens": 77,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence states the initial term is five (5) years from the date of execution. Five years equals 60 months, matching the selected value.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 60,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 392,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 60,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.0,
+              "confidence": 0.95,
+              "value": 60,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 19,
+              "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
+              "snippet": "12.8 This Agreement is governed by the laws of Victoria, Australia and the parties submit to the jurisdiction of the courts of Victoria, Australia."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 778,
+          "completion_tokens": 90,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: “This Agreement is governed by the laws of Victoria, Australia…”, which directly supports the selected governing_law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Victoria, Australia",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 408,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Victoria, Australia",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "Victoria, Australia",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "repair_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 16,
+              "heading": "11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon",
+              "snippet": "three (3) months written notice to Dynamic  Hearing, such notice stating that IntriCon will cease making payments... and such termination shall not be considered a breach of this Agreement."
+            },
+            {
+              "page_num": 16,
+              "heading": "11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon",
+              "snippet": "(b)    Subject to the provisions of 11.1, Dynamic Hearing may terminate this Agreement upon three (3) months written notice  to IntriCon of such termination."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 841,
+          "completion_tokens": 172,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence states either party may terminate the Agreement upon three (3) months written notice. Three months is reasonably normalized to 90 days for the termination_notice_days field, and there is no conflicting evidence provided.",
+            "confidence": 0.77,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 90,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 503,
+            "completion_tokens": 70
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 90,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": 90,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.88,
+              "confidence": 0.78,
+              "value": 90,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence excerpts were provided to support the statement about the absence of a liability cap or the presence of indirect/consequential damages exclusions and indemnity limitations. Without contract text, the liability cap cannot be verified or asserted.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "No specific monetary liability cap stated in the provided excerpts; agreement includes exclusions of indirect/consequential damages and indemnities subject to section 10.3.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 413,
+            "completion_tokens": 72
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "No specific monetary liability cap stated in the provided excerpts; agreement includes exclusions of indirect/consequential damages and indemnities subject to section 10.3.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.18,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support the selected value (false). Without contract text or clause excerpts, the presence or absence of a non-solicitation clause cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 62
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.18,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 2
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.32,
+              "confidence": 0.22,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 7,
+              "heading": "3.11 Where Dynamic Hearing supplies Dynamic Hearing Technology directly to a customer on",
+              "snippet": "Dynamic Hearing may continue indefinitely selling products and services to new customers using the ON Semiconductor DSP hybrid chip."
+            },
+            {
+              "page_num": 21,
+              "heading": null,
+              "snippet": "Unless expressly specified in this Exhibit, Dynamic Hearing will have no obligation to provide updates or revisions to, or new versions of, any software."
+            },
+            {
+              "page_num": 15,
+              "heading": "IntriCon if IntriCon:",
+              "snippet": "the other party breaches a material term of this Agreement ... fails to remedy the breach within 30 days after being required by written notice"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2587,
+          "completion_tokens": 277,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.7,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.48,
+              "confidence": 0.38,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 16,
+              "heading": "11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon",
+              "snippet": "IntriCon may terminate this Agreement upon three (3) months written notice... and such termination shall not be considered a breach of this Agreement."
+            },
+            {
+              "page_num": 14,
+              "heading": "in this Agreement:",
+              "snippet": "Dynamic Hearing is not liable in any way to IntriCon for any indirect, consequential... loss or damage... arising in connection with this Agreement; (c) IntriCon is not liable..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 817,
+          "completion_tokens": 209,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is elevated because the agreement allows termination on three months’ notice, including a provision that IntriCon can cease payments and terminate without it being a breach, creating revenue and continuity uncertainty. In addition, both parties broadly exclude liability for indirect and consequential losses, limiting remedies if problems arise and increasing residual risk.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The agreement is a technology/software licensing arrangement with broad confidentiality obligations and significant IP/indemnity provisions, which can create meaningful exposure for a small vendor. The excerpts show limitations excluding indirect/consequential damages but do not show a clear monetary cap, increasing uncertainty. Termination for convenience requires three months’ notice, which may reduce flexibility.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "The risk level is elevated because the agreement allows termination on three months’ notice, including a provision that IntriCon can cease payments and terminate without it being a breach, creating revenue and continuity uncertainty. In addition, both parties broadly exclude liability for indirect and consequential losses, limiting remedies if problems arise and increasing residual risk.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "party_a_name",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu",
+          "risk_level"
+        ],
+        "disagreement_fields": [
+          "doc_type",
+          "effective_date",
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 7,
+          "repair_agent": 2,
+          "global_baseline": 2,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 1,
+        "verifier_repair_fields": [
+          "doc_type"
+        ],
+        "verifier_decisions": {
+          "accept": 6,
+          "revise": 1,
+          "unknown": 3,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "doc_type",
+          "liability_cap",
+          "non_solicit_clause_present"
+        ],
+        "verifier_disagreement_rate": 0.3333,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7,
+        "evidence_snippets_total": 11,
+        "unique_evidence_pages": 5,
+        "avg_confidence": 0.774,
+        "min_confidence": 0.58
+      }
+    }
+  }
+}

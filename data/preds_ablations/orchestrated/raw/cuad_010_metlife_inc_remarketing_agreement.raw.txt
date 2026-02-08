@@ -1,0 +1,101 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"unknown","party_b_name":"Deutsche Bank Securities Inc.","effective_date":null,"term_length":null,"governing_law":"New York","termination_notice_days":null,"liability_cap":"unknown","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is a securities remarketing agreement with extensive representations, indemnities and procedural conditions typical of capital markets transactions, which can create meaningful legal and compliance exposure. The excerpts do not show a clear liability cap, effective date, or convenience-termination notice period, increasing uncertainty. Governing law and venue are New York/Manhattan, which may be less favorable for a small vendor depending on location and litigation costs."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":27,"heading":"Treasurer","snippet":"[Signature page to the Remarketing Agreement]"},{"page_num":26,"heading":null,"snippet":"20. Entire Agreement. This Remarketing Agreement supersedes all prior agreements and understandings..."}],"confidence":0.72,"value":"other"}
+
+JOINT_PARTY_AGENT
+{"party_a_name":"METLIFE, INC.","party_b_name":null,"party_a_evidence":[{"page_num":27,"heading":"METLIFE, INC.","snippet":"METLIFE, INC."},{"page_num":21,"heading":"Section 20 of the Exchange Act against any losses, claims, damages or liabilities (or","snippet":"actions in respect thereof) to which the Company may become subject,"},{"page_num":26,"heading":null,"snippet":"This Remarketing Agreement and the Pricing Agreement may be executed by any one or more of the parties hereto"}],"party_b_evidence":[{"page_num":26,"heading":null,"snippet":"the Company, on the one hand, and the several Remarketing Agents, on the other hand"},{"page_num":26,"heading":null,"snippet":"the Company, the Remarketing Agents and the Stock Purchase Contract Agent hereby agree"}],"party_a_confidence":0.78,"party_b_confidence":0.22}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":21,"heading":"Section 20 of the Exchange Act against any losses, claims, damages or liabilities (or","snippet":"actions in respect thereof) to which the Company may become subject, under the Act or otherwise,"}],"confidence":0.12,"value":""}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":27,"heading":"Treasurer","snippet":"[Signature page to the Remarketing Agreement]\nDEUTSCHE BANK TRUST COMPANY AMERICAS, as Stock Purchase Contract Agent"}],"confidence":0.62,"value":"DEUTSCHE BANK TRUST COMPANY AMERICAS"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Effective on September 15, 2014, the Series E Debt Securities will automatically convert, without any act of any holder, into units consisting of two tranches,"}],"confidence":0.32,"value":"2014-09-15"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":3,"heading":null,"snippet":"...the term \"Remarketing Date\" means the date on which the Remarketing Agents price the Remarketed Securities... during the period that begins on, and includes, September 25, 2014 and ends on, and includes, October 7, 2014;"}],"confidence":0.12,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":25,"heading":"15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED","snippet":"15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED"},{"page_num":25,"heading":"THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.","snippet":"...may be instituted in any state or Federal court in the Borough of Manhattan, The City of New York, New York..."}],"confidence":0.22,"value":""}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":23,"heading":null,"snippet":"A Remarketing Agent may resign and be discharged from its duties and obligations hereunder, and the Company may remove any or all of the Remarketing Agents, by giving five (5) Business Days' prior written notice..."}],"confidence":0.32,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":22,"heading":null,"snippet":"the amount paid or payable by such indemnified party as a result of such losses, claims, damages or liabilities (or actions in respect thereof)..."},{"page_num":2,"heading":null,"snippet":"This Remarketing Agreement shall have the meanings set forth in the Stock Purchase Contract Agreement, the Pledge Agreement or the Indenture, as the case may be."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":25,"heading":"THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.","snippet":"16. Consent to Jurisdiction. The Company agrees that any legal suit, action or proceeding... arising out of or based upon this Remarketing Agreement... may be instituted in any state or Federal court..."}],"confidence":0.12,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":31,"heading":"Hong Kong","snippet":"...no advertisement, invitation or document relating to the Series E Debentures may be issued or may be in the possession of any person... (in each case whether in Hong Kong or elsewhere)..."}],"confidence":0.22,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":16,"heading":null,"snippet":"...not to offer, sell, contract to offer or sell or otherwise dispose of any debt securities of the Company having pricing characteristics similar to the Securities exceeding an aggregate principal amount of $3 billion..."},{"page_num":19,"heading":null,"snippet":"...no downgrading shall have occurred in the rating accorded the debt securities of the Company or any Significant Subsidiary... by A.M. Best & Co., Fitch Ratings, Ltd., Moody's Investors Service..."}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":24,"heading":null,"snippet":"This Remarketing Agreement shall terminate (i) in the event of a Remarketing that is not a Successful Remarketing... In addition, the obligations of the Remarketing Agents may be terminated... if... conditions precedent... shall have failed to occur."},{"page_num":25,"heading":"THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.","snippet":"The Company agrees that any legal suit... may be instituted in any state or Federal court in the Borough of Manhattan... and... waives any objection... and irrevocably submits to the non-exclusive jurisdiction of such courts."}],"confidence":0.66,"value":"The risk level is elevated because the agreement can terminate if the remarketing is not successful or if conditions precedent fail, creating execution and continuity risk. It also contains a New York (Manhattan) jurisdiction and venue submission, which can increase litigation and enforcement exposure for the Company."}
+
+REPAIR_AGENT party_b_name
+{"evidence":[{"page_num":27,"heading":"Treasurer","snippet":"[Signature page to the Remarketing Agreement]\nDEUTSCHE BANK TRUST COMPANY AMERICAS, as Stock Purchase Contract Agent"},{"page_num":28,"heading":"Securities\")","snippet":"...Remarketing Agreement\") among ourselves as the Company, Deutsche Bank Trust Company\nAmericas, as Stock Purchase Contract Agent..."}],"confidence":0.62,"value":"Deutsche Bank Trust Company Americas"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Effective on September 15, 2014, the Series E Debt Securities will automatically convert, without any act of any holder, into units consisting of two tranches..."}],"confidence":0.32,"value":"2014-09-15"}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":5,"heading":null,"snippet":"(k) If at any time during the term of this Remarketing Agreement, any Event of Default (as defined in the Indenture) ... has occurred and is continuing under the Indenture, then the obligations and duties..."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT governing_law
+{"evidence":[{"page_num":25,"heading":"15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED","snippet":"15. GOVERNING LAW. THIS REMARKETING AGREEMENT AND THE PRICING AGREEMENT SHALL BE GOVERNED"},{"page_num":25,"heading":"THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.","snippet":"...may be instituted in any state or Federal court in the Borough of Manhattan, The City of New York, New York..."}],"confidence":0.22,"value":""}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":24,"heading":null,"snippet":"the obligations of the Remarketing Agents may be terminated by them by notice given to the Company prior to 12:00 noon, New York City time on the Remarketing Settlement Date"}],"confidence":0.32,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":21,"heading":null,"snippet":"other expenses reasonably incurred by such Remarketing Agent in connection with investigating or defending any such action or claim as such expenses are incurred; provided, however, that the Company shall not be liable in any such case to the extent"}],"confidence":0.12,"value":""}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"Evidence explicitly identifies the document as a \"Remarketing Agreement\" (signature page and entire agreement clause). This is neither an NDA nor an MSA, so classifying doc_type as \"other\" is supported.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly shows the party name as “METLIFE, INC.” (page 27 heading/snippet). No conflicting party_a_name candidates or contradictory evidence are provided, and deterministic checks indicate no conflict and sufficient evidence.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"Evidence explicitly names “DEUTSCHE BANK TRUST COMPANY AMERICAS” as a party in the signature page and in the agreement text (“…as the Company, Deutsche Bank Trust Company Americas, as Stock Purchase Contract Agent…”), supporting the selected party_b_name value. Alternative candidate “Deutsche Bank Securities Inc.” is not supported by the provided evidence snippets for the second party name.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"revise","reason":"The evidence states “Effective on September 15, 2014” in the context of the Series E Debt Securities’ automatic conversion date, not clearly the date the overall agreement becomes effective. This may be a specific event date rather than the contract’s effective date; additional contract language (e.g., “This Agreement is effective as of…”) is needed to support the field.","confidence":0.66,"revised_query":"Find the clause stating when the agreement becomes effective (e.g., “effective as of”, “dated as of”, “commencement date”, “this agreement is effective on”)."}
+
+VERIFIER_REPAIR_AGENT effective_date
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Effective on September 15, 2014, the Series E Debt Securities will automatically convert, without any act of any holder, into units consisting of two tranches,"},{"page_num":1,"heading":"Ladies and Gentlemen:","snippet":"This Remarketing Agreement is dated as of August 26, 2014 (this \"Remarketing Agreement\"),"}],"confidence":0.35,"value":null}
+
+VERIFIER_AGENT term_length
+{"decision":"revise","reason":"The evidence only references \"during the term of this Remarketing Agreement\" without stating a specific duration or end date. The selected null is not supported by a clear statement that the term length is indeterminable; better retrieval targeting the agreement’s Term/Duration/Effective Date/Termination clause may yield a determinable number of months.","confidence":0.62,"revised_query":"Locate the clause defining the Remarketing Agreement term (\"Term\", \"Duration\", \"Effective Date\", \"Expiration\", \"Termination\") and extract any stated length in months or start/end dates."}
+
+VERIFIER_REPAIR_AGENT term_length
+{"evidence":[{"page_num":24,"heading":null,"snippet":"11. Termination of Remarketing Agreement. This Remarketing Agreement shall terminate (i) in the event of a Remarketing that is not a Successful Remarketing..."}],"confidence":0.18,"value":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"revise","reason":"No evidence was provided to support the selected governing law value (“New York”). A clause-focused retrieval of the governing law section could confirm the correct jurisdiction.","confidence":0.74,"revised_query":"Governing Law clause / choice of law provision (e.g., \"This Agreement shall be governed by the laws of...\")"}
+
+VERIFIER_REPAIR_AGENT governing_law
+{"evidence":[{"page_num":28,"heading":"Securities\")","snippet":"This letter is governed by, and shall be construed in accordance with, the laws of the\nState of New York."}],"confidence":0.62,"value":"State of New York"}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"revise","reason":"Evidence explicitly states termination/removal may occur with five (5) Business Days' prior written notice, so the field should not be null. The correct notice period appears to be 5 (business) days.","confidence":0.78,"revised_query":"termination for convenience notice period five (5) Business Days prior written notice remove remarketing agent"}
+
+VERIFIER_REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":23,"heading":null,"snippet":"A Remarketing Agent may resign and be discharged... and the Company may remove... by giving five (5) Business Days' prior written notice..."}],"confidence":0.42,"value":5}
+
+VERIFIER_AGENT liability_cap
+{"decision":"revise","reason":"The selected value is null, but the field is not nullable. The provided evidence snippets discuss indemnified losses and cross-references to other agreements, but do not state any explicit monetary cap on liability. A targeted search for a limitation-of-liability clause (e.g., 'liability shall not exceed', 'aggregate liability', 'cap', 'limit of liability') is needed to confirm the cap text, if any.","confidence":0.74,"revised_query":"Search for limitation of liability / cap language: \"liability shall not exceed\" OR \"aggregate liability\" OR \"limit of liability\" OR \"cap\" OR \"in no event\" near \"fees\" or \"amount paid\" in the Remarketing Agreement."}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero evidence snippets, the field cannot be verified; targeted retrieval may confirm presence/absence.","confidence":0.74,"revised_query":"non-solicitation clause solicit customers employees clients non-solicit"}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding whether data transfers outside the UK/EU are explicitly allowed. With zero supporting clauses, the value cannot be confirmed as yes or no, so 'unknown' is appropriate.","confidence":0.74,"revised_query":null}

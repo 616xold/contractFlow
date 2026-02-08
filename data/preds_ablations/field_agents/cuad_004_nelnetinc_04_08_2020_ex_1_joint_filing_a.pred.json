@@ -1,6 +1,6 @@
 {
   "doc_type": "other",
-  "party_a_name": null,
+  "party_a_name": "Butterfield Family Trust",
   "party_b_name": null,
   "effective_date": "2020-03-27",
   "term_length": null,
@@ -15,20 +15,18 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 12336,
-    "output_tokens": 1792,
+    "input_tokens": 13293,
+    "output_tokens": 1914,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
-      "Field 'party_a_name' must be a non-empty string",
       "Field 'party_b_name' must be a non-empty string",
       "Field 'governing_law' must be a non-empty string",
       "Field 'liability_cap' must be a non-empty string",
       "risk_level overridden by deterministic rules (was 'medium')",
       "risk_explanation overridden by deterministic rules",
-      "Field 'party_a_name' is null but not nullable",
       "Field 'party_b_name' is null but not nullable",
       "Field 'governing_law' is null but not nullable",
       "Field 'liability_cap' is null but not nullable"
@@ -40,6 +38,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -47,57 +51,100 @@
       "total_chunks": 4,
       "fields": {
         "doc_type": {
-          "confidence": 0.95,
+          "source": "field_agent",
+          "confidence": 0.93,
           "evidence": [
             {
               "page_num": 1,
               "heading": "JOINT FILING AGREEMENT",
               "snippet": "Heading: JOINT FILING AGREEMENT"
-            },
-            {
-              "page_num": 1,
-              "heading": "JOINT FILING AGREEMENT",
-              "snippet": "The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 571,
-          "completion_tokens": 93
+          "completion_tokens": 51
         },
         "party_a_name": {
-          "confidence": 0.12,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 1,
-              "heading": "JOINT FILING AGREEMENT",
-              "snippet": "The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D..."
+              "heading": "BUTTERFIELD FAMILY TRUST",
+              "snippet": "BUTTERFIELD FAMILY TRUST"
             }
           ],
           "attempts": 1,
-          "issues": [
-            "Field 'party_a_name' must be a non-empty string"
-          ],
-          "prompt_tokens": 1082,
-          "completion_tokens": 140
+          "issues": [],
+          "prompt_tokens": 583,
+          "completion_tokens": 51,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Butterfield Family Trust",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.26,
+              "confidence": 0.1,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' is null but not nullable"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.12,
+          "source": "field_agent",
+          "confidence": 0.42,
           "evidence": [
             {
               "page_num": 1,
-              "heading": "JOINT FILING AGREEMENT",
-              "snippet": "The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D..."
+              "heading": "BUTTERFIELD FAMILY TRUST",
+              "snippet": "BUTTERFIELD FAMILY TRUST\nBy: /s/ Shelby J. Butterfield Shelby J. Butterfield Co-Trustee"
             }
           ],
           "attempts": 1,
           "issues": [
             "Field 'party_b_name' must be a non-empty string"
           ],
-          "prompt_tokens": 1082,
-          "completion_tokens": 140
+          "prompt_tokens": 1166,
+          "completion_tokens": 151,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.06,
+              "confidence": 0.42,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.01,
+              "confidence": 0.35,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.72,
           "evidence": [
             {
@@ -112,21 +159,23 @@
           "completion_tokens": 60
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
               "page_num": 1,
               "heading": "JOINT FILING AGREEMENT",
-              "snippet": "The undersigned hereby agree to jointly prepare and file... this Schedule 13G or Schedule 13D and any future amendments thereto... Dated: March 27, 2020."
+              "snippet": "The undersigned hereby agree to jointly prepare and file... this Schedule 13G or Schedule 13D and any future amendments thereto..."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1130,
-          "completion_tokens": 162
+          "completion_tokens": 151
         },
         "governing_law": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
               "page_num": 1,
@@ -142,6 +191,7 @@
           "completion_tokens": 175
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.08,
           "evidence": [
             {
@@ -156,12 +206,13 @@
           "completion_tokens": 152
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
               "page_num": 1,
               "heading": "JOINT FILING AGREEMENT",
-              "snippet": "The undersigned acknowledge that each shall be responsible for the timely filing of such amendments, and for the completeness and accuracy of the information concerning her or it contained therein"
+              "snippet": "The undersigned acknowledge that each shall be responsible for the timely filing of such amendments, and for the completeness and accuracy of the information concerning her or it contained therein..."
             }
           ],
           "attempts": 1,
@@ -169,9 +220,10 @@
             "Field 'liability_cap' must be a non-empty string"
           ],
           "prompt_tokens": 1100,
-          "completion_tokens": 152
+          "completion_tokens": 154
         },
         "non_solicit_clause_present": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -186,6 +238,7 @@
           "completion_tokens": 156
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -200,7 +253,8 @@
           "completion_tokens": 160
         },
         "risk_level": {
-          "confidence": 0.25,
+          "source": "field_agent",
+          "confidence": 0.34,
           "evidence": [
             {
               "page_num": 1,
@@ -211,17 +265,18 @@
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 1144,
-          "completion_tokens": 150,
+          "completion_tokens": 194,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
-          "confidence": 0.34,
+          "source": "field_agent",
+          "confidence": 0.44,
           "evidence": [
             {
               "page_num": 1,
               "heading": "JOINT FILING AGREEMENT",
-              "snippet": "each shall be responsible for the timely filing of such amendments, and for the completeness and accuracy of the information concerning her or it contained therein"
+              "snippet": "The undersigned acknowledge that each shall be responsible for the timely filing of such amendments, and for the completeness and accuracy of the information concerning her or it contained therein"
             },
             {
               "page_num": 1,
@@ -229,10 +284,10 @@
               "snippet": "but shall not be responsible for the completeness and accuracy of the information concerning the other, except to the extent that she or it knows or has reason to believe that such information is inaccurate."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
           "prompt_tokens": 1106,
-          "completion_tokens": 252,
+          "completion_tokens": 225,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -242,9 +297,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 11,
+        "evidence_snippets_total": 10,
         "unique_evidence_pages": 1,
-        "avg_confidence": 0.265,
+        "avg_confidence": 0.347,
         "min_confidence": 0.08
       }
     }

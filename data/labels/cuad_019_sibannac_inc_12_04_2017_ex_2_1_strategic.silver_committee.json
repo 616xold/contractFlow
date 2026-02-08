@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Bravatek Technologies, Inc.",
+  "party_b_name": "Sibannac, Inc.",
+  "effective_date": "2017-11-30",
+  "term_length": 12,
+  "governing_law": "State of Texas",
+  "termination_notice_days": 90,
+  "liability_cap": "No explicit limitation of liability cap stated; agreement includes mutual indemnification for third-party claims (including attorneys' fees and costs).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement appears to include broad mutual indemnification obligations for third-party claims, with no stated cap on liability, which can create uncapped financial exposure. It also has a 90-day termination notice requirement, reducing flexibility to exit quickly. Confidentiality is present but there is no clear limitation-of-liability framework typical for SaaS vendors."
+}

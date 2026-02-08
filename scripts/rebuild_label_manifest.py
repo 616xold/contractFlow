@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 
@@ -19,8 +19,14 @@ def main() -> None:
     parser.add_argument(
         "--silver-mode",
         type=str,
-        default="retrieval",
-        help="Mode used for silver labels (default: retrieval)",
+        default="committee",
+        help="Mode used for silver labels (default: committee)",
+    )
+    parser.add_argument(
+        "--silver-suffix",
+        type=str,
+        default=".silver_committee.json",
+        help="Suffix used for silver labels (default: .silver_committee.json)",
     )
     parser.add_argument(
         "--out",
@@ -31,14 +37,15 @@ def main() -> None:
     args = parser.parse_args()
 
     manifest = {}
-    now = datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    now = datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
 
-    for label_path in sorted(args.labels_dir.glob("*.silver.json")):
-        doc = label_path.name[: -len(".silver.json")]
+    pattern = f"*{args.silver_suffix}"
+    for label_path in sorted(args.labels_dir.glob(pattern)):
+        doc = label_path.name[: -len(args.silver_suffix)]
         manifest[doc] = {
             "doc": doc,
             "label_file": str(label_path),
-            "label_suffix": ".silver.json",
+            "label_suffix": args.silver_suffix,
             "label_quality": "silver",
             "mode": args.silver_mode,
             "model": "unknown",

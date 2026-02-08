@@ -1,0 +1,98 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"On2 Technologies, Inc.","party_b_name":"Wildform, Inc.","effective_date":null,"term_length":18,"governing_law":"State of New York","termination_notice_days":30,"liability_cap":"Not specified in provided excerpts","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"The agreement includes confidentiality obligations and injunctive relief language, which can increase exposure if a dispute arises. It also contains indemnification provisions and IP-related warranties, creating potential liability for breaches or third-party claims. No explicit liability cap is shown in the provided excerpts, which raises risk for a small SaaS vendor."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":3,"heading":"2.4 Level of Transition Services. Wildform shall perform the Transition Services for which","snippet":"Wildform shall perform the Transition Services for which it is responsible hereunder following commonly accepted standards of care in the industry"},{"page_num":1,"heading":"WITNESSETH:","snippet":"On2 desires for Wildform to provide certain services to On2, and Wildform wishes to perform such services in accordance herewith."},{"page_num":5,"heading":"5.2 Exceptions to Non-Disclosure Obligations. Notwithstanding the foregoing, the Receiving","snippet":"Exceptions to Non-Disclosure Obligations... disclose Confidential Information without any violation of this Agreement"}],"confidence":0.62,"value":"other"}
+
+JOINT_PARTY_AGENT
+{"party_a_name":"On2","party_b_name":"Wildform","party_a_evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"Each of On2 and Wildform shall appoint a representative to act as its primary contact person"},{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"The initial Primary Coordinators shall be Chris Schapdick for On2"}],"party_b_evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"Each of On2 and Wildform shall appoint a representative to act as its primary contact person"},{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."}],"party_a_confidence":0.62,"party_b_confidence":0.62}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"Each of On2 and Wildform shall appoint a representative to act as its primary contact person... The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."}],"confidence":0.35,"value":""}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"Each of On2 and Wildform shall appoint a representative... The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."},{"page_num":11,"heading":"----------------------------- Name:                                          Name: Title:","snippet":"----------------------------- Name:                                          Name: Title:"}],"confidence":0.35,"value":""}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"SUPPORT AND MAINTENANCE AGREEMENT","snippet":"SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 (the \"Effective Date\"), between On2 Technologies, Inc., a Delaware corporation (\"On2\"), and Wildform, Inc."}],"confidence":0.42,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":8,"heading":"9.1 Term. Except as otherwise set forth in Sections 9.2 and 9.3 or Exhibit A hereof, the","snippet":"term of this Agreement shall be eighteen (18) months (\"Term\")."}],"confidence":0.98,"value":18}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":9,"heading":"10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance","snippet":"10.7 Governing Law; Forum. This Agreement shall be governed by and construed in accordance"},{"page_num":10,"heading":null,"snippet":"with the laws of the State of New York, without giving effect to any choice of law or conflict of law provision or rule whether such provision or rule is that of the State of New York or any other jurisdiction."}],"confidence":0.93,"value":"State of New York"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":8,"heading":"9.2 Termination. Either of Wildform or On2 may terminate this Agreement if the other Party","snippet":"Either of Wildform or On2 may terminate this Agreement if the other Party is in material breach of this Agreement and fails to cure such breach within thirty (30) days after written notice."}],"confidence":0.22,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":11,"heading":"10.14 UN Convention Does Not Apply. The United Nations Convention on Contracts for the","snippet":"Sale of Goods shall not apply to this Agreement and any products and/or services provided pursuant thereto."},{"page_num":14,"heading":"Flix products:","snippet":"...two (2) dedicated On2 branded mailings during the 12 months following closing to Wildform Flix customers..."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":8,"heading":"8.1 On2's Indemnification of Wildform. On2 agrees to defend, indemnify and hold harmless","snippet":"On2 agrees to defend, indemnify and hold harmless Wildform... from and against any claim... based on any breach by On2 of Sections 5, 6 or 7 of this Agreement"},{"page_num":16,"heading":"a.    Wildform will deliver the following:","snippet":"Should any tutorial author request that On2 remove the tutorial from On2's website, On2 shall comply with such request."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":1,"heading":"1.3 \"Confidential Information\" means any and all information disclosed by one Party (the","snippet":"\"Confidential Information\" means any and all information disclosed by one Party ... to the other Party ... in any manner..."}],"confidence":0.18,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":8,"heading":"9.3 Events Upon Termination.","snippet":"Wildform will immediately return to On2, or destroy, all copies of the Incorporated Technology... Upon written request from On2, Wildform will promptly provide On2 with a written certification"},{"page_num":6,"heading":"6.2 Wildform Warranties. Wildform makes the following representations and warranties to","snippet":"Wildform... to the best of Wildform's knowledge as of the Effective Date, the Deliverables marked as Deliverable #2 will not infringe any Intellectual Property Rights held by any third party."},{"page_num":3,"heading":"2.4 Level of Transition Services. Wildform shall perform the Transition Services for which","snippet":"following commonly accepted standards of care in the industry and exercising the same degree of care as it exercises in performing the same or similar services"}],"confidence":0.56,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":8,"heading":"9.2 Termination. Either of Wildform or On2 may terminate this Agreement if the other Party","snippet":"Either of Wildform or On2 may terminate this Agreement if the other Party is in material breach of this Agreement and fails to cure such breach within thirty (30) days after written notice."},{"page_num":5,"heading":"5.2 Exceptions to Non-Disclosure Obligations. Notwithstanding the foregoing, the Receiving","snippet":"The Disclosing Party shall, therefore, be entitled to injunctive relief upon a disclosure or threatened disclosure of any Confidential Information... in addition to such other remedies as may be available at law or in equity."},{"page_num":3,"heading":"2.4 Level of Transition Services. Wildform shall perform the Transition Services for which","snippet":"Wildform shall perform the Transition Services... following commonly accepted standards of care in the industry and exercising the same degree of care as it exercises... for its own business"}],"confidence":0.34,"value":"null"}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"WITNESSETH:","snippet":"On2 desires for Wildform to provide certain services to On2, and Wildform wishes to perform such services in accordance herewith."},{"page_num":3,"heading":"2.4 Level of Transition Services. Wildform shall perform the Transition Services for which","snippet":"Wildform shall perform the Transition Services for which it is responsible hereunder following commonly accepted standards of care in the industry"}],"confidence":0.72,"value":"msa"}
+
+REPAIR_AGENT party_a_name
+{"evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"Each of On2 and Wildform shall appoint a representative to act as its primary contact person... The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."}],"confidence":0.35,"value":""}
+
+REPAIR_AGENT party_b_name
+{"evidence":[{"page_num":3,"heading":"2.3 Representatives. Each of On2 and Wildform shall appoint a representative to act as its","snippet":"Each of On2 and Wildform shall appoint a representative... The initial Primary Coordinators shall be Chris Schapdick for On2 and Jonathan Blank for Wildform."}],"confidence":0.35,"value":"Wildform"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"SUPPORT AND MAINTENANCE AGREEMENT","snippet":"SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 (the \"Effective Date\"), between On2 Technologies, Inc."}],"confidence":0.32,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":8,"heading":"9.2 Termination. Either of Wildform or On2 may terminate this Agreement if the other Party","snippet":"is in material breach of this Agreement and fails to cure such breach within thirty (30) days after written notice."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":5,"heading":"5.2 Exceptions to Non-Disclosure Obligations. Notwithstanding the foregoing, the Receiving","snippet":"The Disclosing Party shall, therefore, be entitled to injunctive relief upon a disclosure or threatened disclosure of any Confidential Information... in addition to such other remedies as may be available at law or in equity."},{"page_num":4,"heading":"COMPENSATION","snippet":"On2 will pay Wildform a total of (i) $160,000 payable as follows... and (ii) the Payment Shares..."}],"confidence":0.12,"value":""}
+
+VERIFIER_AGENT doc_type
+{"decision":"revise","reason":"The provided evidence indicates a services/transition services arrangement but does not clearly establish the document as a Master Services Agreement (e.g., explicit title 'Master Services Agreement' or 'MSA'). Given competing candidates of 'other' and lack of definitive labeling in the snippets, additional retrieval focused on the document title/intro is needed to confirm doc_type.","confidence":0.63,"revised_query":"Find the document title and opening paragraph identifying the agreement type (e.g., 'Master Services Agreement', 'Services Agreement', 'Transition Services Agreement') on page 1 or cover page."}
+
+VERIFIER_REPAIR_AGENT doc_type
+{"evidence":[{"page_num":11,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to","snippet":"IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to be executed the Effective Date."},{"page_num":3,"heading":"2.1 Transition Services. Upon the terms and subject to the conditions set forth in this","snippet":"Agreement, with respect to each of those services set forth on Exhibit A hereto,"}],"confidence":0.86,"value":"other"}
+
+VERIFIER_AGENT party_a_name
+{"decision":"revise","reason":"Evidence only shows the shorthand party name “On2” in an operational clause (representatives) and does not confirm the full legal name required for party_a_name. An alternative candidate suggests “On2 Technologies, Inc.” but no supporting excerpt is provided. Better retrieval from the parties/recitals/intro section is needed to confirm the full legal entity name.","confidence":0.74,"revised_query":"Find the contract section defining the parties (preamble/recitals/“This Agreement is between…”) and extract the full legal name for “On2” (e.g., “On2 Technologies, Inc.”)."}
+
+VERIFIER_REPAIR_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"SUPPORT AND MAINTENANCE AGREEMENT","snippet":"SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005 (the \"Effective Date\"), between On2 Technologies, Inc., a Delaware corporation (\"On2\"), and Wildform, Inc."},{"page_num":11,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to","snippet":"On2 Technologies, Inc                          Wildform, Inc."}],"confidence":0.93,"value":"On2 Technologies, Inc."}
+
+VERIFIER_AGENT party_b_name
+{"decision":"revise","reason":"Evidence shows the counterparty is referred to as “Wildform,” but does not confirm the full legal name (e.g., whether it is “Wildform, Inc.”). Since the field requires the full legal name, additional retrieval from the parties/introductory clause or signature block is needed.","confidence":0.74,"revised_query":"Find the contract’s introductory/parties clause or signature block stating Wildform’s full legal name (e.g., 'Wildform, Inc.'), including any entity type and jurisdiction."}
+
+VERIFIER_REPAIR_AGENT party_b_name
+{"evidence":[{"page_num":11,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Transition Services Agreement to","snippet":"be executed the Effective Date.\nOn2 Technologies, Inc                          Wildform, Inc."}],"confidence":0.78,"value":"Wildform, Inc."}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The agreement states it is “dated as of April __, 2005,” leaving the day blank. Since the effective date is incomplete and cannot be reliably normalized to YYYY-MM-DD, null is appropriate.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"The evidence explicitly states: \"term of this Agreement shall be eighteen (18) months (\\\"Term\\\")\", which directly supports a term length of 18 months.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The Governing Law clause states the agreement is governed by and construed in accordance with the laws of the State of New York.","confidence":0.97,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"unknown","reason":"No evidence was provided to support a 30-day termination-for-convenience notice period. Deterministic checks indicate has_evidence=false and evidence_count=0, so the value cannot be verified from the contract text.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support either a specific liability cap or the statement that it is not specified. Without contract text, the liability cap cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"unknown","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. Without contract text or clause excerpts, the boolean value cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers. Without any clause text, it cannot be determined whether the agreement explicitly allows transfers outside the UK/EU, so the value must remain unknown.","confidence":0.74,"revised_query":null}

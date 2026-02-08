@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Centrack International, a Florida corporation",
+  "party_b_name": "i-on interactive, a Florida corporation",
+  "effective_date": "1999-04-01",
+  "term_length": 6,
+  "governing_law": "State of Florida",
+  "termination_notice_days": 30,
+  "liability_cap": "one (1) month's fees and the remaining portion of any prepaid fees",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU."
+}

@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Butterfield Family Trust",
+  "party_b_name": "Butterfield Family Trust",
+  "effective_date": "2020-03-27",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "No liability cap specified; each party responsible for completeness and accuracy of its own information, not the other's except where known or should have known inaccurate.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "This is a joint filing agreement for SEC Schedule 13G/13D purposes rather than a commercial services contract. It contains no payment terms, service obligations, data processing commitments, or broad indemnities typical of SaaS agreements. Key commercial risk terms (governing law, termination, liability cap) are largely absent, limiting vendor exposure in a SaaS context."
+}

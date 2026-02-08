@@ -1,9 +1,9 @@
 {
   "doc_type": "nda",
-  "party_a_name": "Dynamic Hearing Pty Ltd",
+  "party_a_name": "Dynamic Hearing",
   "party_b_name": "INTRICON CORPORATION",
   "effective_date": "2008-10-01",
-  "term_length": 720,
+  "term_length": 60,
   "governing_law": "Victoria, Australia",
   "termination_notice_days": 90,
   "liability_cap": null,
@@ -15,15 +15,15 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 19249,
-    "output_tokens": 2167,
+    "input_tokens": 22976,
+    "output_tokens": 2371,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
-      "normalized term_length from years to months",
       "Field 'liability_cap' must be a non-empty string",
+      "Field 'risk_explanation' must be a non-empty string",
       "risk_level overridden by deterministic rules (was 'medium')",
       "risk_explanation overridden by deterministic rules",
       "Field 'liability_cap' is null but not nullable"
@@ -35,6 +35,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -42,7 +48,8 @@
       "total_chunks": 109,
       "fields": {
         "doc_type": {
-          "confidence": 0.78,
+          "source": "field_agent",
+          "confidence": 0.72,
           "evidence": [
             {
               "page_num": 11,
@@ -57,49 +64,87 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1013,
+          "prompt_tokens": 1030,
           "completion_tokens": 119
         },
         "party_a_name": {
-          "confidence": 0.62,
+          "source": "party_roles_agent",
+          "confidence": 0.55,
           "evidence": [
             {
-              "page_num": 19,
-              "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
-              "snippet": "Agreement without the prior written consent of  Dynamic Hearing. Likewise, Dynamic Hearing may not assign or transfer any of its rights or obligations under this Agreement without the prior  written consent of IntriCon."
+              "page_num": 5,
+              "heading": null,
+              "snippet": "Licensed Subject Matter means Dynamic Hearing's Technology, Software, and Documentation as described in Exhibit A and Exhibit B, in  respect of which IntriCon is granted a license under this Agreement;"
             },
             {
-              "page_num": 19,
-              "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
-              "snippet": "DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"
+              "page_num": 12,
+              "heading": "8.2 IntriCon must notify Dynamic Hearing immediately upon becoming aware of:",
+              "snippet": "8.2 IntriCon must notify Dynamic Hearing immediately upon becoming aware of:"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1115,
-          "completion_tokens": 143
+          "prompt_tokens": 564,
+          "completion_tokens": 153,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.6,
+              "confidence": 0.55,
+              "value": "Dynamic Hearing Pty Ltd",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "Dynamic Hearing",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "party_b_name": {
+          "source": "field_agent",
           "confidence": 0.78,
           "evidence": [
             {
               "page_num": 19,
               "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
-              "snippet": "Agreement without the prior written consent of  Dynamic Hearing. Likewise, Dynamic Hearing may not assign or transfer any of its rights or obligations under this Agreement without the prior  written consent of IntriCon."
-            },
-            {
-              "page_num": 19,
-              "heading": "12.6 IntriCon may not assign or transfer any of its rights or obligations under this",
               "snippet": "DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
-          "prompt_tokens": 1115,
-          "completion_tokens": 144
+          "prompt_tokens": 2066,
+          "completion_tokens": 145,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "INTRICON CORPORATION",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "IntriCon",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
-          "confidence": 0.93,
+          "source": "field_agent",
+          "confidence": 0.95,
           "evidence": [
             {
               "page_num": 1,
@@ -109,26 +154,26 @@
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2004,
+          "prompt_tokens": 2155,
           "completion_tokens": 201
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.95,
           "evidence": [
             {
               "page_num": 5,
               "heading": "3.1 Term: The initial term of this Agreement shall be five (5) years from the date of",
-              "snippet": "3.1 Term: The initial term of this Agreement shall be five (5) years from the date of execution"
+              "snippet": "The initial term of this Agreement shall be five (5) years from the date of execution"
             }
           ],
           "attempts": 1,
-          "issues": [
-            "normalized term_length from years to months"
-          ],
-          "prompt_tokens": 953,
-          "completion_tokens": 82
+          "issues": [],
+          "prompt_tokens": 994,
+          "completion_tokens": 77
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.99,
           "evidence": [
             {
@@ -143,25 +188,27 @@
           "completion_tokens": 90
         },
         "termination_notice_days": {
-          "confidence": 0.74,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 16,
               "heading": "11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon",
-              "snippet": "IntriCon may terminate this Agreement upon three (3) months written notice to Dynamic Hearing"
+              "snippet": "three (3) months written notice to Dynamic  Hearing"
             },
             {
               "page_num": 16,
               "heading": "11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon",
-              "snippet": "Dynamic Hearing may terminate this Agreement upon three (3) months written notice to IntriCon of such termination."
+              "snippet": "Dynamic Hearing may terminate this Agreement upon three (3) months written notice  to IntriCon of such termination."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 752,
-          "completion_tokens": 138
+          "completion_tokens": 132
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.22,
           "evidence": [
             {
@@ -180,28 +227,30 @@
             "Field 'liability_cap' must be a non-empty string"
           ],
           "prompt_tokens": 2465,
-          "completion_tokens": 260
+          "completion_tokens": 217
         },
         "non_solicit_clause_present": {
-          "confidence": 0.12,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
-            {
-              "page_num": 7,
-              "heading": "4.2 IntriCon will pay to Dynamic Hearing a fixed technology access fee of US$300,000",
-              "snippet": "Payment of the technology Access Fee will  maintain IntriCon's non-exclusive rights to Dynamic Hearing Technology."
-            },
             {
               "page_num": 7,
               "heading": "3.11 Where Dynamic Hearing supplies Dynamic Hearing Technology directly to a customer on",
               "snippet": "Dynamic Hearing may continue indefinitely selling products and services to new customers using the ON Semiconductor DSP hybrid chip."
+            },
+            {
+              "page_num": 21,
+              "heading": "EXHIBIT C  Dynamic Hearing's Identified Customers",
+              "snippet": "EXHIBIT C  Dynamic Hearing's Identified Customers"
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2023,
-          "completion_tokens": 209
+          "prompt_tokens": 1939,
+          "completion_tokens": 239
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.22,
           "evidence": [
             {
@@ -213,10 +262,11 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2692,
-          "completion_tokens": 225
+          "completion_tokens": 220
         },
         "risk_level": {
-          "confidence": 0.35,
+          "source": "field_agent",
+          "confidence": 0.38,
           "evidence": [
             {
               "page_num": 21,
@@ -224,31 +274,39 @@
               "snippet": "Unless expressly specified in this Exhibit, Dynamic Hearing will have no obligation to provide updates or revisions to, or new versions of, any software."
             },
             {
-              "page_num": 17,
-              "heading": "11.9 Nothing in this clause 11.0 is intended to prevent end-users of Products continuing",
-              "snippet": "All rights granted under this Agreement in relation to the Licensed Subject Matter will cease except as otherwise provided herein as to existing products;"
+              "page_num": 19,
+              "heading": "EXHIBIT A",
+              "snippet": "Note that Dynamic Hearing does not have rights to ADRO for electrical stimulation of the auditory system  and that the rights to ADRO for electrical stimulation are thus explicitly excluded from this Agreement."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2448,
-          "completion_tokens": 242,
+          "prompt_tokens": 2587,
+          "completion_tokens": 211,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
+          "source": "field_agent",
           "confidence": 0.22,
           "evidence": [
             {
-              "page_num": 17,
-              "heading": "11.9 Nothing in this clause 11.0 is intended to prevent end-users of Products continuing",
-              "snippet": "Notwithstanding anything herein to the contrary, IntriCon shall have a right after termination to continue selling existing products that include the Dynamic Hearing Technology as long as IntriCon pays the appropriate royalties"
+              "page_num": 15,
+              "heading": "section 4.3.     11.2 Subject to the provisions of 11.1, either party may terminate this",
+              "snippet": "Agreement immediately by written notice to the other party if:"
+            },
+            {
+              "page_num": 20,
+              "heading": "Patent  Application 2004310722 entitled \"Adaptive Directional Systems.\"",
+              "snippet": "Fixed Directional Microphone Technology means digital signal processing technology that implements a preferential fixed response to sound from a forward direction."
             }
           ],
-          "attempts": 2,
-          "issues": [],
+          "attempts": 1,
+          "issues": [
+            "Field 'risk_explanation' must be a non-empty string"
+          ],
           "prompt_tokens": 1891,
-          "completion_tokens": 314,
+          "completion_tokens": 263,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -258,10 +316,10 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 16,
-        "unique_evidence_pages": 9,
-        "avg_confidence": 0.635,
-        "min_confidence": 0.12
+        "evidence_snippets_total": 15,
+        "unique_evidence_pages": 10,
+        "avg_confidence": 0.618,
+        "min_confidence": 0.18
       }
     }
   }

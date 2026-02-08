@@ -1,0 +1,124 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Integrity Short Term Government Fund","party_b_name":"Integrity Funds Distributor, LLC","effective_date":"2020-01-18","term_length":24,"governing_law":"State of Kansas","termination_notice_days":60,"liability_cap":"No explicit monetary liability cap stated; indemnification excludes willful misfeasance, bad faith, gross negligence, or reckless disregard, and obligations bind only the property of the Fund.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is a distribution and services agreement with broad mutual indemnification provisions tied to securities law disclosures, which can create meaningful litigation and defense-cost exposure. There is no clear monetary cap on liability, and termination requires 60 days' notice by the Fund (or 90 days by Integrity), limiting flexibility. Governing law is Kansas, which may be unfavorable or inconvenient depending on the vendor’s location."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Section 1.7 In consideration of the services rendered pursuant to this Agreement,","snippet":"Integrity shall receive the excess, if any, of the sales price... over the net asset value of Shares sold by Integrity, as underwriter."},{"page_num":1,"heading":"Section 1.7 In consideration of the services rendered pursuant to this Agreement,","snippet":"The Fund shall also pay Integrity any distribution and/or service fees... under Rule 12b-1 of the Investment Company Act of 1940"}],"confidence":0.62,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Integrity Short Term Government Fund",
+  "party_b_name": "Integrity Funds Distributor, LLC",
+  "party_a_evidence": [
+    {
+      "page_num": 6,
+      "heading": "provisions hereof or otherwise affect their construction or effect. In Witness Whereof,",
+      "snippet": "Integrity Short Term Government Fund"
+    },
+    {
+      "page_num": 4,
+      "heading": null,
+      "snippet": "any liability to the Fund or its shareholders"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 6,
+      "heading": "provisions hereof or otherwise affect their construction or effect. In Witness Whereof,",
+      "snippet": "Accepted: Integrity Funds Distributor, LLC"
+    },
+    {
+      "page_num": 4,
+      "heading": null,
+      "snippet": "The Fund's agreement to indemnify Integrity, its officers and governors"
+    }
+  ],
+  "party_a_confidence": 0.78,
+  "party_b_confidence": 0.86
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":6,"heading":"provisions hereof or otherwise affect their construction or effect. In Witness Whereof,","snippet":"Integrity Short Term Government Fund By: /s/ Shannon D. Radke Shannon D.\nRadke - President Accepted: Integrity Funds Distributor, LLC By: /s/ Shannon D. Radke"}],"confidence":0.74,"value":"Integrity Short Term Government Fund"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":6,"heading":"provisions hereof or otherwise affect their construction or effect. In Witness Whereof,","snippet":"Integrity Short Term Government Fund By: /s/ Shannon D. Radke Shannon D. Radke - President Accepted: Integrity Funds Distributor, LLC By: /s/ Shannon D. Radke"}],"confidence":0.74,"value":"Integrity Funds Distributor, LLC"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":6,"heading":"provisions hereof or otherwise affect their construction or effect. In Witness Whereof,","snippet":"the parties hereto have caused this Agreement to be executed as of the date first set forth herein."},{"page_num":6,"heading":"SECTION 7. TERM OF AGREEMENT Section 7.1 This Agreement shall continue until January 18,","snippet":"This Agreement shall continue until January 18, 2022, and thereafter shall continue automatically for successive annual periods ending on January 18th of each year"}],"confidence":0.25,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":6,"heading":"SECTION 7. TERM OF AGREEMENT Section 7.1 This Agreement shall continue until January 18,","snippet":"This Agreement shall continue until January 18, 2022, and thereafter shall continue automatically for successive annual periods ending on January 18th of each year,"},{"page_num":1,"heading":null,"snippet":"DISTRIBUTION AND SERVICES AGREEMENT January 18, 2020"}],"confidence":0.9,"value":24}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":6,"heading":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of","snippet":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of Kansas."}],"confidence":0.98,"value":"State of Kansas"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":6,"heading":"1940 Act) of the Fund and who have no direct or indirect financial interest in the","snippet":"This Agreement is terminable with respect to the Fund, without penalty, (a) on 60 days' written notice, by vote of a majority of the Qualified Trustees... or ... outstanding voting securities of the Fund"}],"confidence":0.74,"value":60}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":4,"heading":"none","snippet":"...shall not be deemed to cover any liability to the Fund or its shareholders to which Integrity would otherwise be subject by reason of willful misfeasance, bad faith, or gross negligence..."},{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"...the obligations of the Fund hereunder shall not be binding upon any of the trustees...personally, but bind only the property of the Fund."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":null,"snippet":"Integrity agrees to use its best efforts to solicit orders for the sale of the Shares at the public offering price"},{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"Integrity or its affiliates may enter into distribution or other agreements with such other corporations and trusts."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":6,"heading":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of","snippet":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of Kansas."}],"confidence":0.12,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":3,"heading":"1940 Act, or common law or otherwise, arising out of or based upon any untrue statement or","snippet":"the Fund's agreement to indemnify Integrity, its officers or governors, and any such controlling person"},{"page_num":4,"heading":"1940 Act, or common law or otherwise, but only to the extent that such liability or","snippet":"Integrity's agreement to indemnify the Fund, its officers and trustees, and any such controlling person"}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":4,"heading":null,"snippet":"...shall not be deemed to cover any liability... by reason of willful misfeasance, bad faith, or gross negligence... or... reckless disregard of its obligations and duties under this Agreement."},{"page_num":6,"heading":"1940 Act) of the Fund and who have no direct or indirect financial interest in the","snippet":"This Agreement is terminable... without penalty, (a) on 60 days' written notice... or (b) on 90 days' written notice by Integrity. This Agreement will also terminate automatically in the event of its assignment..."}],"confidence":0.42,"value":"The agreement includes indemnification mechanics but carves out protection for willful misfeasance, bad faith, gross negligence, or reckless disregard, which limits exposure for serious misconduct. It is also terminable without penalty on relatively short notice and automatically upon assignment, reducing long-term lock-in. These provisions suggest moderate risk due to potential liability/defense complexity but with meaningful safeguards and exit rights."}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Section 1.7 In consideration of the services rendered pursuant to this Agreement,","snippet":"Integrity shall receive the excess, if any, of the sales price... over the net asset value of Shares sold by Integrity, as underwriter."},{"page_num":1,"heading":"Section 1.7 In consideration of the services rendered pursuant to this Agreement,","snippet":"The Fund shall also pay Integrity any distribution and/or service fees... adopted by the Fund under Rule 12b-1 of the Investment Company Act of 1940"}],"confidence":0.78,"value":"other"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":6,"heading":"provisions hereof or otherwise affect their construction or effect. In Witness Whereof,","snippet":"the parties hereto have caused this Agreement to be executed as of the date first set forth herein."},{"page_num":6,"heading":"SECTION 7. TERM OF AGREEMENT Section 7.1 This Agreement shall continue until January 18,","snippet":"This Agreement shall continue until January 18, 2022, and thereafter shall continue automatically for successive annual periods ending on January 18th of each year"}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"Section 8.2 It is expressly agreed that the obligations of the Fund hereunder shall not be binding upon any of the trustees, shareholders... personally, but bind only the property of the Fund."},{"page_num":4,"heading":"none","snippet":"...shall not be deemed to cover any liability... by reason of willful misfeasance, bad faith, or gross negligence... or... reckless disregard of its obligations and duties under this Agreement."}],"confidence":0.18,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":null,"snippet":"Integrity agrees to use its best efforts to solicit orders for the sale of the Shares at the public offering price"},{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"Integrity or its affiliates may enter into distribution or other agreements with such other corporations and trusts."}],"confidence":0.18,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":6,"heading":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of","snippet":"Section 8.3 This Agreement shall be construed in accordance with the laws of the State of Kansas."},{"page_num":1,"heading":null,"snippet":"Integrity shall be deemed to be an independent contractor and, except as specifically provided or authorized herein, shall have no authority to act for or represent the Fund."}],"confidence":0.12,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Fund represents and warrants to Integrity that any registration statement, prospectus, and statement of additional information... will be true and correct... will [not] include an untrue statement of material fact or omit..."}],"confidence":0.55,"value":"medium"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"Evidence describes compensation for underwriting/distribution services (Rule 12b-1 fees, underwriter sales price vs NAV) under an Agreement, which is neither an NDA nor an MSA. Classifying as 'other' is supported.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence includes the exact phrase \"Integrity Short Term Government Fund\" in a signature/attestation context (\"In Witness Whereof\"), which supports it as a party name. No conflicting party_a_name candidates or deterministic conflicts are indicated.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"Evidence explicitly shows the party name in the signature/acceptance line: \"Accepted: Integrity Funds Distributor, LLC\". Additional context on page 4 references \"Integrity\" in connection with indemnification, consistent with the same entity. No conflicts or validation issues are indicated.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"unknown","reason":"No evidence was provided to support the selected effective date, and deterministic checks indicate has_evidence=false with evidence_count=0. Without contract text showing an effective date clause, the value cannot be verified.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"The agreement date is January 18, 2020 and Section 7.1 states it continues until January 18, 2022, which is a 24-month initial term. Automatic successive annual renewals occur thereafter, but the determinable initial term length is 24 months.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states in Section 8.3 that the Agreement shall be construed in accordance with the laws of the State of Kansas, directly supporting the selected governing law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The evidence explicitly states the agreement is terminable \"on 60 days' written notice\" by the Fund (via Qualified Trustees or voting securities), which supports a termination notice period of 60 days for termination without penalty (i.e., for convenience).","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"revise","reason":"No evidence was provided to support the selected liability cap statement. The value also appears to describe indemnification/limitation of recourse rather than a monetary liability cap. Additional clause-level retrieval is needed to confirm whether any explicit cap exists or to extract the correct limitation language.","confidence":0.74,"revised_query":"Search for clauses titled or containing 'Limitation of Liability', 'Liability Cap', 'Limitation on Damages', 'aggregate liability', 'in no event', 'maximum liability', 'cap', 'fees paid', and any 'indemnification' or 'exculpation' provisions limiting liability to Fund assets/recourse."}
+
+VERIFIER_REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"Section 8.2 It is expressly agreed that the obligations of the Fund hereunder shall not be binding upon any of the trustees, shareholders... personally, but bind only the property of the Fund."}],"confidence":0.18,"value":""}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero evidence snippets, the field cannot be verified; targeted retrieval of any non-solicitation language could confirm presence/absence.","confidence":0.74,"revised_query":"non-solicitation clause solicit customers clients employees non-compete non-interference"}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"none","snippet":"Integrity agrees to use its best efforts to solicit orders for the sale of the Shares at the public offering price"},{"page_num":6,"heading":"SECTION 8. MISCELLANEOUS Section 8.1 The Fund recognizes that governors, officers, and","snippet":"Integrity or its affiliates may enter into distribution or other agreements with such other corporations and trusts."}],"confidence":0.22,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

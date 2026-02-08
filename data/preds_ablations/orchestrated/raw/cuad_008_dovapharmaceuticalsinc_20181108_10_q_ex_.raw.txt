@@ -1,0 +1,114 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Valeant","party_b_name":"Dova Pharmaceuticals Inc.","effective_date":null,"term_length":48,"governing_law":"[***]","termination_notice_days":null,"liability_cap":"Not specified in provided excerpts (Section 11.4 Limitation of Liability is referenced but the cap amount/standard is redacted or not included).","non_solicit_clause_present":true,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"Key commercial terms are heavily redacted (effective date, governing law jurisdiction, termination notice periods, and limitation of liability details), creating significant uncertainty and legal risk. The agreement includes extensive confidentiality, indemnification/limitations on liability sections, and a non-solicitation clause, which can impose meaningful obligations. Because critical risk-allocation terms cannot be verified from the excerpts, the contract is high risk for a small SaaS vendor."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":37,"heading":null,"snippet":"Any and all information and materials disclosed by a Party pursuant to the Confidentiality Agreement between the Parties dated [***] (the \"Confidentiality Agreement\") shall be deemed Confidential Information disclosed pursuant to this Agreement."},{"page_num":48,"heading":"13.8 Entire Agreement; Amendments. This Agreement, together with the Schedules and","snippet":"Any other express or implied agreements and understandings... (including the Confidentiality Agreement... ) are superseded by the terms of this Agreement."}],"confidence":0.55,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Dova Pharmaceuticals, Inc.",
+  "party_b_name": "Valeant Pharmaceuticals North America LLC",
+  "party_a_evidence": [
+    {
+      "page_num": 5,
+      "heading": "CO-PROMOTION AGREEMENT",
+      "snippet": "This Co-Promotion Agreement (this \"Agreement\") is entered into and dated as of September\n26, 2018 (the \"Effective Date\") by and between Dova Pharmaceuticals, Inc., a Delaware\ncorporation (\"Dova\"), and Valeant Pharmaceuticals North America LLC, a Delaware limited\nliability company (\"Valeant\")."
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 5,
+      "heading": "CO-PROMOTION AGREEMENT",
+      "snippet": "This Co-Promotion Agreement (this \"Agreement\") is entered into and dated as of September\n26, 2018 (the \"Effective Date\") by and between Dova Pharmaceuticals, Inc., a Delaware\ncorporation (\"Dova\"), and Valeant Pharmaceuticals North America LLC, a Delaware limited\nliability company (\"Valeant\")."
+    }
+  ],
+  "party_a_confidence": 0.99,
+  "party_b_confidence": 0.99
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":5,"heading":"CO-PROMOTION AGREEMENT","snippet":"...by and between Dova Pharmaceuticals, Inc., a Delaware corporation (\"Dova\"), and Valeant Pharmaceuticals North America LLC, a Delaware limited liability company (\"Valeant\")."}],"confidence":0.77,"value":"Dova Pharmaceuticals, Inc."}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":49,"heading":"13.15 Use of Names.","snippet":"neither Party shall have any right, express or implied, to use in any manner the name or other designation of the other Party"},{"page_num":37,"heading":"Source: DOVA PHARMACEUTICALS INC., 10-Q, 11/8/2018","snippet":"disclosure to the receiving Party;"}],"confidence":0.12,"value":""}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":44,"heading":"12.1 Term. This Agreement shall become effective as of the Effective Date and, unless","snippet":"This Agreement shall become effective as of the Effective Date"},{"page_num":49,"heading":"IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.","snippet":"the Parties have executed this Agreement as of the Effective Date."}],"confidence":0.2,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":44,"heading":"12.1 Term. This Agreement shall become effective as of the Effective Date and, unless","snippet":"shall extend until the four (4) year anniversary of the Effective Date (the \"Term\")."}],"confidence":0.93,"value":48}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":47,"heading":"13.5 Governing Law. This Agreement and any and all matters arising directly or indirectly","snippet":"herefrom shall be governed by and construed and enforced in accordance with the internal\nlaws of the [***] applicable to agreements made and to be performed entirely in such\nstate"}],"confidence":0.22,"value":""}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":45,"heading":"12.3.1 Either Party shall have the right to terminate this Agreement before the end of the","snippet":"Term for its convenience upon [***] written notice to the other Party (and any such termination shall become effective at the end of such [***]); [***]."}],"confidence":0.22,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":43,"heading":"11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER","snippet":"11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER"},{"page_num":44,"heading":"11.5 Insurance. Each Party acknowledges and agrees that during the Term, it shall","snippet":"For clarity, the insurance requirements of this Section 11.5 shall not be construed to create a limit of either Party's liability with respect to its indemnification obligations under this ARTICLE 11."}],"confidence":0.18,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":15,"heading":"2.3.2 Non-Solicitation.","snippet":"neither Valeant nor Dova (nor any of their respective Affiliates) shall directly or indirectly solicit for hire or employee... any of the other Party's professional personnel..."}],"confidence":0.98,"value":true}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":14,"heading":"2.2.1 responsibility for promoting the Product outside the Specialty;","snippet":"2.2.1 responsibility for promoting the Product outside the Specialty;"},{"page_num":32,"heading":"6.3.5 Manner of Payment. All payments under this Agreement shall be made in US Dollars by","snippet":"All payments under this Agreement shall be made in US Dollars by wire transfer"}],"confidence":0.22,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"TPO receptor agonists have been associated with thrombotic and thromboembolic complications... Portal vein thrombosis has been reported..."},{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"Consider the potential increased thrombotic risk when administering DOPTELET to patients with known risk factors for thromboembolism..."}],"confidence":0.34,"value":"high"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"TPO receptor agonists have been associated with thrombotic and thromboembolic complications in patients with chronic liver disease."},{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"Portal vein thrombosis has been reported in patients with chronic liver disease treated with TPO receptor agonists."},{"page_num":52,"heading":"WARNINGS AND PRECAUTIONS","snippet":"Consider the potential increased thrombotic risk when administering DOPTELET to patients with known risk factors for thromboembolism..."}],"confidence":0.62,"value":"The risk level is driven by the warnings that thrombopoietin receptor agonists are associated with thrombotic and thromboembolic complications, including reported portal vein thrombosis in chronic liver disease patients. The text also advises considering increased thrombotic risk in patients with known risk factors, indicating a meaningful safety concern that warrants caution."}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":37,"heading":null,"snippet":"Any and all information and materials disclosed by a Party pursuant to the Confidentiality Agreement between the Parties dated [***] (the \"Confidentiality Agreement\") shall be deemed Confidential Information disclosed pursuant to this Agreement."},{"page_num":48,"heading":"13.8 Entire Agreement; Amendments. This Agreement, together with the Schedules and","snippet":"Any other express or implied agreements and understandings... (including the Confidentiality Agreement... ) are superseded by the terms of this Agreement."}],"confidence":0.55,"value":"other"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":44,"heading":"12.1 Term. This Agreement shall become effective as of the Effective Date and, unless","snippet":"This Agreement shall become effective as of the Effective Date"},{"page_num":49,"heading":"IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.","snippet":"the Parties have executed this Agreement as of the Effective Date."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT governing_law
+{"evidence":[{"page_num":47,"heading":"13.5 Governing Law. This Agreement and any and all matters arising directly or indirectly","snippet":"herefrom shall be governed by and construed and enforced in accordance with the internal\nlaws of the [***] applicable to agreements made and to be performed entirely in such\nstate"}],"confidence":0.32,"value":""}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":45,"heading":"12.3.1 Either Party shall have the right to terminate this Agreement before the end of the","snippet":"Term for its convenience upon [***] written notice to the other Party (and any such termination shall become effective at the end of such [***]); [***]."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":43,"heading":"11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER","snippet":"11.4 Limitation of Liability. NOTWITHSTANDING ANY OTHER PROVISION CONTAINED HEREIN (OTHER"},{"page_num":4,"heading":"11.4 Limitation of Liability. 40","snippet":"11.4 Limitation of Liability. 40"}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":12,"heading":"1.57 \"Specialty Fraction\" shall mean, for each SKU of the Product, a fraction (i) the","snippet":"...as determined by data reported pursuant to agreements between Dova (or its Affiliates) and the Specialty Pharmacies or the data aggregators..."}],"confidence":0.12,"value":"unknown"}
+
+VERIFIER_AGENT doc_type
+{"decision":"revise","reason":"Evidence indicates the document references a separate \"Confidentiality Agreement\" and includes an \"Entire Agreement\" clause, but does not establish what this document itself is (e.g., MSA vs NDA). The presence of a confidentiality agreement reference suggests the current document is likely a broader commercial agreement (potentially an MSA), so classifying it as \"other\" is not sufficiently supported by the provided snippets.","confidence":0.63,"revised_query":"Find the document title/recitals or first pages stating the agreement type (e.g., \"Master Services Agreement\" or \"Non-Disclosure Agreement\") and any section defining \"This Agreement\"."}
+
+VERIFIER_REPAIR_AGENT doc_type
+{"evidence":[{"page_num":37,"heading":null,"snippet":"Any and all information and materials disclosed by a Party pursuant to the Confidentiality Agreement between the Parties dated [***] (the \"Confidentiality Agreement\") shall be deemed Confidential Information disclosed pursuant to this Agreement."},{"page_num":38,"heading":"9.2 Public Announcements.","snippet":"The press release announcing the execution of this Agreement shall be issued in the form attached hereto as Exhibit A."},{"page_num":47,"heading":"13.6.1 JSC; Escalation for Other Disputes.","snippet":"if a dispute arises between the Parties in connection with or relating to this Agreement ... (a \"Dispute\"), then either Party shall have the right to refer such dispute"}],"confidence":0.62,"value":"msa"}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence snippet from the agreement’s opening paragraph explicitly identifies one party as “Dova Pharmaceuticals, Inc., a Delaware corporation (\"Dova\")” in the “by and between” clause, which supports the selected party_a_name.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence snippet from the agreement’s introductory clause states the parties are “Dova Pharmaceuticals, Inc.” and “Valeant Pharmace…”, supporting that the second party (Party B) is Valeant Pharmaceuticals North America LLC.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"revise","reason":"The evidence only references an undefined term (“Effective Date”) and does not provide an actual calendar date. Since an effective date may be defined elsewhere (e.g., preamble, introductory paragraph, or definitions), additional targeted retrieval could resolve it.","confidence":0.74,"revised_query":"Locate the clause defining “Effective Date” (preamble/intro/definitions) and extract the specific calendar date the agreement becomes effective."}
+
+VERIFIER_REPAIR_AGENT effective_date
+{"evidence":[{"page_num":5,"heading":"CO-PROMOTION AGREEMENT","snippet":"This Co-Promotion Agreement (this \"Agreement\") is entered into and dated as of September\n26, 2018 (the \"Effective Date\") by and between Dova Pharmaceuticals, Inc."}],"confidence":0.98,"value":"2018-09-26"}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"The evidence states the term extends until the four (4) year anniversary of the Effective Date, which corresponds to 48 months. No conflicting term language is indicated.","confidence":0.94,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"unknown","reason":"No evidence was provided for the governing law clause, and the selected value \"[***]\" is a placeholder rather than a supported jurisdiction. With zero evidence, the governing law cannot be confirmed.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The only provided clause for termination for convenience states the notice period as \"[***]\" (redacted), so the number of days is not specified in the evidence. Recording termination_notice_days as null is supported.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support any statement about a liability cap or redaction. Without contract text (e.g., Section 11.4), the field cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"accept","reason":"Evidence explicitly includes a section titled \"2.3.2 Non-Solicitation\" stating neither party shall solicit for hire or employ the other party's personnel, which confirms a non-solicitation clause is present.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

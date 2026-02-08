@@ -40,16 +40,30 @@ This roadmap is optimized for interview signal: clear agent roles, measurable ga
   - optional second-pass verifier after judge-repair for hard fields.
   - field-specific verifier prompt templates by contract type.
 
-## Stage 4: Evaluation Harness (Next)
+## Risk Engine V2 (Implemented Core)
 
-- Keep current exact/partial metrics and add:
-  - bootstrap confidence intervals (already implemented)
-  - per-field error buckets (`missing`, `wrong_type`, `wrong_enum`, `span_mismatch`)
-  - paired ablation comparison report (`delta`, win/tie/loss per doc)
-- Expand gold labels:
-  - prioritize 20-30 manually curated gold docs
-  - keep silver labels only for broad stress-testing
-- Add fixed benchmark command to produce a single JSON report artifact for portfolio.
+- Implemented:
+  - policy-driven risk scoring with versioned config in `docs/risk_policy.json`.
+  - structured factor breakdown with contributions, confidence, and evidence coverage.
+  - uncertainty-aware scoring adjustments and hard-trigger floors.
+  - optional risk judge pass with arbitration (`rules_only`, `rules_with_judge_check`, judge overrides).
+  - full risk trace in `_meta.retrieval.risk` for auditability.
+- Next refinements:
+  - add domain-specific factors (indemnity carve-outs, security obligations, DPA safeguards).
+  - calibrate factor weights against manually curated gold risk labels.
+
+## Stage 4: Evaluation Harness (Implemented Core)
+
+- Implemented:
+  - exact + partial metrics with bootstrap confidence intervals.
+  - per-field and global error buckets (`missing`, `wrong_type`, `wrong_enum`, `span_mismatch`, `value_mismatch`).
+  - paired ablation comparison report with per-doc deltas and win/tie/loss counts.
+  - fixed benchmark command (`scripts/ablation_eval.py --fixed-benchmark`) that emits one portfolio JSON artifact.
+  - committee teacher silver labels as the default silver benchmark set.
+- Next refinements:
+  - prioritize 20-30 manually curated gold docs for primary reporting.
+  - add gold-vs-silver split reporting in one artifact.
+  - calibrate confidence bands per field (not only aggregate CI).
 
 ## Stage 5: Portfolio Packaging (Next)
 

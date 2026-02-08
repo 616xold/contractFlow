@@ -1,0 +1,991 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Thrivent Financial for Lutherans",
+  "party_b_name": "Thrivent Financial for Lutherans",
+  "effective_date": "2019-07-01",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_015_thriventvariableinsuranceaccountb_201907.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 43222,
+    "output_tokens": 4836,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "verifier marked field 'term_length' as unknown",
+      "verifier requested revision for field 'governing_law'",
+      "verifier marked field 'termination_notice_days' as unknown",
+      "verifier requested revision for field 'liability_cap'",
+      "verifier marked field 'non_solicit_clause_present' as unknown",
+      "verifier returned unknown for non-nullable field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "Field 'governing_law' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'governing_law' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 22,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "All assets and related liabilities of Thrivent Life Insurance Company have been transferred to Thrivent Financial for Lutherans. That includes contracts of insurance... All benefits and other terms of this contract remain unchanged"
+            },
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary. The following provisions are included as part of this contract:"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 851,
+          "completion_tokens": 127,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence describes amendments to an insurance contract and transfer of assets/liabilities, not an NDA or MSA. Classifying the document as 'other' is supported.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 441,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "field_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "Thrivent Financial for Lutherans now has all obligations under this contract."
+            },
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "All references to \"Thrivent Life Insurance Company\" are amended to read \"Thrivent Financial for Lutherans.\""
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 665,
+          "completion_tokens": 133,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly states that all references to “Thrivent Life Insurance Company” are amended to read “Thrivent Financial for Lutherans,” and that Thrivent Financial for Lutherans now has all obligations under the contract. This supports identifying Party A as “Thrivent Financial for Lutherans.”",
+            "confidence": 0.84,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Thrivent Financial for Lutherans",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 471,
+            "completion_tokens": 85
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Thrivent Financial for Lutherans",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "Thrivent Life Insurance Company",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.93,
+              "confidence": 0.78,
+              "value": "Thrivent Financial for Lutherans",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans"
+            },
+            {
+              "page_num": 4,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "All assets and related liabilities of Thrivent Life Insurance Company have been transferred to Thrivent Financial for Lutherans."
+            },
+            {
+              "page_num": 4,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "Thrivent Financial for Lutherans now has all obligations under this contract."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 531,
+          "completion_tokens": 149,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly names “Thrivent Financial for Lutherans” and states that all assets/liabilities were transferred to it and that it now has all obligations under the contract, supporting it as the second party’s full legal name.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Thrivent Financial for Lutherans",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 471,
+            "completion_tokens": 72
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Thrivent Life Insurance Company",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.87,
+              "confidence": 0.72,
+              "value": "Thrivent Financial for Lutherans",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Thrivent Financial for Lutherans",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "Heading: Effective Date: July 1, 2019"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 851,
+          "completion_tokens": 65,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states \"Effective Date: July 1, 2019\" on page 1, which supports the selected effective_date value normalized to ISO format as 2019-07-01. No conflicts or validation issues are indicated.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2019-07-01",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 394,
+            "completion_tokens": 77
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2019-07-01",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "2019-07-01",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "verifier_unknown",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary."
+            },
+            {
+              "page_num": 2,
+              "heading": "The following provisions of this contract are amended:",
+              "snippet": "The following provisions of this contract are amended:"
+            },
+            {
+              "page_num": 2,
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2057,
+          "completion_tokens": 236,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "Provided evidence snippets discuss amendments and an entire contract clause but do not state any agreement term duration or effective/expiration dates from which a term length in months can be calculated. Null cannot be confirmed as correct; the term may exist elsewhere in the contract.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 469,
+            "completion_tokens": 78
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.13,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": -0.08,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "Thrivent Financial for Lutherans now has all obligations under this contract."
+            },
+            {
+              "page_num": 2,
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 1749,
+          "completion_tokens": 201,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Selected value is null but the field is required to be a non-empty string. Provided evidence snippets do not mention a governing law/jurisdiction clause, so better targeted retrieval is needed to confirm the applicable law.",
+            "confidence": 0.74,
+            "revised_query": "Governing Law clause / 'This contract shall be governed by the laws of' / jurisdiction (state/country)",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'governing_law' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 479,
+            "completion_tokens": 94
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "verifier_unknown",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary."
+            },
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "If you do not make the extra payment within 60 days from the date we notify you of your share of the deficiency, the amount will be charged as an indebtedness against the contract..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1919,
+          "completion_tokens": 200,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "The provided evidence only mentions a 60-day payment deadline after notice of a deficiency, not a termination-for-convenience notice period. No clause about terminating for convenience or required notice days is shown, so the null value is not supported by the evidence.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 442,
+            "completion_tokens": 79
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.13,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.13,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": -0.13,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "All benefits and other terms of this contract remain unchanged except as described below."
+            },
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary."
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 1858,
+          "completion_tokens": 255,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Selected value is null but the field is not nullable, and the provided evidence snippets do not mention any limitation of liability or a monetary cap. A clause-focused retrieval targeting the Limitation of Liability section is likely to resolve the value.",
+            "confidence": 0.74,
+            "revised_query": "Limitation of Liability clause: liability cap amount (e.g., 'fees paid in last 12 months', 'total fees', 'aggregate liability') and any exclusions",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'liability_cap' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 449,
+            "completion_tokens": 107
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. Without contract text or clause excerpts, the boolean value cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.27,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.28,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "MAINTENANCE OF SOLVENCY... If the solvency of the Society becomes impaired, you may be required to make an extra payment... If you do not make the extra payment within 60 days... interest compounded at the rate of 5% per year."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 736,
+          "completion_tokens": 98,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "high",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "If the solvency of the Society becomes impaired, you may be required to make an extra payment... If you do not make the extra payment within 60 days... the amount will be charged as an indebtedness... at 5% per year."
+            },
+            {
+              "page_num": 2,
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "The Entire Contract consists of... The Articles of Incorporation and Bylaws of the Society and all amendments to them. Benefits will not be reduced or eliminated by any future amendments..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 802,
+          "completion_tokens": 223,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is elevated because the contract includes a “maintenance of solvency” provision that can require the member to make extra payments if the Society’s solvency becomes impaired, and unpaid amounts accrue interest as indebtedness. This creates potential unexpected financial obligations beyond normal premiums. However, the contract also states that future bylaw amendments will not reduce or eliminate benefits, which partially limits governance-change risk.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The contract includes a maintenance of solvency provision requiring the member/contract owner to make an extra payment if the Society’s solvency becomes impaired, with nonpayment becoming indebtedness accruing 5% interest. This creates potentially open-ended financial exposure and is unfavorable to a small vendor. Key commercial protections like a clear liability cap and governing law are not evident in the provided excerpts.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.84,
+              "confidence": 0.74,
+              "value": "The risk level is elevated because the contract includes a “maintenance of solvency” provision that can require the member to make extra payments if the Society’s solvency becomes impaired, and unpaid amounts accrue interest as indebtedness. This creates potential unexpected financial obligations beyond normal premiums. However, the contract also states that future bylaw amendments will not reduce or eliminate benefits, which partially limits governance-change risk.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "term_length",
+          "governing_law",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "disagreement_fields": [
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 7,
+          "party_roles_agent": 1,
+          "verifier_unknown": 3,
+          "global_baseline": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [
+          "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+          "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+        ],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 2,
+        "verifier_repair_fields": [
+          "governing_law",
+          "liability_cap"
+        ],
+        "verifier_decisions": {
+          "accept": 4,
+          "revise": 2,
+          "unknown": 4,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "governing_law",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.5,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 11,
+        "fields_with_evidence": 9,
+        "fields_without_evidence": [
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.8182,
+        "evidence_snippets_total": 19,
+        "unique_evidence_pages": 4,
+        "avg_confidence": 0.4964,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

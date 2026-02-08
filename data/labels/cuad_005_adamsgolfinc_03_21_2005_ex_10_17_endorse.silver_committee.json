@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "ADAMS GOLF",
+  "party_b_name": "ADAMS GOLF, LTD.",
+  "effective_date": "2005-01-13",
+  "term_length": null,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": 15,
+  "liability_cap": "Unspecified (confidential/redacted repayment schedule; no clear general liability cap stated in provided excerpts)",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement appears to be an endorsement/consulting arrangement with broad exclusivity obligations and morality/termination-for-cause provisions, which can create operational and reputational risk. Key commercial terms and any limitation of liability are redacted or not provided, increasing uncertainty. Dispute resolution is arbitration in Kansas, which may be burdensome for a small vendor."
+}

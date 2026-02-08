@@ -1,7 +1,7 @@
 {
   "doc_type": "nda",
-  "party_a_name": null,
-  "party_b_name": null,
+  "party_a_name": "___________________________ (the \"Franchisee\")",
+  "party_b_name": "___________________________ (the \"Member\")",
   "effective_date": null,
   "term_length": null,
   "governing_law": null,
@@ -15,20 +15,17 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 24328,
-    "output_tokens": 2153,
+    "input_tokens": 25254,
+    "output_tokens": 2606,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
-      "Field 'party_a_name' must be a non-empty string",
-      "Field 'party_b_name' must be a non-empty string",
       "Field 'governing_law' must be a non-empty string",
       "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
       "risk_explanation overridden by deterministic rules",
-      "Field 'party_a_name' is null but not nullable",
-      "Field 'party_b_name' is null but not nullable",
       "Field 'governing_law' is null but not nullable",
       "Field 'liability_cap' is null but not nullable"
     ],
@@ -39,6 +36,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -46,62 +49,106 @@
       "total_chunks": 8,
       "fields": {
         "doc_type": {
+          "source": "field_agent",
           "confidence": 0.93,
           "evidence": [
             {
               "page_num": 1,
               "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
-              "snippet": "THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (\"Agreement\") is made this _____ day of _________, 20___, by and between ..."
-            },
-            {
-              "page_num": 1,
-              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
-              "snippet": "...will gain access to certain of Franchisor's Confidential Information, as defined herein, and must therefore be bound by the same confidentiality and non-competition agreement..."
+              "snippet": "THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (\"Agreement\") is made this _____ day of _________, 20___, by and between..."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1164,
-          "completion_tokens": 172
+          "prompt_tokens": 988,
+          "completion_tokens": 101
         },
         "party_a_name": {
-          "confidence": 0.12,
+          "source": "party_roles_agent",
+          "confidence": 0.62,
           "evidence": [
             {
-              "page_num": 2,
-              "heading": "IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and",
-              "snippet": "FRANCHISEE MEMBER By: By: Name: Name: Title: Title:"
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT ( \"Agreement\") is made this _____ day of _________, 20___, by and between ___________________________ (the \"Franchisee\"), and ___________________________, who is an officer, director, or employee of Franchisee (the \"Member\")."
             },
             {
               "page_num": 2,
-              "heading": null,
-              "snippet": "acknowledges and agrees that Franchisor is an intended third-party beneficiary of this Agreement with the right to enforce it, independently or jointly with Franchisee."
+              "heading": "IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and",
+              "snippet": "FRANCHISEE MEMBER"
             }
           ],
           "attempts": 1,
-          "issues": [
-            "Field 'party_a_name' must be a non-empty string"
-          ],
-          "prompt_tokens": 2236,
-          "completion_tokens": 223
+          "issues": [],
+          "prompt_tokens": 425,
+          "completion_tokens": 161,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "___________________________ (the \"Franchisee\")",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.12,
+          "source": "party_roles_agent",
+          "confidence": 0.62,
           "evidence": [
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "by and between ___________________________ (the \"Franchisee\"), and ___________________________, who is an officer, director, or employee of Franchisee (the \"Member\")."
+            },
             {
               "page_num": 2,
               "heading": "IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and",
-              "snippet": "FRANCHISEE MEMBER By: By: Name: Name: Title: Title:"
+              "snippet": "FRANCHISEE MEMBER"
             }
           ],
           "attempts": 1,
-          "issues": [
-            "Field 'party_b_name' must be a non-empty string"
-          ],
-          "prompt_tokens": 2236,
-          "completion_tokens": 176
+          "issues": [],
+          "prompt_tokens": 425,
+          "completion_tokens": 161,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "___________________________ (the \"Member\")",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.25,
           "evidence": [
             {
@@ -121,26 +168,33 @@
           "completion_tokens": 270
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
               "page_num": 1,
               "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
-              "snippet": "Member covenants and agrees that during the term of the Franchise Agreement..."
+              "snippet": "Member covenants and agrees that during the term of the Franchise Agreement, except as otherwise approved in writing by Franchisor, Member shall not..."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
           "prompt_tokens": 2712,
-          "completion_tokens": 156
+          "completion_tokens": 186
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
               "page_num": 2,
               "heading": null,
               "snippet": "...a final order of a duly authorized arbitrator, panel of arbitrators, or a court of competent jurisdiction..."
+            },
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT ( \"Agreement\") is made this _____ day of _________, 20___, by and between..."
             }
           ],
           "attempts": 1,
@@ -148,9 +202,10 @@
             "Field 'governing_law' must be a non-empty string"
           ],
           "prompt_tokens": 2494,
-          "completion_tokens": 128
+          "completion_tokens": 203
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -162,9 +217,10 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2712,
-          "completion_tokens": 146
+          "completion_tokens": 226
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -177,11 +233,12 @@
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 2465,
-          "completion_tokens": 155
+          "prompt_tokens": 2647,
+          "completion_tokens": 150
         },
         "non_solicit_clause_present": {
-          "confidence": 0.78,
+          "source": "field_agent",
+          "confidence": 0.86,
           "evidence": [
             {
               "page_num": 1,
@@ -195,39 +252,39 @@
           "completion_tokens": 111
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
               "page_num": 1,
               "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
-              "snippet": "...the Member... will gain access to certain of Franchisor's Confidential Information, as defined herein, and must therefore be bound by the same confidentiality and non-competition agreement..."
+              "snippet": "THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT ( \"Agreement\") is made this _____ day of _________, 20___, by and between ... (the \"Franchisee\"), and ... (the \"Member\")."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2592,
-          "completion_tokens": 210
+          "completion_tokens": 228
         },
         "risk_level": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
               "page_num": 1,
               "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
-              "snippet": "Member shall not... own, manage, engage in... any Competitive Business... within a three (3) mile radius...\"Post-Term Period\"... two (2) years"
-            },
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "Member agrees to pay all court costs and reasonable attorney's fees incurred by Franchisor in obtaining specific performance of, or an injunction against violation"
+              "snippet": "Member covenants and agrees that during the Post-Term Period... Member shall not... own, manage, engage in, be employed by... any Competitive Business... within a three (3) mile radius..."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1159,
-          "completion_tokens": 136
+          "completion_tokens": 101,
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
@@ -239,29 +296,24 @@
               "page_num": 2,
               "heading": null,
               "snippet": "Member acknowledges that any failure to comply with the requirements of this Agreement will cause Franchisor irreparable injury, and Member agrees to pay all court costs and reasonable attorney's fees... in obtaining... an injunction..."
-            },
-            {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "Franchisor is an intended third-party beneficiary of this Agreement with the right to enforce it, independently or jointly with Franchisee."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 906,
-          "completion_tokens": 270,
+          "completion_tokens": 247,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
       },
       "coverage": {
-        "fields_total": 11,
-        "fields_with_evidence": 11,
+        "fields_total": 10,
+        "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 15,
+        "evidence_snippets_total": 14,
         "unique_evidence_pages": 2,
-        "avg_confidence": 0.3164,
+        "avg_confidence": 0.394,
         "min_confidence": 0.12
       }
     }

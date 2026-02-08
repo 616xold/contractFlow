@@ -1,0 +1,915 @@
+{
+  "doc_type": "other",
+  "party_a_name": "GOOGLE INC",
+  "party_b_name": "Google Inc",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "English law",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts (Limitation of Liability section referenced but cap amount not shown).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 45681,
+    "output_tokens": 5561,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier marked field 'doc_type' as unknown",
+      "verifier returned unknown for non-nullable field 'doc_type'",
+      "verifier marked field 'effective_date' as unknown",
+      "verifier requested revision for field 'term_length'",
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 147,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 18,
+              "heading": "11.10 Governing Law. This Agreement is governed by English law and the parties submit to",
+              "snippet": "11.10 Governing Law. This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts..."
+            },
+            {
+              "page_num": 25,
+              "heading": "4.3 Disclosure and Consent for Setting Changes. You may not bundle any Google Application",
+              "snippet": "4.3 Disclosure and Consent for Setting Changes. You may not bundle any Google Application with any Application that makes a change to any operating system or Application data setting..."
+            },
+            {
+              "page_num": 13,
+              "heading": "8.6 No conditions, warranties or other terms apply to the Products, [ * ] or to any other",
+              "snippet": "8.6 No conditions, warranties or other terms apply to the Products... or to any other goods or services supplied under this Agreement unless expressly set out in this Agreement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 745,
+          "completion_tokens": 211,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "The evidence snippets show general contract clauses (governing law, warranties disclaimer, disclosure/consent) but do not identify the document as an NDA or an MSA, nor do they clearly establish a specific alternative type. Without a title/intro or confidentiality/“Master Services Agreement” language, asserting doc_type='other' is not sufficiently supported.",
+            "confidence": 0.55,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 542,
+            "completion_tokens": 99
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 19,
+              "heading": "DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name",
+              "snippet": "DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 766,
+          "completion_tokens": 106,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence snippet from the signature block explicitly shows the party name as \"GOOGLE INC\" under the heading \"DISTRIBUTOR,\" supporting the selected value as the full legal name of the first party.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "GOOGLE INC",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 459,
+            "completion_tokens": 69
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Google Inc",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.4,
+              "confidence": 0.35,
+              "value": "Distributor",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "GOOGLE INC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "GOOGLE INC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 19,
+              "heading": "DISTRIBUTOR   GOOGLE INC",
+              "snippet": "DISTRIBUTOR   GOOGLE INC"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 736,
+          "completion_tokens": 53,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly identifies the distributor as \"GOOGLE INC,\" which supports the selected party_b_name value \"Google Inc\" (case difference only). No conflicts or validation issues are indicated.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Google Inc",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 383,
+            "completion_tokens": 65
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Distributor",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": "Google Inc",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Google Inc",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "verifier_unknown",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "3.4 Launch. Distributor shall begin distribution of Bundles in accordance with this",
+              "snippet": "within [ * ] days following the  Effective Date (the date of such Launch, the \"Launch Date\")."
+            },
+            {
+              "page_num": 9,
+              "heading": "5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier",
+              "snippet": "This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue  for the Term."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1954,
+          "completion_tokens": 269,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "The evidence references an “Effective Date” but does not provide the actual calendar date. Without a stated date in the provided snippets, the effective_date cannot be extracted and should remain null.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 462,
+            "completion_tokens": 65
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_unknown",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier",
+              "snippet": "This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue for the Term."
+            },
+            {
+              "page_num": 18,
+              "heading": "11.7 Severability. The invalidity, illegality or unenforceability of any term (or part of",
+              "snippet": "The invalidity, illegality or unenforceability of any term (or part of a term) of this Agreement shall not affect the continuation in force of the remainder of the term (if any) and this Agreement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1401,
+          "completion_tokens": 294,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence references a defined 'Term' but does not include any fixed duration or end date; the term length in months may be determinable if the remainder of clause 5.1 (or the definition of 'Term' / 'Initial Term') specifies a period (e.g., X months/years) or an expiry date. Better retrieval of the full Term clause/definitions is needed before asserting null.",
+            "confidence": 0.62,
+            "revised_query": "Clause 5.1 Term (full text) and any definition of \"Term\"/\"Initial Term\"/\"Renewal Term\" stating the agreement duration or end date",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 485,
+            "completion_tokens": 144
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 18,
+              "heading": "11.10 Governing Law. This Agreement is governed by English law and the parties submit to",
+              "snippet": "This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 904,
+          "completion_tokens": 79,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence clause explicitly states: “This Agreement is governed by English law…”, which directly supports the selected governing_law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "English law",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 396,
+            "completion_tokens": 54
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "English law",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "English law",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "5.4 Change of Control. [ * ] may terminate this Agreement immediately upon written notice",
+              "snippet": "[ * ] may terminate this Agreement immediately upon written notice if there is a Change of Control of [ * ]."
+            },
+            {
+              "page_num": 10,
+              "heading": "5.5 Additional Termination Rights. Google may terminate this Agreement immediately upon",
+              "snippet": "Google may terminate this Agreement immediately upon written notice to Distributor if: (a) Distributor breaches Clause 2..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2556,
+          "completion_tokens": 206,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The provided evidence only describes termination rights that are effective immediately upon written notice (e.g., change of control, breach), and does not specify any number of days’ notice for termination for convenience. Therefore, a value of null for termination_notice_days is supported by the current evidence set.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 455,
+            "completion_tokens": 85
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence excerpts were provided to support any liability cap value or to confirm that the cap is not specified. Without the Limitation of Liability clause text, the field cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Not specified in provided excerpts (Limitation of Liability section referenced but cap amount not shown).",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 401,
+            "completion_tokens": 64
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Not specified in provided excerpts (Limitation of Liability section referenced but cap amount not shown).",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected value (false). Without contract text confirming the absence of a non-solicitation provision, the field cannot be verified; targeted retrieval of the relevant clause section may resolve this.",
+            "confidence": 0.74,
+            "revised_query": "non-solicitation clause solicit customers employees clients non-solicit",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 342,
+            "completion_tokens": 84
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.33,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.28,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding whether data transfers outside the UK/EU are explicitly allowed. With zero supporting clauses, the value cannot be confirmed as yes or no, so 'unknown' is appropriate.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 70
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 10,
+              "heading": "5.5 Additional Termination Rights. Google may terminate this Agreement immediately upon",
+              "snippet": "Google may terminate this Agreement immediately upon written notice to Distributor if: (a) Distributor breaches Clause 2... (b) if Google believes, in good faith, that the Distributor has violated... Anti-Bribery Laws..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1974,
+          "completion_tokens": 196,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "high",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "risk_explanation": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Key commercial terms are heavily redacted/omitted in the excerpts (effective date, term length, and liability cap), creating uncertainty for a small SaaS vendor. The agreement appears to grant Google broad termination rights (including immediate termination for specified breaches) and includes strict compliance/distribution obligations. Without a clear liability cap and complete termination/term details, the downside risk is difficult to bound.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Key commercial terms are heavily redacted/omitted in the excerpts (effective date, term length, and liability cap), creating uncertainty for a small SaaS vendor. The agreement appears to grant Google broad termination rights (including immediate termination for specified breaches) and includes strict compliance/distribution obligations. Without a clear liability cap and complete termination/term details, the downside risk is difficult to bound.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.57,
+              "confidence": 0.42,
+              "value": "The agreement gives the counterparty a strong termination right upon a change of control, which can create abrupt business disruption risk. It also allows Google to update compliance guidelines over time, shifting ongoing compliance obligations to the distributor and potentially triggering suspension/termination or special indemnity. While there is an extended compliance period mechanism, the need to meet updated requirements still introduces operational and legal uncertainty.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "doc_type",
+          "party_a_name",
+          "effective_date",
+          "term_length",
+          "termination_notice_days",
+          "liability_cap"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "repair_agent": 1,
+          "field_agent": 5,
+          "party_roles_agent": 1,
+          "verifier_unknown": 2,
+          "global_baseline": 3
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 2,
+        "verifier_repair_fields": [
+          "non_solicit_clause_present",
+          "term_length"
+        ],
+        "verifier_decisions": {
+          "accept": 4,
+          "revise": 2,
+          "unknown": 4,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "doc_type",
+          "effective_date",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "term_length"
+        ],
+        "verifier_disagreement_rate": 0.5,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 11,
+        "fields_with_evidence": 8,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7273,
+        "evidence_snippets_total": 13,
+        "unique_evidence_pages": 7,
+        "avg_confidence": 0.5509,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

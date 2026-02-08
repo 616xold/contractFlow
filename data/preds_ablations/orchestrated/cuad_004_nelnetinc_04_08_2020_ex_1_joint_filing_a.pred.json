@@ -1,0 +1,933 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Butterfield Family Trust",
+  "party_b_name": "Butterfield Family Trust",
+  "effective_date": "2020-03-27",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "No liability cap specified; each party responsible for completeness and accuracy of its own information (except where it knows or has reason to believe the other’s information is inaccurate).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 31158,
+    "output_tokens": 4694,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "verifier requested revision for field 'party_b_name'",
+      "verifier requested revision for field 'term_length'",
+      "verifier requested revision for field 'governing_law'",
+      "verifier requested revision for field 'termination_notice_days'",
+      "verifier requested revision for field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "Field 'governing_law' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'low')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'governing_law' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 4,
+      "total_hits": 14,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "JOINT FILING AGREEMENT",
+              "snippet": "Heading: JOINT FILING AGREEMENT"
+            },
+            {
+              "page_num": 1,
+              "heading": "JOINT FILING AGREEMENT",
+              "snippet": "The undersigned hereby agree to jointly prepare and file with the applicable regulatory authorities this Schedule 13G or Schedule 13D"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 571,
+          "completion_tokens": 93,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The document is titled \"JOINT FILING AGREEMENT\" and concerns jointly preparing and filing Schedule 13G/13D with regulatory authorities, which is neither an NDA nor an MSA. Therefore, classifying doc_type as \"other\" is supported by the evidence.",
+            "confidence": 0.96,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 409,
+            "completion_tokens": 83
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.05,
+              "confidence": 0.95,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "BUTTERFIELD FAMILY TRUST",
+              "snippet": "BUTTERFIELD FAMILY TRUST"
+            },
+            {
+              "page_num": 1,
+              "heading": "BUTTERFIELD FAMILY TRUST",
+              "snippet": "By: /s/ Shelby J. Butterfield Shelby J. Butterfield Co-Trustee"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 624,
+          "completion_tokens": 86,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly shows the party name as the heading “BUTTERFIELD FAMILY TRUST,” and the signature block indicates execution on behalf of that entity (“By: … Co-Trustee”), supporting that this is the full legal name of the first party.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Butterfield Family Trust",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 442,
+            "completion_tokens": 78
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Butterfield Family Trust",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.26,
+              "confidence": 0.1,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' is null but not nullable"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Butterfield Family Trust",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Butterfield Family Trust",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "BUTTERFIELD FAMILY TRUST",
+              "snippet": "BUTTERFIELD FAMILY TRUST\nText:\nBy: /s/ Shelby J. Butterfield Shelby J. Butterfield Co-Trustee"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1248,
+          "completion_tokens": 185,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence on page 1 clearly identifies a party name: \"BUTTERFIELD FAMILY TRUST\" (with signature by Shelby J. Butterfield, Co-Trustee). The selected value is null, which fails the non-null requirement and conflicts with available evidence. Additional retrieval should confirm whether this is Party B specifically (e.g., in the parties/recitals or signature blocks).",
+            "confidence": 0.74,
+            "revised_query": "Locate the contract section identifying the parties (e.g., 'Party A/Party B', 'First Party/Second Party', or recitals) and extract the full legal name of the second party; check the signature block for Party B name (e.g., 'BUTTERFIELD FAMILY TRUST').",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 451,
+            "completion_tokens": 163
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.01,
+              "confidence": 0.35,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.11,
+              "confidence": 0.42,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.09,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Butterfield Family Trust",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "repair_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "JOINT FILING AGREEMENT",
+              "snippet": "Dated: March 27, 2020."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 571,
+          "completion_tokens": 60,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states \"Dated: March 27, 2020\" on the agreement heading, which supports an effective date of 2020-03-27, and there are no conflicts or validation issues.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2020-03-27",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 412,
+            "completion_tokens": 72
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2020-03-27",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "2020-03-27",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.77,
+              "confidence": 0.72,
+              "value": "2020-03-27",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "global_baseline",
+          "confidence": 0.2,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support term_length=null. The term may be stated in a 'Term', 'Duration', 'Initial Term', 'Renewal', or 'Termination' clause; better retrieval could determine a month length or confirm it is not specified.",
+            "confidence": 0.74,
+            "revised_query": "Find the agreement's term length: look for clauses titled Term/Duration/Initial Term/Term and Termination/Renewal stating the initial term and any renewal period; extract the term in months.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 120
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "JOINT FILING AGREEMENT",
+              "snippet": "...pursuant to and in accordance with the provisions of Rule 13d-1(k) under the Securities Exchange Act of 1934."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 1272,
+          "completion_tokens": 152,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The selected value is null, but the field is required to be a non-empty string. The provided evidence snippet does not mention any governing law/jurisdiction clause, so the value is not supported. Additional retrieval focused on the governing law clause may resolve this.",
+            "confidence": 0.74,
+            "revised_query": "Find the 'Governing Law' / 'Choice of Law' clause stating which jurisdiction's laws govern this Joint Filing Agreement (e.g., 'This Agreement shall be governed by the laws of ...').",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'governing_law' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 435,
+            "completion_tokens": 121
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.18,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "global_baseline",
+          "confidence": 0.2,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support that the agreement does not specify a termination-for-convenience notice period. A targeted retrieval of the termination/notice provisions could confirm whether a specific number of days is stated or truly absent.",
+            "confidence": 0.74,
+            "revised_query": "termination for convenience notice period days; notice of termination; termination without cause clause",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 364,
+            "completion_tokens": 87
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.2,
+              "confidence": 0.1,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.2,
+              "confidence": 0.1,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.2,
+              "confidence": 0.1,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected liability cap text. The current value appears to describe an accuracy/completeness responsibility clause rather than a monetary liability cap. Additional retrieval focused on limitation of liability language is needed.",
+            "confidence": 0.74,
+            "revised_query": "limitation of liability clause liability cap maximum aggregate liability fees paid 12 months exclude indirect consequential damages",
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": true,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "No liability cap specified; each party responsible for completeness and accuracy of its own information (except where it knows or has reason to believe the other’s information is inaccurate).",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 399,
+            "completion_tokens": 90
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "No liability cap specified; each party responsible for completeness and accuracy of its own information (except where it knows or has reason to believe the other’s information is inaccurate).",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. This is a clause-presence field and requires text evidence (or a targeted search) before confirming false.",
+            "confidence": 0.74,
+            "revised_query": "non-solicit* OR non solicitation OR \"non-solicitation\" OR \"non solicit\" OR \"solicit\" within 10 words of (customers OR clients OR employees OR personnel OR staff)",
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": true,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 342,
+            "completion_tokens": 108
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding international data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 56
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "low",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "low",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.48,
+              "confidence": 0.38,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "JOINT FILING AGREEMENT",
+              "snippet": "The undersigned acknowledge that each shall be responsible for the timely filing of such amendments, and for the completeness and accuracy of the information concerning her or it contained therein, but shall not be responsible for the completeness and accuracy of the information concerning the other"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 636,
+          "completion_tokens": 154,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The agreement allocates responsibility so each party is accountable for timely filings and for the completeness and accuracy of its own information. However, each party disclaims responsibility for the other party’s information except where it knows or has reason to believe it is inaccurate, creating a residual risk of reliance on others’ disclosures.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "This is a joint filing agreement for SEC Schedule 13G/13D reporting, not a commercial services contract. It contains no payment, service delivery, data processing, or IP terms typical of SaaS agreements. Liability allocation is limited to responsibility for each party’s own disclosures, with no broader indemnities or uncapped damages stated.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "The agreement allocates responsibility so each party is accountable for timely filings and for the completeness and accuracy of its own information. However, each party disclaims responsibility for the other party’s information except where it knows or has reason to believe it is inaccurate, creating a residual risk of reliance on others’ disclosures.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 14,
+        "avg_hits_per_field": 1.1667
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "party_a_name",
+          "party_b_name",
+          "effective_date",
+          "term_length",
+          "governing_law",
+          "termination_notice_days"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "risk_explanation",
+          "risk_level"
+        ],
+        "selected_source_counts": {
+          "field_agent": 3,
+          "verifier_repair_agent": 2,
+          "repair_agent": 1,
+          "global_baseline": 5,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [
+          "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+          "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+        ],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 4,
+        "verifier_repair_fields": [
+          "governing_law",
+          "party_b_name",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_decisions": {
+          "accept": 3,
+          "revise": 6,
+          "unknown": 1,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "governing_law",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "party_b_name",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.5833,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 5,
+        "fields_without_evidence": [
+          "term_length",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.5,
+        "evidence_snippets_total": 7,
+        "unique_evidence_pages": 1,
+        "avg_confidence": 0.527,
+        "min_confidence": 0.2
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Kiromic, Inc, a Delaware corporation",
+  "party_b_name": "Gianluca Rotino",
+  "effective_date": "2018-07-01",
+  "term_length": null,
+  "governing_law": "State of Texas",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "The agreement includes broad confidentiality and IP/work product obligations and references indemnity exposure related to third-party rights, which can create meaningful risk for a small SaaS vendor. There is no clear liability cap or limitation of liability in the provided excerpts, increasing potential downside. Termination appears to be allowed on prior written notice but without a specified notice period, adding some operational uncertainty."
+}

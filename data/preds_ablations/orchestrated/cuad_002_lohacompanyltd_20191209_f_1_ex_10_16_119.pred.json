@@ -1,0 +1,933 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+  "party_b_name": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+  "effective_date": null,
+  "term_length": 60,
+  "governing_law": "People's Republic of China",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified; contract includes late-delivery penalties and force majeure provisions but no overall liability cap is stated in the provided excerpts.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 67525,
+    "output_tokens": 5525,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "verifier requested revision for field 'party_b_name'",
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 14,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "Exhibit 10.16 SUPPLY CONTRACT... 1.1 This is a framework agreement, the terms and conditions are applied to all purchase orders"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1111,
+          "completion_tokens": 92,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence clearly identifies the document as a “SUPPLY CONTRACT” and a “framework agreement” for purchase orders, which is neither an NDA nor an MSA. Therefore, classifying doc_type as “other” is supported.",
+            "confidence": 0.9,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 410,
+            "completion_tokens": 74
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.92,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The buyer/End-User: Shenzhen LOHAS Supply Chain Management Co., Ltd."
+            },
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The Contract is concluded and signed by the Buyer and Seller"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 924,
+          "completion_tokens": 147,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly identifies the Buyer/End-User as “Shenzhen LOHAS Supply Chain Management Co., Ltd.”, which supports the selected party_a_name as the first party.",
+            "confidence": 0.96,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 490,
+            "completion_tokens": 63
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.02,
+              "confidence": 0.92,
+              "value": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The buyer/End-User: Shenzhen LOHAS Supply Chain Management Co., Ltd."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1594,
+          "completion_tokens": 90,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The field is non-nullable but the selected value is null. Evidence indicates party roles (BUYER/SELLER) and references a company name (\"LOHA CO. LTD.\") but does not clearly identify the full legal name of the second party. Additional targeted retrieval around the signature block and party identification section is likely to resolve the correct Party B name.",
+            "confidence": 0.74,
+            "revised_query": "Locate the contract section defining the parties (e.g., \"Buyer\"/\"Seller\" names) and the signature block; extract the full legal name of the second party (Party B). Search for lines near \"THE BUYER:\" and \"THE SELLER:\" and any header listing company names.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 491,
+            "completion_tokens": 161
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.13,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": -0.13,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.01,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "repair_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "The Contract becomes effective after signed by both parties."
+            },
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 SUPPLY CONTRACT Contract No: Date: The buyer/End-User: Shenzhen LOHAS Supply",
+              "snippet": "The Contract is concluded and signed by the Buyer and Seller on , in Hong Kong."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "The Contract is valid for 5 years, beginning from and ended on ."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3749,
+          "completion_tokens": 231,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence states the contract becomes effective after being signed by both parties, but no specific calendar date is provided (the date fields appear blank). Therefore the effective_date cannot be determined and null is supported.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 457,
+            "completion_tokens": 68
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.02,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "23. The Contract is valid for 5 years, beginning from and ended on ."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1047,
+          "completion_tokens": 55,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence states: \"The Contract is valid for 5 years\". 5 years is determinable as 60 months, matching the selected value.",
+            "confidence": 0.9,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 60,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 369,
+            "completion_tokens": 58
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 60,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": 60,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "21. Law application It will be governed by the law of the People's Republic of China"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 889,
+          "completion_tokens": 62,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"It will be governed by the law of the People's Republic of China,\" which directly supports the selected governing_law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "People's Republic of China",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 385,
+            "completion_tokens": 58
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "People's Republic of China",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "People's Republic of China",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."
+            },
+            {
+              "page_num": 1,
+              "heading": "2.2 The seller shall be confirmed within three working days after receipt of order. If the",
+              "snippet": "any party shall not unilaterally cancel the order before the two sides agreed ."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2890,
+          "completion_tokens": 256,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The provided evidence discusses cancellation rights tied to specific conditions (accident lasting more than 10 weeks) and a restriction on unilateral cancellation absent mutual agreement, but it does not specify any notice period (in days) for termination for convenience. Therefore, asserting a numeric termination_notice_days is unsupported, and null is appropriate.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 456,
+            "completion_tokens": 91
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence excerpts were provided to support the statement that there is no overall liability cap. Without contract text addressing limitation of liability, the field cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Not specified; contract includes late-delivery penalties and force majeure provisions but no overall liability cap is stated in the provided excerpts.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 408,
+            "completion_tokens": 59
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Not specified; contract includes late-delivery penalties and force majeure provisions but no overall liability cap is stated in the provided excerpts.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.13,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero cited excerpts, the boolean value cannot be verified; targeted retrieval of any non-solicitation language could confirm presence/absence.",
+            "confidence": 0.74,
+            "revised_query": "Search for non-solicitation language (e.g., \"non-solicit\", \"solicit\", \"customers\", \"clients\", \"employees\", \"recruit\", \"poach\", \"hire away\") and extract the clause if present.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 122
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.33,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding international data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 56
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.37,
+              "confidence": 0.32,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.47,
+              "confidence": 0.32,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "INSURANCE: To be covered by the Seller for 110% invoice value against All Risks and War Risk."
+            },
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "LATE DELIVERY AND PENALTY: Should the Sellers fail to make delivery on time... the Sellers agree to pay a penalty which shall be deducted by the paying bank from the payment."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1216,
+          "completion_tokens": 128,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "The Sellers shall not be held responsible for the delay in shipment or non-delivery, of the goods due to Force Majeure... In case the accident lasts for more than 10 weeks, the Buyers shall have the right to cancel the Contract."
+            },
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "Should the Sellers fail to make delivery on time... the Buyers shall agree to postpone the delivery on condition that the Sellers agree to pay a penalty"
+            },
+            {
+              "page_num": 3,
+              "heading": "Source: LOHA CO. LTD., F-1, 12/9/2019",
+              "snippet": "The Arbitration shall take place in Beijing and the decision of the Arbitration Committee shall be final and binding upon both parties; neither party shall seek recourse to a law court"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 967,
+          "completion_tokens": 317,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is elevated because the seller is excused from liability for delays or non-delivery due to force majeure, potentially impacting the buyer’s supply continuity, with cancellation only after a prolonged event. While there is a late-delivery penalty, the buyer must agree to postpone delivery, which may limit immediate remedies. Dispute resolution is confined to final and binding arbitration in Beijing with no court appeal, increasing enforcement and forum risk for the buyer.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "This is a PRC-governed international supply framework with arbitration in Beijing, which can be costly and difficult for a small SaaS vendor to navigate. The excerpts do not show a clear limitation of liability, creating potentially uncapped exposure. Termination for convenience notice is not specified, and cancellation rights appear limited (e.g., only after extended force majeure), reducing flexibility.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "The risk level is elevated because the seller is excused from liability for delays or non-delivery due to force majeure, potentially impacting the buyer’s supply continuity, with cancellation only after a prolonged event. While there is a late-delivery penalty, the buyer must agree to postpone delivery, which may limit immediate remedies. Dispute resolution is confined to final and binding arbitration in Beijing with no court appeal, increasing enforcement and forum risk for the buyer.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "party_b_name",
+          "effective_date",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "risk_explanation",
+          "risk_level"
+        ],
+        "selected_source_counts": {
+          "field_agent": 6,
+          "party_roles_agent": 1,
+          "verifier_repair_agent": 1,
+          "repair_agent": 1,
+          "global_baseline": 2,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [
+          "Field 'party_b_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+        ],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 2,
+        "verifier_repair_fields": [
+          "non_solicit_clause_present",
+          "party_b_name"
+        ],
+        "verifier_decisions": {
+          "accept": 6,
+          "revise": 2,
+          "unknown": 2,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "party_b_name"
+        ],
+        "verifier_disagreement_rate": 0.3333,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7,
+        "evidence_snippets_total": 11,
+        "unique_evidence_pages": 3,
+        "avg_confidence": 0.646,
+        "min_confidence": 0.22
+      }
+    }
+  }
+}

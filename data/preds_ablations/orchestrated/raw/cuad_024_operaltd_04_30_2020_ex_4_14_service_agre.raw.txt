@@ -1,0 +1,121 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"PC Financial Services Private Limited","party_b_name":"Mobimagic Co., Ltd.","effective_date":"2019-04-01","term_length":12,"governing_law":"India","termination_notice_days":null,"liability_cap":"The aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is a service agreement involving system/platform maintenance and data processing, which can create operational and data-handling risk. Liability is capped to the aggregate fees/expenses owed, which may be low relative to potential losses, though consequential damages are excluded except for confidentiality breaches. The term is fixed for the Service Period (about 12 months) and termination details for convenience/notice are not clearly specified in the provided excerpts."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on","snippet":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on April. 1st 2019 (\"Effective Date\") by and between:"},{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"In case of any complaint about using the Services as set out in this Agreement... 7. CONFIDENTIALITY & PUBLICITY Neither Party shall disclose the other Party's Confidential Information"}],"confidence":0.86,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "PC Financial Services Private Limited",
+  "party_b_name": "Mobimagic Co., Ltd.",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+      "snippet": "This Service Agreement (\"Agreement\") is entered into on April. 1st 2019 (\"Effective Date\") by and between: PC Financial Services Private Limited"
+    },
+    {
+      "page_num": 5,
+      "heading": "to be charged. IN WITNESS WHEREOF, the Parties have executed this Agreement as of the",
+      "snippet": "IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date. PC Financial Services Private Limited"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+      "snippet": "and Mobimagic Co., Ltd., a company Incorporated under the laws of the People 's Republic of China"
+    },
+    {
+      "page_num": 5,
+      "heading": "to be charged. IN WITNESS WHEREOF, the Parties have executed this Agreement as of the",
+      "snippet": "PC Financial Services Private Limited Mobimagic Co., Ltd."
+    }
+  ],
+  "party_a_confidence": 0.99,
+  "party_b_confidence": 0.99
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on","snippet":"April. 1st 2019 (\"Effective Date\") by and between: PC Financial Services Private Limited, a India company...; and Mobimagic Co., Ltd."},{"page_num":5,"heading":"to be charged. IN WITNESS WHEREOF, the Parties have executed this Agreement as of the","snippet":"Effective Date. PC Financial Services Private Limited Mobimagic Co., Ltd."}],"confidence":0.93,"value":"PC Financial Services Private Limited"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on","snippet":"...by and between: PC Financial Services Private Limited...; and Mobimagic Co., Ltd., a company Incorporated under the laws of the People 's Republic of China... (\"Mobimagic\")."}],"confidence":0.93,"value":"Mobimagic Co., Ltd."}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on","snippet":"April. 1st 2019 (\"Effective Date\") by and between:"}],"confidence":0.98,"value":"2019-04-01"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on","snippet":"1.5 \"Service Period\" means April. 1st 2019 through to March 30, 2020."},{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period, unless terminated earlier as provided in this Section."}],"confidence":0.72,"value":12}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":5,"heading":"THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES","snippet":"This Agreement (and any question about its subsistence, effect or termination) is to be interpreted in accordance with the laws of India, save for that body of law which governs the conflict of laws."}],"confidence":0.98,"value":"India"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"9. TERM & TERMINATION 9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period, unless terminated earlier as provided in this Section."},{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"9.2 This Agreement may be terminated by either Party prior to the end of the Service Period if the other Party is in material breach of any tem, or condition of this Agreement and such..."}],"confidence":0.18,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":5,"heading":"LIABLE FOR ANY CONSEQUENTIAL, INDIRECT, EXEMPLARY, SPECIAL, OR INCIDENTAL DAMAGES ARISING","snippet":"NEITHER PARTIES' TOTAL CUMULATIVE LIABILITY IN"},{"page_num":5,"heading":"THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES","snippet":"THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES PERFORMED UNDER THIS AGREEMENT."}],"confidence":0.74,"value":"the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement"}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on","snippet":"In consideration of their mutual promises, the Parties hereby agree as follows: 1. DEFINITIONS ... 1.3 \"Confidential Information\" means non-public information..."}],"confidence":0.12,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"It will not intend to access to the data relating to Indian operations of the PC Financial except for the data passing through Services."},{"page_num":5,"heading":"THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES","snippet":"This Agreement ... is to be interpreted in accordance with the laws of India... The courts of New Delhi shall have exclusive jurisdiction..."}],"confidence":0.22,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"Neither Party shall be liable to the other Party in contract, tort or otherwise, whatever the cause, for any loss of profit, business or goodwill or any indirect, incidental or consequential costs, damages or expenses of any kind"}],"confidence":0.35,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":2,"heading":"3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all","snippet":"Mobimagic warrants that it will not take any action, or collect any data, which causes a breach of applicable law or PC Financial'& privacy policy and consent driven architecture."},{"page_num":2,"heading":"3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all","snippet":"Mobimagic shall not in any manner be held or be responsible or liable for any unforeseen contingency... arising due to absence of storage or retention of any PC Financial data which shall be the sole responsibility of PC Financial ."},{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"Neither Party shall be liable... for any loss of profit, business or goodwill or any indirect, incidental or consequential costs... except for such loss attributable to breach of confidentiality."}],"confidence":0.62,"value":"The risk level is driven by broad warranty and liability limitations that shift key responsibilities and reduce remedies. Mobimagic disclaims responsibility for unforeseen contingencies and for losses arising from lack of data storage/retention, placing that burden on PC Financial. The agreement also excludes liability for indirect or consequential losses (with a limited confidentiality carve-out), which can materially limit recovery if issues occur."}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"9. TERM & TERMINATION 9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period, unless terminated earlier as provided in this Section. 9.2 This Agreement may be terminated..."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on","snippet":"1.3 \"Confidential Information\" means non-public information that a Party or Its affiliates (\"disclosing Party\") discloses to the other Party or its affiliates (\"rec..."}],"confidence":0.18,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":3,"heading":"4.7 Data protection. Each Party agrees to comply with all applicable data protection and","snippet":"Each Party agrees to comply with all applicable data protection and privacy laws arising from its obligations, if any, under the Agreement"},{"page_num":2,"heading":null,"snippet":"It will not intend to access to the data relating to Indian operations of the PC Financial except for the data passing through Services."}],"confidence":0.28,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":2,"heading":"3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all","snippet":"the Parties and their suppliers disclaim all warranties, either express or implied, statutory or otherwise"},{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"Neither Party shall be liable to the other Party... for any loss of profit, business or goodwill or any indirect, incidental or consequential costs"},{"page_num":3,"heading":"4.7 Data protection. Each Party agrees to comply with all applicable data protection and","snippet":"Reserve Bank of India (hereafter \"RBI\")... has right to access and inspect the PC Financial's documents, records... stored or processed by Mobimagic"}],"confidence":0.62,"value":"medium"}
+
+REPAIR_AGENT risk_explanation
+{"evidence":[{"page_num":2,"heading":"3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all","snippet":"the Parties and their suppliers disclaim all warranties, either express or implied, statutory or otherwise, inducing without limitation warranties of functionality, merchantability, fitness for a particular purpose."},{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"Neither Party shall be liable to the other Party... for any loss of profit, business or goodwill or any indirect, incidental or consequential costs, damages or expenses of any kind, except for such loss attributable to breach of confidentiality."},{"page_num":2,"heading":"3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all","snippet":"Mobimagic shall not in any manner be held or be responsible or liable for any unforeseen contingency... losses, damages or expenses arising due to absence of storage or retention of any PC Financial data which shall be the sole responsibility of PC Financial."}],"confidence":0.62,"value":"The risk level is elevated because the agreement contains broad warranty disclaimers and significant limitations of liability, including exclusions for indirect and consequential damages. It also shifts key operational/data-retention risks to PC Financial by stating Mobimagic is not liable for losses arising from absence of storage or retention of PC Financial data. These provisions reduce recourse if the services fail or cause business impact."}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"The document is titled \"SERVICE AGREEMENT\" and contains service-related terms (including a confidentiality clause). It is neither an NDA nor an MSA, so classifying doc_type as \"other\" is supported by the evidence.","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly names “PC Financial Services Private Limited” as a party in the agreement’s opening (“by and between: PC Financial Services Private Limited”) and again in the execution block, supporting it as Party A’s full legal name. No conflicts or validation issues are indicated.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly names “Mobimagic Co., Ltd.” as a party to the Service Agreement (page 1) and shows it in the signature block alongside the other party (page 5), supporting it as the second party’s full legal name.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"Evidence explicitly states the agreement is entered into on April 1st 2019 and labels it as the \"Effective Date,\" which corresponds to ISO date 2019-04-01.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"The agreement defines the “Service Period” as April 1, 2019 through March 30, 2020, and states the Agreement continues in effect for the Service Period. This corresponds to a 12-month term length.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states the agreement is to be interpreted in accordance with the laws of India (excluding conflict of laws), which directly supports the selected governing law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"revise","reason":"Provided evidence only shows the start of the Term & Termination section and a termination-for-breach clause fragment; it does not address termination for convenience or any notice period. The selected null value is therefore not supported by the cited text, and targeted retrieval of any convenience termination/notice language may yield a specific number of days.","confidence":0.74,"revised_query":"termination for convenience notice period days (\"terminate for convenience\" OR \"without cause\" OR \"for any reason\")"}
+
+VERIFIER_REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"9. TERM & TERMINATION 9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period, unless terminated earlier as provided in this Section. 9.2 This Agreement may be terminated by either Party prior to the end of the Service Period if the other Party is in material breach..."}],"confidence":0.18,"value":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"accept","reason":"The evidence on page 5 explicitly states that the parties' total cumulative liability is capped at “the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement,” which matches the selected value.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the selected value (has_evidence=false, evidence_count=0). Without contract text confirming absence of a non-solicitation provision, the boolean cannot be verified; targeted retrieval may resolve this.","confidence":0.74,"revised_query":"Locate any non-solicitation clause (e.g., 'non-solicit', 'solicit', 'non-interference', 'no poaching', 'non-circumvention') restricting solicitation of employees, customers, clients, or business partners."}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":4,"heading":"6.5 In case of any complaint about using the Services as set out in this Agreement PC","snippet":"7. CONFIDENTIALITY & PUBLICITY Neither Party shall disclose the other Party's Confidential Information to any third party or use Confidential Information for any purpose other than fur the proper fulfillment of this Agreement."},{"page_num":5,"heading":"10 shall survive termination of this Agreement. 10. MISCELLANEOUS 10.1 The Parties to this","snippet":"The Parties to this Agreement are independent contractors. Nothing in this Agreement is intended or should be construed to create an agency, partnership, Joint venture, or employer-employee relationship..."}],"confidence":0.22,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers. Without any clause text, it cannot be determined whether the agreement explicitly allows transfers outside the UK/EU, so the value should remain unknown.","confidence":0.74,"revised_query":null}

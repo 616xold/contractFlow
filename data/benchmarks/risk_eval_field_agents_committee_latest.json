@@ -1,0 +1,406 @@
+{
+  "docs_total": 25,
+  "docs_evaluated": 25,
+  "docs_missing_preds": 0,
+  "risk_level_accuracy": 1.0,
+  "risk_explanation_similarity_avg": 0.7092,
+  "macro_f1": 0.3333,
+  "macro_f1_supported": 1.0,
+  "confusion_matrix": {
+    "low": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "medium": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "high": {
+      "low": 0,
+      "medium": 0,
+      "high": 25
+    }
+  },
+  "per_class": {
+    "low": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    "medium": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 0
+    },
+    "high": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 25
+    }
+  },
+  "arbitration_counts": {
+    "rules_only": 1
+  },
+  "judge_metrics": {
+    "judge_available_docs": 0,
+    "judge_rule_agreement": 0.0,
+    "judge_final_agreement": 0.0
+  },
+  "docs": [
+    {
+      "doc": "cuad_000_limeenergyco_09_09_1999_ex_10_distributo",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.0158,
+      "risk_meta": {
+        "arbitration": "rules_only",
+        "rule_level": "high",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_001_whitesmoke_inc_11_08_2011_ex_10_26_promo",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_002_lohacompanyltd_20191209_f_1_ex_10_16_119",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_003_centrackinternationalinc_10_29_1999_ex_1",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_004_nelnetinc_04_08_2020_ex_1_joint_filing_a",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.1834,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.1958,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.206,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_007_veoneer_inc_02_21_2020_ex_10_11_joint_ve",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_008_dovapharmaceuticalsinc_20181108_10_q_ex_",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_009_pacira_pharmaceuticals_inc_a_r_strategic",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_010_metlife_inc_remarketing_agreement",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.64,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_012_dominiadvisortrust_02_18_2005_ex_99_h_2_",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.1773,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.64,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_014_cerenceinc_20191002_8_k_ex_10_4_11827494",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_015_thriventvariableinsuranceaccountb_201907",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_016_reynoldsconsumerproductsinc_20191115_s_1",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_017_integrityfunds_20200121_485bpos_ex_99_e_",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.216,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.2126,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_020_intriconcorp_03_10_2009_ex_10_22_strateg",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 0.2429,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_022_on2technologies_inc_11_17_2006_ex_10_3_s",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    },
+    {
+      "doc": "cuad_024_operaltd_04_30_2020_ex_4_14_service_agre",
+      "status": "evaluated",
+      "risk_level_gold": "high",
+      "risk_level_pred": "high",
+      "risk_level_exact": true,
+      "risk_explanation_similarity": 1.0,
+      "risk_meta": {
+        "arbitration": null,
+        "rule_level": "unknown",
+        "judge_level": null,
+        "final_level": "high"
+      }
+    }
+  ]
+}

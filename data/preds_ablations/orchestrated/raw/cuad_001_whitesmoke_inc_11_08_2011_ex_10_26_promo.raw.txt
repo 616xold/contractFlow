@@ -1,0 +1,95 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Google Inc","party_b_name":"Distributor","effective_date":null,"term_length":null,"governing_law":"English law","termination_notice_days":null,"liability_cap":"Not specified in provided excerpts (Limitation of Liability section referenced but cap amount not shown).","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"Key commercial terms are heavily redacted/omitted in the excerpts (effective date, term length, and liability cap), creating uncertainty for a small SaaS vendor. The agreement appears to grant Google broad termination rights (including immediate termination for specified breaches) and includes strict compliance/distribution obligations. Without a clear liability cap and complete termination/term details, the downside risk is difficult to bound."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":25,"heading":"4.3 Disclosure and Consent for Setting Changes. You may not bundle any Google Application","snippet":"You may not bundle any Google Application with any Application that makes a change to any operating system or Application data setting... unless prior to making such change"},{"page_num":25,"heading":"4.3 will not apply to those setting changes that may be made prior to sale to the  end","snippet":"4.4 Method of Disclosure and Consent... 4.5 EULA and Privacy Policy. You may not bundle any Google Application with any Application unless it conforms... pursuant to a EULA..."}],"confidence":0.62,"value":"other"}
+
+JOINT_PARTY_AGENT
+{"party_a_name":"Distributor","party_b_name":"Google Inc","party_a_evidence":[{"page_num":19,"heading":"DISTRIBUTOR   GOOGLE INC","snippet":"DISTRIBUTOR   GOOGLE INC"}],"party_b_evidence":[{"page_num":19,"heading":"DISTRIBUTOR   GOOGLE INC","snippet":"DISTRIBUTOR   GOOGLE INC"}],"party_a_confidence":0.35,"party_b_confidence":0.9}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":19,"heading":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name","snippet":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name"}],"confidence":0.62,"value":"GOOGLE INC"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":19,"heading":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name","snippet":"DISTRIBUTOR   GOOGLE INC"}],"confidence":0.62,"value":"Google Inc"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":5,"heading":"3.4 Launch. Distributor shall begin distribution of Bundles in accordance with this","snippet":"within [ * ] days following the  Effective Date (the date of such Launch, the \"Launch Date\")."},{"page_num":9,"heading":"5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier","snippet":"This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue  for the Term."}],"confidence":0.18,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":9,"heading":"5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier","snippet":"This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue for the Term."},{"page_num":18,"heading":"11.7 Severability. The invalidity, illegality or unenforceability of any term (or part of","snippet":"The invalidity, illegality or unenforceability of any term (or part of a term) of this Agreement shall not affect the continuation in force of the remainder of the term (if any) and this Agreement."}],"confidence":0.18,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":18,"heading":"11.10 Governing Law. This Agreement is governed by English law and the parties submit to","snippet":"This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts"}],"confidence":0.98,"value":"English law"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":9,"heading":"5.4 Change of Control. [ * ] may terminate this Agreement immediately upon written notice","snippet":"[ * ] may terminate this Agreement immediately upon written notice if there is a Change of Control of [ * ]."},{"page_num":10,"heading":"5.5 Additional Termination Rights. Google may terminate this Agreement immediately upon","snippet":"Google may terminate this Agreement immediately upon written notice to Distributor if: (a) Distributor breaches Clause 2..."}],"confidence":0.22,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":13,"heading":"9. LIMITATION OF LIABILITY","snippet":"9. LIMITATION OF LIABILITY"},{"page_num":10,"heading":"(Effect of Termination), 6 (Confidential Information), 7 (Proprietary Rights), 9","snippet":"(Limitation of Liability), 10 (Indemnification) and 11 (General) shall survive the termination or expiration of this Agreement."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":18,"heading":"11.10 Governing Law. This Agreement is governed by English law and the parties submit to","snippet":"This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts..."},{"page_num":16,"heading":"10.3 Google may (at its sole discretion) suspend Distributors distribution or use of the","snippet":"Google may (at its sole discretion) suspend Distributors distribution or use of the Products or the Google Trademarks..."},{"page_num":9,"heading":"5.4 Change of Control. [ * ] may terminate this Agreement immediately upon written notice","snippet":"5.4 Change of Control. [ * ] may terminate this Agreement immediately upon written notice if there is a Change of Control..."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":15,"heading":null,"snippet":"(c) loss of or corruption of data;"}],"confidence":0.12,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":10,"heading":"5.5 Additional Termination Rights. Google may terminate this Agreement immediately upon","snippet":"Google may terminate this Agreement immediately upon written notice to Distributor if: (a) Distributor breaches Clause 2... (b) if Google believes, in good faith, that the Distributor has violated... Anti-Bribery Laws..."}],"confidence":0.62,"value":"high"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":9,"heading":"5.4 Change of Control.","snippet":"[ * ] may terminate this Agreement immediately upon written notice if there is a Change of Control of [ * ]."},{"page_num":27,"heading":"Section 2 through 6 of these  Guidelines;","snippet":"Google may update these Guidelines... If Google approves the third party Application, you are responsible for ensuring that such third party Application also complies with these Guidelines. Special indemnity and other suspension and/or termination provisions may apply."},{"page_num":28,"heading":"10.2 Extended Compliance Period.","snippet":"If... your Applications no longer complies with these Guidelines, as updated... the parties will consult... to develop and execute a plan to bring such Application into compliance... within ninety (90) days"}],"confidence":0.42,"value":"The agreement gives the counterparty a strong termination right upon a change of control, which can create abrupt business disruption risk. It also allows Google to update compliance guidelines over time, shifting ongoing compliance obligations to the distributor and potentially triggering suspension/termination or special indemnity. While there is an extended compliance period mechanism, the need to meet updated requirements still introduces operational and legal uncertainty."}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":18,"heading":"11.10 Governing Law. This Agreement is governed by English law and the parties submit to","snippet":"11.10 Governing Law. This Agreement is governed by English law and the parties submit to the exclusive jurisdiction of the English courts..."},{"page_num":25,"heading":"4.3 Disclosure and Consent for Setting Changes. You may not bundle any Google Application","snippet":"4.3 Disclosure and Consent for Setting Changes. You may not bundle any Google Application with any Application that makes a change to any operating system or Application data setting..."},{"page_num":13,"heading":"8.6 No conditions, warranties or other terms apply to the Products, [ * ] or to any other","snippet":"8.6 No conditions, warranties or other terms apply to the Products... or to any other goods or services supplied under this Agreement unless expressly set out in this Agreement."}],"confidence":0.62,"value":"other"}
+
+REPAIR_AGENT party_a_name
+{"evidence":[{"page_num":19,"heading":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name","snippet":"DISTRIBUTOR   GOOGLE INC        /[ * ]   /s/ [ * ]  By   By        [ * ]   [ * ]  Name"}],"confidence":0.62,"value":"GOOGLE INC"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":5,"heading":"3.4 Launch. Distributor shall begin distribution of Bundles in accordance with this","snippet":"Agreement (\"Launch\") within [ * ] days following the  Effective Date (the date of such Launch, the \"Launch Date\")."},{"page_num":9,"heading":"5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier","snippet":"This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue for the Term."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":9,"heading":"5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier","snippet":"This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue for the Term."},{"page_num":6,"heading":"3.8 [ * ]. During the Term and for a period of [ * ] following the expiration or","snippet":"During the Term and for a period of [ * ] following the expiration or termination of this Agreement,"}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":9,"heading":"5.4 Change of Control. [ * ] may terminate this Agreement immediately upon written notice","snippet":"[ * ] may terminate this Agreement immediately upon written notice if there is a Change of Control of [ * ]."},{"page_num":10,"heading":"5.5 Additional Termination Rights. Google may terminate this Agreement immediately upon","snippet":"Google may terminate this Agreement immediately upon written notice to Distributor if: (a) Distributor breaches Clause 2 ..."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":15,"heading":"9.4 Subject to Clauses 9.1 and 9.2, each party's total liability under or in connection","snippet":"9.4 Subject to Clauses 9.1 and 9.2, each party's total liability under or in connection\nwith this Agreement (whether in contract, tort or  otherwise) arising in any Contract Year"}],"confidence":0.22,"value":""}
+
+VERIFIER_AGENT doc_type
+{"decision":"unknown","reason":"The evidence snippets show general contract clauses (governing law, warranties disclaimer, disclosure/consent) but do not identify the document as an NDA or an MSA, nor do they clearly establish a specific alternative type. Without a title/intro or confidentiality/“Master Services Agreement” language, asserting doc_type='other' is not sufficiently supported.","confidence":0.55,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence snippet from the signature block explicitly shows the party name as \"GOOGLE INC\" under the heading \"DISTRIBUTOR,\" supporting the selected value as the full legal name of the first party.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly identifies the distributor as \"GOOGLE INC,\" which supports the selected party_b_name value \"Google Inc\" (case difference only). No conflicts or validation issues are indicated.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"unknown","reason":"The evidence references an “Effective Date” but does not provide the actual calendar date. Without a stated date in the provided snippets, the effective_date cannot be extracted and should remain null.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"revise","reason":"Evidence references a defined 'Term' but does not include any fixed duration or end date; the term length in months may be determinable if the remainder of clause 5.1 (or the definition of 'Term' / 'Initial Term') specifies a period (e.g., X months/years) or an expiry date. Better retrieval of the full Term clause/definitions is needed before asserting null.","confidence":0.62,"revised_query":"Clause 5.1 Term (full text) and any definition of \"Term\"/\"Initial Term\"/\"Renewal Term\" stating the agreement duration or end date"}
+
+VERIFIER_REPAIR_AGENT term_length
+{"evidence":[{"page_num":9,"heading":"5.1 Term. This Agreement shall commence on the Effective Date and, unless earlier","snippet":"This Agreement shall commence on the Effective Date and, unless earlier terminated as set out in this Agreement, shall continue for the Term."}],"confidence":0.18,"value":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence clause explicitly states: “This Agreement is governed by English law…”, which directly supports the selected governing_law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The provided evidence only describes termination rights that are effective immediately upon written notice (e.g., change of control, breach), and does not specify any number of days’ notice for termination for convenience. Therefore, a value of null for termination_notice_days is supported by the current evidence set.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support any liability cap value or to confirm that the cap is not specified. Without the Limitation of Liability clause text, the field cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the selected value (false). Without contract text confirming the absence of a non-solicitation provision, the field cannot be verified; targeted retrieval of the relevant clause section may resolve this.","confidence":0.74,"revised_query":"non-solicitation clause solicit customers employees clients non-solicit"}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":17,"heading":"11.1 Publicity. Subject to clause 6 (Confidential Information), neither party may make any","snippet":"Subject to clause 6 (Confidential Information), neither party may make any public statement regarding the relationship contemplated by this Agreement without the other's prior written approval."},{"page_num":11,"heading":"6.2 The recipient of any Confidential Information shall not disclose that Confidential","snippet":"The recipient of any Confidential Information shall not disclose that Confidential Information... (a) use such Confidential Information only to exercise rights and fulfill obligations under this Agreement, and (b) keep such Confidential Information confidential."}],"confidence":0.18,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding whether data transfers outside the UK/EU are explicitly allowed. With zero supporting clauses, the value cannot be confirmed as yes or no, so 'unknown' is appropriate.","confidence":0.74,"revised_query":null}

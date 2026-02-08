@@ -1,0 +1,918 @@
+{
+  "doc_type": "other",
+  "party_a_name": "PACIRA PHARMACEUTICALS, INC.",
+  "party_b_name": "EKR Therapeutics, Inc.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "New York",
+  "termination_notice_days": null,
+  "liability_cap": "[**] US Dollars ($[**])",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_009_pacira_pharmaceuticals_inc_a_r_strategic.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 51484,
+    "output_tokens": 4358,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier requested revision for field 'effective_date'",
+      "verifier marked field 'termination_notice_days' as unknown",
+      "verifier marked field 'non_solicit_clause_present' as unknown",
+      "verifier returned unknown for non-nullable field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 240,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 36,
+              "heading": "7.2.12 of  the Supply Agreement.   10.9 EKR Liability Limitation. Any and all liability of",
+              "snippet": "Any and all liability of EKR to PPI howsoever arising in respect of this Agreement, the Transition Services and Inventory Agreement or the Supply Agreement..."
+            },
+            {
+              "page_num": 37,
+              "heading": null,
+              "snippet": "11.3 Duration. The confidentiality and non-use obligations contained in this Agreement shall continue for the duration of this Agreement... years after termination"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1098,
+          "completion_tokens": 133,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence references a broader commercial \"Agreement\" with liability limitation and duration/confidentiality obligations, and explicitly mentions related agreements including a \"Supply Agreement\". This is not clearly an NDA or an MSA; classifying as \"other\" is supported.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 448,
+            "completion_tokens": 78
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "field_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "MARKETING AGREEMENT",
+              "snippet": "...between:   PACIRA PHARMACEUTICALS, INC. (F/K/A\nSKYEPHARMA, INC.)... (\"PPI\"); and\nEKR THERAPEUTICS, INC.... (\"EKR\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 599,
+          "completion_tokens": 105,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly lists the parties to the Marketing Agreement as “PACIRA PHARMACEUTICALS, INC. (F/K/A SKYEPharma, INC.)” and “EKR THERAPEUTICS, INC.” The selected value “PACIRA PHARMACEUTICALS, INC.” matches the full legal name of the first party; the former name parenthetical is additional descriptive information but does not contradict the selected party name.",
+            "confidence": 0.92,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "PACIRA PHARMACEUTICALS, INC.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 460,
+            "completion_tokens": 118
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "PACIRA PHARMACEUTICALS, INC. (F/K/A SKYEPharma, INC.)",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "PPI",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "PACIRA PHARMACEUTICALS, INC.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 61,
+              "heading": "By:     Print Name:     Title:",
+              "snippet": "EKR Therapeutics, Inc."
+            },
+            {
+              "page_num": 50,
+              "heading": ")         David Stack      Print Name",
+              "snippet": "SIGNED for and by behalf of   )   By:  /s/ Richard DeSimone  EKR THERAPEUTICS, INC."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 674,
+          "completion_tokens": 108,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence snippets explicitly name the party as “EKR Therapeutics, Inc.” (including a signature block stating “EKR THERAPEUTICS, INC.”). This supports the selected full legal name for party_b_name, with no conflicts indicated by deterministic checks.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "EKR Therapeutics, Inc.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 447,
+            "completion_tokens": 82
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "EKR THERAPEUTICS, INC.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "EKR",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.96,
+              "confidence": 0.86,
+              "value": "EKR Therapeutics, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "MARKETING AGREEMENT",
+              "snippet": "...is made on October 15, 2009 (the \"Agreement Date\") and is effective as of the Effective Date (as defined below)..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2142,
+          "completion_tokens": 144,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence indicates the agreement is made on October 15, 2009 but states it is effective as of an \"Effective Date (as defined below)\", implying the actual effective date is defined elsewhere in the document. The selected null is not yet supported because the effective date may be specified in a later clause/definition section.",
+            "confidence": 0.74,
+            "revised_query": "Find the clause/definition that states the \"Effective Date\" (e.g., \"Effective Date means\" or \"effective as of\") and extract the specific date.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 406,
+            "completion_tokens": 126
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 39,
+              "heading": "14.4 Non Participation. Should in accordance with Section 14.2, PPI decide not to",
+              "snippet": "term. As used herein \"Term\" refers to the Initial Term and any renewal terms."
+            },
+            {
+              "page_num": 14,
+              "heading": "Purchase Price\") as follows:",
+              "snippet": "Commencing as of the Agreement Date, EKR agrees to lease the Transferred Equipment to PPI through the end of the then-current  calendar quarter... on a calendar quarter-to-calendar quarter... basis thereafter (the \"Lease Term\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2593,
+          "completion_tokens": 196,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The provided evidence references a defined “Term” (Initial Term and renewals) and describes a quarter-to-quarter leasing arrangement, but does not state a specific term length in months. Since no determinable month length is supported, null is appropriate.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 466,
+            "completion_tokens": 77
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 49,
+              "heading": "21.10 Cumulative Rights. The rights and remedies of each of the Parties under or pursuant",
+              "snippet": "21.13 Governing Law. This Agreement and the relationship between the Parties shall be governed by, and interpreted in accordance with New York law"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 676,
+          "completion_tokens": 88,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states in clause 21.13 that the Agreement and the relationship between the Parties are governed by and interpreted in accordance with New York law, directly supporting the selected value.",
+            "confidence": 0.97,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "New York",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 405,
+            "completion_tokens": 65
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "New York",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.0,
+              "confidence": 0.95,
+              "value": "New York",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "verifier_unknown",
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 42,
+              "heading": null,
+              "snippet": "EKR may terminate this Agreement for convenience at any time upon [**] ([**]) days prior, written notice to PPI."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2119,
+          "completion_tokens": 134,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "The evidence indicates a termination-for-convenience notice period exists, but the number of days is redacted as \"[**] ([**]) days\". Since the specific integer cannot be determined from the provided text, the field cannot be confidently populated and should remain unasserted rather than confirmed as null.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 398,
+            "completion_tokens": 90
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.12,
+              "confidence": 0.42,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.12,
+              "confidence": 0.42,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 35,
+              "heading": "10.8 PPI Liability Limitation.",
+              "snippet": "Any and all liability of PPI to EKR howsoever arising... shall be limited... to [**] US Dollars ($[**]);"
+            },
+            {
+              "page_num": 36,
+              "heading": "10.9 EKR Liability Limitation.",
+              "snippet": "Any and all liability of EKR to PPI howsoever arising... shall be limited... to [**] US Dollars ($[**]);"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2483,
+          "completion_tokens": 258,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Both cited clauses (10.8 and 10.9) explicitly state that each party’s liability “shall be limited… to [**] US Dollars ($[**])”. This directly supports the selected liability cap text.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "[**] US Dollars ($[**])",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 507,
+            "completion_tokens": 73
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Liability of each party is capped at [**] US Dollars ($[**]) (with carve-outs such as death/personal injury; and for EKR also unpaid specified payments, and certain third-party judgment amounts).",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "[**] US Dollars ($[**])",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "[**] US Dollars ($[**])",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No supporting evidence was provided to confirm the absence of a non-solicitation clause. Without contract text or clause excerpts, the boolean value cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 59
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.22,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 35,
+              "heading": "10.5 Settlement of Claims. The indemnified Party shall not admit liability in respect of,",
+              "snippet": "10.6 Insurance. Each Party shall maintain, at its own cost, comprehensive product liability insurance, general commercial liability insurance and business interruption insurance... combined limits of not less than $[**] per occurrence."
+            },
+            {
+              "page_num": 40,
+              "heading": null,
+              "snippet": "the other Party commits a material breach... fails to remedy it within sixty (60) days...; ... any representation or warranty... proves to be incorrect... material adverse effect...; ... involuntary case under the United States Bankruptcy Code..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1183,
+          "completion_tokens": 158,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 16,
+              "heading": null,
+              "snippet": "During the Lease Term, PPI shall: (i) assume the risk of loss or damage to the Transferred Equipment; ... (v) maintain property damage and liability insurance and insurance against loss or damage"
+            },
+            {
+              "page_num": 16,
+              "heading": null,
+              "snippet": "If any of the Transferred Equipment is lost, stolen, destroyed, damaged beyond repair... PPI shall promptly... pay to EKR an amount equal to the estimated in-place, fair market value"
+            },
+            {
+              "page_num": 35,
+              "heading": "10.5 Settlement of Claims. The indemnified Party shall not admit liability in respect of,",
+              "snippet": "Each Party shall maintain, at its own cost, comprehensive product liability insurance, general commercial liability insurance and business interruption insurance... combined limits of not less than $[**] per occurrence."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1169,
+          "completion_tokens": 281,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is driven by provisions that allocate significant casualty and liability exposure to the parties, especially PPI’s assumption of risk of loss or damage to the transferred equipment. If equipment is lost or destroyed, PPI must compensate EKR at fair market value, creating a direct financial obligation. Both parties are also required to maintain substantial insurance coverage, indicating the agreement anticipates meaningful operational and third‑party liability risks.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The agreement contains broad indemnity/insurance obligations and operational risk allocations (e.g., PPI assumes risk of loss for transferred equipment and must maintain insurance). Liability is capped, but the cap amount is redacted and there are carve-outs, creating uncertainty about worst-case exposure. Termination for convenience notice is also redacted, adding commercial uncertainty.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.89,
+              "confidence": 0.74,
+              "value": "The risk level is driven by provisions that allocate significant casualty and liability exposure to the parties, especially PPI’s assumption of risk of loss or damage to the transferred equipment. If equipment is lost or destroyed, PPI must compensate EKR at fair market value, creating a direct financial obligation. Both parties are also required to maintain substantial insurance coverage, indicating the agreement anticipates meaningful operational and third‑party liability risks.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "effective_date",
+          "term_length",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 9,
+          "verifier_unknown": 2,
+          "global_baseline": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 1,
+        "verifier_repair_fields": [
+          "effective_date"
+        ],
+        "verifier_decisions": {
+          "accept": 6,
+          "revise": 1,
+          "unknown": 3,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "effective_date",
+          "non_solicit_clause_present",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.3333,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 8,
+        "fields_without_evidence": [
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.8,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 10,
+        "avg_confidence": 0.606,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

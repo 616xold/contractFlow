@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "GOOGLE INC",
+  "party_b_name": "Google Inc",
+  "effective_date": "2011-08-01",
+  "term_length": 24,
+  "governing_law": "English law",
+  "termination_notice_days": null,
+  "liability_cap": "Each party's total liability is limited to the greater of: (a) [*] Euros; and (b) [*]% of the total payment due to the Distributor in the relevant Contract Year (subject to Clauses 9.1 and 9.2).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU."
+}

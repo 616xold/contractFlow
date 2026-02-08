@@ -1,0 +1,954 @@
+{
+  "doc_type": "other",
+  "party_a_name": "FreeCook",
+  "party_b_name": "Mitchell's Web Advance, PLC",
+  "effective_date": "2018-01-11",
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 61308,
+    "output_tokens": 4748,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "verifier requested revision for field 'party_a_name'",
+      "verifier requested revision for field 'term_length'",
+      "verifier requested revision for field 'governing_law'",
+      "verifier requested revision for field 'termination_notice_days'",
+      "verifier requested revision for field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'governing_law' is null but not nullable",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 12,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Heading: Website Design, Development and Hosting Agreement"
+            },
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between... (hereinafter referred to as \"Client\") and... (hereinafter referred to as \"Company\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 927,
+          "completion_tokens": 122,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The document is titled and described as a \"Website Design, Development and Hosting Agreement,\" which is neither an NDA nor an MSA. Therefore the high-level doc_type classification as \"other\" is supported by the evidence.",
+            "confidence": 0.96,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 435,
+            "completion_tokens": 72
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.05,
+              "confidence": 0.95,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between Natalija Tunevic, director of FreeCook (hereinafter referred to as \"Client\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 591,
+          "completion_tokens": 106,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence identifies the Client as \"Natalija Tunevic, director of FreeCook\". This suggests the party may be the individual (Natalija Tunevic) or the entity (FreeCook), but the selected value \"FreeCook\" alone is not explicitly stated as the full legal name of the first party. More context (e.g., the full 'by and between' clause listing both parties) is needed to confirm the correct legal party name.",
+            "confidence": 0.66,
+            "revised_query": "Locate the 'by and between' / parties clause on page 1 and extract the full legal name of the Client (first party), including whether it is Natalija Tunevic individually or FreeCook as an entity.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "FreeCook",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 432,
+            "completion_tokens": 160
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Natalija Tunevic, director of FreeCook",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.79,
+              "confidence": 0.74,
+              "value": "FreeCook",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.79,
+              "confidence": 0.74,
+              "value": "Natalija Tunevic",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Natalija Tunevic",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "and Mitchell Vitalis, director of Mitchell's Web Advance, PLC (hereinafter referred to as \"Company\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 592,
+          "completion_tokens": 107,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence snippet explicitly identifies Mitchell's Web Advance, PLC as the \"Company\" in the agreement, supporting it as the second party’s full legal name. The alternative \"Mitchell Vitalis\" is an individual (director), not the party entity.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Mitchell's Web Advance, PLC",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 424,
+            "completion_tokens": 78
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Mitchell Vitalis, director of Mitchell's Web Advance, PLC",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": "Mitchell's Web Advance, PLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "Mitchell Vitalis",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between Natalija Tunevic..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 732,
+          "completion_tokens": 82,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the agreement is \"entered into on January 11, 2018,\" which supports an effective date of 2018-01-11 in ISO format. No conflicting dates are indicated.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2018-01-11",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 409,
+            "completion_tokens": 70
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2018-01-11",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": "2018-01-11",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "repair_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "3. Business Hours; Rush Work. Company representatives are available during Company's normal business hours..."
+            },
+            {
+              "page_num": 2,
+              "heading": "Exhibit A",
+              "snippet": "Scope of Work Development of design of Free Cook Stage 1: 1. Search for competitors..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2692,
+          "completion_tokens": 266,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The provided evidence snippets only show the agreement title/date and unrelated clauses; they do not address the agreement’s term length (e.g., “Term,” “Initial Term,” “Renewal,” “Hosting term,” or “Termination”). Since term length may be stated elsewhere in the contract, additional targeted retrieval could determine a month count rather than null.",
+            "confidence": 0.63,
+            "revised_query": "Locate the contract clause titled “Term”, “Term and Termination”, “Duration”, “Initial Term”, “Renewal”, or “Hosting term” and extract any stated length in months.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 456,
+            "completion_tokens": 135
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.13,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.08,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "global_baseline",
+          "confidence": 0.15,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+          ],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided for governing law, and the selected value is null even though the field is not nullable. This is a retrieval gap that can likely be resolved by locating the contract’s governing law clause (often titled “Governing Law”, “Applicable Law”, or “Choice of Law”).",
+            "confidence": 0.74,
+            "revised_query": "Find the clause titled “Governing Law” / “Applicable Law” / “Choice of Law” stating which jurisdiction’s laws govern this agreement (e.g., “This Agreement shall be governed by the laws of …”).",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'governing_law' is null but not nullable"
+              ],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 405,
+            "completion_tokens": 133
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.29,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.29,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.29,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "global_baseline",
+          "confidence": 0.2,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support that the agreement lacks a termination-for-convenience notice period. The field is clause-specific and likely retrievable from a termination/notice provision; better retrieval could confirm a specific number of days or confirm absence.",
+            "confidence": 0.74,
+            "revised_query": "Termination for convenience notice period: look for clauses titled \"Termination for Convenience\", \"Termination\", \"Notice of Termination\", or \"Notice\" specifying required days' written notice.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 364,
+            "completion_tokens": 111
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "repair_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Client agrees to pay to Company the sum of $5,000 (the \"Contract Price\") to design and develop a website for Client (the \"Client Website\")..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "The surcharge for rush work shall be the standard hourly rate of $40 plus twenty-five percent (25%)."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2617,
+          "completion_tokens": 184,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The selected value is null, but the field is not nullable and the provided evidence only covers pricing/surcharges, not any limitation of liability or damages cap. A liability cap may exist elsewhere in the agreement (e.g., Limitation of Liability/Indemnification sections), so better clause-focused retrieval is needed.",
+            "confidence": 0.74,
+            "revised_query": "Find the Limitation of Liability / limitation of damages clause stating any monetary cap (e.g., capped at fees paid, contract price, or 12 months of fees) in the Website Design, Development and Hosting Agreement.",
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": true,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'liability_cap' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 467,
+            "completion_tokens": 135
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected value (has_evidence=false, evidence_count=0). The presence or absence of a non-solicitation clause cannot be verified without retrieving the relevant contract language.",
+            "confidence": 0.74,
+            "revised_query": "Find any non-solicitation clause (e.g., 'non-solicit', 'solicit', 'customers', 'clients', 'employees', 'recruit') and state whether it exists.",
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": true,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 109
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.12,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.12,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.3,
+              "confidence": 0.2,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Company will not make any attempt to proof read or correct any contextual, grammatical or typographical errors in the written content submitted by Client. It is Client's sole responsibility to check the accuracy..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours... as a result of Client's failure to meet scheduled times... The surcharge... $40 plus... (25%)."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Company is not obligated to provide any Customer Service except as specified in this Section. Company at its sole discretion may at any time alter or cease providing the Customer Service"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1092,
+          "completion_tokens": 246,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is elevated because key responsibilities and costs are shifted to the Client. The Company disclaims responsibility for proofreading Client-provided content, and the Client may incur rush surcharges (including due to the Client’s missed deadlines). Additionally, customer service is limited and can be altered or ceased at the Company’s sole discretion.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The excerpts identify the parties and effective date but do not show key risk terms such as governing law, termination for convenience notice, or any limitation of liability, leaving potential exposure unclear. The agreement also includes broad marketing/license language allowing the Company to use the Client’s trade names/logos and testimonials, which can create reputational/usage risk if not bounded. Because several standard protections are not evidenced in the provided text, overall risk is assessed as medium.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "The risk level is elevated because key responsibilities and costs are shifted to the Client. The Company disclaims responsibility for proofreading Client-provided content, and the Client may incur rush surcharges (including due to the Client’s missed deadlines). Additionally, customer service is limited and can be altered or ceased at the Company’s sole discretion.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "term_length",
+          "governing_law",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "disagreement_fields": [
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 3,
+          "party_roles_agent": 2,
+          "repair_agent": 2,
+          "global_baseline": 4,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [
+          "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+          "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+        ],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 4,
+        "verifier_repair_fields": [
+          "governing_law",
+          "party_a_name",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_decisions": {
+          "accept": 3,
+          "revise": 6,
+          "unknown": 1,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "governing_law",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "party_a_name",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.5833,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 6,
+        "fields_without_evidence": [
+          "governing_law",
+          "termination_notice_days",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.6,
+        "evidence_snippets_total": 10,
+        "unique_evidence_pages": 2,
+        "avg_confidence": 0.524,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

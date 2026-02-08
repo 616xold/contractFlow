@@ -1,0 +1,127 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Domini Advisor Trust","party_b_name":"Domini Social Investments LLC","effective_date":"2005-02-04","term_length":null,"governing_law":"Commonwealth of Massachusetts","termination_notice_days":null,"liability_cap":"Sponsor not liable for any error of judgment or mistake of law or for any act or omission, except for willful misfeasance, bad faith, gross negligence, or reckless disregard of its obligations and duties.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is a sponsorship/administrative services agreement rather than a standard SaaS contract, and it contains a broad limitation of liability for the Sponsor with carve-outs only for willful misfeasance, bad faith, gross negligence, or reckless disregard. Key commercial terms like term length and termination notice are not visible in the provided excerpts, creating uncertainty. No data transfer or non-solicitation obligations are evident from the excerpts, so operational risk is moderate rather than extreme."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":3,"heading":null,"snippet":"4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable... in the oversight, administration or management of the Trust or the performance of its duties hereunder"},{"page_num":4,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and","snippet":"The undersigned Trustee of the Trust has executed this Agreement not individually but as a Trustee under the Trust's Declaration of Trust"}],"confidence":0.62,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Domini Advisor Trust",
+  "party_b_name": "Domini Social Investments LLC",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit h(2)                               SPONSORSHIP AGREEMENT",
+      "snippet": "SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,\na Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC"
+    },
+    {
+      "page_num": 3,
+      "heading": null,
+      "snippet": "it is agreed that the address of the Trust shall be 536 Broadway, 7th Floor, New York, New York 10012"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit h(2)                               SPONSORSHIP AGREEMENT",
+      "snippet": "SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,\na Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC, a\nMassachusetts limited liability company (\"Domini\" or the \"Sponsor\")."
+    },
+    {
+      "page_num": 3,
+      "heading": null,
+      "snippet": "As used in this Section 4, the term \"Sponsor\" shall include Domini and/or any of its affiliates"
+    }
+  ],
+  "party_a_confidence": 0.98,
+  "party_b_confidence": 0.98
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit h(2)                               SPONSORSHIP AGREEMENT","snippet":"SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,\na Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC"}],"confidence":0.86,"value":"Domini Advisor Trust"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit h(2)                               SPONSORSHIP AGREEMENT","snippet":"SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust, a Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC, a Massachusetts limited liability company (\"Domini\" or the \"Sponsor\")."}],"confidence":0.93,"value":"Domini Social Investments LLC"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":4,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and","snippet":"delivered in their names and on their behalf by the undersigned, thereunto duly authorized, all as of the day and year first above written."},{"page_num":4,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and","snippet":"Declaration of Trust, dated October 6, 2004, as amended,"}],"confidence":0.22,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":4,"heading":null,"snippet":"This Agreement shall be construed and enforced and interpreted in accordance with and governed by the laws of the Commonwealth of Massachusetts without reference to principles of conflicts of law."},{"page_num":4,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and","snippet":"delivered in their names and on their behalf by the undersigned, thereunto duly authorized, all as of the day and year first above written."}],"confidence":0.12,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":4,"heading":null,"snippet":"This Agreement shall be construed and enforced and interpreted in accordance with and governed by the laws of the Commonwealth of Massachusetts without reference to principles of conflicts of law."}],"confidence":0.98,"value":"Commonwealth of Massachusetts"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"9. Notice. Any notices under this Agreement shall be in writing addressed and delivered personally, by telecopy or mailed postage-paid to the other party..."}],"confidence":0.18,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or by reason of the reckless disregard of its obligations"}],"confidence":0.22,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":null,"snippet":"8. Severability. If any provision of this Agreement shall become or shall be found to be invalid... the remainder of this Agreement shall not be affected thereby."},{"page_num":1,"heading":"W I T N E S S E T H:","snippet":"the parties covenant and agree as follows: 1. Duties of the Sponsor. Subject to the direction and control of the Board of Trustees of the Trust, the Sponsor shall perform such oversight, administrative and management services..."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"...fees and expenses of the Trust's independent auditors and accountants, of legal counsel and any transfer agent, distributor, shareholder servicing agent, recordkeeper, registrar or dividend disbursing agent of the Trust; ..."}],"confidence":0.12,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or... reckless disregard of its obligations"},{"page_num":1,"heading":"W I T N E S S E T H:","snippet":"the Trust wishes to engage Domini to provide certain oversight, administrative and management services... on the terms and conditions hereinafter set forth"}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or... reckless disregard"},{"page_num":3,"heading":null,"snippet":"Domini shall be as fully responsible to the Trust for the acts and omissions of any subcontractor as it would be for its own acts or omissions."}],"confidence":0.62,"value":"The risk level is elevated because the agreement significantly limits the Sponsor’s liability, excluding responsibility for most errors or omissions unless they rise to willful misfeasance, bad faith, gross negligence, or reckless disregard. This limitation can reduce the Trust’s recourse for ordinary negligence. At the same time, the Sponsor remains fully responsible for subcontractors’ acts and omissions, which partially mitigates operational risk."}
+
+REPAIR_AGENT doc_type
+{"evidence":[{"page_num":3,"heading":null,"snippet":"4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission in the oversight, administration or management of the Trust..."},{"page_num":4,"heading":"IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed and","snippet":"The undersigned Trustee of the Trust has executed this Agreement not individually but as a Trustee under the Trust's Declaration of Trust..."}],"confidence":0.62,"value":"other"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit h(2)                               SPONSORSHIP AGREEMENT","snippet":"SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust,"}],"confidence":0.93,"value":"2005-02-04"}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":4,"heading":null,"snippet":"This Agreement shall\nbe construed and enforced and interpreted in accordance with and governed by the laws of\nthe Commonwealth of Massachusetts without reference to principles of conflicts of law."},{"page_num":3,"heading":null,"snippet":"8. Severability. If any provision of this Agreement shall become or shall be found to be invalid by a court decision, statute, rule or otherwise, the remainder of this Agreement shall not be affected thereby."}],"confidence":0.12,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"9. Notice. Any notices under this Agreement shall be in writing addressed and delivered personally, by telecopy or mailed postage-paid to the other party..."}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":3,"heading":null,"snippet":"4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment or mistake of law... except for willful misfeasance, bad faith or gross negligence..."}],"confidence":0.22,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":null,"snippet":"4. Limitation of Liability of the Sponsor. The Sponsor shall not be liable for any error of judgment or mistake of law..."},{"page_num":1,"heading":"W I T N E S S E T H:","snippet":"1. Duties of the Sponsor. Subject to the direction and control of the Board of Trustees of the Trust, the Sponsor shall perform such oversight, administrative and management services..."},{"page_num":3,"heading":null,"snippet":"9. Notice. Any notices under this Agreement shall be in writing addressed and delivered personally, by telecopy or mailed postage-paid..."}],"confidence":0.18,"value":false}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"The evidence describes an \"Agreement\" involving a Sponsor and a Trustee of a Trust, with clauses like Limitation of Liability and execution language. Nothing indicates it is specifically an NDA or an MSA, so classifying the document type as \"other\" is supported.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The agreement’s opening paragraph states it is “by and between Domini Advisor Trust, a Massachusetts business trust (the ‘Trust’), and Domini Social Investments LLC,” which directly supports the selected party_a_name as Domini Advisor Trust. No conflicting evidence is present.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly states the agreement is “by and between Domini Advisor Trust … and Domini Social Investments LLC,” identifying Domini Social Investments LLC as the second party.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence explicitly states: \"SPONSORSHIP AGREEMENT, dated as of February 4, 2005,\" which supports an effective date of 2005-02-04 in ISO format.","confidence":0.95,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"revise","reason":"The provided evidence snippets only cover governing law and execution; they do not address the agreement’s term, effective date, expiration, or duration. The selected null value is therefore not supported by the cited evidence, and targeted retrieval of the term/termination clause could determine a month length.","confidence":0.74,"revised_query":"Find the clause stating the agreement term/duration (e.g., “Term”, “Duration”, “Effective Date”, “Expiration”, “Initial term”, “renewal”) and any termination provisions that specify a number of months."}
+
+VERIFIER_REPAIR_AGENT term_length
+{"evidence":[{"page_num":4,"heading":null,"snippet":"This Agreement shall\nbe construed and enforced and interpreted in accordance with and governed by the laws of\nthe Commonwealth of Massachusetts..."}],"confidence":0.12,"value":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states the agreement is governed by the laws of the Commonwealth of Massachusetts, matching the selected value exactly.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"unknown","reason":"The provided evidence is a general notices clause and does not state any termination-for-convenience right or a required notice period. There is insufficient support to assert that no termination notice days are specified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"revise","reason":"No supporting evidence was provided for the selected liability_cap value (evidence_count=0, has_evidence=false). Additionally, the selected text describes a liability standard/exculpation (carve-outs for willful misfeasance, bad faith, gross negligence, reckless disregard) rather than a monetary liability cap, so the field likely needs retrieval of an actual cap clause (e.g., limited to fees paid, a dollar amount, or a time-based cap).","confidence":0.78,"revised_query":"liability cap limitation of liability maximum aggregate liability limited to fees paid in preceding 12 months"}
+
+VERIFIER_REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":3,"heading":null,"snippet":"The Sponsor shall not be liable for any error of judgment or mistake of law or for any act or omission... except for willful misfeasance, bad faith or gross negligence... or by reason of the reckless disregard of its obligations"}],"confidence":0.32,"value":""}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. Without contract text excerpts, the boolean value cannot be verified; targeted retrieval may confirm presence/absence.","confidence":0.74,"revised_query":"Search the agreement for a non-solicitation clause (e.g., 'non-solicit', 'non solicitation', 'solicit', 'customers', 'clients', 'employees', 'personnel', 'recruit', 'hire') and extract the relevant section(s)."}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":3,"heading":null,"snippet":"5. Activities of the Sponsor. The services of the Sponsor to the Trust are not to be deemed to be exclusive, Domini being free to render oversight, administrative and/or other services to other parties."}],"confidence":0.12,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers. Without any clause text, it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

@@ -1,0 +1,125 @@
+GLOBAL_BASELINE
+{"doc_type":"msa","party_a_name":"REYNOLDS CONSUMER PRODUCTS LLC","party_b_name":"PACTIV LLC","effective_date":"2019-11-01","term_length":null,"governing_law":"State of Illinois, United States of America","termination_notice_days":null,"liability_cap":"Not specified in provided excerpts (limitations on liability section referenced but no cap amount shown).","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is a master supply agreement with broad confidentiality and dispute-resolution provisions, but the provided excerpts do not show key commercial protections like a clear liability cap or termination-for-convenience notice period. Governing law is Illinois (US), which may increase complexity for a small SaaS vendor outside that jurisdiction. Insurance requirements and other operational obligations suggest potentially meaningful compliance burden."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Schedule (as defined in this next Section); (b) a termination date elected by a Party in a","snippet":"...products purchased and sold under this Agreement during the Term... (ii) Confidential Information (as defined in Section 10 of this Agreement)..."},{"page_num":12,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"A Party will not suspend performance under or terminate this Agreement or any accepted purchase order for a product being purchased and sold under this Agreement..."},{"page_num":10,"heading":null,"snippet":"Confidential Information may include, without limitation, information concerning the assets, liabilities, financing... goods, services, customers, suppliers..."}],"confidence":0.72,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "REYNOLDS CONSUMER PRODUCTS LLC",
+  "party_b_name": "PACTIV LLC",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "MASTER SUPPLY AGREEMENT",
+      "snippet": "MASTER SUPPLY AGREEMENT (the \"Agreement\") dated November 1, 2019 (the \"Effective Date\") between REYNOLDS CONSUMER PRODUCTS LLC, a Delaware limited liability company with its headquarters at 1900 West Field Court, Lake Forest, IL 60045 (\"Seller\"), and PACTIV LLC, a Delaware limited liability company with its headquarters at 1900 West Field Court, Lake Forest, IL 60045 (\"Buyer\")."
+    },
+    {
+      "page_num": 1,
+      "heading": "MASTER SUPPLY AGREEMENT",
+      "snippet": "Seller and Buyer are referred to individually at times as a \"Party\" and collectively at times as the \"Parties\"."
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "MASTER SUPPLY AGREEMENT",
+      "snippet": "MASTER SUPPLY AGREEMENT (the \"Agreement\") dated November 1, 2019 (the \"Effective Date\") between REYNOLDS CONSUMER PRODUCTS LLC, a Delaware limited liability company with its headquarters at 1900 West Field Court, Lake Forest, IL 60045 (\"Seller\"), and PACTIV LLC, a Delaware limited liability company with its headquarters at 1900 West Field Court, Lake Forest, IL 60045 (\"Buyer\")."
+    }
+  ],
+  "party_a_confidence": 0.99,
+  "party_b_confidence": 0.99
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"MASTER SUPPLY AGREEMENT","snippet":"...between REYNOLDS CONSUMER PRODUCTS LLC, a Delaware limited liability company... (\"Seller\"), and PACTIV LLC, a Delaware limited liability company... (\"Buyer\")."}],"confidence":0.93,"value":"REYNOLDS CONSUMER PRODUCTS LLC"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"MASTER SUPPLY AGREEMENT","snippet":"...between REYNOLDS CONSUMER PRODUCTS LLC... (\"Seller\"), and PACTIV LLC... (\"Buyer\")."}],"confidence":0.93,"value":"PACTIV LLC"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"MASTER SUPPLY AGREEMENT","snippet":"MASTER SUPPLY AGREEMENT (the \"Agreement\") dated November 1, 2019 (the \"Effective Date\")"}],"confidence":0.98,"value":"2019-11-01"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"AGREEMENT","snippet":"1. Term. The \"Term\" of this Agreement will commence on the Effective Date and will end on the earlier of: (a) the first anniversary of the expiration date of the last Purchase"}],"confidence":0.32,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":14,"heading":null,"snippet":"This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects... by the laws of the State of Illinois and the United States of America"}],"confidence":0.93,"value":"State of Illinois and the United States of America"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":1,"heading":"Schedule (as defined in this next Section); (b) a termination date elected by a Party in a","snippet":"written notice delivered to the other Party any time after the expiration of the last Purchase Schedule; or (c) a termination date elected by a Party in a written notice delivered to the other Party as provided in Subsection 11(d)"}],"confidence":0.22,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":6,"heading":"none","snippet":"8. Insurance. During the Term of this Agreement, each Party will maintain the following minimum types and amounts of insurance coverage... Commercial General Liability Insurance... limit of at least $10,000,000 per occurrence"}],"confidence":0.18,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":9,"heading":null,"snippet":"...requests such information from the Disclosing Party for the Authorized Purpose during the Term (i.e., neither Party wants unsolicited Confidential Information from the other Party)..."}],"confidence":0.22,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":14,"heading":null,"snippet":"This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects... by the laws of the State of Illinois and the United States of America"},{"page_num":11,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"The Receiving Party and its Representatives may use the Confidential Information of the Disclosing Party for the Authorized Purpose and other limited purposes provided in this Agreement."}],"confidence":0.22,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Automobile Liability Insurance... combined single limit of at least $10,000,000 per occurrence... Requires additional insured endorsement and waiver of subrogation endorsement."},{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Employers' Liability Insurance... limit of at least $10,000,000 per occurrence... Requires waiver of alternate employer endorsement."},{"page_num":10,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"A Receiving Party will not be obligated to incur any liability, expense or risk in extending such cooperation to a Disclosing Party."}],"confidence":0.62,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Automobile Liability Insurance... combined single limit of at least $10,000,000... Requires additional insured endorsement and waiver of subrogation endorsement."},{"page_num":12,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"The Parties will endeavor to resolve the Dispute through good faith negotiation for a period of thirty (30) days... before either Party requests mediation or files litigation."},{"page_num":14,"heading":null,"snippet":"This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed... by the laws of the State of Illinois"}],"confidence":0.42,"value":"null"}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"AGREEMENT","snippet":"1. Term. The \"Term\" of this Agreement will commence on the Effective Date and will end on the earlier of: (a) the first anniversary of the expiration date of the last Purchase"}],"confidence":0.32,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":1,"heading":"Schedule (as defined in this next Section); (b) a termination date elected by a Party in a","snippet":"\"(b) a termination date elected by a Party in a written notice delivered to the other Party any time after the expiration of the last Purchase Schedule\""}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":7,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"9. Limitations on Liability. a. Disclaimer of Representations and Warranties. Each Party: (1) disclaims all representations and warranties..."}],"confidence":0.22,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":9,"heading":null,"snippet":"...requests such information from the Disclosing Party for the Authorized Purpose during the Term (i.e., neither Party wants unsolicited Confidential Information from the other Party)..."}],"confidence":0.18,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":14,"heading":null,"snippet":"This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects... by the laws of the State of Illinois and the United States of America"},{"page_num":14,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"A change of control shall be deemed an assignment requiring consent hereunder... The restrictions in this Section will not preclude a Party for authorizing an Affiliate to purchase or sell a product"}],"confidence":0.18,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Automobile Liability Insurance... combined single limit of at least $10,000,000 per occurrence... Requires additional insured endorsement and waiver of subrogation endorsement."},{"page_num":6,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"Employers' Liability Insurance... limit of at least $10,000,000 per occurrence... Requires waiver of alternate employer endorsement."},{"page_num":12,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"waive the right to trial by jury... a Party may file litigation... for any Dispute involving: (i) infringement on intellectual property; (ii) the unauthorized use or disclosure of Confidential Information"}],"confidence":0.62,"value":"high"}
+
+VERIFIER_AGENT doc_type
+{"decision":"revise","reason":"Evidence references an \"Agreement\" governing products purchased and sold, term/termination, and a defined Confidential Information section—features more consistent with a broader commercial/supply/master agreement than an NDA. The current evidence does not clearly identify the document type, and a better retrieval targeting the title/introductory section could resolve whether it is an MSA or another agreement type.","confidence":0.63,"revised_query":"Find the document title and opening/recitals on page 1 (e.g., 'Master Services Agreement', 'Supply Agreement', 'Purchase Agreement') and any section defining the agreement type."}
+
+VERIFIER_REPAIR_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"MASTER SUPPLY AGREEMENT","snippet":"MASTER SUPPLY AGREEMENT (the \"Agreement\") dated November 1, 2019 (the \"Effective Date\")"}],"confidence":0.98,"value":"msa"}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The agreement opening clause explicitly names the first party as “REYNOLDS CONSUMER PRODUCTS LLC, a Delaware limited liability company…”. This directly supports the selected party_a_name value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"revise","reason":"The provided evidence snippet only shows the first party (REYNOLDS CONSUMER PRODUCTS LLC) and does not include the second party’s name. There is no direct textual support in the evidence for \"PACTIV LLC\" as Party B.","confidence":0.74,"revised_query":"Locate the agreement preamble/intro defining the parties (\"between [Party A] and [Party B]\") and extract the full legal name of the second party (Party B)."}
+
+VERIFIER_REPAIR_AGENT party_b_name
+{"evidence":[{"page_num":15,"heading":"Source: REYNOLDS CONSUMER PRODUCTS INC., S-1, 11/15/2019","snippet":"For any notice concerning default or termination, with a copy to:\nReynolds Consumer Products LLC 1900 W. Field Court Lake Forest, IL 60045"}],"confidence":0.42,"value":"Reynolds Consumer Products LLC"}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence explicitly states the agreement is dated November 1, 2019 and defines that as the \"Effective Date,\" which matches the selected value in ISO format (2019-11-01).","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"revise","reason":"Evidence indicates a defined Term ending on the earlier of certain events, including “the first anniversary of the expiration date of the last Purchase …”, which suggests a potentially determinable duration (likely 12 months from a referenced expiration date). However, the snippet is truncated and does not provide the full termination conditions or a clear fixed month count from the Effective Date. Better retrieval of the complete Term clause may allow computing a month length or confirming it is not fixed.","confidence":0.63,"revised_query":"Full text of Section 1 \"Term\" (including all subparts a/b/c) and any definition of \"Purchase\" expiration date; identify whether term is fixed (e.g., 12 months) or event-based."}
+
+VERIFIER_REPAIR_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"AGREEMENT","snippet":"1. Term. The \"Term\" of this Agreement will commence on the Effective Date and will end on\nthe earlier of: (a) the first anniversary of the expiration date of the last Purchase"}],"confidence":0.32,"value":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence snippet explicitly states the agreement is governed \"by the laws of the State of Illinois and the United States of America,\" which matches the selected value.","confidence":0.94,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"revise","reason":"The evidence snippet indicates termination by written notice and references a subsection, but it does not show whether a specific notice period (number of days) is required. Since the clause likely contains the notice-period detail in the referenced subsection, better retrieval of the full termination-for-convenience notice language could confirm a day count or confirm none is specified.","confidence":0.63,"revised_query":"termination for convenience notice period \"days\" written notice (including referenced subsection)"}
+
+VERIFIER_REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":1,"heading":"Schedule (as defined in this next Section); (b) a termination date elected by a Party in a","snippet":"...a termination date elected by a Party in a written notice delivered to the other Party any time after the expiration of the last Purchase Schedule; ..."}],"confidence":0.22,"value":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support any statement about a liability cap. Without the limitations of liability clause text, it cannot be confirmed whether a cap exists or what it is.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"unknown","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. Without contract text or cited clause language, the boolean value cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether the contract explicitly allows transfers outside the UK/EU.","confidence":0.74,"revised_query":null}

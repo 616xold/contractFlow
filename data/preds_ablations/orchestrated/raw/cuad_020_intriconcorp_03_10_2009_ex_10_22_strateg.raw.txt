@@ -1,0 +1,121 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Dynamic Hearing Pty Ltd","party_b_name":"IntriCon Corporation","effective_date":"2008-07-20","term_length":60,"governing_law":"Victoria, Australia","termination_notice_days":90,"liability_cap":"No specific monetary liability cap stated in the provided excerpts; agreement includes exclusions of indirect/consequential damages and indemnities subject to section 10.3.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"The agreement is a technology/software licensing arrangement with broad confidentiality obligations and significant IP/indemnity provisions, which can create meaningful exposure for a small vendor. The excerpts show limitations excluding indirect/consequential damages but do not show a clear monetary cap, increasing uncertainty. Termination for convenience requires three months’ notice, which may reduce flexibility."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":11,"heading":"7.0    Confidentiality","snippet":"not disclose any Confidential Information to any person, except in confidence as permitted by this Agreement;"},{"page_num":11,"heading":"7.0    Confidentiality","snippet":"not use any Confidential Information except as reasonably necessary for the purpose of putting this Agreement into  effect (Permitted Purpose);"}],"confidence":0.72,"value":"nda"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Dynamic Hearing",
+  "party_b_name": "IntriCon",
+  "party_a_evidence": [
+    {
+      "page_num": 5,
+      "heading": "none",
+      "snippet": "Licensed Subject Matter means Dynamic Hearing's Technology, Software, and Documentation as described in Exhibit A and Exhibit B, in respect of which IntriCon is granted a license under this Agreement;"
+    },
+    {
+      "page_num": 12,
+      "heading": "8.2 IntriCon must notify Dynamic Hearing immediately upon becoming aware of:",
+      "snippet": "8.2 IntriCon must notify Dynamic Hearing immediately upon becoming aware of:"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 5,
+      "heading": "none",
+      "snippet": "Licensed Subject Matter means Dynamic Hearing's Technology, Software, and Documentation as described in Exhibit A and Exhibit B, in respect of which IntriCon is granted a license under this Agreement;"
+    },
+    {
+      "page_num": 12,
+      "heading": "8.2 IntriCon must notify Dynamic Hearing immediately upon becoming aware of:",
+      "snippet": "8.2 IntriCon must notify Dynamic Hearing immediately upon becoming aware of:"
+    }
+  ],
+  "party_a_confidence": 0.55,
+  "party_b_confidence": 0.55
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"}],"confidence":0.62,"value":"DYNAMIC HEARING PTY LTD"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"IntriCon may not assign or transfer any of its rights or obligations under this Agreement without the prior written consent of  Dynamic Hearing."},{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"}],"confidence":0.72,"value":"INTRICON CORPORATION"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Arden Hills, Minnesota 55112  United States                   and","snippet":"This Agreement is entered into and is effective as of the 1st day of October, 2008 (Commencement Date)"}],"confidence":0.95,"value":"2008-10-01"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":5,"heading":"3.1 Term: The initial term of this Agreement shall be five (5) years from the date of","snippet":"The initial term of this Agreement shall be five (5) years from the date of execution"}],"confidence":0.95,"value":60}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"12.8 This Agreement is governed by the laws of Victoria, Australia and the parties submit to the jurisdiction of the courts of Victoria, Australia."}],"confidence":0.98,"value":"Victoria, Australia"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":16,"heading":"11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon","snippet":"three (3) months written notice to Dynamic  Hearing"},{"page_num":16,"heading":"11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon","snippet":"Dynamic Hearing may terminate this Agreement upon three (3) months written notice  to IntriCon of such termination."}],"confidence":0.62,"value":90}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":14,"heading":"in this Agreement:","snippet":"...but subject to the provisions of 10.3. (a) all terms and warranties... are expressly excluded; (b) Dynamic Hearing is not liable in any way to IntriCon for any indirect, consequential..."}],"confidence":0.18,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":7,"heading":"3.11 Where Dynamic Hearing supplies Dynamic Hearing Technology directly to a customer on","snippet":"Dynamic Hearing may continue indefinitely selling products and services to new customers... With the exception of the Identified Parties, Dynamic Hearing agrees that it will not sell the Dynamic Hearing DSP Software..."}],"confidence":0.22,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"This Agreement is governed by the laws of Victoria, Australia and the parties submit to the jurisdiction of the courts of Victoria, Australia."}],"confidence":0.22,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":7,"heading":"3.11 Where Dynamic Hearing supplies Dynamic Hearing Technology directly to a customer on","snippet":"Dynamic Hearing may continue indefinitely selling products and services to new customers using the ON Semiconductor DSP hybrid chip."},{"page_num":21,"heading":null,"snippet":"Unless expressly specified in this Exhibit, Dynamic Hearing will have no obligation to provide updates or revisions to, or new versions of, any software."},{"page_num":15,"heading":"IntriCon if IntriCon:","snippet":"the other party breaches a material term of this Agreement ... fails to remedy the breach within 30 days after being required by written notice"}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":16,"heading":"11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon","snippet":"IntriCon may terminate this Agreement upon three (3) months written notice... and such termination shall not be considered a breach of this Agreement."},{"page_num":14,"heading":"in this Agreement:","snippet":"Dynamic Hearing is not liable in any way to IntriCon for any indirect, consequential... loss or damage... arising in connection with this Agreement; (c) IntriCon is not liable..."}],"confidence":0.62,"value":"The risk level is elevated because the agreement allows termination on three months’ notice, including a provision that IntriCon can cease payments and terminate without it being a breach, creating revenue and continuity uncertainty. In addition, both parties broadly exclude liability for indirect and consequential losses, limiting remedies if problems arise and increasing residual risk."}
+
+REPAIR_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Arden Hills, Minnesota 55112  United States                   and","snippet":"This Agreement is entered into and is effective as of the 1st day of October, 2008 (Commencement Date) by and between IntriCon  Corporation, a Pennsylvania Corporation... (hereinafter  IntriCon) and Dynamic Hearing Pty Ltd"},{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"DYNAMIC HEARING PTY LTD         INTRICON CORPORATION"}],"confidence":0.9,"value":"IntriCon Corporation"}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":16,"heading":"11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon","snippet":"three (3) months written notice to Dynamic  Hearing, such notice stating that IntriCon will cease making payments... and such termination shall not be considered a breach of this Agreement."},{"page_num":16,"heading":"11.5 (a) Subject to the provisions of 11.1, IntriCon may terminate this Agreement upon","snippet":"(b)    Subject to the provisions of 11.1, Dynamic Hearing may terminate this Agreement upon three (3) months written notice  to IntriCon of such termination."}],"confidence":0.78,"value":90}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":14,"heading":"in this Agreement:","snippet":"...but subject to the provisions of 10.3. (a) all terms and warranties... are expressly excluded; (b) Dynamic Hearing is not liable... for any indirect, consequential... loss or damage..."}],"confidence":0.22,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[],"confidence":0.18,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"Agreement without the prior written consent of  Dynamic Hearing. Likewise, Dynamic Hearing may not assign or transfer any of its rights or obligations under this Agreement without the prior  written consent of IntriCon."},{"page_num":19,"heading":"12.6 IntriCon may not assign or transfer any of its rights or obligations under this","snippet":"12.8 This Agreement is governed by the laws of Victoria, Australia and the parties submit to the jurisdiction of the courts of Victoria,  Australia."}],"confidence":0.22,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":7,"heading":"3.11 Where Dynamic Hearing supplies Dynamic Hearing Technology directly to a customer on","snippet":"Dynamic Hearing may continue indefinitely selling products and services to new customers using the ON Semiconductor DSP hybrid chip."},{"page_num":19,"heading":"EXHIBIT A","snippet":"Note that Dynamic Hearing does not have rights to ADRO for electrical stimulation of the auditory system and that the rights to ADRO for electrical stimulation are thus explicitly excluded from this Agreement."}],"confidence":0.38,"value":"medium"}
+
+VERIFIER_AGENT doc_type
+{"decision":"revise","reason":"The evidence shows a confidentiality clause, but that alone does not establish the document is an NDA; confidentiality provisions commonly appear in MSAs and other agreements. There is no evidence of the document title or overall purpose (e.g., “Non-Disclosure Agreement,” “Confidentiality Agreement,” or mutual/unilateral NDA framing) to support classifying the entire document as an NDA.","confidence":0.74,"revised_query":"Find the document title/introductory section stating the agreement type (e.g., “Non-Disclosure Agreement”/“Confidentiality Agreement”) and the stated purpose of disclosure/Permitted Purpose."}
+
+VERIFIER_REPAIR_AGENT doc_type
+{"evidence":[{"page_num":11,"heading":"7.0    Confidentiality","snippet":"(a)    not disclose any Confidential Information to any person, except in confidence as\npermitted by this Agreement;"},{"page_num":5,"heading":null,"snippet":"Licensed Subject Matter means Dynamic Hearing's Technology, Software, and Documentation as\ndescribed in Exhibit A and Exhibit B, in  respect of which IntriCon is granted a license\nunder this Agreement;"}],"confidence":0.62,"value":"other"}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly states the agreement is between “IntriCon Corporation, a Pennsylvania Corporation” and another party, and the signature block also lists “INTRICON CORPORATION,” supporting the selected party_a_name as IntriCon Corporation.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"Evidence shows the signature block listing the parties as “DYNAMIC HEARING PTY LTD” and “INTRICON CORPORATION,” supporting that the second party’s full legal name is INTRICON CORPORATION.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence explicitly states: \"This Agreement is entered into and is effective as of the 1st day of October, 2008,\" which supports the selected effective_date of 2008-10-01 in ISO format. No conflicts are indicated by deterministic checks.","confidence":0.97,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"Evidence states the initial term is five (5) years from the date of execution. Five years equals 60 months, matching the selected value.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states: “This Agreement is governed by the laws of Victoria, Australia…”, which directly supports the selected governing_law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The evidence states either party may terminate the Agreement upon three (3) months written notice. Three months is reasonably normalized to 90 days for the termination_notice_days field, and there is no conflicting evidence provided.","confidence":0.77,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support the statement about the absence of a liability cap or the presence of indirect/consequential damages exclusions and indemnity limitations. Without contract text, the liability cap cannot be verified or asserted.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"unknown","reason":"No evidence was provided to support the selected value (false). Without contract text or clause excerpts, the presence or absence of a non-solicitation clause cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

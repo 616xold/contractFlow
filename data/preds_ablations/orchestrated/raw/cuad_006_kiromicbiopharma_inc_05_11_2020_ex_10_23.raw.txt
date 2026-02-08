@@ -1,0 +1,121 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Kiromic, Inc.","party_b_name":"Gianluca Rotino","effective_date":null,"term_length":null,"governing_law":"State of Texas","termination_notice_days":null,"liability_cap":"No explicit limitation of liability cap stated in the provided excerpts.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is a consulting agreement with broad confidentiality and IP assignment obligations, which can be operationally and legally burdensome for a small SaaS vendor. Termination is allowed on prior written notice but the notice period is not specified in the excerpts, creating uncertainty. No explicit liability cap is shown, which can increase exposure if disputes arise."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities"},{"page_num":1,"heading":"Dear Gianluca:","snippet":"1. Services and Compensation. Consultant agrees to act as a consultant to Company... and perform the services described on Exhibit A"}],"confidence":0.78,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Kiromic, Inc, a Delaware corporation",
+  "party_b_name": "Gianluca Rotino",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Dear Gianluca:",
+      "snippet": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\")"
+    },
+    {
+      "page_num": 1,
+      "heading": "Dear Gianluca:",
+      "snippet": "Consultant agrees to act as a consultant to Company"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Dear Gianluca:",
+      "snippet": "to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities"
+    },
+    {
+      "page_num": 3,
+      "heading": null,
+      "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
+    }
+  ],
+  "party_a_confidence": 0.93,
+  "party_b_confidence": 0.95
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\")"}],"confidence":0.86,"value":"Kiromic, Inc"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\")"},{"page_num":6,"heading":"Name: Scott Dahlbeck Gianluca Rotino","snippet":"Name: Scott Dahlbeck Gianluca Rotino"}],"confidence":0.62,"value":"Gianluca Rotino"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":5,"heading":"none","snippet":"This letter agreement will be effective as of July 1, 2018."}],"confidence":0.78,"value":"2018-07-01"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":3,"heading":null,"snippet":"5. Term and Termination. This Agreement will commence on the Effective Date and will continue until termination as provided below."},{"page_num":3,"heading":null,"snippet":"Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."}],"confidence":0.22,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":4,"heading":null,"snippet":"This Agreement shall be governed by the laws of the State of Texas, without reference to its conflicts of law principles."}],"confidence":0.98,"value":"State of Texas"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."}],"confidence":0.32,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":6,"heading":"SERVICES AND COMPENSATION","snippet":"The Company will compensate Consultant at the rate of $400 per hour (19 hours cap monthly; anything over these hrs must be preapproved by management)"}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":5,"heading":null,"snippet":"This letter agreement and the Company's standard Proprietary Information and Inventions Agreement supersede and replace any prior agreements... and constitute the complete agreement between you and the Company regarding the subject matter set forth herein."},{"page_num":2,"heading":null,"snippet":"...perform such acts as my be necessary... for the purposes of perfecting the foregoing assignments and obtaining, enforcing and defending intellectual property rights..."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Consultant agrees that Consultant owes Company and such third parties, during the term of this Agreement and thereafter, a duty to hold all such confidential or proprietary information in the strictest confidence and not to disclose it to any person, firm or corporation"}],"confidence":0.22,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Consultant will indemnify Company and hold it harmless from"},{"page_num":2,"heading":null,"snippet":"and against all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation by Company"}],"confidence":0.62,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."},{"page_num":1,"heading":"Dear Gianluca:","snippet":"\"Confidential Information\" means any proprietary information technical data, trade secrets or know-how... Confidential Information also includes all Inventions (as defined below)"},{"page_num":2,"heading":null,"snippet":"Upon the termination of this Agreement... Consultant will deliver to Company all property relating to, and all tangible embodiments of, Inventions in Consultant's possession or control."}],"confidence":0.42,"value":"The agreement allows either party to terminate on written notice, which can create continuity and delivery risk if the relationship ends abruptly. It also imposes broad confidentiality and invention-assignment/return obligations, increasing the risk of disputes over ownership or use of work product. These provisions together justify a higher risk assessment due to potential operational disruption and IP-related exposure."}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":3,"heading":"none","snippet":"5. Term and Termination. This Agreement will commence on the Effective Date and will continue until termination as provided below."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":2,"heading":null,"snippet":"and against all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation..."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Consultant agrees that Consultant will not, during the term of this Agreement, improperly use or disclose to Company any proprietary information or trade secrets of any former or current employer..."}],"confidence":0.18,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"Consultant agrees that Consultant will not, during the term of this Agreement, improperly use or disclose... any proprietary information or trade secrets..."}],"confidence":0.18,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":2,"heading":null,"snippet":"...claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit... resulting in whole or in part from Company's use of the work product of Consultant under this Agreement."},{"page_num":1,"heading":"Dear Gianluca:","snippet":"Consultant will indemnify Company and hold it harmless from"}],"confidence":0.62,"value":"medium"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"Evidence describes the document as a \"Consulting Agreement\" for retaining a consultant and detailing services/compensation. This is neither an NDA nor an MSA, so classifying doc_type as \"other\" is supported.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly states: \"Kiromic, Inc, a Delaware corporation (the 'Company')\" in the opening paragraph, which supports the selected party_a_name as the full legal name of the first party.","confidence":0.95,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly names the consultant as “Gianluca Rotino” (page 1: “to retain Gianluca Rotino (‘Consultant’)”), which supports this being the second party’s full legal name in the agreement. No conflicting party name is shown in the provided snippets, and deterministic checks indicate no conflict.","confidence":0.96,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence explicitly states: \"This letter agreement will be effective as of July 1, 2018,\" which directly supports the selected effective_date value normalized to ISO format as 2018-07-01.","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"The evidence states the agreement commences on the Effective Date and continues until termination, with termination allowed upon prior written notice. No fixed duration or month-based term is provided, so term length in months is not determinable and null is supported.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states: \"This Agreement shall be governed by the laws of the State of Texas,\" which directly supports the selected governing_law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The evidence states termination may occur upon prior written notice but does not specify any number of days. Therefore, the correct extracted value for termination_notice_days is null.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support the statement that there is no explicit liability cap. Without contract text, the liability cap cannot be verified or safely asserted.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero evidence snippets, the field cannot be verified; targeted retrieval could confirm presence/absence by locating any non-solicitation language.","confidence":0.74,"revised_query":"non-solicitation clause (solicit customers/clients/employees; non-solicit; non-interference)"}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"Dear Gianluca:","snippet":"2. Confidentiality. \"Confidential Information\" means any proprietary information technical data, trade secrets or know-how..."}],"confidence":0.22,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

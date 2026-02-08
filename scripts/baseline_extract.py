@@ -152,6 +152,23 @@ def main() -> None:
         help="Optional model override for verifier/judge pass (default: same as --model)",
     )
     parser.add_argument(
+        "--disable-risk-judge",
+        action="store_true",
+        help="Disable risk judge arbitration (use rules-only risk scoring)",
+    )
+    parser.add_argument(
+        "--risk-judge-model",
+        type=str,
+        default=None,
+        help="Optional model override for risk judge (default: same as --model)",
+    )
+    parser.add_argument(
+        "--risk-policy-path",
+        type=Path,
+        default=repo_root / "docs" / "risk_policy.json",
+        help="Path to risk policy JSON (default: docs/risk_policy.json)",
+    )
+    parser.add_argument(
         "--use-ocr",
         action="store_true",
         help="Enable OCR fallback when extracted text is sparse",
@@ -207,10 +224,9 @@ def main() -> None:
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
-                enable_verifier=not args.disable_verifier,
-                verifier_confidence_threshold=args.verifier_confidence_threshold,
-                verifier_max_repairs=args.verifier_max_repairs,
-                verifier_model=args.verifier_model,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
         elif args.orchestrated:
             result = extract_fields_orchestrated(
@@ -234,6 +250,9 @@ def main() -> None:
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
         elif args.retrieval:
             result = extract_fields_retrieval(
@@ -257,6 +276,9 @@ def main() -> None:
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
         else:
             result = extract_fields_naive(
@@ -271,6 +293,9 @@ def main() -> None:
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_risk_judge=not args.disable_risk_judge,
+                risk_judge_model=args.risk_judge_model,
+                risk_policy_path=args.risk_policy_path,
             )
     except Exception as e:
         print(f"Extraction failed: {e}", file=sys.stderr)

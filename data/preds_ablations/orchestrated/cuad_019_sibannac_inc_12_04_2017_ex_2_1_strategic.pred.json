@@ -1,0 +1,892 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Bravatek Technologies, Inc.",
+  "party_b_name": "Sibannac, Inc.",
+  "effective_date": "2017-11-30",
+  "term_length": 12,
+  "governing_law": "State of Texas",
+  "termination_notice_days": 90,
+  "liability_cap": "No liability cap stated in provided excerpts.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_019_sibannac_inc_12_04_2017_ex_2_1_strategic.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 50903,
+    "output_tokens": 4226,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 6,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this",
+              "snippet": "Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1136,
+          "completion_tokens": 75,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence shows the document is titled “Strategic Alliance Agreement,” which is neither an NDA nor an MSA, so classifying the doc_type as “other” is supported.",
+            "confidence": 0.9,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 393,
+            "completion_tokens": 64
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.96,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Bravatek Technologies,\nInc."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Bravatek Technologies, Inc. 2028 E. Ben White Blvd., Unit #240-2835 Austin, Texas 78741"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 609,
+          "completion_tokens": 89,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states “Bravatek Technologies, Inc.” (page 2) and also shows the same name split across lines (page 3: “Bravatek Technologies, Inc.”). This directly supports the selected party_a_name.",
+            "confidence": 0.98,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Bravatek Technologies, Inc.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 433,
+            "completion_tokens": 77
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Bravatek Solutions, Inc.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.06,
+              "confidence": 0.96,
+              "value": "Bravatek Technologies, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "Bravatek Solutions, Inc.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.96,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Sibannac, Inc."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Sibannac, Inc. 2122 E Highland Avenue, STE 425 Phoenix, AZ 85016"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 609,
+          "completion_tokens": 90,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence snippets explicitly state the party name as “Sibannac, Inc.” (pages 2 and 3), with no conflicting candidates or validation issues.",
+            "confidence": 0.98,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Sibannac, Inc.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 426,
+            "completion_tokens": 61
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Sibannac, Inc.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.06,
+              "confidence": 0.96,
+              "value": "Sibannac, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.88,
+              "confidence": 0.78,
+              "value": "Sibannac, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Date: November 30, 2017  Date: November 30, 2017",
+              "snippet": "Date: November 30, 2017  Date: November 30, 2017"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "The term of this Agreement is twelve (12) months from the date hereof"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 933,
+          "completion_tokens": 109,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly states \"Date: November 30, 2017\" and the agreement term is defined as running from \"the date hereof,\" supporting November 30, 2017 as the effective date. The selected value matches this date and is properly normalized to ISO format.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2017-11-30",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 436,
+            "completion_tokens": 84
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2017-11-30",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "2017-11-30",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "7) Term The term of this Agreement is twelve (12) months from the date hereof, and will be automatically renewed for one (1) additional twelve month period"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1139,
+          "completion_tokens": 72,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly states: \"The term of this Agreement is twelve (12) months from the date hereof,\" which directly supports a 12-month term length.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 12,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 387,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 12,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": 12,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "9) Governing Law This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1143,
+          "completion_tokens": 72,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the agreement shall be interpreted according to the laws of the State of Texas, directly supporting the selected governing law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "State of Texas",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 390,
+            "completion_tokens": 55
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "State of Texas",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "State of Texas",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "This Agreement may also be terminated by either party upon ninety (90) days written notice."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1161,
+          "completion_tokens": 58,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the agreement may be terminated by either party upon ninety (90) days written notice, which directly supports a termination notice period of 90 days for convenience.",
+            "confidence": 0.95,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 90,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 373,
+            "completion_tokens": 63
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 90,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": 90,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence excerpts were provided to support the assertion that there is no liability cap. Without contract text, the liability cap cannot be verified or safely stated as absent.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "No liability cap stated in provided excerpts.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 379,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "No liability cap stated in provided excerpts.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.14,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected value (has_evidence=false, evidence_count=0). Without contract text confirming absence of a non-solicitation provision, the boolean cannot be verified; targeted retrieval may resolve this.",
+            "confidence": 0.74,
+            "revised_query": "Locate any non-solicitation clause (e.g., 'non-solicit', 'solicit', 'no solicitation', 'non-interference') restricting solicitation of employees, customers, clients, or business partners.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 116
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.32,
+              "confidence": 0.22,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.32,
+              "confidence": 0.22,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.32,
+              "confidence": 0.22,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.18,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "attorney's fees and court costs, incurred in connection with any third-party claim, action\nor proceeding arising from the negligence or intentional misconduct of Bravatek or breach\nof Bravatek of any of its obligations under this Agreement."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Bravatek will receive a lead-finder fee... minimum of 10% to maximum of 20% of project revenue... with an exact fee to be depending upon the overall project sales margin and cost of development"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1415,
+          "completion_tokens": 142,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.7,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "This Agreement may also be terminated by either party upon ninety (90) days written notice."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs incurred in connection with any third-party claim"
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Bravatek will receive a lead-finder fee... at the range of minimum of 10% to maximum of 20% of project revenue, with an exact fee to be depending upon the overall project sales margin..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1411,
+          "completion_tokens": 247,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The agreement includes potentially material financial and legal exposure, including a broad indemnification obligation and a variable lead-finder fee (10%–20%) that is ultimately decided by the Company. It also allows termination by either party on 90 days’ notice, which can create revenue uncertainty and transition risk. These provisions together support a moderate risk assessment due to cost variability and liability allocation.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "This strategic alliance agreement includes broad confidentiality obligations and an indemnification provision, but the provided excerpts do not show any explicit limitation of liability or liability cap, which can increase exposure. Termination requires 90 days' notice, reducing flexibility for a small vendor. No data transfer terms are shown, leaving privacy/compliance requirements unclear.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.59,
+              "confidence": 0.44,
+              "value": "The agreement creates meaningful financial and legal exposure because it includes a broad indemnification obligation for third‑party claims, potentially including attorney’s fees and court costs. Commercial terms also have uncertainty, since the lead‑finder fee is within a 10%–20% range and the exact amount is left to COMPANY to decide. Additionally, either party can terminate on 90 days’ notice, which can disrupt expected revenue and ongoing obligations.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "The agreement includes potentially material financial and legal exposure, including a broad indemnification obligation and a variable lead-finder fee (10%–20%) that is ultimately decided by the Company. It also allows termination by either party on 90 days’ notice, which can create revenue uncertainty and transition risk. These provisions together support a moderate risk assessment due to cost variability and liability allocation.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu",
+          "risk_level",
+          "risk_explanation"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 5,
+          "party_roles_agent": 2,
+          "global_baseline": 2,
+          "verifier_unknown": 1,
+          "repair_agent": 2
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 1,
+        "verifier_repair_fields": [
+          "non_solicit_clause_present"
+        ],
+        "verifier_decisions": {
+          "accept": 7,
+          "revise": 1,
+          "unknown": 2,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "liability_cap",
+          "non_solicit_clause_present"
+        ],
+        "verifier_disagreement_rate": 0.25,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7,
+        "evidence_snippets_total": 10,
+        "unique_evidence_pages": 3,
+        "avg_confidence": 0.81,
+        "min_confidence": 0.58
+      }
+    }
+  }
+}

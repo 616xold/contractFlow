@@ -13,14 +13,25 @@ We focus on NDAs and simple SaaS / commercial contracts between a small vendor a
 - `non_solicit_clause_present`: True if there's any clause restricting solicitation of staff/customers.
 - `data_transfer_outside_uk_eu`: Yes if the agreement clearly allows transfers of personal data outside the UK/EU, otherwise "no" or "unknown".
 
-## Risk Rules (initial heuristic)
+## Risk Rules (v2)
 
-- Start with `medium`.
-- Upgrade to `high` if:
-  - liability is uncapped OR
-  - governing law is outside UK/EU OR
-  - data transfer is "yes" and there are no clear safeguards.
-- Downgrade to `low` if:
-  - liability is capped at a reasonable level (e.g. <= 12 months' fees) AND
-  - governing_law is England and Wales (or similar) AND
-  - term_length is 12 months or less.
+ContractFlow now uses a policy-driven risk engine (`contractflow/core/risk_engine.py`) with a
+versioned policy file (`docs/risk_policy.json`).
+
+- Output classes remain: `low`, `medium`, `high`.
+- Core factors:
+  - liability cap quality (uncapped/unknown/capped range)
+  - governing law region (UK/EU vs outside, with unknown as an explicit bucket)
+  - cross-border transfer posture (`yes`/`no`/`unknown`)
+  - term length
+  - termination notice period
+  - non-solicit protection
+- Scoring:
+  - weighted additive rule score with uncertainty adjustment based on evidence/confidence coverage.
+  - hard-trigger floors for high-risk combinations (e.g. uncapped liability + outside law).
+- Optional judge pass:
+  - an LLM judge reviews only structured factors + uncertainty metadata.
+  - arbitration policy decides whether to keep rule output or accept judge override.
+
+This keeps risk explainable (deterministic factors and weights) while adding agentic robustness
+through judge-based arbitration.

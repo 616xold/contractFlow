@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "METLIFE, INC.",
+  "party_b_name": "Deutsche Bank Securities Inc.",
+  "effective_date": "2014-09-15",
+  "term_length": null,
+  "governing_law": "State of New York",
+  "termination_notice_days": 5,
+  "liability_cap": "No Remarketing Agent shall be required to contribute any amount in excess of the amount by which the total price at which the applicable Securities remarketed by it and distributed to the public were offered to the public exceeds the amount of any damages which such Remarketing Agent has otherwise been required to pay.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU."
+}

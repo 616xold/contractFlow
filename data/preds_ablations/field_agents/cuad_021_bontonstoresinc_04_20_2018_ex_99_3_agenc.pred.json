@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 18818,
-    "output_tokens": 2148,
+    "input_tokens": 22414,
+    "output_tokens": 2420,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -35,6 +35,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -42,56 +48,119 @@
       "total_chunks": 497,
       "fields": {
         "doc_type": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
+              "page_num": 3,
+              "heading": "Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 5 of 60",
+              "snippet": "time is of the essence in effectuating this Agreement and proceeding with the GOB Sale at the Stores uninterrupted;"
+            },
+            {
               "page_num": 23,
               "heading": null,
-              "snippet": "Merchant and Agent agree that, except to the extent that wages and benefits of Retained Employees constitute Expenses hereunder, nothing contained in this Agreement... shall be deemed to constitute an assumption by Agent"
+              "snippet": "may use Merchant's employees in the conduct of the Sale... (each such employee, a \"Retained Employee\")."
+            },
+            {
+              "page_num": 34,
+              "heading": "15.13 Entire Agreement. This Agreement contains the entire agreement between the Parties",
+              "snippet": "This Agreement contains the entire agreement between the Parties with respect to the transactions contemplated hereby"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 892,
-          "completion_tokens": 76
+          "prompt_tokens": 815,
+          "completion_tokens": 164
         },
         "party_a_name": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
-              "page_num": 33,
-              "heading": "15.5 No Waiver.",
-              "snippet": "No consent or waiver by any Party, express or implied, to or of any breach"
-            },
-            {
-              "page_num": 43,
-              "heading": "Schedule A",
-              "snippet": "Description Counterparty Name and Address Assignee Name and Address Cure Amount Effective Date of Assignment"
+              "page_num": 34,
+              "heading": "15.14 Agent/Purchaser.",
+              "snippet": "Each party hereto acknowledges and agrees that any payment obligation of Purchaser and Agent hereunder is binding upon both the Agent and Purchaser..."
             }
           ],
           "attempts": 1,
           "issues": [
             "Field 'party_a_name' must be a non-empty string"
           ],
-          "prompt_tokens": 1724,
-          "completion_tokens": 254
+          "prompt_tokens": 2263,
+          "completion_tokens": 174,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.31,
+              "confidence": 0.1,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' is null but not nullable"
+              ],
+              "evidence_count": 0,
+              "attempts": 2
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.62,
+          "source": "party_roles_agent",
+          "confidence": 0.72,
           "evidence": [
             {
               "page_num": 35,
               "heading": "Second-Lien Notes By: Name: Its:",
               "snippet": "THE BON-TON STORES, INC., on behalf of itself and the other entities comprising Merchant"
+            },
+            {
+              "page_num": 20,
+              "heading": null,
+              "snippet": "Agent shall indemnify and hold harmless Merchant"
+            },
+            {
+              "page_num": 34,
+              "heading": "15.14 Agent/Purchaser. Each party hereto acknowledges and agrees that any payment",
+              "snippet": "any payment obligation of Purchaser and Agent hereunder is binding upon both the Agent and Purchaser"
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
-          "prompt_tokens": 790,
-          "completion_tokens": 75
+          "prompt_tokens": 769,
+          "completion_tokens": 112,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "THE BON-TON STORES, INC.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.87,
+              "confidence": 0.72,
+              "value": "THE BON-TON STORES, INC.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ]
         },
         "effective_date": {
-          "confidence": 0.22,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
               "page_num": 43,
@@ -106,29 +175,26 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2062,
-          "completion_tokens": 229
+          "prompt_tokens": 2349,
+          "completion_tokens": 259
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
               "page_num": 17,
               "heading": "Section 6. Sale Term.",
               "snippet": "Section 6. Sale Term."
-            },
-            {
-              "page_num": 20,
-              "heading": "8.8 Sale Reconciliation. On each Wednesday during the Sale Term, Agent and Merchant shall",
-              "snippet": "Within thirty (30) days after the end of the Sale Term, or as soon as"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1585,
-          "completion_tokens": 196
+          "prompt_tokens": 1592,
+          "completion_tokens": 160
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -143,51 +209,60 @@
           "completion_tokens": 78
         },
         "termination_notice_days": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.72,
           "evidence": [
             {
               "page_num": 17,
               "heading": "6.1 Term.",
-              "snippet": "Agent may, in its discretion, earlier terminate the GOB Sale on a Store-by- Store basis upon not less than seven (7) days' prior written notice"
+              "snippet": "Agent may, in its discretion, earlier terminate the GOB Sale on a Store- by- Store basis upon not less than seven (7) days' prior written notice"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 962,
-          "completion_tokens": 76
+          "prompt_tokens": 1111,
+          "completion_tokens": 77
         },
         "liability_cap": {
-          "confidence": 0.32,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
-              "page_num": 11,
-              "heading": "Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 13 of 60",
-              "snippet": "Agent shall assume the obligation to pay (a) $2,000,000 (the \"503(b)(9) Cap\")... and (b) $8,000,000 (the \"Stub Rent Cap\")..."
+              "page_num": 28,
+              "heading": "12.1 Merchant's Liability Insurance. Until the Designation Rights Termination Date or as",
+              "snippet": "Merchant shall continue to maintain, subject to the Wind-Down Budget and the Wind-Down Cap, in such amounts as it currently has in effect, all of its liability insurance policies"
+            },
+            {
+              "page_num": 29,
+              "heading": "none",
+              "snippet": "...deductibles, retentions or self- insured amounts thereunder (which may be reimbursed as an Expense and/or pursuant to the Wind-Down Payment, subject to the Wind-Down Budget and the Wind-Down Cap)"
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 2612,
-          "completion_tokens": 236
+          "prompt_tokens": 2251,
+          "completion_tokens": 286
         },
         "non_solicit_clause_present": {
-          "confidence": 0.22,
+          "source": "field_agent",
+          "confidence": 0.42,
           "evidence": [
             {
               "page_num": 50,
               "heading": null,
-              "snippet": "...Agent shall not distribute handbills, leaflets or other written materials...; provided that Agent may solicit customers in the Stores themselves... Agent shall not use any flashing lights or amplified sound to advertise the Sale or solicit customers..."
+              "snippet": "...Agent shall not distribute handbills, leaflets or other written materials to customers outside of any Stores' premises...; provided that Agent may solicit customers in the Stores themselves."
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2366,
-          "completion_tokens": 158
+          "prompt_tokens": 2217,
+          "completion_tokens": 156
         },
         "data_transfer_outside_uk_eu": {
-          "confidence": 0.18,
+          "source": "field_agent",
+          "confidence": 0.12,
           "evidence": [
             {
               "page_num": 19,
@@ -197,46 +272,43 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1763,
-          "completion_tokens": 169
+          "prompt_tokens": 1768,
+          "completion_tokens": 138
         },
         "risk_level": {
-          "confidence": 0.32,
-          "evidence": [
-            {
-              "page_num": 12,
-              "heading": null,
-              "snippet": "(b) Assets and Proceeds Held in Trust. Subject to Section 3.2(a), Merchant shall hold all\nof the Assets in trust for the benefit of Purchaser."
-            },
-            {
-              "page_num": 30,
-              "heading": "Section 13. Purchaser's Security Interest.",
-              "snippet": "Purchaser shall have a senior lien on all Assets and\nProceeds, which lien shall be deemed by the Approval Order to be automatically perfected."
-            },
-            {
-              "page_num": 30,
-              "heading": "Section 13. Purchaser's Security Interest.",
-              "snippet": "Purchaser shall have a superpriority administrative expense claim against Merchant"
-            }
-          ],
-          "attempts": 2,
-          "issues": [],
-          "prompt_tokens": 1861,
-          "completion_tokens": 254
-        },
-        "risk_explanation": {
-          "confidence": 0.34,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
               "page_num": 34,
               "heading": "15.11 Deposit. Pursuant to the Bidding Procedures, Agent has provided a cash deposit in",
-              "snippet": "In the event the Closing fails to occur... only upon entry of a final and non-appealable order... determining... Purchaser's sole... breach... Merchant shall be entitled to retain the Deposit as liquidated damages"
+              "snippet": "In the event the Closing fails to occur... only upon entry of a final and non-appealable order of the Bankruptcy Court... Merchant shall be entitled to retain the Deposit as liquidated damages"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2021,
+          "completion_tokens": 123
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 34,
+              "heading": "15.11 Deposit. Pursuant to the Bidding Procedures, Agent has provided a cash deposit in",
+              "snippet": "In the event the Closing fails to occur... only upon entry of a final and non-appealable order... determining that such failure was the result of Purchaser's sole... breach... Merchant shall be entitled to retain the Deposit as liquidated damages."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "this Agreement was negotiated in good faith and at arms' length and Purchaser is entitled to the protection of section 363(m) and 364(e) of the Bankruptcy Code; and"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1351,
-          "completion_tokens": 347,
+          "prompt_tokens": 644,
+          "completion_tokens": 252,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -246,9 +318,9 @@
         "fields_with_evidence": 11,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 16,
-        "unique_evidence_pages": 11,
-        "avg_confidence": 0.3945,
+        "evidence_snippets_total": 17,
+        "unique_evidence_pages": 12,
+        "avg_confidence": 0.4036,
         "min_confidence": 0.12
       }
     }

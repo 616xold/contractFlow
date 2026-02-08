@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Dova Pharmaceuticals, Inc.",
+  "party_b_name": "Valeant Pharmaceuticals North America LLC",
+  "effective_date": "2018-09-26",
+  "term_length": 48,
+  "governing_law": "[***] (state law; jurisdiction redacted)",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts (see Section 11.4 Limitation of Liability; details not included).",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU."
+}

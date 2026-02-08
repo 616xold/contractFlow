@@ -15,15 +15,14 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_011_ftenetworks_inc_02_18_2016_ex_99_4_strat.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 19792,
-    "output_tokens": 1995,
+    "input_tokens": 20438,
+    "output_tokens": 2372,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
     "issues": [
       "Field 'liability_cap' must be a non-empty string",
-      "risk_level overridden by deterministic rules (was 'medium')",
       "risk_explanation overridden by deterministic rules",
       "Field 'liability_cap' is null but not nullable"
     ],
@@ -34,6 +33,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,68 +46,123 @@
       "total_chunks": 37,
       "fields": {
         "doc_type": {
-          "confidence": 0.78,
+          "source": "field_agent",
+          "confidence": 0.72,
           "evidence": [
+            {
+              "page_num": 10,
+              "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13",
+              "snippet": "Heading: STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13"
+            },
             {
               "page_num": 6,
               "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 7",
               "snippet": "Heading: STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 7"
-            },
-            {
-              "page_num": 10,
-              "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13",
-              "snippet": "35. DOCUMENT OWNERSHIP AND CONFIDENTIALITY AND USE OF INFORMATION Each party may make available (\"Disclosing Party\") to the other (\"Receiving Party\")... (collectively, \"Confidential Information\")."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1137,
-          "completion_tokens": 146
+          "prompt_tokens": 997,
+          "completion_tokens": 120
         },
         "party_a_name": {
-          "confidence": 0.9,
+          "source": "party_roles_agent",
+          "confidence": 0.99,
           "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE",
+              "snippet": "is entered into by and between EDGE Communications Solutions, LLC, with its principal place of business at 6505 Windcrest Drive, Suite 200, Plano, TX 75024 (hereinafter referred to as \"EDGE\"), and FTE Networks, Inc."
+            },
             {
               "page_num": 11,
               "heading": "IN WITNESS WHEREOF, EDGE AND FTE HAVE EXECUTED THIS AGREEMENT AS OF THE DATE FIRST ABOVE",
-              "snippet": "WRITTEN.   EDGE Communications Solutions, LLC   FTE Networks, Inc."
+              "snippet": "EDGE Communications Solutions, LLC"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 935,
-          "completion_tokens": 83
+          "prompt_tokens": 541,
+          "completion_tokens": 197,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "EDGE Communications Solutions, LLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.09,
+              "confidence": 0.99,
+              "value": "EDGE Communications Solutions, LLC",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.78,
+          "source": "party_roles_agent",
+          "confidence": 0.99,
           "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE",
+              "snippet": "and FTE Networks, Inc. with its principal place of business at 999 Vanderbilt Beach Road, Suite 601, Naples, FL 34108 (hereinafter referred to as \"FTE\" or \"Subcontractor\")"
+            },
             {
               "page_num": 11,
               "heading": "IN WITNESS WHEREOF, EDGE AND FTE HAVE EXECUTED THIS AGREEMENT AS OF THE DATE FIRST ABOVE",
-              "snippet": "EDGE Communications Solutions, LLC   FTE Networks, Inc."
+              "snippet": "FTE Networks, Inc."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 935,
-          "completion_tokens": 79
+          "prompt_tokens": 542,
+          "completion_tokens": 197,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 1.05,
+              "confidence": 0.95,
+              "value": "FTE Networks, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.09,
+              "confidence": 0.99,
+              "value": "FTE Networks, Inc.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.93,
           "evidence": [
             {
               "page_num": 1,
               "heading": "Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE",
-              "snippet": "AGREEMENT (the \"Agreement\"), made effective this 17t h day of February 2016, through February 16, 2019 (the \"Initial Term\")"
+              "snippet": "AGREEMENT (the \"Agreement\"), made effective this 17t h day of February 2016, through February 16, 2019"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1002,
-          "completion_tokens": 109
+          "completion_tokens": 103
         },
         "term_length": {
-          "confidence": 0.86,
+          "source": "field_agent",
+          "confidence": 0.78,
           "evidence": [
             {
               "page_num": 1,
@@ -116,6 +176,7 @@
           "completion_tokens": 103
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -130,26 +191,33 @@
           "completion_tokens": 94
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.32,
           "evidence": [
             {
               "page_num": 4,
               "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4",
-              "snippet": "After fifteen (15) days prior written notice to Subcontractor to cure... EDGE may terminate this Agreement... upon the occurrence of any of the following events"
+              "snippet": "After fifteen (15) days prior written notice to Subcontractor to cure... EDGE may terminate this Agreement"
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2915,
-          "completion_tokens": 174
+          "prompt_tokens": 2923,
+          "completion_tokens": 173
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
               "page_num": 4,
               "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4",
-              "snippet": "Commercial General Liability Insurance... in no event less than $1,000,000 combined single limit and $2,000,000 in the aggregate... (4) Umbrella/Excess Liability with limits of not less than $5,000,000"
+              "snippet": "Commercial General Liability Insurance providing the limits of coverage... in no event less than $1,000,000 combined single limit and $2,000,000 in the aggregate..."
+            },
+            {
+              "page_num": 4,
+              "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4",
+              "snippet": "Umbrella/Excess Liability with limits of not less than $5,000,000 in excess of all the above-referenced Commercial General Liability..."
             }
           ],
           "attempts": 1,
@@ -157,9 +225,10 @@
             "Field 'liability_cap' must be a non-empty string"
           ],
           "prompt_tokens": 2799,
-          "completion_tokens": 294
+          "completion_tokens": 296
         },
         "non_solicit_clause_present": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -179,21 +248,23 @@
           "completion_tokens": 120
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.18,
           "evidence": [
             {
               "page_num": 10,
               "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13",
-              "snippet": "35. DOCUMENT OWNERSHIP AND CONFIDENTIALITY AND USE OF INFORMATION ... each Party shall safeguard such Confidential Information ... and shall not disclose Confidential Information..."
+              "snippet": "each Party shall safeguard such Confidential Information... and shall not disclose Confidential Information to its employees, Lower-tier Subcontractors and agents, except to the extent necessary to enable it to fulfill its obligations under this Agreement."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2817,
-          "completion_tokens": 239
+          "prompt_tokens": 2422,
+          "completion_tokens": 204
         },
         "risk_level": {
-          "confidence": 0.55,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 6,
@@ -203,18 +274,17 @@
             {
               "page_num": 2,
               "heading": "STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 2",
-              "snippet": "Subcontractor agrees to indemnify and defend EDGE from and against any lien claims and to discharge any lien or furnish an indemnity bond..."
+              "snippet": "Subcontractor agrees to indemnify and defend EDGE from and against any lien claims and to discharge any lien... within ten (10) days notice"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1175,
-          "completion_tokens": 129,
-          "derived": true,
-          "derived_reason": "deterministic risk rules"
+          "completion_tokens": 130
         },
         "risk_explanation": {
-          "confidence": 0.42,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 6,
@@ -224,7 +294,7 @@
             {
               "page_num": 7,
               "heading": null,
-              "snippet": "not bring hazardous materials onto the site without prior written authorization by EDGE; ... dispose of any hazardous materials in accordance with applicable law."
+              "snippet": "Subcontractor shall indemnify EDGE as identified in Section 13 for any Claims caused by hazardous materials."
             },
             {
               "page_num": 4,
@@ -235,19 +305,19 @@
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 3023,
-          "completion_tokens": 425,
+          "completion_tokens": 367,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
       },
       "coverage": {
-        "fields_total": 10,
-        "fields_with_evidence": 10,
+        "fields_total": 11,
+        "fields_with_evidence": 11,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 12,
-        "unique_evidence_pages": 7,
-        "avg_confidence": 0.689,
+        "evidence_snippets_total": 17,
+        "unique_evidence_pages": 8,
+        "avg_confidence": 0.6973,
         "min_confidence": 0.18
       }
     }

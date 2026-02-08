@@ -1,0 +1,1052 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Electric City Corp.",
+  "party_b_name": "Electric City of Illinois L.L.C.",
+  "effective_date": null,
+  "term_length": 120,
+  "governing_law": "State of Illinois",
+  "termination_notice_days": null,
+  "liability_cap": "No consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing; no specific monetary cap stated.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: governing law (governing law appears outside uk/eu.); Secondary driver: liability cap (liability cap text could not be normalized.); Mitigating factor: non-solicit clause (non-solicit obligations are present.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_000_limeenergyco_09_09_1999_ex_10_distributo.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 52260,
+    "output_tokens": 5063,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier requested revision for field 'effective_date'",
+      "verifier marked field 'termination_notice_days' as unknown",
+      "verifier requested revision for field 'liability_cap'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by risk engine v2 (was 'medium', now 'high')",
+      "risk_explanation overridden by risk engine v2"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 86,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "repair_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "3.5      Service of  Products  in  Territory.  Within  thirty (30) days",
+              "snippet": "the Company and the Distributor shall mutually agree upon a reasonable schedule of charges for after market parts and services... so that such charges do not adversely affect the marketability of the Products."
+            },
+            {
+              "page_num": 8,
+              "heading": "3.6.     Non-Disclosure  of  Confidential  Information.",
+              "snippet": "None of the parties hereto... shall during the term of this Agreement or thereafter disclose any confidential information obtained or acquired by them in connection with the Products and the business of the other"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1013,
+          "completion_tokens": 155,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence shows this is a broader commercial agreement (e.g., distributor/service terms) that includes a confidentiality clause (3.6) but is not primarily an NDA or an MSA. Therefore classifying doc_type as 'other' is supported.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 490,
+            "completion_tokens": 77
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "field_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "DISTRIBUTOR AGREEMENT",
+              "snippet": "THIS  DISTRIBUTOR  AGREEMENT (the  \"Agreement\")  is made by and between Electric City\nCorp.,  a Delaware  corporation  (\"Company\")  and Electric City of Illinois LLC\n(\"Distributor\") this 7th day of September, 1999."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 794,
+          "completion_tokens": 105,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the agreement is made between “Electric City Corp., a Delaware corporation (\"Company\")” and “Electric City of Illinois LLC (\"Distributor\")”, supporting Electric City Corp. as the first party’s full legal name.",
+            "confidence": 0.96,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Electric City Corp.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 434,
+            "completion_tokens": 76
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Electric City Corp.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.08,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' is null but not nullable"
+              ],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "Electric City Corp.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 15,
+              "heading": "In witness whereof the parties have executed this Agreement as of the date first",
+              "snippet": "Electric City Corp.                       Electric City of Illinois L.L.C."
+            },
+            {
+              "page_num": 14,
+              "heading": "Page -12-",
+              "snippet": "If to the Distributor to:                   Electric City of Illinois L.L.C."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 654,
+          "completion_tokens": 103,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly names the second party as “Electric City of Illinois L.L.C.” in both the notice/address clause (“If to the Distributor to: Electric City of Illinois L.L.C.”) and the signature block alongside the other party (“Electric City Corp.”). No conflicting party B name appears in the provided snippets.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Electric City of Illinois L.L.C.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 439,
+            "completion_tokens": 92
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Electric City of Illinois L.L.C.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.08,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.96,
+              "confidence": 0.86,
+              "value": "Electric City of Illinois L.L.C.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "4.1      Duration.   Unless  earlier   terminated   otherwise  provided",
+              "snippet": "this Agreement, subject to the commencement date established in Section 1.3, shall be effective immediately."
+            },
+            {
+              "page_num": 2,
+              "heading": "1.3      Term.  The term of this  Agreement  shall be ten (10)",
+              "snippet": "The term of this Agreement... shall commence on the date upon which the Company delivers to Distributor the last Sample"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2011,
+          "completion_tokens": 254,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence indicates the Agreement’s effectiveness is tied to a “commencement date established in Section 1.3” and that the term “shall commence on the date upon which the Company delivers to Distributor the last Sample,” which implies an effective/commencement date exists but is event-based and not extracted as a calendar date. The selected value null is therefore not well-supported as the best value; further retrieval may confirm whether a specific date is stated elsewhere or whether the effective date must be represented as an event-triggered date (thus null).",
+            "confidence": 0.74,
+            "revised_query": "Section 1.3 (Term/Commencement date) and any definition of 'Commencement Date' or 'Effective Date'—does the agreement state a specific calendar date or only that it commences upon delivery of the last Sample?",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 458,
+            "completion_tokens": 184
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.95,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "1.3      Term.",
+              "snippet": "The term of this Agreement shall be ten (10) years (the \"Term\")"
+            },
+            {
+              "page_num": 2,
+              "heading": "1.3      Term.",
+              "snippet": "the Agreement shall be renewable on an annual basis for one (1) year terms for up to another ten (10) years"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 788,
+          "completion_tokens": 100,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence states the initial term is ten (10) years. Ten years converts to 120 months, matching the selected value. The renewal language describes optional additional one-year renewals up to another ten years, but does not change the determinable base term length.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 120,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 414,
+            "completion_tokens": 80
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 120,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.05,
+              "confidence": 0.95,
+              "value": 120,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 15,
+              "heading": "6.9      Governing Law.",
+              "snippet": "This Agreement is to be construed according to the laws of the State of Illinois."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 693,
+          "completion_tokens": 65,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"This Agreement is to be construed according to the laws of the State of Illinois,\" which directly supports the selected governing law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "State of Illinois",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 384,
+            "completion_tokens": 59
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "State of Illinois",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "State of Illinois",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support a 30-day termination-for-convenience notice period, and deterministic checks indicate has_evidence=false/evidence_count=0. Without contract text, the value cannot be verified.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 30,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 366,
+            "completion_tokens": 70
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 30,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.12,
+              "confidence": 0.42,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.02,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.23,
+              "confidence": 0.58,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected liability cap text. The field requires a monetary cap on liability; the selected value describes a damages exclusion and explicitly notes no monetary cap stated, but without contract excerpt this cannot be verified. Better retrieval should target the Limitation of Liability / Damages clauses to confirm whether any cap exists or if only exclusions apply.",
+            "confidence": 0.74,
+            "revised_query": "Limitation of Liability clause: liability cap amount (e.g., fees paid/12 months) and exclusions of consequential/incidental/liquidated damages; late delivery damages limitation",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "No consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing; no specific monetary cap stated.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 405,
+            "completion_tokens": 132
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "No consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing; no specific monetary cap stated.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 12,
+              "heading": "5.7      Nonsolicitation.",
+              "snippet": "During the Term of this Agreement and for a period of twelve (12) months thereafter, the Distributor... agrees that it will not directly or indirectly solicit or hire any executive, managerial or technical employee"
+            },
+            {
+              "page_num": 13,
+              "heading": "Page -11-",
+              "snippet": "Term of the Agreement and for a period of eighteen (18) months thereafter, nor will Distributor solicit any customer or potential customer of Company to purchase a competitive product during that period."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 904,
+          "completion_tokens": 139,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly includes a section titled “Nonsolicitation” and states the Distributor will not solicit or hire certain employees and will not solicit customers/potential customers for competitive products during specified periods, which constitutes a non-solicitation clause.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": true,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 445,
+            "completion_tokens": 75
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": true,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.08,
+              "confidence": 0.98,
+              "value": true,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.37,
+              "confidence": 0.32,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 11,
+              "heading": "5.3      Indemnification.  Company and Distributor  agree to indemnify,",
+              "snippet": "Company and Distributor  agree to indemnify, defend  and hold each other  harmless  from any and all suits, claims, obligations, liabilities, damages, losses and the like (including attorneys'  fees and costs)"
+            },
+            {
+              "page_num": 13,
+              "heading": "Page -11-",
+              "snippet": "Term of the  Agreement  and for a period of  eighteen (18) months thereafter,  nor will Distributor solicit any customer  or  potential  customer  of Company to purchase a competitive product during that period."
+            },
+            {
+              "page_num": 12,
+              "heading": "5.7      Nonsolicitation.",
+              "snippet": "During the Term of this Agreement and for a period of twelve (12) months thereafter... will not directly or indirectly solicit or hire any executive, managerial or technical employee of the Company"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1120,
+          "completion_tokens": 215,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "risk engine v2",
+          "risk_confidence": 0.684,
+          "arbitration": "rules_only"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.44,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "neither the Distributor nor the Company shall have a liability for consequential or liquidated damages pertaining to late delivery unless Company specifically acknowledges and agrees in writing"
+            },
+            {
+              "page_num": 12,
+              "heading": "5.4      Product Liability  Insurance.  Company will carry a reasonable",
+              "snippet": "Company will carry a reasonable amount of product liability insurance... and will name the Distributor as an additional insured under that policy."
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "Company shall not be liable for its failure to perform due to any occurrence beyond the Company's reasonable control"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2299,
+          "completion_tokens": 473,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The agreement limits the Company’s exposure for late delivery by excluding consequential or liquidated damages unless expressly agreed in writing, reducing potential financial risk from shipment delays. It also includes a force majeure-style carveout for events beyond the Company’s reasonable control, further limiting liability for nonperformance. Product liability risk is partially mitigated because the Company must maintain product liability insurance and name the Distributor as an additional insured.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The agreement includes broad non-solicitation/non-interference restrictions lasting through the term and up to 12–18 months after, which can materially constrain a counterparty’s hiring and customer activities. There is no clear monetary limitation of liability (only a limited exclusion for consequential/liquidated damages in a specific late-delivery scenario), increasing exposure. The term is long (10 years) and termination appears primarily for cause with notice, reducing flexibility.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.59,
+              "confidence": 0.44,
+              "value": "The agreement limits the Company’s exposure for late delivery by excluding consequential or liquidated damages unless expressly agreed in writing, reducing potential financial risk from shipment delays. It also includes a force majeure-style carveout for events beyond the Company’s reasonable control, further limiting liability for nonperformance. Product liability risk is partially mitigated because the Company must maintain product liability insurance and name the Distributor as an additional insured.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "risk engine v2",
+          "risk_confidence": 0.684,
+          "arbitration": "rules_only"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: governing law (governing law appears outside uk/eu.); Secondary driver: liability cap (liability cap text could not be normalized.); Mitigating factor: non-solicit clause (non-solicit obligations are present.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.684,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": null,
+        "judge_confidence": null,
+        "arbitration": "rules_only",
+        "hard_triggers": [],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 0.3333,
+          "critical_avg_confidence": 0.7133,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "No consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing; no specific monetary cap stated.",
+            "severity": "medium",
+            "contribution": 14.0,
+            "confidence": 0.58,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Liability cap text could not be normalized."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of Illinois",
+            "severity": "high",
+            "contribution": 20.0,
+            "confidence": 0.98,
+            "evidence_count": 1,
+            "pages": [
+              15
+            ],
+            "notes": "Governing law appears outside UK/EU."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.58,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": 120,
+            "severity": "high",
+            "contribution": 8.0,
+            "confidence": 0.95,
+            "evidence_count": 2,
+            "pages": [
+              2
+            ],
+            "notes": "Initial term exceeds 36 months."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": null,
+            "severity": "medium",
+            "contribution": 1.0,
+            "confidence": 0.58,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Termination notice period is unspecified."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": true,
+            "severity": "low",
+            "contribution": -3.0,
+            "confidence": 0.98,
+            "evidence_count": 2,
+            "pages": [
+              12,
+              13
+            ],
+            "notes": "Non-solicit obligations are present."
+          }
+        ],
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "judge_raw_text": ""
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "doc_type",
+          "effective_date",
+          "termination_notice_days",
+          "liability_cap",
+          "data_transfer_outside_uk_eu",
+          "risk_level"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation",
+          "risk_level",
+          "termination_notice_days"
+        ],
+        "selected_source_counts": {
+          "repair_agent": 2,
+          "field_agent": 7,
+          "verifier_unknown": 2,
+          "global_baseline": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 2,
+        "verifier_repair_fields": [
+          "effective_date",
+          "liability_cap"
+        ],
+        "verifier_decisions": {
+          "accept": 6,
+          "revise": 2,
+          "unknown": 2,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "effective_date",
+          "liability_cap",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.3333,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "termination_notice_days",
+          "liability_cap",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 8,
+        "avg_confidence": 0.738,
+        "min_confidence": 0.22
+      }
+    }
+  }
+}

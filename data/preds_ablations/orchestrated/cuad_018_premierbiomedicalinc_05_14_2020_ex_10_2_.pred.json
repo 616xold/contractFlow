@@ -1,0 +1,925 @@
+{
+  "doc_type": "nda",
+  "party_a_name": "Marv Enterprises, LLC",
+  "party_b_name": "Premier Biomedical, Inc.",
+  "effective_date": "2020-05-12",
+  "term_length": null,
+  "governing_law": "Commonwealth of Pennsylvania",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_018_premierbiomedicalinc_05_14_2020_ex_10_2_.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 68333,
+    "output_tokens": 4647,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier requested revision for field 'term_length'",
+      "verifier requested revision for field 'termination_notice_days'",
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier marked field 'non_solicit_clause_present' as unknown",
+      "verifier returned unknown for non-nullable field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 21,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "Party.     4",
+              "snippet": "7.        CONFIDENTIALITY.   Each Party agrees to hold in confidence confidential information acquired in the course of this relationship with the other Parties..."
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "\"Confidential Information\" does not include information which (a) is obtained by the Recipient from a third party..."
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "Copies; Return of Confidential Information... promptly returned to the Disclosing Party or... destroyed, upon the Disclosing Party's request"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1056,
+          "completion_tokens": 144,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence shows a standalone confidentiality section defining Confidential Information and requiring return/destruction of confidential materials—core provisions characteristic of a non-disclosure agreement. No conflicting evidence suggests a different document type.",
+            "confidence": 0.84,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "nda",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 455,
+            "completion_tokens": 66
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.01,
+              "confidence": 0.86,
+              "value": "nda",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
+              "snippet": "by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. (OTC Pink: BIEI), a Nevada corporation (\"Premier\"), Technology Health, Inc."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 933,
+          "completion_tokens": 138,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the agreement is \"by and between: Marv Enterprises, LLC\" and identifies it as a party (\"Marv\"), supporting the selected value as the first party’s full legal name.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Marv Enterprises, LLC",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 451,
+            "completion_tokens": 71
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Marv Enterprises, LLC",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": "Marv Enterprises, LLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "Marv Enterprises, LLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.75,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
+              "snippet": "by and between: Marv Enterprises, LLC, a Limited Liability Company organized under the laws of the Commonwealth of Pennsylvania (\"Marv\"), Premier Biomedical, Inc. (OTC Pink: BIEI), a Nevada corporation (\"Premier\"), Technology Health, Inc."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 933,
+          "completion_tokens": 139,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly lists the agreement as being between Marv Enterprises, LLC and \"Premier Biomedical, Inc.\" (a Nevada corporation), supporting the selected party_b_name.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Premier Biomedical, Inc.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 443,
+            "completion_tokens": 61
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Premier Biomedical, Inc.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.8,
+              "confidence": 0.75,
+              "value": "Premier Biomedical, Inc.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": -0.11,
+              "confidence": 0.25,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.2   INTELLECTUAL PROPERTY AGREEMENT   This Intellectual Property Agreement",
+              "snippet": "(this \"Agreement\") is entered into on May 12, 2020 (\"Effective Date\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1216,
+          "completion_tokens": 83,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the Agreement is entered into on May 12, 2020 (\"Effective Date\"), which supports the selected effective_date value normalized to ISO format as 2020-05-12. No conflicts or validation issues are indicated.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2020-05-12",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 409,
+            "completion_tokens": 79
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2020-05-12",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "2020-05-12",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "commencing with the one-year anniversary of the effective date of this Agreement"
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "the one-year anniversary of this Agreement until a total amount of $40,000,000 has been paid"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2714,
+          "completion_tokens": 183,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence references a “one-year anniversary” but does not clearly state the full agreement term length; it may indicate a 12-month period or a milestone for payments/commencement. Better retrieval should target the Term/Duration/Effective Date and termination/renewal clauses to determine if a fixed term exists in months.",
+            "confidence": 0.63,
+            "revised_query": "term of this Agreement duration initial term one-year anniversary effective date termination renewal",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 414,
+            "completion_tokens": 105
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "This Agreement and the rights of the Parties hereunder shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1112,
+          "completion_tokens": 70,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence snippet explicitly states the agreement is governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania, matching the selected value exactly.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Commonwealth of Pennsylvania",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 391,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Commonwealth of Pennsylvania",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "Commonwealth of Pennsylvania",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Marv shall notify THI for a time period being the lesser of (i) at least sixty (60) days before the IP Cost is due..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2819,
+          "completion_tokens": 225,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The only evidence mentions a 60-day notification period related to an IP Cost due date, not termination for convenience. This suggests the contract may contain a notice period, but the provided snippet is not tied to termination. Better retrieval focused on termination/notice clauses could confirm whether a termination-for-convenience notice period exists and its length.",
+            "confidence": 0.63,
+            "revised_query": "termination for convenience notice period days (\"terminate\" OR \"termination\") AND (\"for convenience\" OR \"without cause\") AND \"notice\"",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 402,
+            "completion_tokens": 124
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.13,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.13,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support the assertion that a liability cap is \"Not specified.\" Without contract text or clause excerpts, the field cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Not specified",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 369,
+            "completion_tokens": 58
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Not specified",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero cited contract text, the boolean value cannot be verified.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 59
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.22,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.28,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "Copies; Return of Confidential Information. The parties may copy or otherwise reproduce any written Confidential Information; provided, however, that all such Confidential Information and copies thereof shall be promptly returned... or... destroyed"
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "8. VENUE. This Agreement... shall be governed by... the laws of the Commonwealth of Pennsylvania... Venue for any action... shall be in... Mercer County, Pennsylvania."
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "the one-year anniversary of this Agreement until a total amount of $40,000,000 has been paid to Premier... If THI does not make the obligatory payments... the Exclusive License will revert back to Premier."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 924,
+          "completion_tokens": 180,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.7,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.68,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "If THI denies payment, THI shall have no obligation to pay IP Costs associated with the Application or Patent in that country, but the license and all associated rights for that Application or Patent shall revert to Marv."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "Premier and THI will jointly cooperate in developing Covid-19 Licensed Products, to be memorialized by them in a Technology Acquisition and Financing Agreement."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "Premier may partner with other organizations as needed to effectuate the development of technology in the Field of Covid-19 Treatments."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1250,
+          "completion_tokens": 247,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is driven by provisions that can cause loss of rights: if THI does not affirm or denies paying required IP costs, the license and associated rights in that country revert to Marv. The joint venture’s development and commercialization activities are also to be memorialized in a separate agreement, creating dependency on additional documentation. In addition, Premier may partner with other organizations, which can introduce coordination and control risks around development and IP.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The agreement appears to be an intellectual property/licensing and joint venture arrangement with significant payment and royalty obligations and reversion of license rights upon non-payment. There is no stated liability cap in the provided excerpts, increasing exposure for a small SaaS vendor. The confidentiality obligations are broad and ongoing, and the governing law/venue is Pennsylvania, which may add litigation and compliance burden.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "The risk level is driven by provisions that can cause loss of rights: if THI does not affirm or denies paying required IP costs, the license and associated rights in that country revert to Marv. The joint venture’s development and commercialization activities are also to be memorialized in a separate agreement, creating dependency on additional documentation. In addition, Premier may partner with other organizations, which can introduce coordination and control risks around development and IP.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "term_length",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu",
+          "risk_level"
+        ],
+        "disagreement_fields": [
+          "doc_type",
+          "liability_cap",
+          "party_b_name",
+          "risk_explanation",
+          "risk_level"
+        ],
+        "selected_source_counts": {
+          "field_agent": 7,
+          "party_roles_agent": 2,
+          "global_baseline": 2,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 2,
+        "verifier_repair_fields": [
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_decisions": {
+          "accept": 5,
+          "revise": 2,
+          "unknown": 3,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.4167,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7,
+        "evidence_snippets_total": 10,
+        "unique_evidence_pages": 5,
+        "avg_confidence": 0.661,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

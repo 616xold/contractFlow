@@ -1,0 +1,921 @@
+{
+  "doc_type": "other",
+  "party_a_name": "PC Financial Services Private Limited",
+  "party_b_name": "Mobimagic Co., Ltd.",
+  "effective_date": "2019-04-01",
+  "term_length": 12,
+  "governing_law": "India",
+  "termination_notice_days": null,
+  "liability_cap": "the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_024_operaltd_04_30_2020_ex_4_14_service_agre.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 62351,
+    "output_tokens": 5655,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier requested revision for field 'termination_notice_days'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 22,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on April. 1st 2019 (\"Effective Date\") by and between:"
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "In case of any complaint about using the Services as set out in this Agreement... 7. CONFIDENTIALITY & PUBLICITY Neither Party shall disclose the other Party's Confidential Information"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1216,
+          "completion_tokens": 160,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The document is titled \"SERVICE AGREEMENT\" and contains service-related terms (including a confidentiality clause). It is neither an NDA nor an MSA, so classifying doc_type as \"other\" is supported by the evidence.",
+            "confidence": 0.9,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 472,
+            "completion_tokens": 73
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.96,
+              "confidence": 0.86,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "This Service Agreement (\"Agreement\") is entered into on April. 1st 2019 (\"Effective Date\") by and between: PC Financial Services Private Limited"
+            },
+            {
+              "page_num": 5,
+              "heading": "to be charged. IN WITNESS WHEREOF, the Parties have executed this Agreement as of the",
+              "snippet": "IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date. PC Financial Services Private Limited"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 505,
+          "completion_tokens": 174,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly names “PC Financial Services Private Limited” as a party in the agreement’s opening (“by and between: PC Financial Services Private Limited”) and again in the execution block, supporting it as Party A’s full legal name. No conflicts or validation issues are indicated.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "PC Financial Services Private Limited",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 487,
+            "completion_tokens": 83
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "PC Financial Services Private Limited",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.09,
+              "confidence": 0.99,
+              "value": "PC Financial Services Private Limited",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.93,
+              "value": "PC Financial Services Private Limited",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "and Mobimagic Co., Ltd., a company Incorporated under the laws of the People 's Republic of China"
+            },
+            {
+              "page_num": 5,
+              "heading": "to be charged. IN WITNESS WHEREOF, the Parties have executed this Agreement as of the",
+              "snippet": "PC Financial Services Private Limited Mobimagic Co., Ltd."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 506,
+          "completion_tokens": 175,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly names “Mobimagic Co., Ltd.” as a party to the Service Agreement (page 1) and shows it in the signature block alongside the other party (page 5), supporting it as the second party’s full legal name.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Mobimagic Co., Ltd.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 469,
+            "completion_tokens": 79
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Mobimagic Co., Ltd.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.09,
+              "confidence": 0.99,
+              "value": "Mobimagic Co., Ltd.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "Mobimagic Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "April. 1st 2019 (\"Effective Date\") by and between:"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1035,
+          "completion_tokens": 80,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly states the agreement is entered into on April 1st 2019 and labels it as the \"Effective Date,\" which corresponds to ISO date 2019-04-01.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2019-04-01",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 406,
+            "completion_tokens": 66
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2019-04-01",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "2019-04-01",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 4.14 SERVICE AGREEMENT This Service Agreement (\"Agreement\") is entered into on",
+              "snippet": "1.5 \"Service Period\" means April. 1st 2019 through to March 30, 2020."
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period, unless terminated earlier as provided in this Section."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2543,
+          "completion_tokens": 293,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The agreement defines the “Service Period” as April 1, 2019 through March 30, 2020, and states the Agreement continues in effect for the Service Period. This corresponds to a 12-month term length.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 12,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 452,
+            "completion_tokens": 75
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 12,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": 12,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES",
+              "snippet": "This Agreement (and any question about its subsistence, effect or termination) is to be interpreted in accordance with the laws of India, save for that body of law which governs the conflict of laws."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1094,
+          "completion_tokens": 108,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states the agreement is to be interpreted in accordance with the laws of India (excluding conflict of laws), which directly supports the selected governing law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "India",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 422,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "India",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "India",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "9. TERM & TERMINATION 9.1 The Agreement shall commence on the Effective Date and continue in effect for the Service Period, unless terminated earlier as provided in this Section."
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "9.2 This Agreement may be terminated by either Party prior to the end of the Service Period if the other Party is in material breach of any tem, or condition of this Agreement and such..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3005,
+          "completion_tokens": 267,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Provided evidence only shows the start of the Term & Termination section and a termination-for-breach clause fragment; it does not address termination for convenience or any notice period. The selected null value is therefore not supported by the cited text, and targeted retrieval of any convenience termination/notice language may yield a specific number of days.",
+            "confidence": 0.74,
+            "revised_query": "termination for convenience notice period days (\"terminate for convenience\" OR \"without cause\" OR \"for any reason\")",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 491,
+            "completion_tokens": 116
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "LIABLE FOR ANY CONSEQUENTIAL, INDIRECT, EXEMPLARY, SPECIAL, OR INCIDENTAL DAMAGES ARISING",
+              "snippet": "NEITHER PARTIES' TOTAL CUMULATIVE LIABILITY IN"
+            },
+            {
+              "page_num": 5,
+              "heading": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES",
+              "snippet": "THE AGGREGATE AMOUNT OF FEES AND EXPENSES OWED BY PC FINANCIAL TO MOBIMAGIC FOR SERVICES PERFORMED UNDER THIS AGREEMENT."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 984,
+          "completion_tokens": 161,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence on page 5 explicitly states that the parties' total cumulative liability is capped at “the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement,” which matches the selected value.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 518,
+            "completion_tokens": 75
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.84,
+              "confidence": 0.74,
+              "value": "the aggregate amount of fees and expenses owed by PC Financial to Mobimagic for services performed under this Agreement",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected value (has_evidence=false, evidence_count=0). Without contract text confirming absence of a non-solicitation provision, the boolean cannot be verified; targeted retrieval may resolve this.",
+            "confidence": 0.74,
+            "revised_query": "Locate any non-solicitation clause (e.g., 'non-solicit', 'solicit', 'non-interference', 'no poaching', 'non-circumvention') restricting solicitation of employees, customers, clients, or business partners.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 124
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.32,
+              "confidence": 0.22,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers. Without any clause text, it cannot be determined whether the agreement explicitly allows transfers outside the UK/EU, so the value should remain unknown.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 69
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.32,
+              "confidence": 0.22,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.38,
+              "confidence": 0.28,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all",
+              "snippet": "the Parties and their suppliers disclaim all warranties, either express or implied, statutory or otherwise"
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "Neither Party shall be liable to the other Party... for any loss of profit, business or goodwill or any indirect, incidental or consequential costs"
+            },
+            {
+              "page_num": 3,
+              "heading": "4.7 Data protection. Each Party agrees to comply with all applicable data protection and",
+              "snippet": "Reserve Bank of India (hereafter \"RBI\")... has right to access and inspect the PC Financial's documents, records... stored or processed by Mobimagic"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3382,
+          "completion_tokens": 291,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.4,
+              "confidence": 0.35,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all",
+              "snippet": "Mobimagic warrants that it will not take any action, or collect any data, which causes a breach of applicable law or PC Financial'& privacy policy and consent driven architecture."
+            },
+            {
+              "page_num": 2,
+              "heading": "3.4 Except as set forth in this Section 3, the Parties and their suppliers disclaim all",
+              "snippet": "Mobimagic shall not in any manner be held or be responsible or liable for any unforeseen contingency... arising due to absence of storage or retention of any PC Financial data which shall be the sole responsibility of PC Financial ."
+            },
+            {
+              "page_num": 4,
+              "heading": "6.5 In case of any complaint about using the Services as set out in this Agreement PC",
+              "snippet": "Neither Party shall be liable... for any loss of profit, business or goodwill or any indirect, incidental or consequential costs... except for such loss attributable to breach of confidentiality."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1083,
+          "completion_tokens": 308,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is driven by broad warranty and liability limitations that shift key responsibilities and reduce remedies. Mobimagic disclaims responsibility for unforeseen contingencies and for losses arising from lack of data storage/retention, placing that burden on PC Financial. The agreement also excludes liability for indirect or consequential losses (with a limited confidentiality carve-out), which can materially limit recovery if issues occur.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "This is a service agreement involving system/platform maintenance and data processing, which can create operational and data-handling risk. Liability is capped to the aggregate fees/expenses owed, which may be low relative to potential losses, though consequential damages are excluded except for confidentiality breaches. The term is fixed for the Service Period (about 12 months) and termination details for convenience/notice are not clearly specified in the provided excerpts.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "The risk level is driven by broad warranty and liability limitations that shift key responsibilities and reduce remedies. Mobimagic disclaims responsibility for unforeseen contingencies and for losses arising from lack of data storage/retention, placing that burden on PC Financial. The agreement also excludes liability for indirect or consequential losses (with a limited confidentiality carve-out), which can materially limit recovery if issues occur.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "The risk level is elevated because the agreement contains broad warranty disclaimers and significant limitations of liability, including exclusions for indirect and consequential damages. It also shifts key operational/data-retention risks to PC Financial by stating Mobimagic is not liable for losses arising from absence of storage or retention of PC Financial data. These provisions reduce recourse if the services fail or cause business impact.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "termination_notice_days",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu",
+          "risk_level",
+          "risk_explanation"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 7,
+          "party_roles_agent": 2,
+          "global_baseline": 1,
+          "verifier_unknown": 1,
+          "repair_agent": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 2,
+        "verifier_repair_fields": [
+          "non_solicit_clause_present",
+          "termination_notice_days"
+        ],
+        "verifier_decisions": {
+          "accept": 7,
+          "revise": 2,
+          "unknown": 1,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "non_solicit_clause_present",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.25,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 8,
+        "fields_without_evidence": [
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.8,
+        "evidence_snippets_total": 14,
+        "unique_evidence_pages": 3,
+        "avg_confidence": 0.76,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

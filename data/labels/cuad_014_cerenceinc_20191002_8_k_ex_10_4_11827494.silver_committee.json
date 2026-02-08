@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Nuance Communications, Inc.",
+  "party_b_name": "CERENCE INC.",
+  "effective_date": "2019-09-30",
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": null,
+  "liability_cap": "unknown (Section 7.01 Limitation on Liability referenced but cap amount/standard not provided in excerpts)",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU."
+}

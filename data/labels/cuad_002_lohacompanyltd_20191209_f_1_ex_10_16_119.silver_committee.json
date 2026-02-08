@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+  "party_b_name": "Shenzhen LOHAS Supply Chain Management Co., Ltd.",
+  "effective_date": null,
+  "term_length": 60,
+  "governing_law": "People's Republic of China",
+  "termination_notice_days": null,
+  "liability_cap": "Not specified in provided excerpts",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU."
+}

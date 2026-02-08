@@ -1,0 +1,975 @@
+{
+  "doc_type": "other",
+  "party_a_name": "METLIFE, INC.",
+  "party_b_name": "Deutsche Bank Trust Company Americas",
+  "effective_date": "2014-09-15",
+  "term_length": null,
+  "governing_law": "State of New York",
+  "termination_notice_days": 5,
+  "liability_cap": null,
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_010_metlife_inc_remarketing_agreement.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 77846,
+    "output_tokens": 5142,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "verifier requested revision for field 'effective_date'",
+      "verifier requested revision for field 'term_length'",
+      "verifier requested revision for field 'governing_law'",
+      "verifier requested revision for field 'termination_notice_days'",
+      "verifier requested revision for field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "Field 'liability_cap' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'liability_cap' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 115,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 27,
+              "heading": "Treasurer",
+              "snippet": "[Signature page to the Remarketing Agreement]"
+            },
+            {
+              "page_num": 26,
+              "heading": null,
+              "snippet": "20. Entire Agreement. This Remarketing Agreement supersedes all prior agreements and understandings..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 970,
+          "completion_tokens": 78,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly identifies the document as a \"Remarketing Agreement\" (signature page and entire agreement clause). This is neither an NDA nor an MSA, so classifying doc_type as \"other\" is supported.",
+            "confidence": 0.84,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 391,
+            "completion_tokens": 70
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 27,
+              "heading": "METLIFE, INC.",
+              "snippet": "METLIFE, INC."
+            },
+            {
+              "page_num": 21,
+              "heading": "Section 20 of the Exchange Act against any losses, claims, damages or liabilities (or",
+              "snippet": "actions in respect thereof) to which the Company may become subject,"
+            },
+            {
+              "page_num": 26,
+              "heading": null,
+              "snippet": "This Remarketing Agreement and the Pricing Agreement may be executed by any one or more of the parties hereto"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 948,
+          "completion_tokens": 107,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly shows the party name as “METLIFE, INC.” (page 27 heading/snippet). No conflicting party_a_name candidates or contradictory evidence are provided, and deterministic checks indicate no conflict and sufficient evidence.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "METLIFE, INC.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 455,
+            "completion_tokens": 73
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.93,
+              "confidence": 0.78,
+              "value": "METLIFE, INC.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 27,
+              "heading": "Treasurer",
+              "snippet": "[Signature page to the Remarketing Agreement]\nDEUTSCHE BANK TRUST COMPANY AMERICAS, as Stock Purchase Contract Agent"
+            },
+            {
+              "page_num": 28,
+              "heading": "Securities\")",
+              "snippet": "...Remarketing Agreement\") among ourselves as the Company, Deutsche Bank Trust Company\nAmericas, as Stock Purchase Contract Agent..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 975,
+          "completion_tokens": 110,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence explicitly names “DEUTSCHE BANK TRUST COMPANY AMERICAS” as a party in the signature page and in the agreement text (“…as the Company, Deutsche Bank Trust Company Americas, as Stock Purchase Contract Agent…”), supporting the selected party_b_name value. Alternative candidate “Deutsche Bank Securities Inc.” is not supported by the provided evidence snippets for the second party name.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Deutsche Bank Trust Company Americas",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 471,
+            "completion_tokens": 105
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Deutsche Bank Securities Inc.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.09,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "DEUTSCHE BANK TRUST COMPANY AMERICAS",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Deutsche Bank Trust Company Americas",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Effective on September 15, 2014, the Series E Debt Securities will automatically convert, without any act of any holder, into units consisting of two tranches,"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3052,
+          "completion_tokens": 178,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The evidence states “Effective on September 15, 2014” in the context of the Series E Debt Securities’ automatic conversion date, not clearly the date the overall agreement becomes effective. This may be a specific event date rather than the contract’s effective date; additional contract language (e.g., “This Agreement is effective as of…”) is needed to support the field.",
+            "confidence": 0.66,
+            "revised_query": "Find the clause stating when the agreement becomes effective (e.g., “effective as of”, “dated as of”, “commencement date”, “this agreement is effective on”).",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2014-09-15",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 425,
+            "completion_tokens": 139
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.37,
+              "confidence": 0.32,
+              "value": "2014-09-15",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.37,
+              "confidence": 0.32,
+              "value": "2014-09-15",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.1,
+              "confidence": 0.35,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "term_length": {
+          "source": "repair_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "(k) If at any time during the term of this Remarketing Agreement, any Event of Default (as defined in the Indenture) ... has occurred and is continuing under the Indenture, then the obligations and duties..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3798,
+          "completion_tokens": 165,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The evidence only references \"during the term of this Remarketing Agreement\" without stating a specific duration or end date. The selected null is not supported by a clear statement that the term length is indeterminable; better retrieval targeting the agreement’s Term/Duration/Effective Date/Termination clause may yield a determinable number of months.",
+            "confidence": 0.62,
+            "revised_query": "Locate the clause defining the Remarketing Agreement term (\"Term\", \"Duration\", \"Effective Date\", \"Expiration\", \"Termination\") and extract any stated length in months or start/end dates.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 412,
+            "completion_tokens": 132
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 28,
+              "heading": "Securities\")",
+              "snippet": "This letter is governed by, and shall be construed in accordance with, the laws of the\nState of New York."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1251,
+          "completion_tokens": 70,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected governing law value (“New York”). A clause-focused retrieval of the governing law section could confirm the correct jurisdiction.",
+            "confidence": 0.74,
+            "revised_query": "Governing Law clause / choice of law provision (e.g., \"This Agreement shall be governed by the laws of...\")",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "New York",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 368,
+            "completion_tokens": 84
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "New York",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.09,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.09,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": "State of New York",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 23,
+              "heading": null,
+              "snippet": "A Remarketing Agent may resign and be discharged... and the Company may remove... by giving five (5) Business Days' prior written notice..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 4645,
+          "completion_tokens": 153,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence explicitly states termination/removal may occur with five (5) Business Days' prior written notice, so the field should not be null. The correct notice period appears to be 5 (business) days.",
+            "confidence": 0.78,
+            "revised_query": "termination for convenience notice period five (5) Business Days prior written notice remove remarketing agent",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 414,
+            "completion_tokens": 88
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.02,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.02,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.47,
+              "confidence": 0.42,
+              "value": 5,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 22,
+              "heading": null,
+              "snippet": "the amount paid or payable by such indemnified party as a result of such losses, claims, damages or liabilities (or actions in respect thereof)..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "This Remarketing Agreement shall have the meanings set forth in the Stock Purchase Contract Agreement, the Pledge Agreement or the Indenture, as the case may be."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string"
+          ],
+          "prompt_tokens": 2961,
+          "completion_tokens": 196,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The selected value is null, but the field is not nullable. The provided evidence snippets discuss indemnified losses and cross-references to other agreements, but do not state any explicit monetary cap on liability. A targeted search for a limitation-of-liability clause (e.g., 'liability shall not exceed', 'aggregate liability', 'cap', 'limit of liability') is needed to confirm the cap text, if any.",
+            "confidence": 0.74,
+            "revised_query": "Search for limitation of liability / cap language: \"liability shall not exceed\" OR \"aggregate liability\" OR \"limit of liability\" OR \"cap\" OR \"in no event\" near \"fees\" or \"amount paid\" in the Remarketing Agreement.",
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": true,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'liability_cap' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 468,
+            "completion_tokens": 164
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero evidence snippets, the field cannot be verified; targeted retrieval may confirm presence/absence.",
+            "confidence": 0.74,
+            "revised_query": "non-solicitation clause solicit customers employees clients non-solicit",
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": true,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 342,
+            "completion_tokens": 78
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding whether data transfers outside the UK/EU are explicitly allowed. With zero supporting clauses, the value cannot be confirmed as yes or no, so 'unknown' is appropriate.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 70
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 16,
+              "heading": null,
+              "snippet": "...not to offer, sell, contract to offer or sell or otherwise dispose of any debt securities of the Company having pricing characteristics similar to the Securities exceeding an aggregate principal amount of $3 billion..."
+            },
+            {
+              "page_num": 19,
+              "heading": null,
+              "snippet": "...no downgrading shall have occurred in the rating accorded the debt securities of the Company or any Significant Subsidiary... by A.M. Best & Co., Fitch Ratings, Ltd., Moody's Investors Service..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1128,
+          "completion_tokens": 134,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.66,
+          "evidence": [
+            {
+              "page_num": 24,
+              "heading": null,
+              "snippet": "This Remarketing Agreement shall terminate (i) in the event of a Remarketing that is not a Successful Remarketing... In addition, the obligations of the Remarketing Agents may be terminated... if... conditions precedent... shall have failed to occur."
+            },
+            {
+              "page_num": 25,
+              "heading": "THE APPLICATION OF LAWS OF ANOTHER JURISDICTION.",
+              "snippet": "The Company agrees that any legal suit... may be instituted in any state or Federal court in the Borough of Manhattan... and... waives any objection... and irrevocably submits to the non-exclusive jurisdiction of such courts."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1118,
+          "completion_tokens": 211,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is elevated because the agreement can terminate if the remarketing is not successful or if conditions precedent fail, creating execution and continuity risk. It also contains a New York (Manhattan) jurisdiction and venue submission, which can increase litigation and enforcement exposure for the Company.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "This is a securities remarketing agreement with extensive representations, indemnities and procedural conditions typical of capital markets transactions, which can create meaningful legal and compliance exposure. The excerpts do not show a clear liability cap, effective date, or convenience-termination notice period, increasing uncertainty. Governing law and venue are New York/Manhattan, which may be less favorable for a small vendor depending on location and litigation costs.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.76,
+              "confidence": 0.66,
+              "value": "The risk level is elevated because the agreement can terminate if the remarketing is not successful or if conditions precedent fail, creating execution and continuity risk. It also contains a New York (Manhattan) jurisdiction and venue submission, which can increase litigation and enforcement exposure for the Company.",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "party_b_name",
+          "effective_date",
+          "term_length",
+          "governing_law",
+          "termination_notice_days",
+          "liability_cap"
+        ],
+        "disagreement_fields": [
+          "effective_date",
+          "governing_law",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "field_agent": 5,
+          "party_roles_agent": 1,
+          "repair_agent": 2,
+          "verifier_repair_agent": 2,
+          "global_baseline": 1,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [
+          "Field 'party_a_name' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+          "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+        ],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 4,
+        "verifier_repair_fields": [
+          "effective_date",
+          "governing_law",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_decisions": {
+          "accept": 3,
+          "revise": 6,
+          "unknown": 1,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "effective_date",
+          "governing_law",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.5833,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 8,
+        "fields_without_evidence": [
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.8,
+        "evidence_snippets_total": 13,
+        "unique_evidence_pages": 8,
+        "avg_confidence": 0.494,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

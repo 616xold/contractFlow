@@ -1,27 +1,29 @@
 {
   "doc_type": "other",
-  "party_a_name": "Electric City Corp., a Delaware corporation",
-  "party_b_name": "Electric City of Illinois LLC",
-  "effective_date": "1999-09-07",
+  "party_a_name": "Electric City Corp.",
+  "party_b_name": "Electric City of Illinois L.L.C.",
+  "effective_date": null,
   "term_length": 120,
   "governing_law": "State of Illinois",
   "termination_notice_days": 30,
-  "liability_cap": "No explicit overall monetary liability cap stated; agreement excludes consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing.",
+  "liability_cap": "No explicit monetary liability cap stated; excludes consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing.",
   "non_solicit_clause_present": true,
   "data_transfer_outside_uk_eu": "unknown",
-  "risk_level": "medium",
-  "risk_explanation": "This is a long-term (10-year) exclusive distributor agreement with termination for cause on 30 days’ notice, which can create lock-in and operational risk. There is no clear overall cap on liability, though consequential/liquidated damages for late delivery are disclaimed unless expressly agreed. The agreement also includes injunctive relief provisions and a non-solicitation/non-compete style restriction, increasing enforcement and business risk.",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: governing law (governing law appears outside uk/eu.); Secondary driver: liability cap (liability cap text could not be normalized.); Mitigating factor: non-solicit clause (non-solicit obligations are present.); Some critical factors have limited evidence or confidence. Final risk level: high.",
   "_meta": {
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_000_limeenergyco_09_09_1999_ex_10_distributo.pdf",
     "model": "gpt-5.2",
     "mode": "retrieval",
-    "input_tokens": 6967,
-    "output_tokens": 212,
+    "input_tokens": 7073,
+    "output_tokens": 194,
     "validate": true,
     "strict": false,
     "coerce": true,
     "structured_outputs": true,
-    "issues": [],
+    "issues": [
+      "risk_explanation overridden by risk engine v2"
+    ],
     "retrieval": {
       "enabled": true,
       "mode": "retrieval_context",
@@ -29,6 +31,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -43,6 +51,102 @@
         "hit_ratio": 1.0,
         "total_hits": 36,
         "avg_hits_per_field": 3.0
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: governing law (governing law appears outside uk/eu.); Secondary driver: liability cap (liability cap text could not be normalized.); Mitigating factor: non-solicit clause (non-solicit obligations are present.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.52,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": null,
+        "judge_confidence": null,
+        "arbitration": "rules_only",
+        "hard_triggers": [],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 0.0,
+          "critical_avg_confidence": 0.5,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "No explicit monetary liability cap stated; excludes consequential or liquidated damages for late delivery unless Company specifically acknowledges and agrees in writing.",
+            "severity": "medium",
+            "contribution": 14.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Liability cap text could not be normalized."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of Illinois",
+            "severity": "high",
+            "contribution": 20.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Governing law appears outside UK/EU."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": 120,
+            "severity": "high",
+            "contribution": 8.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Initial term exceeds 36 months."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": 30,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Termination notice period is moderate (16-30 days)."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": true,
+            "severity": "low",
+            "contribution": -3.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Non-solicit obligations are present."
+          }
+        ],
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "judge_raw_text": ""
       }
     }
   }

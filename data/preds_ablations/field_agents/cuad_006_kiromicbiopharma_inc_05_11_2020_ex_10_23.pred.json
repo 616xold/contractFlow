@@ -1,6 +1,6 @@
 {
   "doc_type": "other",
-  "party_a_name": "Scott Dahlbeck Gianluca Rotino",
+  "party_a_name": "Kiromic, Inc, a Delaware corporation",
   "party_b_name": "Gianluca Rotino",
   "effective_date": "2018-07-01",
   "term_length": null,
@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_006_kiromicbiopharma_inc_05_11_2020_ex_10_23.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 25862,
-    "output_tokens": 2036,
+    "input_tokens": 27247,
+    "output_tokens": 2103,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -34,6 +34,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -41,53 +47,102 @@
       "total_chunks": 22,
       "fields": {
         "doc_type": {
-          "confidence": 0.72,
-          "evidence": [
-            {
-              "page_num": 1,
-              "heading": "Dear Gianluca:",
-              "snippet": "Kiromic, Inc... offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities..."
-            },
-            {
-              "page_num": 1,
-              "heading": "Dear Gianluca:",
-              "snippet": "2. Confidentiality. \"Confidential Information\" means any proprietary information technical data, trade secrets or know-how... disclosed to Consultant by Company..."
-            }
-          ],
-          "attempts": 1,
-          "issues": [],
-          "prompt_tokens": 983,
-          "completion_tokens": 121
-        },
-        "party_a_name": {
-          "confidence": 0.32,
-          "evidence": [
-            {
-              "page_num": 6,
-              "heading": "Name: Scott Dahlbeck Gianluca Rotino",
-              "snippet": "Name: Scott Dahlbeck Gianluca Rotino"
-            }
-          ],
-          "attempts": 1,
-          "issues": [],
-          "prompt_tokens": 2218,
-          "completion_tokens": 123
-        },
-        "party_b_name": {
+          "source": "field_agent",
           "confidence": 0.78,
           "evidence": [
             {
               "page_num": 1,
               "heading": "Dear Gianluca:",
+              "snippet": "...offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 983,
+          "completion_tokens": 71
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
               "snippet": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\")"
+            },
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
             }
           ],
           "attempts": 2,
           "issues": [],
-          "prompt_tokens": 2342,
-          "completion_tokens": 154
+          "prompt_tokens": 802,
+          "completion_tokens": 157,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "Kiromic, Inc",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.03,
+              "confidence": 0.93,
+              "value": "Kiromic, Inc, a Delaware corporation",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\")"
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "provided that no such severability shall be effective if it materially changes the economic benefit of this Agreement to either Company or Consultant."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 803,
+          "completion_tokens": 157,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.6,
+              "confidence": 0.55,
+              "value": "Gianluca Rotino",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.0,
+              "confidence": 0.9,
+              "value": "Gianluca Rotino",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.78,
           "evidence": [
             {
@@ -102,7 +157,8 @@
           "completion_tokens": 165
         },
         "term_length": {
-          "confidence": 0.28,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
               "page_num": 3,
@@ -118,9 +174,10 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2339,
-          "completion_tokens": 154
+          "completion_tokens": 184
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -135,7 +192,8 @@
           "completion_tokens": 66
         },
         "termination_notice_days": {
-          "confidence": 0.22,
+          "source": "field_agent",
+          "confidence": 0.28,
           "evidence": [
             {
               "page_num": 3,
@@ -149,6 +207,7 @@
           "completion_tokens": 116
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -161,43 +220,46 @@
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 2785,
+          "prompt_tokens": 2815,
           "completion_tokens": 146
         },
         "non_solicit_clause_present": {
-          "confidence": 0.34,
+          "source": "field_agent",
+          "confidence": 0.18,
           "evidence": [
             {
-              "page_num": 4,
-              "heading": "none",
-              "snippet": "formation of any business or commercial entity in the Field of Interest or otherwise competitive with the Company."
+              "page_num": 5,
+              "heading": null,
+              "snippet": "This letter agreement and the Company's standard Proprietary Information and Inventions Agreement supersede and replace any prior agreements... and constitute the complete agreement between you and the Company..."
             },
-            {
-              "page_num": 1,
-              "heading": "Dear Gianluca:",
-              "snippet": "2. Confidentiality. \"Confidential Information\" means any proprietary information technical data, trade secrets or know-how..."
-            }
-          ],
-          "attempts": 2,
-          "issues": [],
-          "prompt_tokens": 2801,
-          "completion_tokens": 229
-        },
-        "data_transfer_outside_uk_eu": {
-          "confidence": 0.22,
-          "evidence": [
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "Consultant agrees that Consultant owes Company and such third parties, during the term of this Agreement and thereafter, a duty to hold all such confidential or proprietary information in the strictest confidence and not to disclose it to any person..."
+              "snippet": "...perform such acts as my be necessary... for the purposes of perfecting the foregoing assignments and obtaining, enforcing and defending intellectual property rights..."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2801,
+          "completion_tokens": 144
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Dear Gianluca:",
+              "snippet": "\"Confidential Information\" means any proprietary information technical data, trade secrets or know-how... disclosed to Consultant by Company either directly or indirectly in writing, orally or otherwise."
+            }
+          ],
+          "attempts": 1,
           "issues": [],
           "prompt_tokens": 2901,
-          "completion_tokens": 211
+          "completion_tokens": 162
         },
         "risk_level": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
@@ -208,22 +270,23 @@
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "...all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation by Company of such third party's rights..."
+              "snippet": "...all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation by Company..."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 890,
-          "completion_tokens": 107,
+          "completion_tokens": 101,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.44,
           "evidence": [
             {
               "page_num": 3,
-              "heading": null,
+              "heading": "none",
               "snippet": "Either Consultant or Company may terminate this Agreement upon prior written notice thereof to the other party."
             },
             {
@@ -233,14 +296,14 @@
             },
             {
               "page_num": 2,
-              "heading": null,
+              "heading": "none",
               "snippet": "Upon the termination of this Agreement, or upon Company's earlier requests, Consultant will deliver to Company all property relating to, and all tangible embodiments of, Inventions"
             }
           ],
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 2810,
-          "completion_tokens": 444,
+          "completion_tokens": 372,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -250,9 +313,9 @@
         "fields_with_evidence": 10,
         "fields_without_evidence": [],
         "evidence_ratio": 1.0,
-        "evidence_snippets_total": 13,
-        "unique_evidence_pages": 6,
-        "avg_confidence": 0.476,
+        "evidence_snippets_total": 14,
+        "unique_evidence_pages": 5,
+        "avg_confidence": 0.535,
         "min_confidence": 0.12
       }
     }

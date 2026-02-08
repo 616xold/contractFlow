@@ -1,0 +1,89 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Bravatek Solutions, Inc.","party_b_name":"Sibannac, Inc.","effective_date":"2017-11-30","term_length":12,"governing_law":"State of Texas","termination_notice_days":90,"liability_cap":"No liability cap stated in provided excerpts.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This strategic alliance agreement includes broad confidentiality obligations and an indemnification provision, but the provided excerpts do not show any explicit limitation of liability or liability cap, which can increase exposure. Termination requires 90 days' notice, reducing flexibility for a small vendor. No data transfer terms are shown, leaving privacy/compliance requirements unclear."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this","snippet":"Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this"}],"confidence":0.86,"value":"other"}
+
+JOINT_PARTY_AGENT
+{"party_a_name":"Bravatek Technologies, Inc.","party_b_name":"Sibannac, Inc.","party_a_evidence":[{"page_num":3,"heading":null,"snippet":"Bravatek Technologies,\nInc."},{"page_num":2,"heading":null,"snippet":"Bravatek Technologies, Inc. 2028 E. Ben White Blvd., Unit #240-2835 Austin, Texas 78741"}],"party_b_evidence":[{"page_num":3,"heading":null,"snippet":"Sibannac, Inc."},{"page_num":2,"heading":null,"snippet":"Sibannac, Inc. 2122 E Highland Avenue, STE 425 Phoenix, AZ 85016"}],"party_a_confidence":0.96,"party_b_confidence":0.96}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this","snippet":"... by and between Bravatek Solutions, Inc., a corporation organized under the laws of the State of Colorado, (\"Bravatek\"), ... and Sibannac, Inc. (\"COMPANY\")..."}],"confidence":0.86,"value":"Bravatek Solutions, Inc."}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Bravatek Technologies,\nInc.  Sibannac, Inc."},{"page_num":2,"heading":null,"snippet":"Bravatek Technologies, Inc. 2028 E. Ben White Blvd., Unit #240-2835 Austin, Texas 78741 Sibannac, Inc. 2122 E Highland Avenue, STE 425 Phoenix, AZ 85016"}],"confidence":0.78,"value":"Sibannac, Inc."}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":3,"heading":"Date: November 30, 2017  Date: November 30, 2017","snippet":"Date: November 30, 2017  Date: November 30, 2017"},{"page_num":2,"heading":null,"snippet":"The term of this Agreement is twelve (12) months from the date hereof"}],"confidence":0.72,"value":"2017-11-30"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":2,"heading":null,"snippet":"7) Term The term of this Agreement is twelve (12) months from the date hereof, and will be automatically renewed for one (1) additional twelve month period"}],"confidence":0.98,"value":12}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":2,"heading":null,"snippet":"9) Governing Law This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas."}],"confidence":0.98,"value":"State of Texas"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":2,"heading":null,"snippet":"This Agreement may also be terminated by either party upon ninety (90) days written notice."}],"confidence":0.9,"value":90}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":2,"heading":null,"snippet":"10) Indemnification COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs..."},{"page_num":3,"heading":null,"snippet":"attorney's fees and court costs, incurred in connection with any third-party claim, action or proceeding arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this","snippet":"COMPANY agrees to use its best efforts to promote and support project lead finding and after-sales support of Bravatek by:"},{"page_num":2,"heading":null,"snippet":"5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects..."}],"confidence":0.22,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[],"confidence":0.18,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":2,"heading":null,"snippet":"Bravatek will receive a lead-finder fee... minimum of 10% to maximum of 20% of project revenue... payable NET 30 days after each client payment"},{"page_num":2,"heading":null,"snippet":"COMPANY and Bravatek agree to maintain in strict confidence and not to disclose or disseminate... the Confidential Information disclosed."},{"page_num":3,"heading":null,"snippet":"attorney's fees and court costs... arising from the negligence or intentional misconduct of Bravatek or breach of Bravatek of any of its obligations under this Agreement."}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":2,"heading":null,"snippet":"COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs incurred in connection with any third-party claim"},{"page_num":2,"heading":null,"snippet":"This Agreement may also be terminated by either party upon ninety (90) days written notice."},{"page_num":2,"heading":null,"snippet":"Bravatek will receive a lead-finder fee... to be mutually discussed and finally decided by COMPANY at the range of minimum of 10% to maximum of 20% of project revenue"}],"confidence":0.44,"value":"The agreement creates meaningful financial and legal exposure because it includes a broad indemnification obligation for third‑party claims, potentially including attorney’s fees and court costs. Commercial terms also have uncertainty, since the lead‑finder fee is within a 10%–20% range and the exact amount is left to COMPANY to decide. Additionally, either party can terminate on 90 days’ notice, which can disrupt expected revenue and ongoing obligations."}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":2,"heading":null,"snippet":"For any Product or Solution sold... Bravatek will receive a lead-finder fee... at the range of minimum of 10% to maximum of 20% of project revenue..."},{"page_num":2,"heading":null,"snippet":"5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information..."},{"page_num":2,"heading":null,"snippet":"7) Term The term of this Agreement is twelve (12) months from the date hereof..."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":null,"snippet":"5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects of party and products, services and business of each of the parties."},{"page_num":1,"heading":"Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this","snippet":"COMPANY agrees to use its best efforts to promote and support project lead finding and after-sales support of Bravatek by:"}],"confidence":0.22,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"\"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects... COMPANY and Bravatek agree to maintain in strict confidence and not to disclose or disseminate..."}],"confidence":0.18,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":3,"heading":null,"snippet":"attorney's fees and court costs, incurred in connection with any third-party claim, action\nor proceeding arising from the negligence or intentional misconduct of Bravatek or breach\nof Bravatek of any of its obligations under this Agreement."},{"page_num":2,"heading":null,"snippet":"Bravatek will receive a lead-finder fee... minimum of 10% to maximum of 20% of project revenue... with an exact fee to be depending upon the overall project sales margin and cost of development"}],"confidence":0.62,"value":"medium"}
+
+REPAIR_AGENT risk_explanation
+{"evidence":[{"page_num":2,"heading":null,"snippet":"This Agreement may also be terminated by either party upon ninety (90) days written notice."},{"page_num":2,"heading":null,"snippet":"COMPANY shall indemnify Bravatek, its directors, officers and employees, for any and all damages, costs, expenses, and other liabilities, including reasonable attorney's fees and court costs incurred in connection with any third-party claim"},{"page_num":2,"heading":null,"snippet":"Bravatek will receive a lead-finder fee... at the range of minimum of 10% to maximum of 20% of project revenue, with an exact fee to be depending upon the overall project sales margin..."}],"confidence":0.62,"value":"The agreement includes potentially material financial and legal exposure, including a broad indemnification obligation and a variable lead-finder fee (10%–20%) that is ultimately decided by the Company. It also allows termination by either party on 90 days’ notice, which can create revenue uncertainty and transition risk. These provisions together support a moderate risk assessment due to cost variability and liability allocation."}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"The evidence shows the document is titled “Strategic Alliance Agreement,” which is neither an NDA nor an MSA, so classifying the doc_type as “other” is supported.","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The evidence explicitly states “Bravatek Technologies, Inc.” (page 2) and also shows the same name split across lines (page 3: “Bravatek Technologies, Inc.”). This directly supports the selected party_a_name.","confidence":0.98,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence snippets explicitly state the party name as “Sibannac, Inc.” (pages 2 and 3), with no conflicting candidates or validation issues.","confidence":0.98,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"Evidence explicitly states \"Date: November 30, 2017\" and the agreement term is defined as running from \"the date hereof,\" supporting November 30, 2017 as the effective date. The selected value matches this date and is properly normalized to ISO format.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"Evidence explicitly states: \"The term of this Agreement is twelve (12) months from the date hereof,\" which directly supports a 12-month term length.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states the agreement shall be interpreted according to the laws of the State of Texas, directly supporting the selected governing law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The evidence explicitly states the agreement may be terminated by either party upon ninety (90) days written notice, which directly supports a termination notice period of 90 days for convenience.","confidence":0.95,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support the assertion that there is no liability cap. Without contract text, the liability cap cannot be verified or safely stated as absent.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"revise","reason":"No evidence was provided to support the selected value (has_evidence=false, evidence_count=0). Without contract text confirming absence of a non-solicitation provision, the boolean cannot be verified; targeted retrieval may resolve this.","confidence":0.74,"revised_query":"Locate any non-solicitation clause (e.g., 'non-solicit', 'solicit', 'no solicitation', 'non-interference') restricting solicitation of employees, customers, clients, or business partners."}
+
+VERIFIER_REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":null,"snippet":"5) Confidentiality \"Confidential information\" shall mean any and all technical and non-technical information, documents and materials related to client projects of party and products, services and business of each of the parties."},{"page_num":1,"heading":"Exhibit 2.01   Strategic Alliance Agreement   This agreement is made and entered into this","snippet":"COMPANY agrees to use its best efforts to promote and support project lead finding and after-sales support of Bravatek by:"}],"confidence":0.22,"value":false}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

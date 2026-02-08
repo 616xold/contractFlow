@@ -1,0 +1,118 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Veoneer AB and Veoneer US, Inc.","party_b_name":"Nissin Kogyo Co., Ltd., Nissin Kogyo Holdings USA, Inc., and Zhongshan Nissin Industry Co., Ltd.","effective_date":"2019-10-30","term_length":null,"governing_law":"Japan","termination_notice_days":null,"liability_cap":"No liability cap specified in the provided excerpts.","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"medium","risk_explanation":"This is an amendment and termination of a joint venture agreement, not a standard SaaS contract, and it includes survival of liability for pre-closing breaches despite termination. The excerpts also reference ongoing D&O indemnity/reimbursement obligations for liabilities arising prior to the closings. No liability cap or termination-for-convenience notice period is shown in the excerpts, increasing uncertainty for a small vendor."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":3,"heading":"Signature Page to Amendment and Termination of Joint Venture Agreement","snippet":"Signature Page to Amendment and Termination of Joint Venture Agreement"},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"Article 1.Amendment and Termination of JV Agreement"}],"confidence":0.72,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Veoneer AB",
+  "party_b_name": "Nissin Kogyo Co., Ltd.",
+  "party_a_evidence": [
+    {
+      "page_num": 3,
+      "heading": "Veoneer AB",
+      "snippet": "Veoneer AB"
+    },
+    {
+      "page_num": 3,
+      "heading": "Veoneer AB",
+      "snippet": "Veoneer US, Inc."
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 3,
+      "heading": "Veoneer AB",
+      "snippet": "Nissin Kogyo Co., Ltd."
+    },
+    {
+      "page_num": 1,
+      "heading": "2016 to engage in the JV Business through Veoneer Nissin Brake Systems Japan, Co., Ltd.",
+      "snippet": "(B)The Autoliv Parties, the Veoneer Parties and the Nissin Parties entered into that certain Addendum to Joint Venture Agreement"
+    }
+  ],
+  "party_a_confidence": 0.55,
+  "party_b_confidence": 0.55
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"...entered into effective as of October 30, 2019 (the \"Effective Date\") by and among (1) Veoneer AB, a Swedish corporation (\"Veoneer AB\") and Veoneer US, Inc."},{"page_num":3,"heading":"Veoneer AB","snippet":"Veoneer AB\nBy: /s/ Mats Backman Name: Mats Backman Title: Director"}],"confidence":0.86,"value":"Veoneer AB"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"...by and among (1) Veoneer AB... and Veoneer US, Inc.... (the \"Veoneer Parties\"), and (2) Nissin Kogyo Co., Ltd., a Japanese corporation (\"Nissin\"), ... (the \"Nissin Parties\")"}],"confidence":0.62,"value":"Nissin Kogyo Co., Ltd."}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"This AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT (this \"Amendment\") is made and entered into effective as of October 30, 2019 (the \"Effective Date\")"}],"confidence":0.98,"value":"2019-10-30"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"This AMENDMENT AND TERMINATION OF JOINT VENTURE AGREEMENT (this \"Amendment\") is made and entered into effective as of October 30, 2019 (the \"Effective Date\")"},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"}],"confidence":0.18,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":3,"heading":"Article 3.Governing Law","snippet":"This Amendment shall be governed by and construed in accordance with the laws of Japan."}],"confidence":0.99,"value":"Japan"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBZ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"}],"confidence":0.18,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":2,"heading":"ANRA.","snippet":"...shall not release any Veoneer Party or any Nissin Party from liability for the breach of any of its representations, warranties, covenants or agreements set forth in the JV Agreement..."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing, except as expressly set forth in this Amendment, the JV Agreement shall immediately cease to have any application or effect..."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"},{"page_num":1,"heading":"RECITALS","snippet":"The Autoliv Parties and the Nissin Parties entered into the JV Agreement as of March 7,"}],"confidence":0.12,"value": "unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":2,"heading":"ANRA.","snippet":"the termination of the JV Agreement... shall not release any Veoneer Party or any Nissin Party from liability for the breach of any of its representations, warranties, covenants or agreements"}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect with respect to VNBJ... all rights and obligations with respect to VNBJ under the JV Agreement shall terminate"},{"page_num":2,"heading":"ANRA.","snippet":"the termination of the JV Agreement... shall not release any Veoneer Party or any Nissin Party from liability for the breach of any of its representations, warranties, covenants or agreements... that arise prior to the VNBJ Closing or the VNBZ Closing"},{"page_num":2,"heading":"Article 2.D&O Indemnity","snippet":"the Nissin Parties agree to cause each of VNBJ and VNBZ to comply with Sections 4.3.2 and 4.3.3 of the JV Agreement with respect to the indemnification or reimbursement... of all Directors and Officers... with respect to any Liabilities arising prior"}],"confidence":0.62,"value":"The JV Agreement is being terminated as of the VNBJ and VNBZ closings, ending most ongoing rights and obligations for those entities. However, termination does not release either party from liability for pre-closing breaches, and certain indemnification obligations for directors and officers survive for liabilities arising prior to closing. These surviving liabilities and indemnity commitments create continuing post-termination exposure, supporting a higher risk assessment."}
+
+REPAIR_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"...entered into effective as of October 30, 2019... by and among (1) Veoneer AB... and Veoneer US, Inc.... (the \"Veoneer Parties\"), and (2) Nissin Kogyo Co., Ltd., a Japanese corporation (\"Nissin\")..."}],"confidence":0.78,"value":"Nissin Kogyo Co., Ltd."}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"JOINT VENTURE AGREEMENT","snippet":"...as an amendment to that certain Joint Venture Agreement dated March 7,"},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect..."}],"confidence":0.12,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"},{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBZ Closing... the JV Agreement shall immediately cease to have any application or effect... all rights and obligations... shall terminate"}],"confidence":0.18,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":2,"heading":"ANRA.","snippet":"...shall not release any Veoneer Party or any Nissin Party from liability for the breach of any of its representations, warranties, covenants or agreements set forth in the JV Agreement..."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":"Article 2.D&O Indemnity","snippet":"...comply with Sections 4.3.2 and 4.3.3 of the JV Agreement with respect to the indemnification or reimbursement... of all Directors and Officers..."}],"confidence":0.18,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"Article 1.Amendment and Termination of JV Agreement","snippet":"As of the VNBJ Closing... the JV Agreement shall immediately cease to have any application or effect with respect to VNBJ..."}],"confidence":0.12,"value":"unknown"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"Evidence indicates the document is an \"Amendment and Termination of Joint Venture Agreement,\" which is neither an NDA nor an MSA, so classifying doc_type as \"other\" is supported.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The agreement’s introductory clause lists “(1) Veoneer AB, a Swedish corporation” as a party, and the signature block separately identifies “Veoneer AB,” supporting it as the full legal name of the first party.","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The evidence explicitly identifies the second party as “(2) Nissin Kogyo Co., Ltd., a Japanese corporation (\"Nissin\")”, which directly supports the selected party_b_name.","confidence":0.93,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence explicitly states the Amendment is \"made and entered into effective as of October 30, 2019 (the 'Effective Date')\", which supports the selected effective_date value normalized to ISO format as 2019-10-30.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"The provided evidence describes an amendment and termination effective as of a specific date and states the JV Agreement ceases to have effect as of the closing, but it does not specify a fixed term length in months. Therefore, the term length is not determinable from the evidence and null is appropriate.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states: \"This Amendment shall be governed by and construed in accordance with the laws of Japan,\" which directly supports the selected governing_law value \"Japan.\"","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"accept","reason":"The provided evidence describes immediate termination upon closing and does not specify any notice period for termination for convenience. Therefore, a numeric termination_notice_days value is not supported, and null is appropriate.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No excerpts or evidence were provided to support the assertion that there is no liability cap. Without contract text (e.g., a Limitation of Liability clause), the field cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"unknown","reason":"No evidence was provided to support the selected value (false). Without contract text or clause excerpts, presence/absence of a non-solicitation clause cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

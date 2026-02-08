@@ -1,0 +1,129 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Thrivent Financial for Lutherans","party_b_name":"Thrivent Life Insurance Company","effective_date":"2019-07-01","term_length":null,"governing_law":"unknown","termination_notice_days":null,"liability_cap":"unknown","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"The contract includes a maintenance of solvency provision requiring the member/contract owner to make an extra payment if the Society’s solvency becomes impaired, with nonpayment becoming indebtedness accruing 5% interest. This creates potentially open-ended financial exposure and is unfavorable to a small vendor. Key commercial protections like a clear liability cap and governing law are not evident in the provided excerpts."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All assets and related liabilities of Thrivent Life Insurance Company have been transferred to Thrivent Financial for Lutherans. That includes contracts of insurance... All benefits and other terms of this contract remain unchanged"},{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary. The following provisions are included as part of this contract:"}],"confidence":0.72,"value":"other"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Thrivent Life Insurance Company",
+  "party_b_name": "Thrivent Financial for Lutherans",
+  "party_a_evidence": [
+    {
+      "page_num": 3,
+      "heading": null,
+      "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans"
+    },
+    {
+      "page_num": 4,
+      "heading": "Effective Date: July 1, 2019",
+      "snippet": "Thrivent Life Insurance Company has been dissolved."
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 3,
+      "heading": null,
+      "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans"
+    },
+    {
+      "page_num": 4,
+      "heading": "Effective Date: July 1, 2019",
+      "snippet": "All assets and related liabilities of Thrivent Life Insurance Company have been transferred to Thrivent Financial for Lutherans."
+    },
+    {
+      "page_num": 4,
+      "heading": "Effective Date: July 1, 2019",
+      "snippet": "Thrivent Financial for Lutherans now has all obligations under this contract."
+    }
+  ],
+  "party_a_confidence": 0.55,
+  "party_b_confidence": 0.72
+}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"Thrivent Financial for Lutherans now has all obligations under this contract."},{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All references to \"Thrivent Life Insurance Company\" are amended to read \"Thrivent Financial for Lutherans.\""},{"page_num":3,"heading":null,"snippet":"Thrivent Life Insurance Company Thrivent Financial for Lutherans"}],"confidence":0.78,"value":"Thrivent Financial for Lutherans"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All assets and related liabilities of Thrivent Life Insurance Company have been transferred to Thrivent Financial for Lutherans."},{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All references to \"Thrivent Life Insurance Company\" are amended to read \"Thrivent Financial for Lutherans.\""}],"confidence":0.62,"value":"Thrivent Financial for Lutherans"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"Heading: Effective Date: July 1, 2019"}],"confidence":0.98,"value":"2019-07-01"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."},{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."}],"confidence":0.12,"value":null}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"Thrivent Financial for Lutherans now has all obligations under this contract."},{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."},{"page_num":1,"heading":"You may direct inquiries to:","snippet":"If you do not make the extra payment within 60 days from the date we notify you of your share of the deficiency, the amount will be charged as an indebtedness against the contract..."}],"confidence":0.12,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All benefits and other terms of this contract remain unchanged except as described below."},{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":"DEFINITIONS","snippet":"The DEFINITIONS section of the contract is amended to include the following:"},{"page_num":2,"heading":"Is amended to read:","snippet":"Is amended to read:"},{"page_num":3,"heading":null,"snippet":"Thrivent Life Insurance Company Thrivent Financial for Lutherans"}],"confidence":0.12,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"ASSIGNMENT","snippet":"You may transfer ownership of this contract in accordance with our bylaws."}],"confidence":0.18,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"MAINTENANCE OF SOLVENCY... If the solvency of the Society becomes impaired, you may be required to make an extra payment... If you do not make the extra payment within 60 days... interest compounded at the rate of 5% per year."}],"confidence":0.62,"value":"high"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"If the solvency of the Society becomes impaired, you may be required to make an extra payment... If you do not make the extra payment within 60 days... the amount will be charged as an indebtedness... at 5% per year."},{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"The Entire Contract consists of... The Articles of Incorporation and Bylaws of the Society and all amendments to them. Benefits will not be reduced or eliminated by any future amendments..."}],"confidence":0.74,"value":"The risk level is elevated because the contract includes a “maintenance of solvency” provision that can require the member to make extra payments if the Society’s solvency becomes impaired, and unpaid amounts accrue interest as indebtedness. This creates potential unexpected financial obligations beyond normal premiums. However, the contract also states that future bylaw amendments will not reduce or eliminate benefits, which partially limits governance-change risk."}
+
+REPAIR_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."},{"page_num":2,"heading":"The following provisions of this contract are amended:","snippet":"The following provisions of this contract are amended:"},{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."}],"confidence":0.12,"value":null}
+
+REPAIR_AGENT governing_law
+{"evidence":[{"page_num":2,"heading":"ENTIRE CONTRACT","snippet":"In the ENTIRE CONTRACT section, the first phrase and numbered list are amended to read: The Entire Contract consists of: 1) This contract including any attached riders,"},{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"Thrivent Financial for Lutherans now has all obligations under this contract. It is the same as if Thrivent Financial for Lutherans had originally issued the contract."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All benefits and other terms of this contract remain unchanged except as described below."},{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."}],"confidence":0.12,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."},{"page_num":1,"heading":"Effective Date: July 1, 2019","snippet":"All benefits and other terms of this contract remain unchanged except as described below."}],"confidence":0.12,"value":""}
+
+REPAIR_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary. The following provisions are included as part of this contract: MAINTENANCE OF SOLVENCY... MEMBERSHIP..."}],"confidence":0.12,"value":false}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"ASSIGNMENT","snippet":"You may transfer ownership of this contract in accordance with our bylaws."},{"page_num":2,"heading":"DEFINITIONS","snippet":"Service Center. Where this contract is administered. Our Service Center address is 4321 North Ballard Road, Appleton, WI 54919-0001."}],"confidence":0.18,"value":"unknown"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"Evidence describes amendments to an insurance contract and transfer of assets/liabilities, not an NDA or MSA. Classifying the document as 'other' is supported.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"Evidence explicitly states that all references to “Thrivent Life Insurance Company” are amended to read “Thrivent Financial for Lutherans,” and that Thrivent Financial for Lutherans now has all obligations under the contract. This supports identifying Party A as “Thrivent Financial for Lutherans.”","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"Evidence explicitly names “Thrivent Financial for Lutherans” and states that all assets/liabilities were transferred to it and that it now has all obligations under the contract, supporting it as the second party’s full legal name.","confidence":0.78,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence explicitly states \"Effective Date: July 1, 2019\" on page 1, which supports the selected effective_date value normalized to ISO format as 2019-07-01. No conflicts or validation issues are indicated.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"unknown","reason":"Provided evidence snippets discuss amendments and an entire contract clause but do not state any agreement term duration or effective/expiration dates from which a term length in months can be calculated. Null cannot be confirmed as correct; the term may exist elsewhere in the contract.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"revise","reason":"Selected value is null but the field is required to be a non-empty string. Provided evidence snippets do not mention a governing law/jurisdiction clause, so better targeted retrieval is needed to confirm the applicable law.","confidence":0.74,"revised_query":"Governing Law clause / 'This contract shall be governed by the laws of' / jurisdiction (state/country)"}
+
+VERIFIER_REPAIR_AGENT governing_law
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"Thrivent Financial for Lutherans 4321 N. Ballard Road Appleton, WI 54919-0001 (800)\n847-4836"}],"confidence":0.12,"value":""}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"unknown","reason":"The provided evidence only mentions a 60-day payment deadline after notice of a deficiency, not a termination-for-convenience notice period. No clause about terminating for convenience or required notice days is shown, so the null value is not supported by the evidence.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"revise","reason":"Selected value is null but the field is not nullable, and the provided evidence snippets do not mention any limitation of liability or a monetary cap. A clause-focused retrieval targeting the Limitation of Liability section is likely to resolve the value.","confidence":0.74,"revised_query":"Limitation of Liability clause: liability cap amount (e.g., 'fees paid in last 12 months', 'total fees', 'aggregate liability') and any exclusions"}
+
+VERIFIER_REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":1,"heading":"You may direct inquiries to:","snippet":"The following amendments apply in lieu of any contract provisions to the contrary."},{"page_num":1,"heading":"You may direct inquiries to:","snippet":"MAINTENANCE OF SOLVENCY. ... If the solvency of the Society becomes impaired, you may be required to make an extra payment."}],"confidence":0.12,"value":""}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"unknown","reason":"No evidence was provided to support the assertion that a non-solicitation clause is absent. Without contract text or clause excerpts, the boolean value cannot be verified.","confidence":0.74,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}

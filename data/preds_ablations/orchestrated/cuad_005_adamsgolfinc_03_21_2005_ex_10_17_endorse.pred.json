@@ -1,0 +1,935 @@
+{
+  "doc_type": "other",
+  "party_a_name": "ADAMS GOLF",
+  "party_b_name": "ADAMS GOLF, LTD.",
+  "effective_date": "2005-01-13",
+  "term_length": null,
+  "governing_law": "State of Kansas",
+  "termination_notice_days": null,
+  "liability_cap": "No explicit monetary limitation of liability/cap stated; agreement contains mutual indemnities without a stated cap.",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_005_adamsgolfinc_03_21_2005_ex_10_17_endorse.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 44506,
+    "output_tokens": 5651,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier marked field 'party_a_name' as unknown",
+      "verifier returned unknown for non-nullable field 'party_a_name'",
+      "verifier requested revision for field 'party_b_name'",
+      "verifier requested revision for field 'termination_notice_days'",
+      "verifier marked field 'liability_cap' as unknown",
+      "verifier returned unknown for non-nullable field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 71,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "repair_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 9,
+              "heading": "32. CONFIDENTIALITY",
+              "snippet": "Both parties understand that the contents of this Agreement... are extremely confidential... both parties agree not to disclose the terms of this Agreement"
+            },
+            {
+              "page_num": 7,
+              "heading": "23.  TERMINATION FOR CAUSE",
+              "snippet": "Upon such termination, CONSULTANT shall be required to repay ADAMS GOLF for that period of the Agreement not performed by CONSULTANT."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1028,
+          "completion_tokens": 114,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence shows the document includes confidentiality and termination-for-cause provisions within a broader agreement (e.g., consultant services), not clearly an NDA or an MSA. With no explicit indication it is solely a nondisclosure agreement or a master services agreement, classifying as 'other' is supported.",
+            "confidence": 0.66,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 449,
+            "completion_tokens": 87
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "30. RELATIONSHIP",
+              "snippet": "Both parties agree that this Agreement does not constitute and shall not be construed as a constituting of a partnership or joint venture between ADAMS GOLF and CONSULTANT."
+            },
+            {
+              "page_num": 9,
+              "heading": "32. CONFIDENTIALITY",
+              "snippet": "CONSULTANT recognizes that during the course of performing his duties hereunder he may become aware of proprietary, confidential information concerning ADAMS GOLF"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 442,
+          "completion_tokens": 129,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "Evidence shows the name “ADAMS GOLF” referenced in clauses, but does not establish it as the full legal name of the first party (e.g., no preamble/party definition like “ADAMS GOLF, Inc.” or “Adams Golf Company” identifying Party A). The provided snippets only confirm an entity called ADAMS GOLF is involved, not that this is the complete legal name of Party A.",
+            "confidence": 0.62,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "ADAMS GOLF",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 460,
+            "completion_tokens": 113
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "ADAMS GOLF",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.88,
+              "confidence": 0.78,
+              "value": "ADAMS GOLF",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "ADAMS GOLF",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "ENDORSEMENT AGREEMENT",
+              "snippet": "This Agreement is entered into on January 13, 2005 between professional golfer, TOM\nWATSON, (hereinafter referred to as \"CONSULTANT\") and ADAMS GOLF, LTD. (hereinafter\nreferred to as \"ADAMS GOLF\")."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2901,
+          "completion_tokens": 239,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The evidence only identifies the second party by the role label “CONSULTANT” (e.g., “ADAMS GOLF and CONSULTANT”) and does not provide the consultant’s full legal name. Since the field requires the full legal name, additional retrieval from the agreement’s preamble/parties section or signature block is needed.",
+            "confidence": 0.74,
+            "revised_query": "Find the full legal name of the CONSULTANT (Party B) in the agreement’s opening/preamble (\"This Agreement is between...\") or the signature block where the CONSULTANT is identified.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "CONSULTANT",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 466,
+            "completion_tokens": 134
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "CONSULTANT",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "CONSULTANT",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "CONSULTANT",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "ADAMS GOLF, LTD.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 10,
+              "heading": "Date: January 13, 2005",
+              "snippet": "Date: January 13, 2005"
+            },
+            {
+              "page_num": 10,
+              "heading": "IN WITNESS WHEREOF, the parties hereto have caused this Agreement to be executed as of the",
+              "snippet": "date first set forth above.\nAPPROVED FOR CONSULTANT                       By: /s/ Tom Watson     Date: January 13,\n2005"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 585,
+          "completion_tokens": 124,
+          "verifier": {
+            "decision": "accept",
+            "reason": "Evidence shows the agreement was executed/dated January 13, 2005 (signature block: \"Date: January 13, 2005\" and heading \"Date: January 13, 2005\"), supporting effective date as 2005-01-13 in ISO format.",
+            "confidence": 0.84,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "2005-01-13",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 448,
+            "completion_tokens": 87
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "2005-01-13",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.88,
+              "confidence": 0.78,
+              "value": "2005-01-13",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "1.   TERM OF CONTRACT",
+              "snippet": "The Term of this Agreement shall be for a period of [* ****] years and [*****] months"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1408,
+          "completion_tokens": 128,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The only provided evidence states the term is for a period of redacted years and redacted months (\"[* ****] years and [*****] months\"), so the term length in months is not determinable from the text. Therefore null is supported.",
+            "confidence": 0.78,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 395,
+            "completion_tokens": 79
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "25. APPLICABLE LAW",
+              "snippet": "This Agreement shall be governed and construed according to the laws of the State of\nKansas."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 577,
+          "completion_tokens": 66,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states: \"This Agreement shall be governed and construed according to the laws of the State of Kansas,\" which directly supports the selected governing law value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "State of Kansas",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 384,
+            "completion_tokens": 60
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "State of Kansas",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "State of Kansas",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "repair_agent",
+          "confidence": 0.28,
+          "evidence": [
+            {
+              "page_num": 7,
+              "heading": "23.  TERMINATION FOR CAUSE",
+              "snippet": "...the other party may terminate for cause upon giving fifteen (15) days written notice of such cause..."
+            },
+            {
+              "page_num": 7,
+              "heading": "22.  FAILURE TO PLAY",
+              "snippet": "...ADAMS GOLF may terminate this Agreement on thirty (30) days' written notice."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2050,
+          "completion_tokens": 208,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Selected value null is not supported because the evidence includes a 30-day written notice termination right (\"may terminate this Agreement on thirty (30) days' written notice\"), which appears to be a termination-for-convenience notice period. The 15-day notice is explicitly for termination for cause and should not drive this field. Better clause-targeted retrieval is needed to confirm whether the 30-day notice is indeed for convenience and whether any other convenience notice period applies.",
+            "confidence": 0.74,
+            "revised_query": "Termination for convenience / without cause notice period (e.g., \"may terminate this Agreement\" \"written notice\" \"without cause\" \"for convenience\")",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 432,
+            "completion_tokens": 152
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.02,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.03,
+              "confidence": 0.28,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.03,
+              "confidence": 0.28,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided to support the assertion that there is no explicit liability cap or that the agreement contains mutual indemnities without a stated cap. Without contract text excerpts, the liability cap cannot be verified.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "No explicit monetary limitation of liability/cap stated; agreement contains mutual indemnities without a stated cap.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 403,
+            "completion_tokens": 68
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "No explicit monetary limitation of liability/cap stated; agreement contains mutual indemnities without a stated cap.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.08,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the assertion that a non-solicitation clause is absent. With zero evidence snippets, the field cannot be verified; targeted retrieval of any non-solicitation language could confirm presence/absence.",
+            "confidence": 0.74,
+            "revised_query": "Search for non-solicitation language (e.g., \"non-solicit\", \"solicit\", \"customers\", \"clients\", \"employees\", \"recruit\", \"poach\") and any section titled \"Non-Solicitation\" or \"Restrictive Covenants\".",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 128
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.28,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.38,
+              "confidence": 0.28,
+              "value": false,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement addressing whether data transfers outside the UK/EU are explicitly allowed. With zero supporting clauses, the value cannot be confirmed as yes or no.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 381,
+            "completion_tokens": 63
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.22,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.22,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 7,
+              "heading": null,
+              "snippet": "ADAMS GOLF agrees to protect, indemnify and hold CONSULTANT harmless from and against any and all expenses, damages, claims, suits, actions, judgments and costs whatsoever"
+            },
+            {
+              "page_num": 4,
+              "heading": "materially reduced or impaired because CONSULTANT:",
+              "snippet": "committed or shall commit any public act that involves moral turpitude... commits any act which brings him into public disrepute, contempt, scandal or  ridicule"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 1558,
+          "completion_tokens": 274,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 7,
+              "heading": "23.  TERMINATION FOR CAUSE",
+              "snippet": "if either party commits any material breach of this Agreement, the other party may terminate for cause upon giving fifteen (15) days written notice... provided the breach is not rectified within such fifteen (15) day period."
+            },
+            {
+              "page_num": 7,
+              "heading": "23.  TERMINATION FOR CAUSE",
+              "snippet": "Upon such termination, CONSULTANT shall be required to repay ADAMS GOLF for that period of the Agreement not performed by CONSULTANT."
+            },
+            {
+              "page_num": 7,
+              "heading": "21.  INDEMNITY",
+              "snippet": "ADAMS GOLF agrees to defend, indemnify and hold harmless CONSULTANT from any and all liability... (including reasonable attorneys' fees and expenses)"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2064,
+          "completion_tokens": 505,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The agreement allows termination for a material breach after only 15 days’ notice and cure, creating a relatively quick off-ramp if performance issues arise. It also requires the Consultant to repay amounts for the unperformed period upon termination, increasing financial exposure. While Adams Golf provides broad indemnity to the Consultant for product-related claims, the termination and repayment provisions still present meaningful risk.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The excerpts show broad indemnity obligations on both sides and no stated monetary cap on liability, which is high risk for a small vendor. Term and key commercial amounts are heavily redacted, reducing certainty and increasing contractual risk. Termination provisions shown are for cause/death with specific notice periods, but no clear termination-for-convenience right is evidenced.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.77,
+              "confidence": 0.62,
+              "value": "The agreement allows termination for a material breach after only 15 days’ notice and cure, creating a relatively quick off-ramp if performance issues arise. It also requires the Consultant to repay amounts for the unperformed period upon termination, increasing financial exposure. While Adams Golf provides broad indemnity to the Consultant for product-related claims, the termination and repayment provisions still present meaningful risk.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "doc_type",
+          "term_length",
+          "termination_notice_days",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "risk_explanation",
+          "risk_level"
+        ],
+        "selected_source_counts": {
+          "repair_agent": 2,
+          "party_roles_agent": 1,
+          "verifier_repair_agent": 1,
+          "field_agent": 5,
+          "global_baseline": 2,
+          "verifier_unknown": 1
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 3,
+        "verifier_repair_fields": [
+          "non_solicit_clause_present",
+          "party_b_name",
+          "termination_notice_days"
+        ],
+        "verifier_decisions": {
+          "accept": 4,
+          "revise": 3,
+          "unknown": 3,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "party_a_name",
+          "party_b_name",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.5,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.7,
+        "evidence_snippets_total": 11,
+        "unique_evidence_pages": 5,
+        "avg_confidence": 0.618,
+        "min_confidence": 0.22
+      }
+    }
+  }
+}

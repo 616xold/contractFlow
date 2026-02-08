@@ -1,0 +1,966 @@
+{
+  "doc_type": "nda",
+  "party_a_name": "___________________________ (the \"Franchisee\")",
+  "party_b_name": "___________________________ (the \"Member\")",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": null,
+  "termination_notice_days": null,
+  "liability_cap": "No liability cap stated; includes injunctive relief and recovery of court costs and reasonable attorney's fees for enforcement.",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_013_pfhospitalitygroupinc_20150923_10_12g_ex.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 68279,
+    "output_tokens": 5768,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "verifier marked field 'party_a_name' as unknown",
+      "verifier returned unknown for non-nullable field 'party_a_name'",
+      "verifier marked field 'party_b_name' as unknown",
+      "verifier returned unknown for non-nullable field 'party_b_name'",
+      "verifier requested revision for field 'effective_date'",
+      "verifier marked field 'term_length' as unknown",
+      "verifier requested revision for field 'governing_law'",
+      "verifier requested revision for field 'termination_notice_days'",
+      "verifier requested revision for field 'liability_cap'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "Field 'governing_law' must be a non-empty string",
+      "risk_level overridden by deterministic rules (was 'medium')",
+      "risk_explanation overridden by deterministic rules",
+      "Field 'governing_law' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 8,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "THIS SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (\"Agreement\") is made this _____ day of _________, 20___, by and between ..."
+            },
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "WHEREAS, the Member... will gain access to certain of Franchisor's Confidential Information... and must therefore be bound by the same confidentiality and non-competition agreement"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 988,
+          "completion_tokens": 172,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The document is explicitly titled \"SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT\" and references access to \"Confidential Information\" and being bound by a confidentiality agreement, which supports classifying it as an NDA at a high level.",
+            "confidence": 0.9,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "nda",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 486,
+            "completion_tokens": 81
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "nda",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.96,
+              "confidence": 0.86,
+              "value": "nda",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No supporting evidence was provided for the selected party_a_name. The selected value appears to be a blank placeholder rather than a full legal name, and deterministic checks indicate has_evidence=false (evidence_count=0).",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "___________________________ (the \"Franchisee\")",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 396,
+            "completion_tokens": 72
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "___________________________ (the \"Franchisee\")",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' is null but not nullable"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No supporting evidence was provided for the selected party_b_name. The selected value appears to be a blank placeholder (underscores) rather than a full legal name, and deterministic checks indicate has_evidence=false with evidence_count=0, so the name cannot be verified or asserted.",
+            "confidence": 0.93,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "___________________________ (the \"Member\")",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 392,
+            "completion_tokens": 83
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "___________________________ (the \"Member\")",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "IN WITNESS WHEREOF, the Franchisee and the Member attest that each has read and",
+              "snippet": "...voluntarily signed this Agreement on the date first written above."
+            },
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2501,
+          "completion_tokens": 270,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence indicates the agreement was signed on the 'date first written above,' implying an effective date exists earlier in the document, but the provided snippets do not include the actual date. The 'Source: ... 9/23/2015' appears to be a filing date, not necessarily the agreement’s effective date. Better retrieval of the opening paragraph/date line is likely to resolve the field.",
+            "confidence": 0.63,
+            "revised_query": "Find the agreement's effective date or date first written above (opening paragraph/first page date line; 'Effective Date' definition; signature date).",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 460,
+            "completion_tokens": 135
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "term_length": {
+          "source": "verifier_unknown",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "Member covenants and agrees that during the term of the Franchise Agreement, except as otherwise approved in writing by Franchisor, Member shall not..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2712,
+          "completion_tokens": 186,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "The only evidence references obligations \"during the term of the Franchise Agreement\" but does not state a specific duration or number of months for the agreement term. Therefore the term length in months is not determinable from the provided text, and asserting null is not supported as a confirmed value.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 423,
+            "completion_tokens": 84
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "...a final order of a duly authorized arbitrator, panel of arbitrators, or a court of competent jurisdiction..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string"
+          ],
+          "prompt_tokens": 2494,
+          "completion_tokens": 92,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The selected value is null but the field is not nullable. The provided evidence only mentions arbitration/court of competent jurisdiction and does not identify any governing law jurisdiction. A targeted search for a governing law clause may resolve the conflict.",
+            "confidence": 0.74,
+            "revised_query": "Find the \"Governing Law\" / \"Choice of Law\" clause stating which jurisdiction's laws govern this agreement (e.g., \"This Agreement shall be governed by the laws of ...\").",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": true,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [
+                "Field 'governing_law' is null but not nullable"
+              ],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 423,
+            "completion_tokens": 113
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "APPENDIX C SAMPLE OF NON-DISCLOSURE AND NON-COMPETITION AGREEMENT (BETWEEN FRANCHISEE AND",
+              "snippet": "WHEREAS, Franchisor and Franchisee have executed a Franchise Agreement (\"Franchise Agreement\") granting Franchisee the right to operate a Franchised Business under the terms and conditions of the Franchise Agreement;"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2712,
+          "completion_tokens": 181,
+          "verifier": {
+            "decision": "revise",
+            "reason": "The provided evidence snippet is a recital about a Franchise Agreement and does not mention termination for convenience or any notice period. The selected null value is not supported by clause evidence; better retrieval focused on termination/notice provisions may confirm whether a notice period exists or not.",
+            "confidence": 0.74,
+            "revised_query": "termination for convenience notice period days",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 438,
+            "completion_tokens": 86
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.12,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.18,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected liability cap statement. The value also mixes multiple concepts (absence of cap, injunctive relief, fee shifting) that require clause text to verify. Better retrieval of the limitation of liability and remedies/attorneys’ fees sections is needed.",
+            "confidence": 0.74,
+            "revised_query": "Retrieve the contract's \"Limitation of Liability\" / \"Liability\" clause and any \"Remedies\", \"Injunctive Relief\", and \"Attorneys' Fees\" provisions; extract any stated monetary cap (e.g., fees paid in last 12 months) or confirm none is stated.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "No liability cap stated; includes injunctive relief and recovery of court costs and reasonable attorney's fees for enforcement.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 390,
+            "completion_tokens": 145
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "No liability cap stated; includes injunctive relief and recovery of court costs and reasonable attorney's fees for enforcement.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": -0.24,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "field_agent",
+          "confidence": 0.86,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "(ii) Divert or attempt to divert any business or customer, or potential business or customer, to any Competitive Business; or (iii) Induce any person to leave his or her employment with Franchisee or Franchisor."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1151,
+          "completion_tokens": 111,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence snippet includes language prohibiting diverting customers to a competitive business and inducing any person to leave employment with the Franchisee or Franchisor, which is characteristic of a non-solicitation/non-interference covenant. This supports that a non-solicitation clause is present.",
+            "confidence": 0.84,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": true,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 417,
+            "completion_tokens": 84
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": true,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": true,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border transfers, so it cannot be determined whether the contract explicitly allows data transfer outside the UK/EU. With zero supporting clauses, the only defensible value is unknown.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 71
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "field_agent",
+          "confidence": 0.55,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "Member covenants and agrees that during the Post-Term Period... Member shall not... own, manage, engage in, be employed by... any Competitive Business... within a three (3) mile radius..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1159,
+          "completion_tokens": 101,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "medium",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.6,
+              "confidence": 0.55,
+              "value": "medium",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        },
+        "risk_explanation": {
+          "source": "field_agent",
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Source: PF HOSPITALITY GROUP INC., 10-12G, 9/23/2015",
+              "snippet": "Member covenants and agrees that during the Post-Term Period... Member shall not... own, manage, engage in, be employed by... any Competitive Business... within a three (3) mile radius..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "\"Post-Term Period\" shall mean... two (2) years from the date of... expiration or termination of the Franchise Agreement..."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "Member acknowledges that any failure to comply... will cause Franchisor irreparable injury... pay all court costs and reasonable attorney's fees... obtaining... an injunction..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1117,
+          "completion_tokens": 264,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The risk level is elevated because the agreement imposes a broad non-compete that restricts working for or having an interest in a competitive business within a three-mile radius. The restriction lasts for a two-year post-term period triggered by termination or expiration, extending the impact beyond the relationship. Enforcement is strengthened by injunctive relief and fee-shifting, increasing potential cost and exposure if a breach is alleged.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The agreement contains broad restrictive covenants, including a non-compete during the franchise term and a two-year post-term restriction within a three-mile radius, plus non-solicitation provisions. It also provides for injunctive relief and recovery of court costs and reasonable attorneys' fees, increasing enforcement leverage and potential exposure. No liability cap or balanced limitation of remedies is stated in the provided excerpts.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.89,
+              "confidence": 0.74,
+              "value": "The risk level is elevated because the agreement imposes a broad non-compete that restricts working for or having an interest in a competitive business within a three-mile radius. The restriction lasts for a two-year post-term period triggered by termination or expiration, extending the impact beyond the relationship. Enforcement is strengthened by injunctive relief and fee-shifting, increasing potential cost and exposure if a breach is alleged.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "party_a_name",
+          "party_b_name",
+          "effective_date",
+          "term_length",
+          "governing_law",
+          "termination_notice_days"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation",
+          "risk_level"
+        ],
+        "selected_source_counts": {
+          "field_agent": 7,
+          "global_baseline": 3,
+          "verifier_unknown": 2
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [
+          "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+        ],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 4,
+        "verifier_repair_fields": [
+          "effective_date",
+          "governing_law",
+          "liability_cap",
+          "termination_notice_days"
+        ],
+        "verifier_decisions": {
+          "accept": 2,
+          "revise": 4,
+          "unknown": 4,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "effective_date",
+          "governing_law",
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "term_length",
+          "termination_notice_days"
+        ],
+        "verifier_disagreement_rate": 0.6667,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 6,
+        "fields_without_evidence": [
+          "party_a_name",
+          "party_b_name",
+          "liability_cap",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.6,
+        "evidence_snippets_total": 8,
+        "unique_evidence_pages": 2,
+        "avg_confidence": 0.474,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

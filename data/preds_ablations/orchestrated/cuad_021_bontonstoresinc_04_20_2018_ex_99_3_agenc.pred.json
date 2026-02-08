@@ -1,0 +1,935 @@
+{
+  "doc_type": "other",
+  "party_a_name": "The Bon-Ton Stores, Inc. and its associated chapter 11 debtors in possession",
+  "party_b_name": "THE BON-TON STORES, INC.",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": 7,
+  "liability_cap": "Subject to the Wind-Down Budget and the Wind-Down Cap (amount not specified in provided excerpts).",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "liability appears uncapped or not specified; governing law appears outside the UK/EU.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_021_bontonstoresinc_04_20_2018_ex_99_3_agenc.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 61008,
+    "output_tokens": 6047,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "verifier requested revision for field 'party_a_name'",
+      "verifier marked field 'effective_date' as unknown",
+      "verifier requested revision for field 'term_length'",
+      "verifier requested revision for field 'liability_cap'",
+      "verifier requested revision for field 'non_solicit_clause_present'",
+      "verifier marked field 'data_transfer_outside_uk_eu' as unknown",
+      "risk_explanation overridden by deterministic rules"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 497,
+      "total_hits": 36,
+      "fields": {
+        "doc_type": {
+          "source": "repair_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": "Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 5 of 60",
+              "snippet": "time is of the essence in effectuating this Agreement and proceeding with the GOB Sale at the Stores uninterrupted;"
+            },
+            {
+              "page_num": 23,
+              "heading": null,
+              "snippet": "may use Merchant's employees in the conduct of the Sale to the extent Agent deems necessary for the Sale... (each such employee, a \"Retained Employee\")."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1283,
+          "completion_tokens": 132,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence snippets describe an operational agreement related to conducting a sale at stores (e.g., “GOB Sale,” “Agent,” “Merchant,” “Retained Employee”), which does not match an NDA or an MSA. Classifying the document as 'other' is therefore supported.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "other",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 2
+            },
+            "prompt_tokens": 464,
+            "completion_tokens": 85
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.82,
+              "confidence": 0.72,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "EXHIBIT 99.3 Case 18-10248- MFW Doc 632-1 Filed 04/18/18 Page 2 of 60",
+              "snippet": "AGENCY AGREEMENT This Agency Agreement (\"Agreement\") is made as of April 18, 2018, by and between The Bon-Ton Stores, Inc. and its associated chapter 11 debtors in possession (collectively, \"Merchant\")"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3469,
+          "completion_tokens": 263,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No supporting evidence is provided for party_a_name. The selected value \"Merchant\" appears to be a role label rather than a full legal entity name, and deterministic checks indicate has_evidence=false (evidence_count=0). Better retrieval from the contract’s party/intro section may yield the actual legal name.",
+            "confidence": 0.78,
+            "revised_query": "Find the contract preamble/introductory paragraph defining the parties (e.g., \"This Agreement is between...\") and extract the full legal name of the party labeled \"Merchant\" (Party A).",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Merchant",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 378,
+            "completion_tokens": 131
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Merchant",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.31,
+              "confidence": 0.1,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' is null but not nullable"
+              ],
+              "evidence_count": 0,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.14,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "The Bon-Ton Stores, Inc. and its associated chapter 11 debtors in possession",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 35,
+              "heading": "Second-Lien Notes By: Name: Its:",
+              "snippet": "THE BON-TON STORES, INC., on behalf of itself and the other entities comprising Merchant"
+            },
+            {
+              "page_num": 20,
+              "heading": null,
+              "snippet": "Agent shall indemnify and hold harmless Merchant"
+            },
+            {
+              "page_num": 34,
+              "heading": "15.14 Agent/Purchaser. Each party hereto acknowledges and agrees that any payment",
+              "snippet": "any payment obligation of Purchaser and Agent hereunder is binding upon both the Agent and Purchaser"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 769,
+          "completion_tokens": 112,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly names “THE BON-TON STORES, INC.” in a signature/party identification context (“By: Name: Its:” and “on behalf of itself and the other entities comprising Merchant”), supporting it as a party name. No conflicting party_b_name is presented in the provided snippets.",
+            "confidence": 0.84,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "THE BON-TON STORES, INC.",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 477,
+            "completion_tokens": 88
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Agent/Purchaser",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.93,
+              "confidence": 0.78,
+              "value": "THE BON-TON STORES, INC.",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "field_agent",
+              "score": -0.19,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 2
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "verifier_unknown",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 29,
+              "heading": "12.2 Merchant's Casualty Insurance. Until the Designation Rights Termination Date or as",
+              "snippet": "From and after the date of this Agreement, all such policies will also name Purchaser as an additional named insured or loss payee, as applicable (as its interest may appear)."
+            },
+            {
+              "page_num": 43,
+              "heading": "none",
+              "snippet": "...the assumption and assignment of such Lease or Contract will become effective automatically pursuant to the Approval Order on the date"
+            },
+            {
+              "page_num": 17,
+              "heading": "6.1 Term. Subject to satisfaction of the conditions precedent set forth in Section 10",
+              "snippet": "...provided that the Sale Commencement Date shall occur no later than April 19, 2018."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2822,
+          "completion_tokens": 338,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "The provided evidence does not state a specific calendar date on which the agreement becomes effective. It references relative timing (e.g., “From and after the date of this Agreement”) and other effective dates for assignments/leases or a deadline for the Sale Commencement Date, but none identifies the agreement’s effective date in YYYY-MM-DD form. Therefore, asserting a non-null effective_date is not supported, but keeping it null is also not directly evidenced as an explicit absence—so the correct status is unknown.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 506,
+            "completion_tokens": 128
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.02,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": -0.02,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "verifier_repair_agent",
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 17,
+              "heading": "6.1 Term. Subject to satisfaction of the conditions precedent set forth in Section 10",
+              "snippet": "the GOB Sale shall commence... (the \"Sale Commencement Date\") and shall end... no later than August 31, 2018 (the \"Sale Termination Date\"...\"Sale Term\"), provided that the Sale Commencement Date shall occur no later than April 19, 2018."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2676,
+          "completion_tokens": 281,
+          "verifier": {
+            "decision": "revise",
+            "reason": "Evidence references a defined \"Sale Term\" but does not state its duration in months. The term length may be specified elsewhere (e.g., definition of Sale Term, effective date/termination section, or a schedule). Better targeted retrieval could determine a month length; null is not yet supported as the only possible value.",
+            "confidence": 0.62,
+            "revised_query": "Locate the clause defining \"Sale Term\" (start/end dates or duration) and any term/termination section stating the agreement term length; extract the duration in months.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": null,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 3
+            },
+            "prompt_tokens": 466,
+            "completion_tokens": 124
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.07,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 2
+            },
+            {
+              "source": "repair_agent",
+              "score": -0.02,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.02,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 33,
+              "heading": "15.3 Governing Law/Exclusive Jurisdiction. This Agreement shall be governed by and",
+              "snippet": "This Agreement shall be governed by and interpreted in accordance with the laws of the State of Delaware"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 850,
+          "completion_tokens": 78,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence clause (15.3 Governing Law/Exclusive Jurisdiction) explicitly states the agreement is governed by and interpreted in accordance with the laws of the State of Delaware, matching the selected value.",
+            "confidence": 0.99,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "State of Delaware",
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 397,
+            "completion_tokens": 68
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "State of Delaware",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "State of Delaware",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "repair_agent",
+          "confidence": 0.74,
+          "evidence": [
+            {
+              "page_num": 17,
+              "heading": "6.1 Term. Subject to satisfaction of the conditions precedent set forth in Section 10",
+              "snippet": "Agent may, in its discretion, earlier terminate the GOB Sale on a Store- by- Store basis upon not less than seven (7) days' prior written notice"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1170,
+          "completion_tokens": 91,
+          "verifier": {
+            "decision": "accept",
+            "reason": "The evidence explicitly states termination may occur upon \"not less than seven (7) days' prior written notice,\" which directly supports a termination notice period of 7 days.",
+            "confidence": 0.86,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": 7,
+              "validation_issues": [],
+              "has_evidence": true,
+              "evidence_count": 1
+            },
+            "prompt_tokens": 427,
+            "completion_tokens": 62
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 7,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.67,
+              "confidence": 0.62,
+              "value": 7,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.79,
+              "confidence": 0.74,
+              "value": 7,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "liability_cap": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No supporting evidence was provided for the selected value, and an alternative candidate asserts a specific Wind-Down Cap amount ($93,800,000) that could be the liability cap if confirmed in the contract. Additional retrieval of the limitation of liability / wind-down cap clause is needed to verify the correct cap language and amount.",
+            "confidence": 0.74,
+            "revised_query": "Retrieve the contract clause defining the \"Wind-Down Cap\" and any limitation of liability cap (including the dollar amount and how it applies), plus any related \"Wind-Down Budget\" language.",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "Subject to the Wind-Down Budget and the Wind-Down Cap (amount not specified in provided excerpts).",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 420,
+            "completion_tokens": 131
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Subject to the Wind-Down Budget and the Wind-Down Cap (amount not specified in provided excerpts).",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.13,
+              "confidence": 0.18,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string"
+              ],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.39,
+              "confidence": 0.34,
+              "value": "$93,800,000 (the \"Wind-Down Cap\")",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.47,
+              "confidence": 0.42,
+              "value": "$93,800,000 (the \"Wind-Down Cap\")",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "revise",
+            "reason": "No evidence was provided to support the selected value (false). Without reviewing the contract text, we cannot confirm whether a non-solicitation clause is present or absent; targeted retrieval could resolve this.",
+            "confidence": 0.74,
+            "revised_query": "non-solicitation clause; non-solicit; solicitation of employees; solicitation of customers/clients; no hire/no poach",
+            "repaired": true,
+            "unknown_applied": false,
+            "forced_by_deterministic": false,
+            "repair_performed": true,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": false,
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 342,
+            "completion_tokens": 93
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.39,
+              "confidence": 0.34,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "verifier_repair_agent",
+              "score": 0.39,
+              "confidence": 0.34,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "verifier_unknown",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "unknown",
+            "reason": "No evidence was provided from the agreement regarding cross-border data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.",
+            "confidence": 0.74,
+            "revised_query": null,
+            "repaired": false,
+            "unknown_applied": true,
+            "forced_by_deterministic": false,
+            "repair_performed": false,
+            "repair_budget_exhausted": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "unknown",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "prompt_tokens": 361,
+            "completion_tokens": 57
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.17,
+              "confidence": 0.12,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "verifier_unknown",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "high",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.27,
+              "confidence": 0.22,
+              "value": "high",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "risk_explanation": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": {
+            "decision": "skipped",
+            "reason": "field is deterministically derived downstream",
+            "confidence": 1.0,
+            "revised_query": null,
+            "repaired": false,
+            "deterministic_checks": {
+              "conflict": false,
+              "normalized_changed": false,
+              "normalized_value": "The agreement appears to be a bankruptcy-related agency/sale arrangement (GOB sale) with court oversight and specialized obligations, which is atypical and operationally complex for a small SaaS vendor. Remedies include a large escrow deposit ($32.7M) and liquidated damages mechanics tied to Bankruptcy Court findings, indicating high-stakes enforcement. The excerpts do not show a clear, standard limitation of liability in favor of a vendor, increasing uncertainty and risk.",
+              "validation_issues": [],
+              "has_evidence": false,
+              "evidence_count": 0
+            },
+            "repair_performed": false
+          },
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "The agreement appears to be a bankruptcy-related agency/sale arrangement (GOB sale) with court oversight and specialized obligations, which is atypical and operationally complex for a small SaaS vendor. Remedies include a large escrow deposit ($32.7M) and liquidated damages mechanics tied to Bankruptcy Court findings, indicating high-stakes enforcement. The excerpts do not show a clear, standard limitation of liability in favor of a vendor, increasing uncertainty and risk.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.49,
+              "confidence": 0.34,
+              "value": "null",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 2
+            }
+          ],
+          "derived": true,
+          "derived_reason": "deterministic risk rules"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 12,
+        "fields_with_hits": 12,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 36,
+        "avg_hits_per_field": 3.0
+      },
+      "orchestration": {
+        "repair_confidence_threshold": 0.68,
+        "max_repairs": 6,
+        "repaired_fields": [
+          "doc_type",
+          "party_a_name",
+          "effective_date",
+          "term_length",
+          "termination_notice_days",
+          "liability_cap"
+        ],
+        "disagreement_fields": [
+          "liability_cap",
+          "party_a_name",
+          "party_b_name",
+          "risk_explanation"
+        ],
+        "selected_source_counts": {
+          "repair_agent": 2,
+          "verifier_repair_agent": 2,
+          "party_roles_agent": 1,
+          "verifier_unknown": 2,
+          "field_agent": 1,
+          "global_baseline": 4
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [],
+        "verifier_enabled": true,
+        "verifier_model": "gpt-5.2",
+        "verifier_confidence_threshold": 0.62,
+        "verifier_max_repairs": 4,
+        "verifier_repairs_used": 4,
+        "verifier_repair_fields": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "party_a_name",
+          "term_length"
+        ],
+        "verifier_decisions": {
+          "accept": 4,
+          "revise": 4,
+          "unknown": 2,
+          "skipped": 2
+        },
+        "verifier_disagreement_fields": [
+          "data_transfer_outside_uk_eu",
+          "effective_date",
+          "liability_cap",
+          "non_solicit_clause_present",
+          "party_a_name",
+          "term_length"
+        ],
+        "verifier_disagreement_rate": 0.5,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent",
+          "verifier_agent",
+          "verifier_repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 11,
+        "fields_with_evidence": 7,
+        "fields_without_evidence": [
+          "liability_cap",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu",
+          "risk_level"
+        ],
+        "evidence_ratio": 0.6364,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 10,
+        "avg_confidence": 0.62,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

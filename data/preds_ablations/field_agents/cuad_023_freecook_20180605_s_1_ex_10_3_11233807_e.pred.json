@@ -1,7 +1,7 @@
 {
   "doc_type": "other",
   "party_a_name": "Natalija Tunevic",
-  "party_b_name": "Mitchell Vitalis",
+  "party_b_name": "Mitchell's Web Advance, PLC",
   "effective_date": "2018-01-11",
   "term_length": null,
   "governing_law": null,
@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_023_freecook_20180605_s_1_ex_10_3_11233807_e.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 23083,
-    "output_tokens": 1967,
+    "input_tokens": 23042,
+    "output_tokens": 2049,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -36,6 +36,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -43,7 +49,8 @@
       "total_chunks": 12,
       "fields": {
         "doc_type": {
-          "confidence": 0.95,
+          "source": "field_agent",
+          "confidence": 0.9,
           "evidence": [
             {
               "page_num": 1,
@@ -53,16 +60,17 @@
             {
               "page_num": 1,
               "heading": "Website Design, Development and Hosting Agreement",
-              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between ... (hereinafter referred to as \"Client\") and ... (hereinafter referred to as \"Company\")."
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between... (hereinafter referred to as \"Client\") ... (hereinafter referred to as \"Company\")."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 927,
-          "completion_tokens": 122
+          "completion_tokens": 121
         },
         "party_a_name": {
-          "confidence": 0.62,
+          "source": "field_agent",
+          "confidence": 0.74,
           "evidence": [
             {
               "page_num": 1,
@@ -72,24 +80,66 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 983,
-          "completion_tokens": 95
+          "prompt_tokens": 1080,
+          "completion_tokens": 95,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.79,
+              "confidence": 0.74,
+              "value": "Natalija Tunevic",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.79,
+              "confidence": 0.74,
+              "value": "FreeCook",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
         },
         "party_b_name": {
-          "confidence": 0.9,
+          "source": "party_roles_agent",
+          "confidence": 0.93,
           "evidence": [
             {
               "page_num": 1,
               "heading": "Website Design, Development and Hosting Agreement",
-              "snippet": "...by and between Natalija Tunevic, director of FreeCook (hereinafter referred to as \"Client\") and Mitchell Vitalis, director of Mitchell's Web Advance, PLC (hereinafter referred to as \"Company\")."
+              "snippet": "and Mitchell Vitalis, director of Mitchell's Web Advance, PLC (hereinafter referred to as \"Company\")."
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 983,
-          "completion_tokens": 95
+          "prompt_tokens": 592,
+          "completion_tokens": 107,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "Mitchell Vitalis",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "Mitchell's Web Advance, PLC",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.9,
           "evidence": [
             {
@@ -104,6 +154,7 @@
           "completion_tokens": 82
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -120,19 +171,21 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2496,
-          "completion_tokens": 221
+          "completion_tokens": 232
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [],
           "attempts": 1,
           "issues": [
             "Field 'governing_law' must be a non-empty string"
           ],
-          "prompt_tokens": 2348,
-          "completion_tokens": 56
+          "prompt_tokens": 2310,
+          "completion_tokens": 121
         },
         "termination_notice_days": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -144,9 +197,10 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2508,
-          "completion_tokens": 145
+          "completion_tokens": 148
         },
         "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -163,71 +217,85 @@
           "completion_tokens": 144
         },
         "non_solicit_clause_present": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
               "page_num": 1,
               "heading": "Website Design, Development and Hosting Agreement",
-              "snippet": "Client agrees that any unsolicited positive feedback Client provides to Company may be used in any Company marketing and/or advertising materials (i.e., customer testimonials)."
+              "snippet": "Client hereby grants to Company a non-exclusive and limited license to use Client's trade names, logos and other trademarks in connection with Company advertising, marketing and promotion of its products and services."
+            },
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "3. Business Hours; Rush Work. Company representatives are available during Company's normal business hours which are 9 a.m. to 5 p.m. UTC +2, Monday through Friday."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2333,
-          "completion_tokens": 154
+          "completion_tokens": 212
         },
         "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 2537,
-          "completion_tokens": 182
+          "completion_tokens": 62
         },
         "risk_level": {
-          "confidence": 0.55,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
-              "page_num": 2,
-              "heading": null,
-              "snippet": "Company at its sole discretion may at any time alter or cease providing the Customer Service"
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018..."
             },
             {
               "page_num": 2,
               "heading": null,
-              "snippet": "Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours... The surcharge for rush work shall be the standard hourly rate of $40 plus twenty-five percent (25%)."
+              "snippet": "Company at its sole discretion may at any time alter or cease providing the Customer Service..."
+            },
+            {
+              "page_num": 2,
+              "heading": "none",
+              "snippet": "Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours..."
             }
           ],
           "attempts": 2,
           "issues": [],
           "prompt_tokens": 2413,
-          "completion_tokens": 231,
+          "completion_tokens": 252,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         },
         "risk_explanation": {
-          "confidence": 0.42,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
-            {
-              "page_num": 1,
-              "heading": "Website Design, Development and Hosting Agreement",
-              "snippet": "Company will not make any attempt to proof read or correct any contextual, grammatical or typographical errors in the written content submitted by Client. It is Client's sole responsibility to check the accuracy"
-            },
             {
               "page_num": 2,
               "heading": null,
               "snippet": "Client shall pay an additional surcharge for any services requiring work to be performed outside of normal business hours... The surcharge for rush work shall be the standard hourly rate of $40 plus twenty-five percent (25%)."
             },
             {
+              "page_num": 1,
+              "heading": "Website Design, Development and Hosting Agreement",
+              "snippet": "Company will not make any attempt to proof read or correct any contextual, grammatical or typographical errors... It is Client's sole responsibility to check the accuracy of the written content"
+            },
+            {
               "page_num": 2,
-              "heading": "Exhibit A",
-              "snippet": "Scope of Work Development of design of Free Cook... Development of unique style of the Client Website... Designing UI/UX-practical parts... Development of a prototype and interface testing."
+              "heading": null,
+              "snippet": "Company... shall provide customer service... during the normal business hours... Company is not obligated to provide any Customer Service except as specified in this Section. Company at its sole discretion may at any time alter or cease providing the Customer Service"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 2357,
-          "completion_tokens": 440,
+          "prompt_tokens": 977,
+          "completion_tokens": 262,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -240,9 +308,9 @@
           "data_transfer_outside_uk_eu"
         ],
         "evidence_ratio": 0.8,
-        "evidence_snippets_total": 10,
+        "evidence_snippets_total": 11,
         "unique_evidence_pages": 2,
-        "avg_confidence": 0.409,
+        "avg_confidence": 0.419,
         "min_confidence": 0.12
       }
     }

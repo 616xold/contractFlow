@@ -15,8 +15,8 @@
     "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_015_thriventvariableinsuranceaccountb_201907.pdf",
     "model": "gpt-5.2",
     "mode": "field_agents",
-    "input_tokens": 17078,
-    "output_tokens": 2263,
+    "input_tokens": 16502,
+    "output_tokens": 2163,
     "validate": true,
     "strict": false,
     "coerce": true,
@@ -35,6 +35,12 @@
       "model": null,
       "cache_path": null,
       "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
       "top_k": 3,
       "max_chunk_chars": 1200,
       "chunk_max_chars": 2000,
@@ -42,7 +48,8 @@
       "total_chunks": 22,
       "fields": {
         "doc_type": {
-          "confidence": 0.72,
+          "source": "field_agent",
+          "confidence": 0.62,
           "evidence": [
             {
               "page_num": 1,
@@ -52,15 +59,16 @@
             {
               "page_num": 2,
               "heading": "ENTIRE CONTRACT",
-              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."
+              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws of the Society"
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 800,
-          "completion_tokens": 127
+          "completion_tokens": 129
         },
         "party_a_name": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
@@ -71,29 +79,81 @@
             {
               "page_num": 1,
               "heading": "You may direct inquiries to:",
-              "snippet": "Thrivent Financial for Lutherans 4321 N. Ballard Road Appleton, WI 54919-0001"
-            }
-          ],
-          "attempts": 2,
-          "issues": [],
-          "prompt_tokens": 1744,
-          "completion_tokens": 207
-        },
-        "party_b_name": {
-          "confidence": 0.32,
-          "evidence": [
-            {
-              "page_num": 1,
-              "heading": "You may direct inquiries to:",
               "snippet": "Thrivent Financial for Lutherans 4321 N. Ballard Road Appleton, WI 54919-0001 (800)\n847-4836"
             }
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1536,
-          "completion_tokens": 190
+          "prompt_tokens": 790,
+          "completion_tokens": 110,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Thrivent Financial for Lutherans",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.65,
+              "confidence": 0.55,
+              "value": "Thrivent Life Insurance Company",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans"
+            },
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "All assets and related liabilities of Thrivent Life Insurance Company have been transferred to Thrivent Financial for Lutherans."
+            },
+            {
+              "page_num": 1,
+              "heading": "Effective Date: July 1, 2019",
+              "snippet": "Thrivent Financial for Lutherans now has all obligations under this contract."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 531,
+          "completion_tokens": 149,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "Thrivent Financial for Lutherans",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.87,
+              "confidence": 0.72,
+              "value": "Thrivent Financial for Lutherans",
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
         },
         "effective_date": {
+          "source": "field_agent",
           "confidence": 0.98,
           "evidence": [
             {
@@ -104,10 +164,11 @@
           ],
           "attempts": 1,
           "issues": [],
-          "prompt_tokens": 936,
+          "prompt_tokens": 851,
           "completion_tokens": 65
         },
         "term_length": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -121,12 +182,13 @@
               "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."
             }
           ],
-          "attempts": 2,
+          "attempts": 1,
           "issues": [],
-          "prompt_tokens": 1792,
-          "completion_tokens": 268
+          "prompt_tokens": 1888,
+          "completion_tokens": 233
         },
         "governing_law": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -140,23 +202,10 @@
             "Field 'governing_law' must be a non-empty string"
           ],
           "prompt_tokens": 1749,
-          "completion_tokens": 207
+          "completion_tokens": 169
         },
         "termination_notice_days": {
-          "confidence": 0.12,
-          "evidence": [
-            {
-              "page_num": 1,
-              "heading": "You may direct inquiries to:",
-              "snippet": "If you do not make the extra payment within 60 days from the date we notify you of your share of the deficiency, the amount will be charged as an indebtedness against the contract..."
-            }
-          ],
-          "attempts": 1,
-          "issues": [],
-          "prompt_tokens": 1932,
-          "completion_tokens": 202
-        },
-        "liability_cap": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
@@ -168,46 +217,53 @@
               "page_num": 1,
               "heading": "Effective Date: July 1, 2019",
               "snippet": "All benefits and other terms of this contract remain unchanged except as described below."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1919,
+          "completion_tokens": 181
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary."
             },
             {
               "page_num": 2,
-              "heading": "The following provisions of this contract are amended:",
-              "snippet": "The following provisions of this contract are amended:"
+              "heading": "ENTIRE CONTRACT",
+              "snippet": "The Entire Contract consists of: 1) This contract including any attached riders, amendments, or endorsements; 2) The Application attached to this contract; and 3) The Articles of Incorporation and Bylaws..."
             }
           ],
           "attempts": 1,
           "issues": [
             "Field 'liability_cap' must be a non-empty string"
           ],
-          "prompt_tokens": 1909,
-          "completion_tokens": 261
+          "prompt_tokens": 1858,
+          "completion_tokens": 211
         },
         "non_solicit_clause_present": {
+          "source": "field_agent",
           "confidence": 0.12,
           "evidence": [
             {
-              "page_num": 2,
-              "heading": "DEFINITIONS",
-              "snippet": "The DEFINITIONS section of the contract is amended to include the following:"
-            },
-            {
-              "page_num": 2,
-              "heading": "Is amended to read:",
-              "snippet": "Is amended to read:"
-            },
-            {
-              "page_num": 3,
-              "heading": null,
-              "snippet": "Thrivent Life Insurance Company Thrivent Financial for Lutherans"
+              "page_num": 1,
+              "heading": "You may direct inquiries to:",
+              "snippet": "The following amendments apply in lieu of any contract provisions to the contrary. The following provisions are included as part of this contract: MAINTENANCE OF SOLVENCY... MEMBERSHIP..."
             }
           ],
-          "attempts": 1,
+          "attempts": 2,
           "issues": [],
           "prompt_tokens": 1357,
-          "completion_tokens": 186
+          "completion_tokens": 178
         },
         "data_transfer_outside_uk_eu": {
-          "confidence": 0.12,
+          "source": "field_agent",
+          "confidence": 0.22,
           "evidence": [
             {
               "page_num": 2,
@@ -218,23 +274,25 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 1815,
-          "completion_tokens": 167
+          "completion_tokens": 120
         },
         "risk_level": {
+          "source": "field_agent",
           "confidence": 0.62,
           "evidence": [
             {
               "page_num": 1,
               "heading": "You may direct inquiries to:",
-              "snippet": "MAINTENANCE OF SOLVENCY... If the solvency of the Society becomes impaired, you may be required to make an extra payment... If you do not make the extra payment within 60 days... interest compounded at the rate of 5% per year."
+              "snippet": "MAINTENANCE OF SOLVENCY. ... If the solvency of the Society becomes impaired, you may be required to make an extra payment."
             }
           ],
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 736,
-          "completion_tokens": 98
+          "completion_tokens": 74
         },
         "risk_explanation": {
+          "source": "field_agent",
           "confidence": 0.74,
           "evidence": [
             {
@@ -256,7 +314,7 @@
           "attempts": 1,
           "issues": [],
           "prompt_tokens": 772,
-          "completion_tokens": 285,
+          "completion_tokens": 272,
           "derived": true,
           "derived_reason": "deterministic risk rules"
         }
@@ -268,7 +326,7 @@
         "evidence_ratio": 1.0,
         "evidence_snippets_total": 18,
         "unique_evidence_pages": 3,
-        "avg_confidence": 0.3618,
+        "avg_confidence": 0.3982,
         "min_confidence": 0.12
       }
     }

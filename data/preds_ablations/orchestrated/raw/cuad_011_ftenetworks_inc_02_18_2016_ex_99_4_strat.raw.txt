@@ -1,0 +1,83 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"EDGE Communications Solutions, LLC","party_b_name":"FTE Networks, Inc.","effective_date":"2016-02-17","term_length":36,"governing_law":"State of Texas","termination_notice_days":15,"liability_cap":"No explicit limitation of liability cap found in the provided excerpts; insurance requirements include CGL $1,000,000 per occurrence/$2,000,000 aggregate and Umbrella/Excess Liability of at least $5,000,000.","non_solicit_clause_present":true,"data_transfer_outside_uk_eu":"unknown","risk_level":"high","risk_explanation":"The agreement appears to be a subcontract/strategic alliance with operational performance obligations, including broad risk allocation to the subcontractor (e.g., assuming risk of loss or injury) and significant insurance requirements. There is no clear limitation of liability cap in the excerpts, which can expose a small vendor to uncapped contractual and indemnity-style risk. Termination rights include a 15-day cure notice for default, and the non-solicitation clause includes liquidated damages, increasing commercial risk."}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":10,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13","snippet":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\""},{"page_num":10,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13","snippet":"35. DOCUMENT OWNERSHIP AND CONFIDENTIALITY AND USE OF INFORMATION"}],"confidence":0.72,"value":"other"}
+
+JOINT_PARTY_AGENT
+{"party_a_name":"EDGE Communications Solutions, LLC","party_b_name":"FTE Networks, Inc.","party_a_evidence":[{"page_num":1,"heading":"Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE","snippet":"AGREEMENT (the \"Agreement\"), made effective this 17t h day of February 2016, through February 16, 2019 (the \"Initial Term\") is entered into by and between EDGE Communications Solutions, LLC"},{"page_num":11,"heading":"IN WITNESS WHEREOF, EDGE AND FTE HAVE EXECUTED THIS AGREEMENT AS OF THE DATE FIRST ABOVE","snippet":"EDGE Communications Solutions, LLC   FTE Networks, Inc."}],"party_b_evidence":[{"page_num":1,"heading":"Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE","snippet":"is entered into by and between EDGE Communications Solutions, LLC, with its principal place of business at 6505 Windcrest Drive, Suite 200, Plano, TX 75024 (hereinafter referred to as \"EDGE\"), and FTE Networks, Inc. with its principal place of business at 999 Vanderbilt Beach Road, Suite 601, Naples, FL 34108"},{"page_num":11,"heading":"IN WITNESS WHEREOF, EDGE AND FTE HAVE EXECUTED THIS AGREEMENT AS OF THE DATE FIRST ABOVE","snippet":"EDGE Communications Solutions, LLC   FTE Networks, Inc."}],"party_a_confidence":0.99,"party_b_confidence":0.99}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE","snippet":"...is entered into by and between EDGE Communications Solutions, LLC... (hereinafter referred to as \"EDGE\"), and FTE Networks, Inc...."}],"confidence":0.93,"value":"EDGE Communications Solutions, LLC"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE","snippet":"...entered into by and between EDGE Communications Solutions, LLC... (hereinafter referred to as \"EDGE\"), and FTE Networks, Inc.... (hereinafter referred to as \"FTE\" or \"Subcontractor\")"},{"page_num":11,"heading":"IN WITNESS WHEREOF, EDGE AND FTE HAVE EXECUTED THIS AGREEMENT AS OF THE DATE FIRST ABOVE","snippet":"EDGE Communications Solutions, LLC   FTE Networks, Inc."}],"confidence":0.95,"value":"FTE Networks, Inc."}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE","snippet":"AGREEMENT (the \"Agreement\"), made effective this 17t h day of February 2016, through February 16, 2019"}],"confidence":0.95,"value":"2016-02-17"}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"Exhibit 99.4   STRATEGIC ALLIANCE AGREEMENT   \"EDGE-FTE\"   THIS STRATEGIC ALLIANCE","snippet":"AGREEMENT (the \"Agreement\"), made effective this 17t h day of February 2016, through February 16, 2019 (the \"Initial Term\")"}],"confidence":0.86,"value":36}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":8,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 10","snippet":"The construction, interpretation, and performance of this Agreement and all transactions under it shall be governed by the laws of the State of Texas, irrespective of its conflict of law principles."}],"confidence":0.98,"value":"State of Texas"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":4,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4","snippet":"After fifteen (15) days prior written notice to Subcontractor to cure, or additional time as may be reasonably required by EDGE to cure the event of default, EDGE may terminate this Agreement"}],"confidence":0.32,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":4,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4","snippet":"Commercial General Liability Insurance... in no event less than $1,000,000 combined single limit and $2,000,000 in the aggregate..."},{"page_num":4,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4","snippet":"Umbrella/Excess Liability with limits of not less than $5,000,000 in excess of all the above-referenced Commercial General Liability..."}],"confidence":0.18,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":9,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 12","snippet":"34. NON-SOLICITATION   Subcontractor, during the term of"},{"page_num":10,"heading":null,"snippet":"this Agreement and for a period of one year thereafter, shall not, directly or indirectly,... solicit, hire, contract with or engage the employment of an employee of EDGE"}],"confidence":0.99,"value":true}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":10,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13","snippet":"each Party shall safeguard such Confidential Information... and shall not disclose Confidential Information to its employees, Lower-tier Subcontractors and agents, except to the extent necessary to enable it to fulfill its obligations under this Agreement."}],"confidence":0.18,"value":"unknown"}
+
+FIELD_AGENT risk_level
+{"evidence":[{"page_num":6,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 7","snippet":"Subcontractor expressly assumes the risk of loss or injury that may result from the Work."},{"page_num":2,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 2","snippet":"Subcontractor agrees to indemnify and defend EDGE from and against any lien claims and to discharge any lien or furnish an indemnity bond..."}],"confidence":0.55,"value":"medium"}
+
+FIELD_AGENT risk_explanation
+{"evidence":[{"page_num":6,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 7","snippet":"Subcontractor expressly assumes the risk of loss or injury that may result from the Work."},{"page_num":4,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4","snippet":"Commercial General Liability Insurance... in no event less than $1,000,000... Umbrella/Excess Liability with limits of not less than $5,000,000..."},{"page_num":4,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4","snippet":"After fifteen (15) days prior written notice to Subcontractor to cure... EDGE may terminate this Agreement... upon the occurrence of... default by Subcontractor"}],"confidence":0.74,"value":"The risk level is elevated because the subcontractor expressly assumes the risk of loss or injury arising from the work, shifting significant liability to the subcontractor. The agreement also requires substantial insurance coverage, indicating the parties anticipate meaningful exposure. Additionally, EDGE has strong termination rights for subcontractor default after a cure period, increasing performance and continuity risk for the subcontractor."}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":4,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4","snippet":"After fifteen (15) days prior written notice to Subcontractor to cure, or additional time as may be reasonably required by EDGE to cure the event of default, EDGE may terminate this Agreement"}],"confidence":0.32,"value":null}
+
+REPAIR_AGENT liability_cap
+{"evidence":[{"page_num":3,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 3","snippet":"...Subcontractor shall immediately terminate the agreement with its Lower-tier Subcontractors without any liability to EDGE whatsoever."},{"page_num":4,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 4","snippet":"...Commercial General Liability Insurance... in no event less than $1,000,000... and $2,000,000 in the aggregate... Umbrella/Excess Liability with limits of not less than $5,000,000..."}],"confidence":0.18,"value":""}
+
+REPAIR_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":10,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 13","snippet":"35. DOCUMENT OWNERSHIP AND CONFIDENTIALITY AND USE OF INFORMATION ... each Party shall safeguard such Confidential Information ... and shall not disclose Confidential Information to its employees, Lower-tier Subcontractors and agents..."}],"confidence":0.18,"value":"unknown"}
+
+REPAIR_AGENT risk_level
+{"evidence":[{"page_num":6,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 7","snippet":"Subcontractor expressly assumes the risk of loss or injury that may result from the Work."},{"page_num":7,"heading":null,"snippet":"the Subcontractor shall indemnify EDGE as identified in Section 13 for any Claims caused by hazardous materials."},{"page_num":2,"heading":"STRATEGIC ALLIANCE AGREEMENT \"EDGE-FTE\"  Page 2","snippet":"Subcontractor agrees to indemnify and defend EDGE from and against any lien claims and to discharge any lien..."}],"confidence":0.62,"value":"high"}
+
+VERIFIER_AGENT doc_type
+{"decision":"accept","reason":"The document heading clearly states \"STRATEGIC ALLIANCE AGREEMENT,\" which is neither an NDA nor an MSA. The selected value \"other\" is therefore supported by the evidence.","confidence":0.84,"revised_query":null}
+
+VERIFIER_AGENT party_a_name
+{"decision":"accept","reason":"The agreement text states it is entered into by and between \"EDGE Communications Solutions, LLC\" and another party, and the signature block also lists \"EDGE Communications Solutions, LLC,\" supporting it as the first party’s full legal name.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT party_b_name
+{"decision":"accept","reason":"The agreement explicitly states it is between EDGE Communications Solutions, LLC and “FTE Networks, Inc.”, and the signature block also lists “FTE Networks, Inc.” as the other executing party. This supports the selected party_b_name.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT effective_date
+{"decision":"accept","reason":"The evidence states the agreement is \"made effective this 17th day of February 2016,\" which corresponds to 2016-02-17 in ISO format.","confidence":0.97,"revised_query":null}
+
+VERIFIER_AGENT term_length
+{"decision":"accept","reason":"Evidence states the Agreement is effective February 17, 2016 through February 16, 2019 as the “Initial Term,” which is a 3-year period (36 months).","confidence":0.9,"revised_query":null}
+
+VERIFIER_AGENT governing_law
+{"decision":"accept","reason":"The evidence explicitly states that the agreement “shall be governed by the laws of the State of Texas,” which directly supports the selected governing_law value.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT termination_notice_days
+{"decision":"unknown","reason":"No evidence was provided to support a 15-day termination-for-convenience notice period, and deterministic checks indicate has_evidence=false (evidence_count=0). Without contract text, the value cannot be verified.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT liability_cap
+{"decision":"unknown","reason":"No evidence excerpts were provided to support either a specific liability cap or the statement that no cap exists. Insurance limits are not a liability cap, and without contract language (e.g., Limitation of Liability clause), the field cannot be verified.","confidence":0.86,"revised_query":null}
+
+VERIFIER_AGENT non_solicit_clause_present
+{"decision":"accept","reason":"Evidence explicitly shows a section titled \"34. NON-SOLICITATION\" stating the Subcontractor shall not solicit/hire/engage EDGE employees during the term and for one year thereafter, which confirms a non-solicitation clause is present.","confidence":0.99,"revised_query":null}
+
+VERIFIER_AGENT data_transfer_outside_uk_eu
+{"decision":"unknown","reason":"No evidence was provided from the agreement regarding international data transfers, so it cannot be determined whether transfers outside the UK/EU are explicitly allowed.","confidence":0.74,"revised_query":null}
