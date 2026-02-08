@@ -35,17 +35,17 @@ ContractFlow addresses this with staged agentic execution and evaluation-first d
 
 ```mermaid
 flowchart LR
-    A[PDF] --> B[OCR-aware text extraction]
-    B --> C[Chunk + index by page/heading]
+    A[PDF] --> B[Text + OCR]
+    B --> C[Chunk by page/heading]
     C --> D[Retriever]
-    D --> E[Global baseline extractor]
+    D --> E[Global baseline]
     D --> F[Field agents]
-    F --> G[Candidate selector]
-    G --> H[Verifier/Judge<br/>accept | revise | unknown]
+    F --> G[Candidate select]
+    G --> H[Verifier/Judge<br/>accept, revise, unknown]
     H -->|revise| D
-    H --> I[Schema normalization + validation]
-    I --> J[Risk Engine V2<br/>rules + optional judge]
-    J --> K[Final JSON + audit metadata]
+    H --> I[Normalize + validate]
+    I --> J[Risk Engine V2<br/>rules + judge]
+    J --> K[JSON + audit]
 ```
 
 ## Benchmark Snapshot (Committee Silver, 25 Docs)
@@ -64,21 +64,23 @@ Canonical artifact: `data/benchmarks/portfolio_benchmark.json`
 
 ```mermaid
 xychart-beta
-    title "Exact Accuracy by Mode (25 docs)"
-    x-axis ["naive", "retrieval", "field_agents", "orchestrated"]
-    y-axis "exact accuracy" 0 --> 1
+    title "Exact Acc (25 docs)"
+    x-axis ["N", "R", "F", "O"]
+    y-axis "acc" 0 --> 1
     bar [0.7067, 0.7000, 0.7800, 0.8467]
 ```
+`N=naive`, `R=retrieval`, `F=field_agents`, `O=orchestrated`
 
 ### Token Usage Diagram
 
 ```mermaid
 xychart-beta
-    title "Average Total Tokens per Doc"
-    x-axis ["naive", "retrieval", "field_agents", "orchestrated"]
+    title "Avg Tokens/Doc"
+    x-axis ["N", "R", "F", "O"]
     y-axis "tokens" 0 --> 60000
     bar [11474, 6038, 25155, 58935]
 ```
+`N=naive`, `R=retrieval`, `F=field_agents`, `O=orchestrated`
 
 ## Field-Level Signal (Orchestrated Exact Accuracy)
 
@@ -191,4 +193,3 @@ python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver_
 2. Improve `liability_cap` extraction with a dedicated clause parser and normalization schema.
 3. Add **cost-aware orchestration**: dynamic early-exit when verifier confidence is already high.
 4. Add **calibration curves** for field confidence and risk confidence.
-
