@@ -179,13 +179,6 @@ python scripts/evaluate_risk.py --labels-dir data/labels --preds-dir data/preds_
 python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver_committee.json --preds-root data/preds_ablations --skip-extraction --bootstrap-samples 1000 --out data/benchmarks/ablation_latest.json
 ```
 
-## Interview-Ready Artifacts
-
-- System roadmap: `docs/agentic_roadmap.md`
-- Domain and risk policy rationale: `docs/domain.md`
-- Portfolio benchmark summary: `data/benchmarks/portfolio_benchmark.json`
-- Orchestrated eval report: `data/benchmarks/eval_orchestrated_committee_latest.json`
-- Risk eval report: `data/benchmarks/risk_eval_orchestrated_committee_latest.json`
 
 ## Next High-Impact Improvements
 
