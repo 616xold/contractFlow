@@ -15,7 +15,6 @@ from pydantic import BaseModel, ConfigDict, Field, create_model
 from contractflow.core.chunking import ChunkRetriever, RetrievalHit, build_retriever, chunk_pdf
 from contractflow.core.pdf_utils import read_pdf_text
 from contractflow.core.risk_engine import RiskAssessment, assess_contract_risk
-from contractflow.schemas.models import ContractExtraction
 
 
 DEFAULT_MODEL = "gpt-5.2"
@@ -113,6 +112,25 @@ _MAX_ORCHESTRATION_REPAIRS = 6
 _VERIFIER_CONFIDENCE_THRESHOLD = 0.62
 _MAX_VERIFIER_REPAIRS = 4
 _VERIFIER_SKIP_FIELDS = {"risk_level", "risk_explanation"}
+_RISK_OUTPUT_FIELDS = {"risk_level", "risk_explanation"}
+_RISK_INPUT_FIELDS = (
+    "liability_cap",
+    "governing_law",
+    "data_transfer_outside_uk_eu",
+    "term_length",
+    "termination_notice_days",
+    "non_solicit_clause_present",
+)
+_RISK_REVIEW_DEFAULTS = {
+    "enable_review": True,
+    "review_top_k": 4,
+    "review_max_rounds": 1,
+    "review_confidence_threshold": 0.72,
+    "trigger_on_high_uncertainty": True,
+    "trigger_unknown_critical_gte": 2,
+    "trigger_min_critical_confidence_below": 0.45,
+    "max_excerpt_chars": 700,
+}
 
 
 @dataclass
@@ -158,6 +176,19 @@ class FieldVerifierOutput(BaseModel):
     reason: str
     confidence: Annotated[float, Field(ge=0.0, le=1.0)]
     revised_query: Optional[str] = None
+
+
+class RiskReviewOutput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    liability_cap: Optional[str] = None
+    governing_law: Optional[str] = None
+    data_transfer_outside_uk_eu: Optional[Literal["yes", "no", "unknown"]] = None
+    term_length: Optional[int] = None
+    termination_notice_days: Optional[int] = None
+    non_solicit_clause_present: Optional[bool] = None
+    confidence: Annotated[float, Field(ge=0.0, le=1.0)]
+    rationale: str
 
 
 @dataclass
@@ -206,10 +237,27 @@ class JointPartyExtractionResult:
     completion_tokens: int
 
 
+@dataclass
+class RiskPipelineResult:
+    assessment: RiskAssessment
+    orchestration: Dict[str, Any]
+    raw_outputs: list[str]
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+
+
 def load_schema(schema_path: str | Path) -> Dict[str, Any]:
     path = Path(schema_path)
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def _schema_for_extraction(schema: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        field: meta
+        for field, meta in schema.items()
+        if not bool(meta.get("derived")) and field not in _RISK_OUTPUT_FIELDS
+    }
 
 
 def schema_to_description(schema: Dict[str, Any]) -> str:
@@ -303,6 +351,21 @@ def _field_value_type(meta: Dict[str, Any]) -> Any:
     if nullable:
         return Optional[value_type]
     return value_type
+
+
+class _ContractExtractionBase(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+
+def _build_contract_extraction_model(schema: Dict[str, Any]) -> type[BaseModel]:
+    field_definitions: Dict[str, tuple[Any, Any]] = {}
+    for field, meta in schema.items():
+        field_definitions[field] = (_field_value_type(meta), ...)
+    return create_model(
+        "ContractExtractionDynamic",
+        __base__=_ContractExtractionBase,
+        **field_definitions,
+    )
 
 
 def _build_field_extraction_model(field: str, meta: Dict[str, Any]) -> type[BaseModel]:
@@ -841,87 +904,496 @@ def _normalize_term_length(value: Any, evidence_text: str) -> tuple[Any, Optiona
     return number, None, False
 
 
+def _load_risk_orchestration_config(
+    risk_policy_path: Optional[str | Path],
+) -> Dict[str, Any]:
+    config = dict(_RISK_REVIEW_DEFAULTS)
+    if risk_policy_path is None:
+        return config
+    path = Path(risk_policy_path)
+    if not path.exists():
+        return config
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return config
+    if not isinstance(payload, dict):
+        return config
+    node = payload.get("risk_orchestration")
+    if not isinstance(node, dict):
+        return config
+    for key in _RISK_REVIEW_DEFAULTS:
+        value = node.get(key)
+        if isinstance(value, (bool, int, float)):
+            config[key] = value
+    config["review_top_k"] = max(1, int(config["review_top_k"]))
+    config["review_max_rounds"] = max(0, int(config["review_max_rounds"]))
+    config["review_confidence_threshold"] = max(0.0, min(1.0, float(config["review_confidence_threshold"])))
+    config["trigger_unknown_critical_gte"] = max(0, int(config["trigger_unknown_critical_gte"]))
+    config["trigger_min_critical_confidence_below"] = max(
+        0.0,
+        min(1.0, float(config["trigger_min_critical_confidence_below"])),
+    )
+    config["max_excerpt_chars"] = max(200, int(config["max_excerpt_chars"]))
+    return config
+
+
+def _risk_input_snapshot(values: Dict[str, Any]) -> Dict[str, Any]:
+    return {field: values.get(field) for field in _RISK_INPUT_FIELDS}
+
+
+def _build_risk_review_queries(values: Dict[str, Any]) -> Dict[str, str]:
+    queries: Dict[str, str] = {}
+    for field in _RISK_INPUT_FIELDS:
+        hint = _FIELD_QUERY_HINTS.get(field, field.replace("_", " "))
+        aliases = _FIELD_CLAUSE_ALIASES.get(field, [])
+        current = values.get(field)
+        parts = [hint]
+        if aliases:
+            parts.append(". ".join(aliases))
+        if current is not None and str(current).strip():
+            parts.append(f"current extracted value: {current}")
+        queries[field] = ". ".join(part for part in parts if part)
+    return queries
+
+
+def _collect_risk_review_hits(
+    retriever: ChunkRetriever,
+    values: Dict[str, Any],
+    *,
+    top_k: int,
+) -> Dict[str, list[RetrievalHit]]:
+    queries = _build_risk_review_queries(values)
+    field_hits: Dict[str, list[RetrievalHit]] = {}
+    for field, query in queries.items():
+        field_hits[field] = retriever.retrieve(query, top_k=top_k)
+    return field_hits
+
+
+def _format_risk_review_context(
+    field_hits: Dict[str, list[RetrievalHit]],
+    *,
+    max_chunk_chars: int,
+) -> str:
+    lines: list[str] = []
+    for field, hits in field_hits.items():
+        lines.append(f"Field: {field}")
+        if not hits:
+            lines.append("No relevant evidence found.")
+            lines.append("")
+            continue
+        for idx, hit in enumerate(hits, start=1):
+            heading = hit.chunk.heading or "none"
+            lines.append(f"[{field} excerpt {idx}] page={hit.chunk.page_num} heading={heading}")
+            lines.append(_truncate_text(hit.chunk.chunk_text, max_chunk_chars))
+            lines.append("")
+    return "\n".join(lines).strip()
+
+
+def _should_trigger_risk_review(
+    assessment: RiskAssessment,
+    cfg: Dict[str, Any],
+) -> tuple[bool, list[str]]:
+    reasons: list[str] = []
+    uncertainty = assessment.uncertainty or {}
+    if cfg.get("trigger_on_high_uncertainty", True) and uncertainty.get("high_uncertainty"):
+        reasons.append("high_uncertainty")
+    unknown_count = int(uncertainty.get("critical_unknown_count", 0))
+    if unknown_count >= int(cfg.get("trigger_unknown_critical_gte", 2)):
+        reasons.append(f"critical_unknown_count={unknown_count}")
+
+    min_conf = 1.0
+    critical = {"liability_cap", "governing_law", "data_transfer_outside_uk_eu"}
+    for factor in assessment.factors:
+        if factor.factor_id in critical:
+            min_conf = min(min_conf, float(factor.confidence))
+    if min_conf < float(cfg.get("trigger_min_critical_confidence_below", 0.45)):
+        reasons.append(f"min_critical_confidence={round(min_conf, 4)}")
+    return bool(reasons), reasons
+
+
+def _call_risk_reviewer(
+    *,
+    values: Dict[str, Any],
+    assessment: RiskAssessment,
+    risk_context: str,
+    model: str,
+    client: OpenAI,
+    structured_outputs: bool,
+) -> tuple[RiskReviewOutput, str, Optional[int], Optional[int]]:
+    system_prompt = (
+        "You are a contract risk review agent.\n"
+        "Your task is to improve ONLY risk-input fields using the provided evidence.\n"
+        "Do not output risk_level or risk_explanation."
+    )
+    user_prompt = (
+        "Current extracted values (risk inputs):\n"
+        f"{json.dumps(_risk_input_snapshot(values), ensure_ascii=False)}\n\n"
+        "Current rule assessment:\n"
+        f"- rule_level={assessment.rule_level}\n"
+        f"- rule_score={round(assessment.rule_score, 2)}\n"
+        f"- uncertainty={json.dumps(assessment.uncertainty, ensure_ascii=False)}\n"
+        f"- hard_triggers={assessment.hard_triggers}\n\n"
+        "Evidence excerpts:\n"
+        f"{risk_context}\n\n"
+        "Output constraints:\n"
+        "- Return JSON with keys: liability_cap, governing_law, data_transfer_outside_uk_eu, "
+        "term_length, termination_notice_days, non_solicit_clause_present, confidence, rationale.\n"
+        "- For any field with no reliable correction, return null.\n"
+        "- confidence must reflect confidence in proposed corrections, not overall contract risk."
+    )
+    input_messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    response: Any
+    raw_output: str
+    parsed_obj: RiskReviewOutput
+
+    if structured_outputs and hasattr(client.responses, "parse"):
+        try:
+            response = client.responses.parse(
+                model=model,
+                input=input_messages,
+                text_format=RiskReviewOutput,
+                reasoning={"effort": "none"},
+                temperature=0,
+                max_output_tokens=500,
+            )
+            raw_output = _extract_response_text(response)
+            parsed = getattr(response, "output_parsed", None)
+            if parsed is None:
+                parsed_obj = RiskReviewOutput.model_validate(_safe_parse_json(raw_output))
+            else:
+                parsed_obj = parsed
+        except Exception:
+            response = client.responses.create(
+                model=model,
+                input=input_messages,
+                reasoning={"effort": "none"},
+                temperature=0,
+                max_output_tokens=500,
+            )
+            raw_output = _extract_response_text(response)
+            parsed_obj = RiskReviewOutput.model_validate(_safe_parse_json(raw_output))
+    else:
+        response = client.responses.create(
+            model=model,
+            input=input_messages,
+            reasoning={"effort": "none"},
+            temperature=0,
+            max_output_tokens=500,
+        )
+        raw_output = _extract_response_text(response)
+        parsed_obj = RiskReviewOutput.model_validate(_safe_parse_json(raw_output))
+
+    usage = getattr(response, "usage", None)
+    prompt_tokens = getattr(usage, "input_tokens", None)
+    completion_tokens = getattr(usage, "output_tokens", None)
+    return parsed_obj, raw_output, prompt_tokens, completion_tokens
+
+
+def _extract_risk_review_changes(review: RiskReviewOutput) -> Dict[str, Any]:
+    changes: Dict[str, Any] = {}
+    for field in _RISK_INPUT_FIELDS:
+        value = getattr(review, field)
+        if value is not None:
+            changes[field] = value
+    return changes
+
+
+def _apply_risk_review_changes(
+    values: Dict[str, Any],
+    schema: Dict[str, Any],
+    proposed: Dict[str, Any],
+    *,
+    field_meta: Optional[Dict[str, Any]],
+    issues: list[str],
+) -> Dict[str, Dict[str, Any]]:
+    applied: Dict[str, Dict[str, Any]] = {}
+    for field, candidate_value in proposed.items():
+        meta = schema.get(field)
+        if not isinstance(meta, dict):
+            continue
+        try:
+            normalized = _coerce_and_validate_value(field, meta, candidate_value, coerce=True)
+        except Exception:
+            issues.append(f"risk review proposed invalid value for '{field}': {candidate_value!r}")
+            continue
+        current = values.get(field)
+        if _values_equivalent(current, normalized):
+            continue
+        values[field] = normalized
+        applied[field] = {"from": current, "to": normalized}
+        issues.append(f"risk review corrected '{field}'")
+        if isinstance(field_meta, dict):
+            meta_entry = field_meta.get(field)
+            if not isinstance(meta_entry, dict):
+                meta_entry = {"source": "risk_review_agent", "evidence": [], "issues": []}
+                field_meta[field] = meta_entry
+            meta_entry["source"] = "risk_review_agent"
+            meta_entry["risk_review_corrected"] = True
+    return applied
+
+
 def _apply_risk_assessment_to_values(
     values: Dict[str, Any],
     *,
+    schema: Dict[str, Any],
     issues: list[str],
     field_meta: Optional[Dict[str, Any]],
     model: str,
     client: Optional[OpenAI],
     structured_outputs: bool,
     enable_risk_judge: bool,
+    enable_risk_review: bool,
     risk_judge_model: Optional[str],
+    risk_review_model: Optional[str],
+    risk_review_top_k: Optional[int],
     risk_policy_path: Optional[str | Path],
-) -> RiskAssessment:
+    retriever: Optional[ChunkRetriever] = None,
+) -> RiskPipelineResult:
     previous_level = values.get("risk_level")
     previous_explanation = values.get("risk_explanation")
+    cfg = _load_risk_orchestration_config(risk_policy_path)
+    if risk_review_top_k is not None:
+        cfg["review_top_k"] = max(1, int(risk_review_top_k))
+
+    working_client = client
+    review_prompt_tokens = 0
+    review_completion_tokens = 0
+    review_raw_outputs: list[str] = []
+    applied_corrections: Dict[str, Dict[str, Any]] = {}
+
+    rule_assessment = assess_contract_risk(
+        values,
+        field_meta=field_meta,
+        model=model,
+        client=working_client,
+        structured_outputs=structured_outputs,
+        enable_judge=False,
+        judge_model=risk_judge_model,
+        policy_path=risk_policy_path,
+    )
+
+    triggered = False
+    trigger_reasons: list[str] = []
+    review_rounds = 0
+    review_attempted = False
+    review_top_k = int(cfg["review_top_k"])
+    before_snapshot = _risk_input_snapshot(values)
+    review_skipped_reason: Optional[str] = None
+
+    should_enable_review = bool(enable_risk_review and cfg.get("enable_review", True))
+    if should_enable_review:
+        if retriever is None:
+            review_skipped_reason = "no_retriever_available"
+        else:
+            triggered, trigger_reasons = _should_trigger_risk_review(rule_assessment, cfg)
+            if triggered:
+                review_attempted = True
+                for round_index in range(int(cfg["review_max_rounds"])):
+                    review_rounds += 1
+                    field_hits = _collect_risk_review_hits(
+                        retriever,
+                        values,
+                        top_k=review_top_k,
+                    )
+                    risk_context = _format_risk_review_context(
+                        field_hits,
+                        max_chunk_chars=int(cfg["max_excerpt_chars"]),
+                    )
+                    if not risk_context.strip():
+                        review_skipped_reason = "no_review_evidence"
+                        break
+                    if working_client is None:
+                        try:
+                            working_client = OpenAI()
+                        except Exception as exc:
+                            issues.append(f"risk review client init failed: {exc}")
+                            review_skipped_reason = "review_client_init_failed"
+                            break
+                    try:
+                        review_output, review_raw, pt, ct = _call_risk_reviewer(
+                            values=values,
+                            assessment=rule_assessment,
+                            risk_context=risk_context,
+                            model=risk_review_model or model,
+                            client=working_client,
+                            structured_outputs=structured_outputs,
+                        )
+                    except Exception as exc:
+                        issues.append(f"risk review agent failed: {exc}")
+                        review_skipped_reason = "review_agent_error"
+                        break
+
+                    review_prompt_tokens += pt or 0
+                    review_completion_tokens += ct or 0
+                    if review_raw.strip():
+                        review_raw_outputs.append(f"RISK_REVIEW_ROUND_{round_index + 1}\n{review_raw}")
+
+                    proposed = _extract_risk_review_changes(review_output)
+                    if not proposed:
+                        review_skipped_reason = "no_proposed_changes"
+                        break
+                    if float(review_output.confidence) < float(cfg["review_confidence_threshold"]):
+                        review_skipped_reason = "review_confidence_below_threshold"
+                        break
+
+                    applied = _apply_risk_review_changes(
+                        values,
+                        schema,
+                        proposed,
+                        field_meta=field_meta,
+                        issues=issues,
+                    )
+                    if not applied:
+                        review_skipped_reason = "proposed_changes_not_applied"
+                        break
+
+                    applied_corrections.update(applied)
+                    rule_assessment = assess_contract_risk(
+                        values,
+                        field_meta=field_meta,
+                        model=model,
+                        client=working_client,
+                        structured_outputs=structured_outputs,
+                        enable_judge=False,
+                        judge_model=risk_judge_model,
+                        policy_path=risk_policy_path,
+                    )
+            else:
+                review_skipped_reason = "trigger_conditions_not_met"
+    else:
+        review_skipped_reason = "risk_review_disabled"
+
     assessment = assess_contract_risk(
         values,
         field_meta=field_meta,
         model=model,
-        client=client,
+        client=working_client,
         structured_outputs=structured_outputs,
         enable_judge=enable_risk_judge,
         judge_model=risk_judge_model,
         policy_path=risk_policy_path,
     )
 
-    if previous_level != assessment.risk_level:
+    if previous_level is not None and previous_level != assessment.risk_level:
         issues.append(
             f"risk_level overridden by risk engine v2 (was {previous_level!r}, now {assessment.risk_level!r})"
         )
-    if previous_explanation != assessment.risk_explanation:
+    if previous_explanation is not None and previous_explanation != assessment.risk_explanation:
         issues.append("risk_explanation overridden by risk engine v2")
 
     values["risk_level"] = assessment.risk_level
     values["risk_explanation"] = assessment.risk_explanation
 
     if isinstance(field_meta, dict):
-        if "risk_level" in field_meta:
-            field_meta["risk_level"]["derived"] = True
-            field_meta["risk_level"]["derived_reason"] = "risk engine v2"
-            field_meta["risk_level"]["risk_confidence"] = round(assessment.confidence, 4)
-            field_meta["risk_level"]["arbitration"] = assessment.arbitration
-        if "risk_explanation" in field_meta:
-            field_meta["risk_explanation"]["derived"] = True
-            field_meta["risk_explanation"]["derived_reason"] = "risk engine v2"
-            field_meta["risk_explanation"]["risk_confidence"] = round(assessment.confidence, 4)
-            field_meta["risk_explanation"]["arbitration"] = assessment.arbitration
+        level_meta = field_meta.setdefault("risk_level", {"source": "risk_orchestrator", "evidence": []})
+        level_meta["derived"] = True
+        level_meta["derived_reason"] = "post_extraction_risk_orchestrator"
+        level_meta["risk_confidence"] = round(assessment.confidence, 4)
+        level_meta["arbitration"] = assessment.arbitration
+        explanation_meta = field_meta.setdefault(
+            "risk_explanation",
+            {"source": "risk_orchestrator", "evidence": []},
+        )
+        explanation_meta["derived"] = True
+        explanation_meta["derived_reason"] = "post_extraction_risk_orchestrator"
+        explanation_meta["risk_confidence"] = round(assessment.confidence, 4)
+        explanation_meta["arbitration"] = assessment.arbitration
 
-    return assessment
+    orchestration_meta = {
+        "stage": "post_extraction_risk_orchestrator_v1",
+        "enabled": should_enable_review,
+        "triggered": triggered,
+        "trigger_reasons": trigger_reasons,
+        "review_attempted": review_attempted,
+        "review_rounds": review_rounds,
+        "review_top_k": review_top_k,
+        "review_confidence_threshold": float(cfg["review_confidence_threshold"]),
+        "review_model": risk_review_model or model,
+        "review_skipped_reason": review_skipped_reason,
+        "applied_corrections": applied_corrections,
+        "input_snapshot_before": before_snapshot,
+        "input_snapshot_after": _risk_input_snapshot(values),
+        "final_rule_level": assessment.rule_level,
+        "final_rule_score": round(assessment.rule_score, 4),
+        "final_level": assessment.risk_level,
+        "final_arbitration": assessment.arbitration,
+        "review_prompt_tokens": review_prompt_tokens or None,
+        "review_completion_tokens": review_completion_tokens or None,
+    }
+
+    raw_outputs = list(review_raw_outputs)
+    if assessment.judge_raw_text.strip():
+        raw_outputs.append(f"RISK_JUDGE\n{assessment.judge_raw_text}")
+
+    total_prompt_tokens = (assessment.prompt_tokens or 0) + review_prompt_tokens
+    total_completion_tokens = (assessment.completion_tokens or 0) + review_completion_tokens
+    return RiskPipelineResult(
+        assessment=assessment,
+        orchestration=orchestration_meta,
+        raw_outputs=raw_outputs,
+        prompt_tokens=total_prompt_tokens,
+        completion_tokens=total_completion_tokens,
+    )
 
 
 def _apply_risk_assessment_to_result(
     result: ExtractionResult,
     *,
+    schema: Dict[str, Any],
     model: str,
     structured_outputs: bool,
     enable_risk_judge: bool,
+    enable_risk_review: bool,
     risk_judge_model: Optional[str],
+    risk_review_model: Optional[str],
+    risk_review_top_k: Optional[int],
     risk_policy_path: Optional[str | Path],
+    retriever: Optional[ChunkRetriever] = None,
 ) -> ExtractionResult:
     values = dict(result.json_result)
     issues = list(result.issues or [])
-    assessment = _apply_risk_assessment_to_values(
+    pipeline = _apply_risk_assessment_to_values(
         values,
+        schema=schema,
         issues=issues,
         field_meta=None,
         model=model,
         client=None,
         structured_outputs=structured_outputs,
         enable_risk_judge=enable_risk_judge,
+        enable_risk_review=enable_risk_review,
         risk_judge_model=risk_judge_model,
+        risk_review_model=risk_review_model,
+        risk_review_top_k=risk_review_top_k,
         risk_policy_path=risk_policy_path,
+        retriever=retriever,
     )
 
-    retrieval_meta = dict(result.retrieval or {"enabled": False})
-    retrieval_meta["risk"] = assessment.as_dict()
+    normalized, validation_issues = _validate_and_normalize_to_schema(schema, values, coerce=True)
+    values = normalized
+    if validation_issues:
+        issues.extend(validation_issues)
 
-    prompt_tokens = (result.prompt_tokens or 0) + (assessment.prompt_tokens or 0)
-    completion_tokens = (result.completion_tokens or 0) + (assessment.completion_tokens or 0)
+    retrieval_meta = dict(result.retrieval or {"enabled": False})
+    risk_payload = pipeline.assessment.as_dict()
+    risk_payload["orchestration"] = pipeline.orchestration
+    retrieval_meta["risk"] = risk_payload
+
+    prompt_tokens = (result.prompt_tokens or 0) + pipeline.prompt_tokens
+    completion_tokens = (result.completion_tokens or 0) + pipeline.completion_tokens
+    raw_text = result.raw_text
+    if pipeline.raw_outputs:
+        tail = "\n\n".join(output for output in pipeline.raw_outputs if output.strip())
+        if tail:
+            raw_text = f"{raw_text}\n\n{tail}".strip()
 
     return ExtractionResult(
-        raw_text=result.raw_text,
+        raw_text=raw_text,
         json_result=values,
         issues=_dedupe_issues(issues) or None,
         prompt_tokens=prompt_tokens or None,
@@ -1450,6 +1922,7 @@ def call_llm_for_schema(
         raise ValueError("No text extracted. Is this a scanned PDF? Use OCR.")
 
     client = client or OpenAI()
+    contract_model = _build_contract_extraction_model(schema)
     schema_description = schema_to_description(schema)
     schema_keys_json = json.dumps(list(schema.keys()))
 
@@ -1493,7 +1966,7 @@ def call_llm_for_schema(
             response = client.responses.parse(
                 model=model,
                 input=input_messages,
-                text_format=ContractExtraction,
+                text_format=contract_model,
                 reasoning={"effort": "none"},
                 temperature=0,
                 max_output_tokens=1500,
@@ -1563,7 +2036,10 @@ def extract_fields_naive(
     ocr_lang: str = "eng",
     ocr_dpi: int = 200,
     enable_risk_judge: bool = True,
+    enable_risk_review: bool = True,
     risk_judge_model: Optional[str] = None,
+    risk_review_model: Optional[str] = None,
+    risk_review_top_k: Optional[int] = None,
     risk_policy_path: Optional[str | Path] = None,
 ) -> ExtractionResult:
     """Read a PDF, call the LLM once with the schema, and return parsed JSON."""
@@ -1577,9 +2053,10 @@ def extract_fields_naive(
     if not contract_text.strip():
         raise ValueError("No text extracted. Is this a scanned PDF? Use OCR.")
     schema = load_schema(schema_path)
+    extraction_schema = _schema_for_extraction(schema)
     result = call_llm_for_schema(
         contract_text,
-        schema,
+        extraction_schema,
         model=model,
         validate=validate,
         strict=strict,
@@ -1588,10 +2065,14 @@ def extract_fields_naive(
     )
     return _apply_risk_assessment_to_result(
         result,
+        schema=schema,
         model=model,
         structured_outputs=structured_outputs,
         enable_risk_judge=enable_risk_judge,
+        enable_risk_review=enable_risk_review,
         risk_judge_model=risk_judge_model,
+        risk_review_model=risk_review_model,
+        risk_review_top_k=risk_review_top_k,
         risk_policy_path=risk_policy_path,
     )
 
@@ -1619,7 +2100,10 @@ def extract_fields_retrieval(
     ocr_lang: str = "eng",
     ocr_dpi: int = 200,
     enable_risk_judge: bool = True,
+    enable_risk_review: bool = True,
     risk_judge_model: Optional[str] = None,
+    risk_review_model: Optional[str] = None,
+    risk_review_top_k: Optional[int] = None,
     risk_policy_path: Optional[str | Path] = None,
 ) -> ExtractionResult:
     """Extract fields using per-field retrieval over chunked pages."""
@@ -1627,6 +2111,7 @@ def extract_fields_retrieval(
         raise ValueError("top_k must be >= 1 for retrieval.")
 
     schema = load_schema(schema_path)
+    extraction_schema = _schema_for_extraction(schema)
     chunks = chunk_pdf(
         pdf_path,
         max_chunk_chars=chunk_max_chars,
@@ -1647,7 +2132,7 @@ def extract_fields_retrieval(
         reranker_model=reranker_model,
         reranker_top_n=reranker_top_n,
     )
-    field_queries = _build_field_queries(schema)
+    field_queries = _build_field_queries(extraction_schema)
     field_hits: Dict[str, list[RetrievalHit]] = {}
 
     for field, query in field_queries.items():
@@ -1685,7 +2170,7 @@ def extract_fields_retrieval(
         retrieval_meta["used_fallback_full_text"] = True
         result = call_llm_for_schema(
             contract_text,
-            schema,
+            extraction_schema,
             model=model,
             validate=validate,
             strict=strict,
@@ -1695,17 +2180,22 @@ def extract_fields_retrieval(
         )
         return _apply_risk_assessment_to_result(
             result,
+            schema=schema,
             model=model,
             structured_outputs=structured_outputs,
             enable_risk_judge=enable_risk_judge,
+            enable_risk_review=enable_risk_review,
             risk_judge_model=risk_judge_model,
+            risk_review_model=risk_review_model,
+            risk_review_top_k=risk_review_top_k,
             risk_policy_path=risk_policy_path,
+            retriever=retriever,
         )
 
     retrieval_context = _format_retrieval_context(field_hits, max_chunk_chars=max_chunk_chars)
     result = call_llm_for_schema(
         retrieval_context,
-        schema,
+        extraction_schema,
         model=model,
         validate=validate,
         strict=strict,
@@ -1717,11 +2207,16 @@ def extract_fields_retrieval(
     )
     return _apply_risk_assessment_to_result(
         result,
+        schema=schema,
         model=model,
         structured_outputs=structured_outputs,
         enable_risk_judge=enable_risk_judge,
+        enable_risk_review=enable_risk_review,
         risk_judge_model=risk_judge_model,
+        risk_review_model=risk_review_model,
+        risk_review_top_k=risk_review_top_k,
         risk_policy_path=risk_policy_path,
+        retriever=retriever,
     )
 
 
@@ -1748,7 +2243,10 @@ def extract_fields_field_agents(
     ocr_lang: str = "eng",
     ocr_dpi: int = 200,
     enable_risk_judge: bool = True,
+    enable_risk_review: bool = True,
     risk_judge_model: Optional[str] = None,
+    risk_review_model: Optional[str] = None,
+    risk_review_top_k: Optional[int] = None,
     risk_policy_path: Optional[str | Path] = None,
 ) -> ExtractionResult:
     """Extract fields by running a per-field retrieval + extraction agent."""
@@ -1756,6 +2254,7 @@ def extract_fields_field_agents(
         raise ValueError("top_k must be >= 1 for field agents.")
 
     schema = load_schema(schema_path)
+    extraction_schema = _schema_for_extraction(schema)
     chunks = chunk_pdf(
         pdf_path,
         max_chunk_chars=chunk_max_chars,
@@ -1777,7 +2276,7 @@ def extract_fields_field_agents(
         reranker_model=reranker_model,
         reranker_top_n=reranker_top_n,
     )
-    field_queries = _build_field_queries(schema)
+    field_queries = _build_field_queries(extraction_schema)
     values: Dict[str, Any] = {}
     field_meta: Dict[str, Any] = {}
     issues: list[str] = []
@@ -1786,7 +2285,7 @@ def extract_fields_field_agents(
     raw_outputs: list[str] = []
 
     joint_party_result: Optional[JointPartyExtractionResult] = None
-    if "party_a_name" in schema and "party_b_name" in schema:
+    if "party_a_name" in extraction_schema and "party_b_name" in extraction_schema:
         try:
             joint_party_result = _extract_party_roles_with_retries(
                 retriever=retriever,
@@ -1798,8 +2297,8 @@ def extract_fields_field_agents(
                 top_k=top_k,
                 max_chunk_chars=max_chunk_chars,
                 coerce=coerce,
-                meta_a=schema["party_a_name"],
-                meta_b=schema["party_b_name"],
+                meta_a=extraction_schema["party_a_name"],
+                meta_b=extraction_schema["party_b_name"],
             )
         except Exception as exc:
             issues.append(f"joint party role extraction failed: {exc}")
@@ -1809,7 +2308,7 @@ def extract_fields_field_agents(
         if joint_party_result.raw_text.strip():
             raw_outputs.append(f"JOINT_PARTY_AGENT\n{joint_party_result.raw_text}")
 
-    for field, meta in schema.items():
+    for field, meta in extraction_schema.items():
         query = field_queries.get(field, field.replace("_", " "))
         value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
             field,
@@ -1894,21 +2393,25 @@ def extract_fields_field_agents(
         if candidates_meta is not None:
             field_meta[field]["candidates"] = candidates_meta
 
-    risk_assessment = _apply_risk_assessment_to_values(
+    risk_pipeline = _apply_risk_assessment_to_values(
         values,
+        schema=schema,
         issues=issues,
         field_meta=field_meta,
         model=model,
         client=client,
         structured_outputs=structured_outputs,
         enable_risk_judge=enable_risk_judge,
+        enable_risk_review=enable_risk_review,
         risk_judge_model=risk_judge_model,
+        risk_review_model=risk_review_model,
+        risk_review_top_k=risk_review_top_k,
         risk_policy_path=risk_policy_path,
+        retriever=retriever,
     )
-    total_prompt_tokens += risk_assessment.prompt_tokens or 0
-    total_completion_tokens += risk_assessment.completion_tokens or 0
-    if risk_assessment.judge_raw_text.strip():
-        raw_outputs.append(f"RISK_JUDGE\n{risk_assessment.judge_raw_text}")
+    total_prompt_tokens += risk_pipeline.prompt_tokens or 0
+    total_completion_tokens += risk_pipeline.completion_tokens or 0
+    raw_outputs.extend(risk_pipeline.raw_outputs)
 
     normalized: Dict[str, Any] = values
     validation_issues: list[str] = []
@@ -1936,7 +2439,10 @@ def extract_fields_field_agents(
         "use_ocr": use_ocr,
         "total_chunks": len(chunks),
         "fields": field_meta,
-        "risk": risk_assessment.as_dict(),
+        "risk": {
+            **risk_pipeline.assessment.as_dict(),
+            "orchestration": risk_pipeline.orchestration,
+        },
     }
     retrieval_meta["coverage"] = _compute_evidence_coverage(field_meta, exclude_derived=True)
 
@@ -1979,7 +2485,10 @@ def extract_fields_orchestrated(
     verifier_max_repairs: int = _MAX_VERIFIER_REPAIRS,
     verifier_model: Optional[str] = None,
     enable_risk_judge: bool = True,
+    enable_risk_review: bool = True,
     risk_judge_model: Optional[str] = None,
+    risk_review_model: Optional[str] = None,
+    risk_review_top_k: Optional[int] = None,
     risk_policy_path: Optional[str | Path] = None,
 ) -> ExtractionResult:
     """Orchestrated extraction with verifier: baseline + field agents + repairs + judge loop."""
@@ -1995,6 +2504,7 @@ def extract_fields_orchestrated(
         raise ValueError("verifier_max_repairs must be >= 0 for orchestrated extraction.")
 
     schema = load_schema(schema_path)
+    extraction_schema = _schema_for_extraction(schema)
     chunks = chunk_pdf(
         pdf_path,
         max_chunk_chars=chunk_max_chars,
@@ -2016,10 +2526,10 @@ def extract_fields_orchestrated(
         reranker_model=reranker_model,
         reranker_top_n=reranker_top_n,
     )
-    field_queries = _build_field_queries(schema)
+    field_queries = _build_field_queries(extraction_schema)
     joint_party_result: Optional[JointPartyExtractionResult] = None
     joint_party_issue: Optional[str] = None
-    if "party_a_name" in schema and "party_b_name" in schema:
+    if "party_a_name" in extraction_schema and "party_b_name" in extraction_schema:
         try:
             joint_party_result = _extract_party_roles_with_retries(
                 retriever=retriever,
@@ -2031,8 +2541,8 @@ def extract_fields_orchestrated(
                 top_k=top_k,
                 max_chunk_chars=max_chunk_chars,
                 coerce=coerce,
-                meta_a=schema["party_a_name"],
-                meta_b=schema["party_b_name"],
+                meta_a=extraction_schema["party_a_name"],
+                meta_b=extraction_schema["party_b_name"],
             )
         except Exception as exc:
             joint_party_issue = f"joint party role extraction failed: {exc}"
@@ -2054,7 +2564,7 @@ def extract_fields_orchestrated(
         )
         baseline_result = call_llm_for_schema(
             baseline_context,
-            schema,
+            extraction_schema,
             model=model,
             client=client,
             validate=validate,
@@ -2068,7 +2578,7 @@ def extract_fields_orchestrated(
         retrieval_context = _format_retrieval_context(field_hits, max_chunk_chars=max_chunk_chars)
         baseline_result = call_llm_for_schema(
             retrieval_context,
-            schema,
+            extraction_schema,
             model=model,
             client=client,
             validate=validate,
@@ -2096,7 +2606,7 @@ def extract_fields_orchestrated(
     field_candidates: Dict[str, list[FieldCandidate]] = {}
     disagreement_fields: list[str] = []
 
-    for field, meta in schema.items():
+    for field, meta in extraction_schema.items():
         baseline_value = baseline_values.get(field)
         baseline_field_issues = baseline_issues_by_field.get(field, [])
         candidates: list[FieldCandidate] = [
@@ -2186,7 +2696,7 @@ def extract_fields_orchestrated(
 
     repaired_fields: list[str] = []
     for field in repair_queue[:max_repairs]:
-        meta = schema[field]
+        meta = extraction_schema[field]
         current = selected_by_field[field]
         repair_query = _build_repair_query(
             field=field,
@@ -2233,7 +2743,7 @@ def extract_fields_orchestrated(
     verifier_repairs_used = 0
 
     if enable_verifier:
-        for field, meta in schema.items():
+        for field, meta in extraction_schema.items():
             selected = selected_by_field[field]
             candidates = field_candidates[field]
             should_skip = field in _VERIFIER_SKIP_FIELDS
@@ -2425,21 +2935,25 @@ def extract_fields_orchestrated(
             ],
         }
 
-    risk_assessment = _apply_risk_assessment_to_values(
+    risk_pipeline = _apply_risk_assessment_to_values(
         values,
+        schema=schema,
         issues=issues,
         field_meta=field_meta,
         model=model,
         client=client,
         structured_outputs=structured_outputs,
         enable_risk_judge=enable_risk_judge,
+        enable_risk_review=enable_risk_review,
         risk_judge_model=risk_judge_model,
+        risk_review_model=risk_review_model,
+        risk_review_top_k=risk_review_top_k,
         risk_policy_path=risk_policy_path,
+        retriever=retriever,
     )
-    total_prompt_tokens += risk_assessment.prompt_tokens or 0
-    total_completion_tokens += risk_assessment.completion_tokens or 0
-    if risk_assessment.judge_raw_text.strip():
-        raw_outputs.append(f"RISK_JUDGE\n{risk_assessment.judge_raw_text}")
+    total_prompt_tokens += risk_pipeline.prompt_tokens or 0
+    total_completion_tokens += risk_pipeline.completion_tokens or 0
+    raw_outputs.extend(risk_pipeline.raw_outputs)
 
     normalized: Dict[str, Any] = values
     validation_issues: list[str] = []
@@ -2469,7 +2983,10 @@ def extract_fields_orchestrated(
         "total_hits": total_hits,
         "fields": field_meta,
         "baseline_coverage": _compute_retrieval_hit_coverage(field_hits),
-        "risk": risk_assessment.as_dict(),
+        "risk": {
+            **risk_pipeline.assessment.as_dict(),
+            "orchestration": risk_pipeline.orchestration,
+        },
         "orchestration": {
             "repair_confidence_threshold": repair_confidence_threshold,
             "max_repairs": max_repairs,
@@ -2489,7 +3006,7 @@ def extract_fields_orchestrated(
             if enable_verifier
             else [],
             "verifier_disagreement_rate": (
-                round(len(set(verifier_disagreement_fields)) / max(1, len(schema)), 4)
+                round(len(set(verifier_disagreement_fields)) / max(1, len(extraction_schema)), 4)
                 if enable_verifier
                 else None
             ),

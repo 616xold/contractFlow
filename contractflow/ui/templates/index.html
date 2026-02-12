@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ContractFlow Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">ContractFlow</p>
+        <h1>Agentic Contract Extraction Studio</h1>
+        <p class="hero-sub">
+          Upload a PDF, choose extraction mode, and get structured fields with explainable risk analysis.
+        </p>
+      </header>
+
+      <main class="workspace">
+        <section class="panel controls">
+          <h2>Run Extraction</h2>
+          <form id="extract-form">
+            <label class="field">
+              <span>Contract PDF</span>
+              <input id="pdf" name="pdf" type="file" accept=".pdf,application/pdf" required>
+            </label>
+
+            <div class="grid-2">
+              <label class="field">
+                <span>Mode</span>
+                <select id="mode" name="mode">
+                  <option value="orchestrated" selected>orchestrated</option>
+                  <option value="field_agents">field_agents</option>
+                  <option value="retrieval">retrieval</option>
+                  <option value="naive">naive</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Retrieval Backend</span>
+                <select id="retrieval_backend" name="retrieval_backend">
+                  <option value="bm25" selected>bm25</option>
+                  <option value="embeddings">embeddings</option>
+                  <option value="hybrid">hybrid</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Model</span>
+              <input id="model" name="model" type="text" value="{{ default_model }}" spellcheck="false">
+            </label>
+
+            <div class="toggle-row" id="verifier-toggle-row">
+              <label class="toggle">
+                <input id="enable_verifier" name="enable_verifier" type="checkbox" checked>
+                <span>Enable verifier</span>
+              </label>
+            </div>
+
+            <div class="toggle-row">
+              <label class="toggle">
+                <input id="enable_risk_review" name="enable_risk_review" type="checkbox" checked>
+                <span>Enable risk review</span>
+              </label>
+              <label class="toggle">
+                <input id="enable_risk_judge" name="enable_risk_judge" type="checkbox" checked>
+                <span>Enable risk judge</span>
+              </label>
+            </div>
+
+            <details class="advanced">
+              <summary>Advanced settings</summary>
+
+              <div class="grid-2">
+                <label class="field">
+                  <span>Top-k chunks</span>
+                  <input id="top_k" name="top_k" type="number" min="1" value="{{ default_top_k }}">
+                </label>
+                <label class="field">
+                  <span>Risk review top-k</span>
+                  <input id="risk_review_top_k" name="risk_review_top_k" type="number" min="1" value="2">
+                </label>
+              </div>
+
+              <div class="grid-2">
+                <label class="field">
+                  <span>Prompt chunk chars</span>
+                  <input id="max_chunk_chars" name="max_chunk_chars" type="number" min="200" value="{{ default_max_chunk_chars }}">
+                </label>
+                <label class="field">
+                  <span>Chunking max chars</span>
+                  <input id="chunk_max_chars" name="chunk_max_chars" type="number" min="400" value="{{ default_chunk_max_chars }}">
+                </label>
+              </div>
+
+              <div class="grid-2">
+                <label class="field">
+                  <span>Embedding model</span>
+                  <input id="embedding_model" name="embedding_model" type="text" value="text-embedding-3-small" spellcheck="false">
+                </label>
+                <label class="field">
+                  <span>Reranker model (optional)</span>
+                  <input id="reranker_model" name="reranker_model" type="text" value="" placeholder="cross-encoder/ms-marco-MiniLM-L-6-v2" spellcheck="false">
+                </label>
+              </div>
+
+              <div class="grid-2">
+                <label class="field">
+                  <span>Verifier confidence threshold</span>
+                  <input id="verifier_confidence_threshold" name="verifier_confidence_threshold" type="number" min="0" max="1" step="0.01" value="0.62">
+                </label>
+                <label class="field">
+                  <span>Verifier max repairs</span>
+                  <input id="verifier_max_repairs" name="verifier_max_repairs" type="number" min="0" value="3">
+                </label>
+              </div>
+
+              <div class="toggle-row">
+                <label class="toggle">
+                  <input id="use_ocr" name="use_ocr" type="checkbox">
+                  <span>OCR fallback</span>
+                </label>
+                <label class="toggle">
+                  <input id="structured_outputs" name="structured_outputs" type="checkbox" checked>
+                  <span>Structured outputs</span>
+                </label>
+              </div>
+            </details>
+
+            <button id="run-btn" type="submit">Extract Fields</button>
+          </form>
+        </section>
+
+        <section class="panel output">
+          <div id="status" class="status idle">Ready</div>
+
+          <div id="empty-state" class="empty">
+            <h3>Awaiting contract</h3>
+            <p>Upload a PDF and run extraction to see fields, risk rationale, and orchestration trace.</p>
+          </div>
+
+          <div id="result-area" class="hidden">
+            <div class="meta-bar">
+              <span id="meta-mode"></span>
+              <span id="meta-model"></span>
+              <span id="meta-latency"></span>
+              <span id="meta-tokens"></span>
+            </div>
+
+            <div class="tabs">
+              <button class="tab is-active" data-tab="fields-tab">Fields</button>
+              <button class="tab" data-tab="risk-tab">Risk</button>
+              <button class="tab" data-tab="trace-tab">Trace</button>
+              <button class="tab" data-tab="raw-tab">Raw</button>
+            </div>
+
+            <section id="fields-tab" class="tab-panel is-active">
+              <div id="issues-box" class="issues hidden"></div>
+              <div id="fields-table-wrap"></div>
+            </section>
+
+            <section id="risk-tab" class="tab-panel">
+              <div id="risk-card"></div>
+              <div id="risk-factors"></div>
+            </section>
+
+            <section id="trace-tab" class="tab-panel">
+              <pre id="trace-json" class="json-block"></pre>
+            </section>
+
+            <section id="raw-tab" class="tab-panel">
+              <pre id="raw-text" class="raw-block"></pre>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

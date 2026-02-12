@@ -163,6 +163,23 @@ def main() -> None:
         help="Optional model override for risk judge (default: same as --model)",
     )
     parser.add_argument(
+        "--disable-risk-review",
+        action="store_true",
+        help="Disable post-extraction risk review agent (rules + optional judge only)",
+    )
+    parser.add_argument(
+        "--risk-review-model",
+        type=str,
+        default=None,
+        help="Optional model override for risk review agent (default: same as --model)",
+    )
+    parser.add_argument(
+        "--risk-review-top-k",
+        type=int,
+        default=None,
+        help="Optional top-k override for risk review retrieval (default: from risk policy)",
+    )
+    parser.add_argument(
         "--risk-policy-path",
         type=Path,
         default=repo_root / "docs" / "risk_policy.json",
@@ -225,7 +242,10 @@ def main() -> None:
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
                 enable_risk_judge=not args.disable_risk_judge,
+                enable_risk_review=not args.disable_risk_review,
                 risk_judge_model=args.risk_judge_model,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
         elif args.orchestrated:
@@ -250,8 +270,15 @@ def main() -> None:
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_verifier=not args.disable_verifier,
+                verifier_confidence_threshold=args.verifier_confidence_threshold,
+                verifier_max_repairs=args.verifier_max_repairs,
+                verifier_model=args.verifier_model,
                 enable_risk_judge=not args.disable_risk_judge,
+                enable_risk_review=not args.disable_risk_review,
                 risk_judge_model=args.risk_judge_model,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
         elif args.retrieval:
@@ -277,7 +304,10 @@ def main() -> None:
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
                 enable_risk_judge=not args.disable_risk_judge,
+                enable_risk_review=not args.disable_risk_review,
                 risk_judge_model=args.risk_judge_model,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
         else:
@@ -294,7 +324,10 @@ def main() -> None:
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
                 enable_risk_judge=not args.disable_risk_judge,
+                enable_risk_review=not args.disable_risk_review,
                 risk_judge_model=args.risk_judge_model,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
     except Exception as e:

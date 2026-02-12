@@ -160,6 +160,23 @@ def main() -> None:
         help="Optional model override for risk judge (default: same as --model)",
     )
     parser.add_argument(
+        "--disable-risk-review",
+        action="store_true",
+        help="Disable risk review agent in post-extraction risk orchestration",
+    )
+    parser.add_argument(
+        "--risk-review-model",
+        type=str,
+        default=None,
+        help="Optional model override for risk review agent (default: same as --model)",
+    )
+    parser.add_argument(
+        "--risk-review-top-k",
+        type=int,
+        default=None,
+        help="Optional top-k override for risk review retrieval evidence",
+    )
+    parser.add_argument(
         "--risk-policy-path",
         type=Path,
         default=REPO_ROOT / "docs" / "risk_policy.json",
@@ -307,6 +324,9 @@ def main() -> None:
                 "fixed_benchmark": args.fixed_benchmark,
                 "disable_risk_judge": args.disable_risk_judge,
                 "risk_judge_model": args.risk_judge_model,
+                "disable_risk_review": args.disable_risk_review,
+                "risk_review_model": args.risk_review_model,
+                "risk_review_top_k": args.risk_review_top_k,
                 "risk_policy_path": str(args.risk_policy_path) if args.risk_policy_path else None,
             },
             "summaries": results,
@@ -346,6 +366,9 @@ def _run_mode(
                 ocr_dpi=args.ocr_dpi,
                 enable_risk_judge=not args.disable_risk_judge,
                 risk_judge_model=args.risk_judge_model,
+                enable_risk_review=not args.disable_risk_review,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
         elif mode == "retrieval":
@@ -370,8 +393,15 @@ def _run_mode(
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                enable_verifier=not args.disable_verifier,
+                verifier_confidence_threshold=args.verifier_confidence_threshold,
+                verifier_max_repairs=args.verifier_max_repairs,
+                verifier_model=args.verifier_model,
                 enable_risk_judge=not args.disable_risk_judge,
                 risk_judge_model=args.risk_judge_model,
+                enable_risk_review=not args.disable_risk_review,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
         elif mode == "field_agents":
@@ -398,6 +428,9 @@ def _run_mode(
                 ocr_dpi=args.ocr_dpi,
                 enable_risk_judge=not args.disable_risk_judge,
                 risk_judge_model=args.risk_judge_model,
+                enable_risk_review=not args.disable_risk_review,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
         elif mode == "orchestrated":
@@ -424,6 +457,9 @@ def _run_mode(
                 ocr_dpi=args.ocr_dpi,
                 enable_risk_judge=not args.disable_risk_judge,
                 risk_judge_model=args.risk_judge_model,
+                enable_risk_review=not args.disable_risk_review,
+                risk_review_model=args.risk_review_model,
+                risk_review_top_k=args.risk_review_top_k,
                 risk_policy_path=args.risk_policy_path,
             )
         else:

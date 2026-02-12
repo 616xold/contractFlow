@@ -1,6 +1,6 @@
 # ContractFlow
 
-Agentic contract extraction from PDF with retrieval, field-level specialists, verifier loops, and auditable risk judging.
+Agentic contract extraction from PDF with retrieval, field-level specialists, verifier loops, and auditable post-extraction risk orchestration.
 
 This project is built as a portfolio-grade AI engineering system: not just "one prompt", but a measurable multi-agent pipeline with explicit evidence, confidence, arbitration, and ablations.
 
@@ -27,8 +27,8 @@ ContractFlow addresses this with staged agentic execution and evaluation-first d
 - Decides `accept`, `revise`, or `unknown`.
 - Can trigger targeted retrieval + repair passes.
 
-4. **Risk judge (v2)**
-- Deterministic policy score plus optional LLM arbitration.
+4. **Post-extraction risk orchestrator (v2)**
+- Deterministic policy score first, then optional risk-review agent and judge arbitration.
 - Full factor trace persisted in `_meta.retrieval.risk`.
 
 ## Architecture
@@ -44,7 +44,7 @@ flowchart LR
     G --> H[Verifier/Judge<br/>accept, revise, unknown]
     H -->|revise| D
     H --> I[Normalize + validate]
-    I --> J[Risk Engine V2<br/>rules + judge]
+    I --> J[Risk Orchestrator V2<br/>rules, review, judge]
     J --> K[JSON + audit]
 ```
 
@@ -100,13 +100,15 @@ xychart-beta
 
 ## Risk Engine V2
 
-Implemented in `contractflow/core/risk_engine.py` with policy in `docs/risk_policy.json`.
+Implemented in `contractflow/core/risk_engine.py` and the post-extraction orchestration stage in `contractflow/core/extractor.py`, with policy in `docs/risk_policy.json`.
 
 - 3 output classes: `low`, `medium`, `high`
+- `risk_level` and `risk_explanation` are derived fields (not directly extracted by the schema prompt)
 - weighted factors: liability, governing law region, transfer posture, term, termination, non-solicit
 - uncertainty-aware scoring from evidence/confidence coverage
 - hard-trigger floors for high-risk combinations
-- optional LLM judge arbitration
+- optional risk-review agent on triggered uncertainty/conflict cases
+- optional LLM judge arbitration after deterministic scoring
 - normal behavior on uncertainty:
   - missing values remain `unknown`
   - not auto-promoted to `uncapped` or `outside`
@@ -122,9 +124,13 @@ Current caveat: committee-silver risk labels are single-class (`high`), so risk-
   - `risk_engine.py`: policy-driven risk scoring + judge arbitration
 - `contractflow/schemas/`
   - `contract_schema.json`
-  - `models.py`
+- `contractflow/ui/`
+  - `app.py`: FastAPI service for upload, extraction, and risk explainability
+  - `templates/index.html`: OpenAI-style minimal UI
+  - `static/`: UI CSS + JS
 - `scripts/`
   - `baseline_extract.py`, `bulk_extract.py`, `inspect_chunks.py`
+  - `run_ui.py`: local web UI launcher
   - `evaluate.py`, `evaluate_risk.py`, `ablation_eval.py`
   - `retrieval_diagnostics.py`, `bootstrap_labels.py`, `build_cuad_pdfs.py`
 - `docs/`
@@ -164,7 +170,28 @@ python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents
 
 # Orchestrated with verifier/judge
 python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated
+
+# Orchestrated with risk-review disabled (rules + judge only)
+python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --disable-risk-review
+
+# Override risk-review model and retrieval depth
+python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --risk-review-model gpt-5.2 --risk-review-top-k 5
 ```
+
+### 2b) Run The Web UI
+
+```bash
+python scripts/run_ui.py --host 127.0.0.1 --port 8000 --reload
+```
+
+Open `http://127.0.0.1:8000` and:
+- upload a PDF
+- choose mode (`naive`, `retrieval`, `field_agents`, `orchestrated`)
+- choose retrieval backend (`bm25`, `embeddings`, `hybrid`)
+- run extraction and inspect:
+  - extracted fields
+  - explainable risk summary (drivers, protectors, triggers, uncertainty)
+  - orchestration trace
 
 ### 3) Reproduce Evaluation
 

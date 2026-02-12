@@ -40,13 +40,19 @@ This roadmap is optimized for interview signal: clear agent roles, measurable ga
   - optional second-pass verifier after judge-repair for hard fields.
   - field-specific verifier prompt templates by contract type.
 
-## Risk Engine V2 (Implemented Core)
+## Risk Engine V2 + Post-Extraction Orchestrator (Implemented Core)
 
 - Implemented:
   - policy-driven risk scoring with versioned config in `docs/risk_policy.json`.
   - structured factor breakdown with contributions, confidence, and evidence coverage.
   - uncertainty-aware scoring adjustments and hard-trigger floors.
   - optional risk judge pass with arbitration (`rules_only`, `rules_with_judge_check`, judge overrides).
+  - risk fields (`risk_level`, `risk_explanation`) marked as derived and removed from direct extraction prompts.
+  - post-extraction risk orchestration stage:
+    - trigger logic from uncertainty + critical-factor confidence.
+    - targeted retrieval for risk-input fields.
+    - risk-review agent proposes typed field corrections only.
+    - deterministic recompute + optional judge on corrected inputs.
   - full risk trace in `_meta.retrieval.risk` for auditability.
 - Next refinements:
   - add domain-specific factors (indemnity carve-outs, security obligations, DPA safeguards).
@@ -65,14 +71,18 @@ This roadmap is optimized for interview signal: clear agent roles, measurable ga
   - add gold-vs-silver split reporting in one artifact.
   - calibrate confidence bands per field (not only aggregate CI).
 
-## Stage 5: Portfolio Packaging (Next)
+## Stage 5: Portfolio Packaging + UI (Implemented Core)
 
-- Add `demo_run.py` that outputs:
-  - final JSON
-  - evidence table by field
-  - orchestration trace summary
-  - risk decision audit
-- Add one public benchmark table in README:
-  - naive vs retrieval vs field_agents vs orchestrated
-  - exact + partial + CI95
-- Add failure-case gallery (3-5 docs) with analysis and planned mitigations.
+- Implemented:
+  - production-style web UI (`contractflow/ui`) with:
+    - PDF upload
+    - mode selection (`naive`, `retrieval`, `field_agents`, `orchestrated`)
+    - retrieval backend selection (`bm25`, `embeddings`, `hybrid`)
+    - advanced controls for verifier/risk-review behavior
+    - result views for extracted fields, risk summary, orchestration trace, and raw output
+  - UI launcher script: `scripts/run_ui.py`
+  - README updates for UI and reproducible usage.
+- Next refinements:
+  - add auth/rate limits for hosted demo deployment.
+  - add downloadable audit report per run (JSON + evidence table).
+  - add failure-case gallery (3-5 docs) with root-cause analysis + mitigations.

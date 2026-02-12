@@ -1,37 +1,56 @@
-# ContractFlow – Domain Notes
+# ContractFlow - Domain Notes
 
-We focus on NDAs and simple SaaS / commercial contracts between a small vendor and a customer.
+ContractFlow targets NDAs and simple SaaS/commercial agreements between a vendor and a customer.
 
-## Fields
+## Extraction Fields
 
-- `party_a_name` / `party_b_name`: Full legal names of the parties listed in the preamble.
-- `effective_date`: The date the agreement comes into force (often in the first paragraph or signature block).
-- `term_length`: Number of months/years the agreement is stated to last (ignore auto-renewal for now, just capture initial term).
-- `governing_law`: Jurisdiction specified in the "Governing Law" or "Law and Jurisdiction" clause.
-- `termination_notice_days`: If the contract allows termination for convenience, capture the required notice period.
-- `liability_cap`: Text describing the cap on liability (e.g. "12 months of Fees").
-- `non_solicit_clause_present`: True if there's any clause restricting solicitation of staff/customers.
-- `data_transfer_outside_uk_eu`: Yes if the agreement clearly allows transfers of personal data outside the UK/EU, otherwise "no" or "unknown".
+- `doc_type`: `nda | msa | other`
+- `party_a_name` / `party_b_name`: legal party names from preamble/signature areas
+- `effective_date`: contract effective date (ISO format when possible)
+- `term_length`: initial term length in months
+- `governing_law`: governing jurisdiction
+- `termination_notice_days`: notice days for termination for convenience
+- `liability_cap`: liability cap clause text (normalized string)
+- `non_solicit_clause_present`: boolean flag
+- `data_transfer_outside_uk_eu`: `yes | no | unknown`
 
-## Risk Rules (v2)
+## Risk Outputs
 
-ContractFlow now uses a policy-driven risk engine (`contractflow/core/risk_engine.py`) with a
-versioned policy file (`docs/risk_policy.json`).
+- `risk_level` and `risk_explanation` are **derived fields**.
+- They are not extracted directly from the contract text prompt.
+- They are produced only after extraction by the post-extraction risk orchestrator.
 
-- Output classes remain: `low`, `medium`, `high`.
-- Core factors:
-  - liability cap quality (uncapped/unknown/capped range)
-  - governing law region (UK/EU vs outside, with unknown as an explicit bucket)
-  - cross-border transfer posture (`yes`/`no`/`unknown`)
+## Risk Engine V2
+
+Implemented in `contractflow/core/risk_engine.py` with policy config in `docs/risk_policy.json`.
+
+- Output classes: `low`, `medium`, `high`
+- Deterministic weighted factors:
+  - liability cap posture (uncapped/unknown/capped ranges)
+  - governing law region (UK/EU vs outside vs unknown)
+  - cross-border data transfer posture
   - term length
   - termination notice period
-  - non-solicit protection
-- Scoring:
-  - weighted additive rule score with uncertainty adjustment based on evidence/confidence coverage.
-  - hard-trigger floors for high-risk combinations (e.g. uncapped liability + outside law).
-- Optional judge pass:
-  - an LLM judge reviews only structured factors + uncertainty metadata.
-  - arbitration policy decides whether to keep rule output or accept judge override.
+  - non-solicit presence
+- Hard-trigger floors for high-risk combinations.
+- Uncertainty-aware adjustment using evidence/confidence coverage.
+- Optional LLM risk judge for arbitration over deterministic output.
 
-This keeps risk explainable (deterministic factors and weights) while adding agentic robustness
-through judge-based arbitration.
+## Post-Extraction Risk Orchestration
+
+Implemented in `contractflow/core/extractor.py` and controlled by `risk_orchestration` in `docs/risk_policy.json`.
+
+- Stage order:
+  1. Run deterministic rules-only risk scoring on extracted values.
+  2. Check trigger conditions (critical unknowns, low critical confidence, high uncertainty).
+  3. If triggered, run a risk-review agent over targeted retrieved evidence for risk-input fields only.
+  4. Apply safe typed corrections to risk-input fields.
+  5. Recompute final risk (rules + optional risk judge).
+- Full trace is persisted in `_meta.retrieval.risk.orchestration`:
+  - trigger reasons
+  - review rounds
+  - applied corrections
+  - before/after risk-input snapshots
+  - token usage for risk review
+
+This keeps risk explainable and deterministic-first while adding agentic recovery where extraction uncertainty is high.

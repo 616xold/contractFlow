@@ -156,6 +156,23 @@ def main() -> None:
         help="Optional model override for risk judge (default: same as --model)",
     )
     parser.add_argument(
+        "--disable-risk-review",
+        action="store_true",
+        help="Disable risk review agent in post-extraction risk orchestration",
+    )
+    parser.add_argument(
+        "--risk-review-model",
+        type=str,
+        default=None,
+        help="Optional model override for risk review agent (default: same as --model)",
+    )
+    parser.add_argument(
+        "--risk-review-top-k",
+        type=int,
+        default=None,
+        help="Optional top-k override for risk review retrieval evidence",
+    )
+    parser.add_argument(
         "--risk-policy-path",
         type=Path,
         default=REPO_ROOT / "docs" / "risk_policy.json",
@@ -282,6 +299,9 @@ def _extract_label(pdf_path: Path, args: argparse.Namespace) -> ExtractionResult
             ocr_dpi=args.ocr_dpi,
             enable_risk_judge=not args.disable_risk_judge,
             risk_judge_model=args.risk_judge_model,
+            enable_risk_review=not args.disable_risk_review,
+            risk_review_model=args.risk_review_model,
+            risk_review_top_k=args.risk_review_top_k,
             risk_policy_path=args.risk_policy_path,
         )
     if args.mode == "retrieval":
@@ -306,8 +326,15 @@ def _extract_label(pdf_path: Path, args: argparse.Namespace) -> ExtractionResult
             ocr_min_chars=args.ocr_min_chars,
             ocr_lang=args.ocr_lang,
             ocr_dpi=args.ocr_dpi,
+            enable_verifier=not args.disable_verifier,
+            verifier_confidence_threshold=args.verifier_confidence_threshold,
+            verifier_max_repairs=args.verifier_max_repairs,
+            verifier_model=args.verifier_model,
             enable_risk_judge=not args.disable_risk_judge,
             risk_judge_model=args.risk_judge_model,
+            enable_risk_review=not args.disable_risk_review,
+            risk_review_model=args.risk_review_model,
+            risk_review_top_k=args.risk_review_top_k,
             risk_policy_path=args.risk_policy_path,
         )
     if args.mode == "orchestrated":
@@ -334,6 +361,9 @@ def _extract_label(pdf_path: Path, args: argparse.Namespace) -> ExtractionResult
             ocr_dpi=args.ocr_dpi,
             enable_risk_judge=not args.disable_risk_judge,
             risk_judge_model=args.risk_judge_model,
+            enable_risk_review=not args.disable_risk_review,
+            risk_review_model=args.risk_review_model,
+            risk_review_top_k=args.risk_review_top_k,
             risk_policy_path=args.risk_policy_path,
         )
     return extract_fields_field_agents(
@@ -359,6 +389,9 @@ def _extract_label(pdf_path: Path, args: argparse.Namespace) -> ExtractionResult
         ocr_dpi=args.ocr_dpi,
         enable_risk_judge=not args.disable_risk_judge,
         risk_judge_model=args.risk_judge_model,
+        enable_risk_review=not args.disable_risk_review,
+        risk_review_model=args.risk_review_model,
+        risk_review_top_k=args.risk_review_top_k,
         risk_policy_path=args.risk_policy_path,
     )
 

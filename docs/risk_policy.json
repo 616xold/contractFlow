@@ -38,5 +38,15 @@
     "enable": true,
     "high_confidence": 0.82,
     "medium_confidence": 0.72
+  },
+  "risk_orchestration": {
+    "enable_review": true,
+    "review_top_k": 4,
+    "review_max_rounds": 1,
+    "review_confidence_threshold": 0.72,
+    "trigger_on_high_uncertainty": true,
+    "trigger_unknown_critical_gte": 2,
+    "trigger_min_critical_confidence_below": 0.45,
+    "max_excerpt_chars": 700
   }
 }
