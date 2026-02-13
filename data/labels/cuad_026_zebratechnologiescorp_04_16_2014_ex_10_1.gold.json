@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Motorola Solutions, Inc.",
+  "party_b_name": "Zebra Technologies Corporation",
+  "effective_date": "2014-04-14",
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": null,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law appears outside uk/eu.); Hard trigger(s): uncapped_and_outside_law. Final risk level: high."
+}

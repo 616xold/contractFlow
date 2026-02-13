@@ -129,6 +129,24 @@ def main() -> None:
         help="Max chars per chunk during chunking (default: 2000)",
     )
     parser.add_argument(
+        "--field-agent-concurrency",
+        type=int,
+        default=4,
+        help="Parallel workers for field-agent calls in field_agents/orchestrated modes (default: 4)",
+    )
+    parser.add_argument(
+        "--repair-confidence-threshold",
+        type=float,
+        default=0.64,
+        help="Orchestrated repair threshold (default: 0.64)",
+    )
+    parser.add_argument(
+        "--max-repairs",
+        type=int,
+        default=3,
+        help="Max orchestrated repair-agent passes (default: 3)",
+    )
+    parser.add_argument(
         "--disable-verifier",
         action="store_true",
         help="Disable verifier/judge pass in orchestrated mode",
@@ -142,8 +160,14 @@ def main() -> None:
     parser.add_argument(
         "--verifier-max-repairs",
         type=int,
-        default=4,
-        help="Max verifier-triggered repairs (default: 4)",
+        default=3,
+        help="Max verifier-triggered repairs (default: 3)",
+    )
+    parser.add_argument(
+        "--verifier-skip-confidence",
+        type=float,
+        default=0.82,
+        help="Skip verifier for high-confidence fields above this threshold (default: 0.82)",
     )
     parser.add_argument(
         "--verifier-model",
@@ -237,6 +261,7 @@ def main() -> None:
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
                 chunk_max_chars=args.chunk_max_chars,
+                field_agent_concurrency=args.field_agent_concurrency,
                 use_ocr=args.use_ocr,
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
@@ -266,13 +291,17 @@ def main() -> None:
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
                 chunk_max_chars=args.chunk_max_chars,
+                field_agent_concurrency=args.field_agent_concurrency,
                 use_ocr=args.use_ocr,
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                repair_confidence_threshold=args.repair_confidence_threshold,
+                max_repairs=args.max_repairs,
                 enable_verifier=not args.disable_verifier,
                 verifier_confidence_threshold=args.verifier_confidence_threshold,
                 verifier_max_repairs=args.verifier_max_repairs,
+                verifier_skip_confidence=args.verifier_skip_confidence,
                 verifier_model=args.verifier_model,
                 enable_risk_judge=not args.disable_risk_judge,
                 enable_risk_review=not args.disable_risk_review,

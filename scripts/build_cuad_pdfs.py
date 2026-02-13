@@ -28,6 +28,17 @@ def main() -> None:
         help="Number of CUAD documents to convert (default: 25)",
     )
     parser.add_argument(
+        "--start-index",
+        type=int,
+        default=0,
+        help="Start index in CUAD docs list (default: 0)",
+    )
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Overwrite existing generated PDFs",
+    )
+    parser.add_argument(
         "--line-width",
         type=int,
         default=90,
@@ -57,10 +68,18 @@ def main() -> None:
     if not docs:
         raise ValueError("CUAD dataset is empty or invalid.")
 
+    if args.limit < 1:
+        raise ValueError("--limit must be >= 1")
+    if args.start_index < 0:
+        raise ValueError("--start-index must be >= 0")
+    if args.start_index >= len(docs):
+        raise ValueError(f"--start-index {args.start_index} out of range for {len(docs)} CUAD docs.")
+
     count = 0
-    for idx, doc in enumerate(docs):
+    for idx in range(args.start_index, len(docs)):
         if count >= args.limit:
             break
+        doc = docs[idx]
         title = doc.get("title", f"cuad_{idx}")
         paragraphs = doc.get("paragraphs", [])
         if not paragraphs:
@@ -70,6 +89,8 @@ def main() -> None:
             continue
         safe_name = _safe_filename(title)
         pdf_path = args.out_dir / f"cuad_{idx:03d}_{safe_name}.pdf"
+        if pdf_path.exists() and not args.overwrite:
+            continue
         _write_text_pdf(
             text=text,
             out_path=pdf_path,

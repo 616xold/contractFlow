@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Beijing SINA Internet Information Service Co., Ltd.",
+  "party_b_name": "Beijing Yisheng Leju Information Services Co., Ltd.",
+  "effective_date": null,
+  "term_length": 120,
+  "governing_law": "People's Republic of China",
+  "termination_notice_days": null,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.). Final risk level: high."
+}

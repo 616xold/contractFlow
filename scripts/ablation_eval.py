@@ -126,6 +126,24 @@ def main() -> None:
         help="Max chars per chunk during chunking",
     )
     parser.add_argument(
+        "--field-agent-concurrency",
+        type=int,
+        default=4,
+        help="Parallel workers for field-agent calls in field_agents/orchestrated modes (default: 4)",
+    )
+    parser.add_argument(
+        "--repair-confidence-threshold",
+        type=float,
+        default=0.64,
+        help="Orchestrated repair threshold (default: 0.64)",
+    )
+    parser.add_argument(
+        "--max-repairs",
+        type=int,
+        default=3,
+        help="Max orchestrated repair-agent passes (default: 3)",
+    )
+    parser.add_argument(
         "--disable-verifier",
         action="store_true",
         help="Disable verifier/judge pass in orchestrated mode",
@@ -139,8 +157,14 @@ def main() -> None:
     parser.add_argument(
         "--verifier-max-repairs",
         type=int,
-        default=4,
-        help="Max verifier-triggered repairs (default: 4)",
+        default=3,
+        help="Max verifier-triggered repairs (default: 3)",
+    )
+    parser.add_argument(
+        "--verifier-skip-confidence",
+        type=float,
+        default=0.82,
+        help="Skip verifier for high-confidence fields above this threshold (default: 0.82)",
     )
     parser.add_argument(
         "--verifier-model",
@@ -272,12 +296,22 @@ def main() -> None:
             args.out = args.fixed_benchmark_out
 
     modes = [mode.strip() for mode in args.modes.split(",") if mode.strip()]
-    pdf_paths = sorted(args.in_dir.glob("*.pdf"))
-    if args.max_pdfs is not None:
-        pdf_paths = pdf_paths[: max(0, args.max_pdfs)]
+    label_stems = _load_label_stems(args.labels_dir, args.label_suffix)
+    pdf_paths, missing_label_pdfs = _resolve_pdf_paths(
+        in_dir=args.in_dir,
+        label_stems=label_stems,
+        max_pdfs=args.max_pdfs,
+    )
     if not pdf_paths:
         print(f"No PDFs found in {args.in_dir}", file=sys.stderr)
         raise SystemExit(1)
+    if missing_label_pdfs:
+        missing_preview = ", ".join(missing_label_pdfs[:5])
+        suffix = "..." if len(missing_label_pdfs) > 5 else ""
+        print(
+            f"WARN missing PDFs for {len(missing_label_pdfs)} labels: {missing_preview}{suffix}",
+            file=sys.stderr,
+        )
 
     results = {}
     for mode in modes:
@@ -304,6 +338,7 @@ def main() -> None:
             bootstrap_samples=args.bootstrap_samples,
             bootstrap_seed=args.bootstrap_seed,
         )
+        summary["token_usage"] = _compute_token_usage(summary)
         results[mode] = summary
 
     pairwise = _build_pairwise_report(results, modes)
@@ -317,6 +352,9 @@ def main() -> None:
                 "label_suffix": args.label_suffix,
                 "schema": str(args.schema),
                 "modes": modes,
+                "label_stems_count": len(label_stems),
+                "pdfs_selected": len(pdf_paths),
+                "missing_label_pdfs": missing_label_pdfs,
                 "max_pdfs": args.max_pdfs,
                 "skip_extraction": args.skip_extraction,
                 "bootstrap_samples": args.bootstrap_samples,
@@ -336,6 +374,34 @@ def main() -> None:
             output_payload[mode] = summary
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(output_payload, indent=2) + "\n", encoding="utf-8")
+
+
+def _load_label_stems(labels_dir: Path, label_suffix: str) -> list[str]:
+    return sorted(path.name[: -len(label_suffix)] for path in labels_dir.glob(f"*{label_suffix}"))
+
+
+def _resolve_pdf_paths(
+    *,
+    in_dir: Path,
+    label_stems: list[str],
+    max_pdfs: int | None,
+) -> tuple[list[Path], list[str]]:
+    if label_stems:
+        pdf_paths: list[Path] = []
+        missing: list[str] = []
+        for stem in label_stems:
+            candidate = in_dir / f"{stem}.pdf"
+            if candidate.exists():
+                pdf_paths.append(candidate)
+            else:
+                missing.append(stem)
+    else:
+        pdf_paths = sorted(in_dir.glob("*.pdf"))
+        missing = []
+
+    if max_pdfs is not None:
+        pdf_paths = pdf_paths[: max(0, max_pdfs)]
+    return pdf_paths, missing
 
 
 def _run_mode(
@@ -393,10 +459,6 @@ def _run_mode(
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
-                enable_verifier=not args.disable_verifier,
-                verifier_confidence_threshold=args.verifier_confidence_threshold,
-                verifier_max_repairs=args.verifier_max_repairs,
-                verifier_model=args.verifier_model,
                 enable_risk_judge=not args.disable_risk_judge,
                 risk_judge_model=args.risk_judge_model,
                 enable_risk_review=not args.disable_risk_review,
@@ -422,6 +484,7 @@ def _run_mode(
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
                 chunk_max_chars=args.chunk_max_chars,
+                field_agent_concurrency=args.field_agent_concurrency,
                 use_ocr=args.use_ocr,
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
@@ -451,10 +514,18 @@ def _run_mode(
                 top_k=args.top_k,
                 max_chunk_chars=args.max_chunk_chars,
                 chunk_max_chars=args.chunk_max_chars,
+                field_agent_concurrency=args.field_agent_concurrency,
                 use_ocr=args.use_ocr,
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
+                repair_confidence_threshold=args.repair_confidence_threshold,
+                max_repairs=args.max_repairs,
+                enable_verifier=not args.disable_verifier,
+                verifier_confidence_threshold=args.verifier_confidence_threshold,
+                verifier_max_repairs=args.verifier_max_repairs,
+                verifier_skip_confidence=args.verifier_skip_confidence,
+                verifier_model=args.verifier_model,
                 enable_risk_judge=not args.disable_risk_judge,
                 risk_judge_model=args.risk_judge_model,
                 enable_risk_review=not args.disable_risk_review,
@@ -498,10 +569,13 @@ def _write_outputs(
 def _print_ablation_summary(results: dict, pairwise: dict) -> None:
     print("ablation_summary:")
     for mode, summary in results.items():
+        token_usage = summary.get("token_usage") or {}
+        avg_total_tokens = token_usage.get("avg_total_tokens")
+        token_text = f" avg_tokens={avg_total_tokens}" if avg_total_tokens is not None else ""
         print(
             f"  {mode}: exact={summary['overall_accuracy_exact']} "
             f"partial={summary['overall_accuracy_partial']} "
-            f"docs={summary['docs_evaluated']}"
+            f"docs={summary['docs_evaluated']}{token_text}"
         )
     if pairwise:
         print("pairwise_comparisons:")
@@ -525,6 +599,57 @@ def _build_pairwise_report(results: dict, modes: list[str]) -> dict:
             pair_key = f"{baseline}__vs__{challenger}"
             pairwise[pair_key] = _compare_mode_pair(base_summary, chall_summary, baseline, challenger)
     return pairwise
+
+
+def _compute_token_usage(summary: dict) -> dict:
+    total_tokens: list[int] = []
+    input_tokens: list[int] = []
+    output_tokens: list[int] = []
+
+    for doc in summary.get("docs", []):
+        if doc.get("status") != "evaluated":
+            continue
+        pred_path_str = doc.get("pred_path")
+        if not pred_path_str:
+            continue
+        pred_path = Path(pred_path_str)
+        if not pred_path.exists():
+            continue
+        try:
+            payload = json.loads(pred_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        meta = payload.get("_meta", {}) if isinstance(payload, dict) else {}
+        inp = meta.get("input_tokens")
+        out = meta.get("output_tokens")
+        if not isinstance(inp, int) or not isinstance(out, int):
+            continue
+        input_tokens.append(inp)
+        output_tokens.append(out)
+        total_tokens.append(inp + out)
+
+    if not total_tokens:
+        return {
+            "docs_with_token_usage": 0,
+            "avg_input_tokens": None,
+            "avg_output_tokens": None,
+            "avg_total_tokens": None,
+            "p50_total_tokens": None,
+            "p90_total_tokens": None,
+        }
+
+    total_sorted = sorted(total_tokens)
+    n = len(total_sorted)
+    p50_index = int(round((n - 1) * 0.50))
+    p90_index = int(round((n - 1) * 0.90))
+    return {
+        "docs_with_token_usage": n,
+        "avg_input_tokens": round(sum(input_tokens) / n, 1),
+        "avg_output_tokens": round(sum(output_tokens) / n, 1),
+        "avg_total_tokens": round(sum(total_tokens) / n, 1),
+        "p50_total_tokens": float(total_sorted[p50_index]),
+        "p90_total_tokens": float(total_sorted[p90_index]),
+    }
 
 
 def _compare_mode_pair(

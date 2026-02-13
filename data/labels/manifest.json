@@ -913,13 +913,49 @@
       "preds_root": "data\\preds_ablations"
     }
   },
-  "nda_harvard": {
-    "doc": "nda_harvard",
-    "label_file": "data\\labels\\nda_harvard.gold.json",
+  "cuad_025_borrowmoneycom_inc_06_11_2020_ex_10_1_jo": {
+    "doc": "cuad_025_borrowmoneycom_inc_06_11_2020_ex_10_1_jo",
+    "label_file": "data\\labels\\cuad_025_borrowmoneycom_inc_06_11_2020_ex_10_1_jo.gold.json",
     "label_suffix": ".gold.json",
     "label_quality": "gold",
     "mode": "manual",
     "model": "unknown",
-    "created_at": "2026-01-17T23:49:48Z"
+    "created_at": "2026-02-13T15:42:39Z"
+  },
+  "cuad_026_zebratechnologiescorp_04_16_2014_ex_10_1": {
+    "doc": "cuad_026_zebratechnologiescorp_04_16_2014_ex_10_1",
+    "label_file": "data\\labels\\cuad_026_zebratechnologiescorp_04_16_2014_ex_10_1.gold.json",
+    "label_suffix": ".gold.json",
+    "label_quality": "gold",
+    "mode": "manual",
+    "model": "unknown",
+    "created_at": "2026-02-13T15:42:39Z"
+  },
+  "cuad_027_chinarealestateinformationcorp_20090929_": {
+    "doc": "cuad_027_chinarealestateinformationcorp_20090929_",
+    "label_file": "data\\labels\\cuad_027_chinarealestateinformationcorp_20090929_.gold.json",
+    "label_suffix": ".gold.json",
+    "label_quality": "gold",
+    "mode": "manual",
+    "model": "unknown",
+    "created_at": "2026-02-13T15:42:39Z"
+  },
+  "cuad_028_hertzglobalholdings_inc_07_07_2016_ex_10": {
+    "doc": "cuad_028_hertzglobalholdings_inc_07_07_2016_ex_10",
+    "label_file": "data\\labels\\cuad_028_hertzglobalholdings_inc_07_07_2016_ex_10.gold.json",
+    "label_suffix": ".gold.json",
+    "label_quality": "gold",
+    "mode": "manual",
+    "model": "unknown",
+    "created_at": "2026-02-13T15:42:39Z"
+  },
+  "cuad_029_globaltechnologiesltd_06_08_2020_ex_10_1": {
+    "doc": "cuad_029_globaltechnologiesltd_06_08_2020_ex_10_1",
+    "label_file": "data\\labels\\cuad_029_globaltechnologiesltd_06_08_2020_ex_10_1.gold.json",
+    "label_suffix": ".gold.json",
+    "label_quality": "gold",
+    "mode": "manual",
+    "model": "unknown",
+    "created_at": "2026-02-13T15:42:39Z"
   }
 }

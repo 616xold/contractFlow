@@ -6,6 +6,7 @@ import json
 import re
 from datetime import date, datetime
 from dataclasses import dataclass
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Annotated, Any, Dict, Literal, Optional
 
@@ -106,12 +107,25 @@ _FIELD_INSTRUCTIONS = {
 }
 _CONFIDENCE_RETRY_THRESHOLD = 0.55
 _MAX_FIELD_RETRIES = 2
+_DEFAULT_FIELD_AGENT_CONCURRENCY = 4
 _ORCHESTRATION_BASELINE_CONFIDENCE = 0.58
-_ORCHESTRATION_REPAIR_THRESHOLD = 0.68
-_MAX_ORCHESTRATION_REPAIRS = 6
+_ORCHESTRATION_REPAIR_THRESHOLD = 0.64
+_MAX_ORCHESTRATION_REPAIRS = 3
+_ORCHESTRATION_BASELINE_TOP_K = 1
 _VERIFIER_CONFIDENCE_THRESHOLD = 0.62
-_MAX_VERIFIER_REPAIRS = 4
+_MAX_VERIFIER_REPAIRS = 3
+_VERIFIER_SKIP_CONFIDENCE = 0.82
 _VERIFIER_SKIP_FIELDS = {"risk_level", "risk_explanation"}
+_REPAIR_PRIORITY_FIELDS = {
+    "liability_cap",
+    "effective_date",
+    "termination_notice_days",
+    "governing_law",
+    "term_length",
+    "party_a_name",
+    "party_b_name",
+    "doc_type",
+}
 _RISK_OUTPUT_FIELDS = {"risk_level", "risk_explanation"}
 _RISK_INPUT_FIELDS = (
     "liability_cap",
@@ -1616,6 +1630,122 @@ def _extract_field_with_retries(
     return best_value, best_result, best_issues, total_prompt_tokens, total_completion_tokens
 
 
+def _is_rate_limit_issue(issues: list[str]) -> bool:
+    for issue in issues:
+        lowered = issue.lower()
+        if "rate limit" in lowered or "429" in lowered or "too many requests" in lowered:
+            return True
+    return False
+
+
+def _extract_fields_with_parallelism(
+    field_specs: list[tuple[str, Dict[str, Any], str]],
+    *,
+    retriever: ChunkRetriever,
+    model: str,
+    client: OpenAI,
+    structured_outputs: bool,
+    top_k: int,
+    max_chunk_chars: int,
+    coerce: bool,
+    concurrency: int,
+) -> tuple[Dict[str, tuple[Any, FieldExtractionResult, list[str], int, int]], Dict[str, Any], int, int]:
+    outputs: Dict[str, tuple[Any, FieldExtractionResult, list[str], int, int]] = {}
+    total_prompt_tokens = 0
+    total_completion_tokens = 0
+    field_count = len(field_specs)
+    worker_count = max(1, min(int(concurrency), field_count)) if field_count else 1
+    used_parallel = worker_count > 1
+    rate_limit_retries = 0
+    worker_failures: list[str] = []
+
+    if not used_parallel:
+        for field, meta, query in field_specs:
+            out = _extract_field_with_retries(
+                field,
+                meta,
+                retriever,
+                query,
+                model=model,
+                client=client,
+                structured_outputs=structured_outputs,
+                top_k=top_k,
+                max_chunk_chars=max_chunk_chars,
+                coerce=coerce,
+            )
+            outputs[field] = out
+            total_prompt_tokens += out[3]
+            total_completion_tokens += out[4]
+    else:
+        def _worker(spec: tuple[str, Dict[str, Any], str]) -> tuple[str, tuple[Any, FieldExtractionResult, list[str], int, int]]:
+            field_name, meta_def, field_query = spec
+            local_client = OpenAI()
+            out = _extract_field_with_retries(
+                field_name,
+                meta_def,
+                retriever,
+                field_query,
+                model=model,
+                client=local_client,
+                structured_outputs=structured_outputs,
+                top_k=top_k,
+                max_chunk_chars=max_chunk_chars,
+                coerce=coerce,
+            )
+            return field_name, out
+
+        with ThreadPoolExecutor(max_workers=worker_count) as executor:
+            future_map = {executor.submit(_worker, spec): spec[0] for spec in field_specs}
+            for future in as_completed(future_map):
+                field = future_map[future]
+                try:
+                    field_name, out = future.result()
+                except Exception as exc:
+                    worker_failures.append(f"{field}: {exc}")
+                    continue
+                outputs[field_name] = out
+                total_prompt_tokens += out[3]
+                total_completion_tokens += out[4]
+
+        # Fallback for worker failures or rate-limited outputs.
+        missing_fields = [field for field, _meta, _query in field_specs if field not in outputs]
+        rate_limited_fields = [
+            field
+            for field, out in outputs.items()
+            if _is_rate_limit_issue(out[2])
+        ]
+        fallback_fields = sorted(set(missing_fields + rate_limited_fields))
+        for field, meta, query in field_specs:
+            if field not in fallback_fields:
+                continue
+            out = _extract_field_with_retries(
+                field,
+                meta,
+                retriever,
+                query,
+                model=model,
+                client=client,
+                structured_outputs=structured_outputs,
+                top_k=top_k,
+                max_chunk_chars=max_chunk_chars,
+                coerce=coerce,
+            )
+            outputs[field] = out
+            total_prompt_tokens += out[3]
+            total_completion_tokens += out[4]
+            if field in rate_limited_fields:
+                rate_limit_retries += 1
+
+    parallel_meta = {
+        "enabled": used_parallel,
+        "requested_concurrency": int(concurrency),
+        "worker_count": worker_count if used_parallel else 1,
+        "rate_limit_retries": rate_limit_retries,
+        "worker_failures": worker_failures,
+    }
+    return outputs, parallel_meta, total_prompt_tokens, total_completion_tokens
+
+
 def _is_better_field_result(
     candidate: FieldExtractionResult,
     candidate_issues: list[str],
@@ -1707,6 +1837,27 @@ def _build_repair_query(
     if current.value is not None and str(current.value).strip():
         parts.append(f"current candidate: {current.value}")
     return ". ".join(part.strip() for part in parts if part and part.strip())
+
+
+def _repair_priority_score(
+    *,
+    field: str,
+    candidate: FieldCandidate,
+    disagreement: bool,
+    repair_confidence_threshold: float,
+) -> float:
+    score = 0.0
+    if field in _REPAIR_PRIORITY_FIELDS:
+        score += 1.0
+    if candidate.value is None or (isinstance(candidate.value, str) and not candidate.value.strip()):
+        score += 2.0
+    if candidate.confidence < repair_confidence_threshold:
+        score += (repair_confidence_threshold - candidate.confidence) * 3.0
+    if disagreement and candidate.source == "global_baseline":
+        score += 1.2
+    if not candidate.evidence:
+        score += 0.5
+    return score
 
 
 def _dedupe_issues(issues: list[str]) -> list[str]:
@@ -2242,6 +2393,7 @@ def extract_fields_field_agents(
     ocr_min_chars: int = 40,
     ocr_lang: str = "eng",
     ocr_dpi: int = 200,
+    field_agent_concurrency: int = _DEFAULT_FIELD_AGENT_CONCURRENCY,
     enable_risk_judge: bool = True,
     enable_risk_review: bool = True,
     risk_judge_model: Optional[str] = None,
@@ -2252,6 +2404,8 @@ def extract_fields_field_agents(
     """Extract fields by running a per-field retrieval + extraction agent."""
     if top_k < 1:
         raise ValueError("top_k must be >= 1 for field agents.")
+    if field_agent_concurrency < 1:
+        raise ValueError("field_agent_concurrency must be >= 1 for field agents.")
 
     schema = load_schema(schema_path)
     extraction_schema = _schema_for_extraction(schema)
@@ -2308,20 +2462,26 @@ def extract_fields_field_agents(
         if joint_party_result.raw_text.strip():
             raw_outputs.append(f"JOINT_PARTY_AGENT\n{joint_party_result.raw_text}")
 
+    field_specs = [
+        (field, meta, field_queries.get(field, field.replace("_", " ")))
+        for field, meta in extraction_schema.items()
+    ]
+    field_outputs, parallel_meta, field_prompt_total, field_completion_total = _extract_fields_with_parallelism(
+        field_specs,
+        retriever=retriever,
+        model=model,
+        client=client,
+        structured_outputs=structured_outputs,
+        top_k=top_k,
+        max_chunk_chars=max_chunk_chars,
+        coerce=coerce,
+        concurrency=field_agent_concurrency,
+    )
+    total_prompt_tokens += field_prompt_total
+    total_completion_tokens += field_completion_total
+
     for field, meta in extraction_schema.items():
-        query = field_queries.get(field, field.replace("_", " "))
-        value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
-            field,
-            meta,
-            retriever,
-            query,
-            model=model,
-            client=client,
-            structured_outputs=structured_outputs,
-            top_k=top_k,
-            max_chunk_chars=max_chunk_chars,
-            coerce=coerce,
-        )
+        value, result, field_issues, field_prompt_tokens, field_completion_tokens = field_outputs[field]
         field_agent_raw_text = result.raw_text
         selected_prompt_tokens = field_prompt_tokens or None
         selected_completion_tokens = field_completion_tokens or None
@@ -2376,8 +2536,6 @@ def extract_fields_field_agents(
         if field_issues:
             issues.extend(field_issues)
 
-        total_prompt_tokens += field_prompt_tokens
-        total_completion_tokens += field_completion_tokens
         if field_agent_raw_text.strip():
             raw_outputs.append(f"FIELD {field}\n{field_agent_raw_text}")
 
@@ -2438,6 +2596,7 @@ def extract_fields_field_agents(
         "chunk_max_chars": chunk_max_chars,
         "use_ocr": use_ocr,
         "total_chunks": len(chunks),
+        "parallelism": parallel_meta,
         "fields": field_meta,
         "risk": {
             **risk_pipeline.assessment.as_dict(),
@@ -2478,11 +2637,13 @@ def extract_fields_orchestrated(
     ocr_min_chars: int = 40,
     ocr_lang: str = "eng",
     ocr_dpi: int = 200,
+    field_agent_concurrency: int = _DEFAULT_FIELD_AGENT_CONCURRENCY,
     repair_confidence_threshold: float = _ORCHESTRATION_REPAIR_THRESHOLD,
     max_repairs: int = _MAX_ORCHESTRATION_REPAIRS,
     enable_verifier: bool = True,
     verifier_confidence_threshold: float = _VERIFIER_CONFIDENCE_THRESHOLD,
     verifier_max_repairs: int = _MAX_VERIFIER_REPAIRS,
+    verifier_skip_confidence: float = _VERIFIER_SKIP_CONFIDENCE,
     verifier_model: Optional[str] = None,
     enable_risk_judge: bool = True,
     enable_risk_review: bool = True,
@@ -2502,6 +2663,10 @@ def extract_fields_orchestrated(
         raise ValueError("verifier_confidence_threshold must be between 0 and 1.")
     if verifier_max_repairs < 0:
         raise ValueError("verifier_max_repairs must be >= 0 for orchestrated extraction.")
+    if field_agent_concurrency < 1:
+        raise ValueError("field_agent_concurrency must be >= 1 for orchestrated extraction.")
+    if not (0.0 <= verifier_skip_confidence <= 1.0):
+        raise ValueError("verifier_skip_confidence must be between 0 and 1.")
 
     schema = load_schema(schema_path)
     extraction_schema = _schema_for_extraction(schema)
@@ -2548,8 +2713,9 @@ def extract_fields_orchestrated(
             joint_party_issue = f"joint party role extraction failed: {exc}"
 
     field_hits: Dict[str, list[RetrievalHit]] = {}
+    baseline_top_k = max(1, min(_ORCHESTRATION_BASELINE_TOP_K, top_k))
     for field, query in field_queries.items():
-        field_hits[field] = retriever.retrieve(query, top_k=top_k)
+        field_hits[field] = retriever.retrieve(query, top_k=baseline_top_k)
 
     total_hits = sum(len(hits) for hits in field_hits.values())
     baseline_used_fallback_full_text = total_hits == 0
@@ -2602,11 +2768,38 @@ def extract_fields_orchestrated(
     raw_outputs: list[str] = []
     if baseline_result.raw_text.strip():
         raw_outputs.append(f"GLOBAL_BASELINE\n{baseline_result.raw_text}")
+    if joint_party_result is not None:
+        total_prompt_tokens += joint_party_result.prompt_tokens or 0
+        total_completion_tokens += joint_party_result.completion_tokens or 0
+        if joint_party_result.raw_text.strip():
+            raw_outputs.append(f"JOINT_PARTY_AGENT\n{joint_party_result.raw_text}")
 
     field_candidates: Dict[str, list[FieldCandidate]] = {}
     disagreement_fields: list[str] = []
 
+    field_specs: list[tuple[str, Dict[str, Any], str]] = []
     for field, meta in extraction_schema.items():
+        query = field_queries.get(field, field.replace("_", " "))
+        baseline_value = baseline_values.get(field)
+        if baseline_value is not None and str(baseline_value).strip():
+            query = f"{query}. baseline candidate {baseline_value}"
+        field_specs.append((field, meta, query))
+
+    field_outputs, parallel_meta, field_prompt_total, field_completion_total = _extract_fields_with_parallelism(
+        field_specs,
+        retriever=retriever,
+        model=model,
+        client=client,
+        structured_outputs=structured_outputs,
+        top_k=top_k,
+        max_chunk_chars=max_chunk_chars,
+        coerce=coerce,
+        concurrency=field_agent_concurrency,
+    )
+    total_prompt_tokens += field_prompt_total
+    total_completion_tokens += field_completion_total
+
+    for field, _meta, _query in field_specs:
         baseline_value = baseline_values.get(field)
         baseline_field_issues = baseline_issues_by_field.get(field, [])
         candidates: list[FieldCandidate] = [
@@ -2633,28 +2826,8 @@ def extract_fields_orchestrated(
                     completion_tokens=joint_field_result.completion_tokens or 0,
                 )
             )
-            if field == "party_a_name":
-                total_prompt_tokens += joint_party_result.prompt_tokens or 0
-                total_completion_tokens += joint_party_result.completion_tokens or 0
-                if joint_party_result.raw_text.strip():
-                    raw_outputs.append(f"JOINT_PARTY_AGENT\n{joint_party_result.raw_text}")
 
-        query = field_queries.get(field, field.replace("_", " "))
-        if baseline_value is not None and str(baseline_value).strip():
-            query = f"{query}. baseline candidate {baseline_value}"
-
-        value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
-            field,
-            meta,
-            retriever,
-            query,
-            model=model,
-            client=client,
-            structured_outputs=structured_outputs,
-            top_k=top_k,
-            max_chunk_chars=max_chunk_chars,
-            coerce=coerce,
-        )
+        value, result, field_issues, field_prompt_tokens, field_completion_tokens = field_outputs[field]
         candidates.append(
             FieldCandidate(
                 source="field_agent",
@@ -2674,28 +2847,34 @@ def extract_fields_orchestrated(
         ):
             disagreement_fields.append(field)
 
-        total_prompt_tokens += field_prompt_tokens
-        total_completion_tokens += field_completion_tokens
         if result.raw_text.strip():
             raw_outputs.append(f"FIELD_AGENT {field}\n{result.raw_text}")
 
         field_candidates[field] = candidates
 
     selected_by_field: Dict[str, FieldCandidate] = {}
-    repair_queue: list[str] = []
+    repair_queue: list[tuple[str, float]] = []
     for field, candidates in field_candidates.items():
         selected = _select_best_candidate(candidates)
         selected_by_field[field] = selected
+        disagreement = field in disagreement_fields and selected.source == "global_baseline"
         needs_repair = (
             selected.confidence < repair_confidence_threshold
             or selected.value is None
-            or (field in disagreement_fields and selected.source == "global_baseline")
+            or disagreement
         )
         if needs_repair:
-            repair_queue.append(field)
+            priority = _repair_priority_score(
+                field=field,
+                candidate=selected,
+                disagreement=disagreement,
+                repair_confidence_threshold=repair_confidence_threshold,
+            )
+            repair_queue.append((field, priority))
 
     repaired_fields: list[str] = []
-    for field in repair_queue[:max_repairs]:
+    repair_queue.sort(key=lambda item: item[1], reverse=True)
+    for field, _priority in repair_queue[:max_repairs]:
         meta = extraction_schema[field]
         current = selected_by_field[field]
         repair_query = _build_repair_query(
@@ -2746,14 +2925,24 @@ def extract_fields_orchestrated(
         for field, meta in extraction_schema.items():
             selected = selected_by_field[field]
             candidates = field_candidates[field]
-            should_skip = field in _VERIFIER_SKIP_FIELDS
             deterministic_checks = _deterministic_verifier_checks(field, meta, selected, coerce=coerce)
+            should_skip = field in _VERIFIER_SKIP_FIELDS
+            if (
+                not should_skip
+                and selected.confidence >= verifier_skip_confidence
+                and not deterministic_checks["conflict"]
+                and selected.value is not None
+            ):
+                should_skip = True
 
             if should_skip:
                 verifier_decision_counts["skipped"] += 1
+                reason_text = "field is deterministically derived downstream"
+                if field not in _VERIFIER_SKIP_FIELDS:
+                    reason_text = "high-confidence field skipped by verifier policy"
                 verifier_meta_by_field[field] = {
                     "decision": "skipped",
-                    "reason": "field is deterministically derived downstream",
+                    "reason": reason_text,
                     "confidence": 1.0,
                     "revised_query": None,
                     "repaired": False,
@@ -2981,6 +3170,7 @@ def extract_fields_orchestrated(
         "use_ocr": use_ocr,
         "total_chunks": len(chunks),
         "total_hits": total_hits,
+        "parallelism": parallel_meta,
         "fields": field_meta,
         "baseline_coverage": _compute_retrieval_hit_coverage(field_hits),
         "risk": {
@@ -2988,8 +3178,10 @@ def extract_fields_orchestrated(
             "orchestration": risk_pipeline.orchestration,
         },
         "orchestration": {
+            "baseline_top_k": baseline_top_k,
             "repair_confidence_threshold": repair_confidence_threshold,
             "max_repairs": max_repairs,
+            "repair_queue_ranked": [field for field, _priority in repair_queue],
             "repaired_fields": repaired_fields,
             "disagreement_fields": sorted(set(disagreement_fields)),
             "selected_source_counts": selected_source_counts,
@@ -2998,6 +3190,7 @@ def extract_fields_orchestrated(
             "verifier_enabled": enable_verifier,
             "verifier_model": verifier_model_name if enable_verifier else None,
             "verifier_confidence_threshold": verifier_confidence_threshold if enable_verifier else None,
+            "verifier_skip_confidence": verifier_skip_confidence if enable_verifier else None,
             "verifier_max_repairs": verifier_max_repairs if enable_verifier else None,
             "verifier_repairs_used": verifier_repairs_used if enable_verifier else 0,
             "verifier_repair_fields": sorted(set(verifier_repair_fields)) if enable_verifier else [],

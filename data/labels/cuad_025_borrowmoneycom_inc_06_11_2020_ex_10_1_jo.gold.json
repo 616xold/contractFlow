@@ -1,0 +1,14 @@
+{
+  "doc_type": "other",
+  "party_a_name": "BorrowMoney.com, inc",
+  "party_b_name": "JVLS, LLC dba Vaccines 2Go",
+  "effective_date": "2020-03-20",
+  "term_length": 60,
+  "governing_law": "State of Florida",
+  "termination_notice_days": null,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.). Final risk level: high."
+}

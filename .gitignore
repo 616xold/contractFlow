@@ -6,3 +6,4 @@ __pycache__/
 .idea/
 data/embeddings/
 data/preds/
+data/archive/
