@@ -11,6 +11,8 @@ from typing import Annotated, Any, Dict, Literal, Optional
 from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field
 
+from contractflow.core.liability import parse_liability_cap
+
 
 RiskLevel = Literal["low", "medium", "high"]
 
@@ -657,41 +659,11 @@ def _normalize_data_transfer(value: Any) -> Literal["yes", "no", "unknown"]:
 
 
 def _liability_uncapped(liability_cap: Any) -> bool:
-    if liability_cap is None:
-        return False
-    text = str(liability_cap).strip().lower()
-    if not text or text in _NULL_STRINGS:
-        return False
-    uncapped_terms = [
-        "uncapped",
-        "unlimited",
-        "no cap",
-        "no limitation",
-        "not limited",
-        "without limit",
-        "not specified",
-        "none specified",
-        "sole and exclusive remedy",
-    ]
-    return any(term in text for term in uncapped_terms)
+    return parse_liability_cap(liability_cap).is_uncapped
 
 
 def _liability_cap_months(liability_cap: Any) -> Optional[int]:
-    if liability_cap is None:
-        return None
-    text = str(liability_cap).strip().lower()
-    match = re.search(r"-?\d+", text.replace(",", ""))
-    if not match:
-        return None
-    value = int(match.group(0))
-    if re.search(r"\b(year|years|yr|yrs)\b", text) and not re.search(
-        r"\b(month|months|mo|mos)\b",
-        text,
-    ):
-        return value * 12
-    if re.search(r"\b(month|months|mo|mos)\b", text):
-        return value
-    return None
+    return parse_liability_cap(liability_cap).months
 
 
 def _governing_law_region(governing_law: Any) -> Literal["uk_eu", "outside", "unknown"]:

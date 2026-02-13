@@ -54,3 +54,16 @@ Implemented in `contractflow/core/extractor.py` and controlled by `risk_orchestr
   - token usage for risk review
 
 This keeps risk explainable and deterministic-first while adding agentic recovery where extraction uncertainty is high.
+
+## Liability Cap Reliability (Extraction + Eval)
+
+- Shared parser in `contractflow/core/liability.py` extracts structured liability signals:
+  - uncapped posture
+  - fee-window caps in months (e.g., 12 months, 1 year -> 12 months)
+  - fixed monetary caps with currency (when explicit)
+- Extraction normalization in `contractflow/core/extractor.py` canonicalizes `liability_cap` to stable forms:
+  - `uncapped`
+  - `<N> months fees`
+  - `<CUR> <amount>`
+- Evaluation in `scripts/evaluate.py` uses semantic liability similarity instead of plain string overlap for `liability_cap`.
+  This reduces false negatives where wording differs but cap semantics are equivalent.

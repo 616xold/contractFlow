@@ -16,6 +16,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from contractflow.core.liability import liability_cap_similarity
+
 
 
 def main() -> None:
@@ -169,7 +171,7 @@ def evaluate_predictions(
             norm_gold = _normalize_value(gold_value_raw, meta_def)
             norm_pred = _normalize_value(pred_value_raw, meta_def)
             is_exact = norm_gold == norm_pred
-            similarity = _field_similarity(norm_gold, norm_pred, meta_def)
+            similarity = _field_similarity(field, norm_gold, norm_pred, meta_def)
             is_partial = is_exact or similarity >= partial_threshold
             error_bucket: str | None = None
 
@@ -420,11 +422,13 @@ def _is_enum_value_valid(value: Any, meta: Dict[str, Any]) -> bool:
     return normalized in enum_vals
 
 
-def _field_similarity(gold: Any, pred: Any, meta: Dict[str, Any]) -> float:
+def _field_similarity(field: str, gold: Any, pred: Any, meta: Dict[str, Any]) -> float:
     expected = meta.get("type")
     enum_vals = meta.get("enum")
     if gold is None and pred is None:
         return 1.0
+    if field == "liability_cap":
+        return liability_cap_similarity(gold, pred)
     if expected in {"integer", "boolean"}:
         return 1.0 if gold == pred else 0.0
     if enum_vals:

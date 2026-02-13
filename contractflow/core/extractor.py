@@ -14,6 +14,7 @@ from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field, create_model
 
 from contractflow.core.chunking import ChunkRetriever, RetrievalHit, build_retriever, chunk_pdf
+from contractflow.core.liability import canonicalize_liability_cap, parse_liability_cap
 from contractflow.core.pdf_utils import read_pdf_text
 from contractflow.core.risk_engine import RiskAssessment, assess_contract_risk
 
@@ -102,6 +103,11 @@ _FIELD_INSTRUCTIONS = {
     "effective_date": "Return an ISO date (YYYY-MM-DD) if possible.",
     "term_length": "Return the initial term length in months (convert years to months).",
     "termination_notice_days": "Return number of days of notice required for termination for convenience.",
+    "liability_cap": (
+        "Prefer canonical output when possible: "
+        "'uncapped' OR '<N> months fees' OR '<CUR> <amount>'. "
+        "If not quantifiable, return a concise clause summary."
+    ),
     "data_transfer_outside_uk_eu": "Use 'unknown' only if not specified and cannot be inferred.",
     "doc_type": "Choose the closest enum value based on the document.",
 }
@@ -918,6 +924,57 @@ def _normalize_term_length(value: Any, evidence_text: str) -> tuple[Any, Optiona
     return number, None, False
 
 
+def _normalize_liability_cap(value: Any, evidence_text: str) -> tuple[Any, Optional[str], bool]:
+    evidence_lower = evidence_text.strip().lower()
+    has_liability_signal = any(
+        term in evidence_lower
+        for term in ("liability", "damages", "indirect", "consequential", "cap")
+    )
+    inferred_from_evidence: Optional[str] = None
+    if has_liability_signal and evidence_lower:
+        inferred_from_evidence = canonicalize_liability_cap(evidence_text)
+
+    if value is None:
+        if inferred_from_evidence:
+            return inferred_from_evidence, "inferred liability_cap from evidence snippets", False
+        return None, None, False
+    if not isinstance(value, str):
+        value = str(value)
+
+    canonical = canonicalize_liability_cap(value)
+    if canonical is None:
+        canonical = inferred_from_evidence
+
+    if canonical is None:
+        cleaned = " ".join(value.split()).strip()
+        if not cleaned:
+            return None, "liability_cap is empty", True
+        return cleaned, None, False
+
+    if inferred_from_evidence:
+        value_sig = parse_liability_cap(canonical)
+        evidence_sig = parse_liability_cap(inferred_from_evidence)
+        if evidence_sig.months is not None and (
+            value_sig.months is None or abs(evidence_sig.months - value_sig.months) >= 6
+        ):
+            return (
+                inferred_from_evidence,
+                "normalized liability_cap from evidence-derived fee window",
+                False,
+            )
+        if evidence_sig.is_uncapped and not value_sig.is_uncapped and value_sig.months is None:
+            return (
+                inferred_from_evidence,
+                "normalized liability_cap from evidence-derived uncapped posture",
+                False,
+            )
+
+    original_clean = " ".join(str(value).split()).strip().lower()
+    if canonical != original_clean:
+        return canonical, "normalized liability_cap to canonical representation", False
+    return canonical, None, False
+
+
 def _load_risk_orchestration_config(
     risk_policy_path: Optional[str | Path],
 ) -> Dict[str, Any]:
@@ -1543,6 +1600,11 @@ def _validate_and_normalize_field(
         if issue:
             issues.append(issue)
         conflict = conflict or term_conflict
+    elif field == "liability_cap":
+        normalized, issue, liab_conflict = _normalize_liability_cap(normalized, evidence_text)
+        if issue:
+            issues.append(issue)
+        conflict = conflict or liab_conflict
 
     return normalized, issues, conflict
 
