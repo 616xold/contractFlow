@@ -6,4 +6,6 @@ __pycache__/
 .idea/
 data/embeddings/
 data/preds/
-data/archive/
+data/archive/*
+!data/archive/benchmarks/
+!data/archive/benchmarks/*.json

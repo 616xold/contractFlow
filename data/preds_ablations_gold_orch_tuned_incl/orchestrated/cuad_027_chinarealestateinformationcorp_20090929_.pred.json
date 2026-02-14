@@ -1,0 +1,706 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Beijing SINA Internet Information Service Co., Ltd.",
+  "party_b_name": "Beijing Yisheng Leju Information Services Co., Ltd.",
+  "effective_date": null,
+  "term_length": 120,
+  "governing_law": "People's Republic of China",
+  "termination_notice_days": 30,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.). Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_027_chinarealestateinformationcorp_20090929_.pdf",
+    "model": "gpt-5.2",
+    "mode": "orchestrated",
+    "input_tokens": 22294,
+    "output_tokens": 3063,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+      "Field 'liability_cap' must be a non-empty string",
+      "defaulted liability_cap to none specified",
+      "risk review corrected 'termination_notice_days'"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "orchestrated_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 2,
+      "max_chunk_chars": 800,
+      "chunk_max_chars": 1300,
+      "use_ocr": false,
+      "total_chunks": 91,
+      "total_hits": 10,
+      "parallelism": {
+        "enabled": true,
+        "requested_concurrency": 4,
+        "worker_count": 4,
+        "rate_limit_retries": 0,
+        "worker_failures": []
+      },
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 11,
+              "heading": "ARTICLE IX  CONFIDENTIALITY",
+              "snippet": "ARTICLE IX  CONFIDENTIALITY\n9.1. Confidential Information. In performing its obligations under this Agreement, either Party (the \"Recipient\") may obtain certain Confidential  Information of the other Party."
+            },
+            {
+              "page_num": 11,
+              "heading": "Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009",
+              "snippet": "...shall maintain in confidence all Confidential Information and shall not disclose such Confidential Information to any third party without the express written consent of the other Party..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 668,
+          "completion_tokens": 147,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.72,
+              "confidence": 0.62,
+              "value": "other",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "DOMAIN NAME AND CONTENT LICENSE AGREEMENT",
+              "snippet": "This Domain Name and Content License Agreement (the \"Agreement\") is made and entered into, by and between Beijing SINA Internet  Information Service Co., Ltd. ( ), a limited liability company organized under the laws of the People's Republic  of China (hereinafter \"Licensor\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 481,
+          "completion_tokens": 123,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Beijing SINA Internet Information Service Co., Ltd.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.04,
+              "confidence": 0.99,
+              "value": "Beijing SINA Internet Information Service Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "Beijing SINA Internet Information Service Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "DOMAIN NAME AND CONTENT LICENSE AGREEMENT",
+              "snippet": "and Beijing Yisheng Leju Information Services Co., Ltd., a limited liability company organized under the laws of  the People's Republic of China (\"Licensee\""
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 482,
+          "completion_tokens": 123,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "Beijing Yisheng Leju Information Services Co., Ltd.",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.04,
+              "confidence": 0.99,
+              "value": "Beijing Yisheng Leju Information Services Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "Beijing Yisheng Leju Information Services Co., Ltd.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "repair_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "DOMAIN NAME AND CONTENT LICENSE AGREEMENT",
+              "snippet": "...and is made effective as of the Effective  Date (defined below)."
+            },
+            {
+              "page_num": 8,
+              "heading": "ARTICLE VI  TERM AND TERMINATION",
+              "snippet": "The initial term of this Agreement (the \"Initial Term\") shall commence on the Effective Date..."
+            },
+            {
+              "page_num": 16,
+              "heading": null,
+              "snippet": "...the Original  Agreement shall be terminated as of the Effective Date... this Agreement shall not  become effective unless and until the Mutual Termination Agreement..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2025,
+          "completion_tokens": 284,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.02,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 3,
+              "attempts": 1
+            }
+          ]
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "ARTICLE VI  TERM AND TERMINATION",
+              "snippet": "6.1. Term. The initial term of this Agreement (the \"Initial Term\") shall commence on the Effective Date and shall continue for a period of ten (10)  years thereafter."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 649,
+          "completion_tokens": 83,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": 120,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": 120,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 14,
+              "heading": "Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009",
+              "snippet": "10.11. Governing Law. This Agreement and any dispute or claim arising out of or in connection with it or its subject matter shall be governed by, and construed in accordance with, the laws of the People's Republic of China"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 637,
+          "completion_tokens": 112,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.26,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 1.04,
+              "confidence": 0.99,
+              "value": "People's Republic of China",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "termination_notice_days": {
+          "source": "risk_review_agent",
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 8,
+              "heading": "Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009",
+              "snippet": "...terminate this Agreement... if such default or breach continues uncured for a period of thirty (30) days after receipt of written notice thereof..."
+            },
+            {
+              "page_num": 8,
+              "heading": "Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009",
+              "snippet": "6.4. Termination for a Change of Control. Licensor may terminate this Agreement by providing prior written notice to Licensee upon the occurrence of a Change of Control."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2288,
+          "completion_tokens": 305,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.15,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": -0.03,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            },
+            {
+              "source": "repair_agent",
+              "score": 0.07,
+              "confidence": 0.32,
+              "value": null,
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ],
+          "risk_review_corrected": true
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 10,
+              "heading": "WITHOUT LIMITATION, WARRANTIES OF MERCHANTABILITY, VALIDITY,  NONINFRINGEMENT, FITNESS FOR",
+              "snippet": "WITHOUT LIMITATION, WARRANTIES OF MERCHANTABILITY, VALIDITY,  NONINFRINGEMENT, FITNESS FOR"
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string",
+            "defaulted liability_cap to none specified"
+          ],
+          "prompt_tokens": 1578,
+          "completion_tokens": 147,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": -0.81,
+              "confidence": 0.15,
+              "value": null,
+              "issues": [
+                "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+              ],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.31,
+              "confidence": 0.12,
+              "value": "none specified",
+              "issues": [
+                "Field 'liability_cap' must be a non-empty string",
+                "defaulted liability_cap to none specified"
+              ],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "non_solicit_clause_present": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": false,
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.23,
+              "confidence": 0.18,
+              "value": false,
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            }
+          ]
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "global_baseline",
+          "confidence": 0.58,
+          "evidence": [],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "verifier": null,
+          "candidates": [
+            {
+              "source": "global_baseline",
+              "score": 0.58,
+              "confidence": 0.58,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 0,
+              "attempts": 1
+            },
+            {
+              "source": "field_agent",
+              "score": 0.28,
+              "confidence": 0.18,
+              "value": "unknown",
+              "issues": [],
+              "evidence_count": 2,
+              "attempts": 1
+            }
+          ]
+        },
+        "risk_level": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.7392,
+          "arbitration": "rules_with_judge_check"
+        },
+        "risk_explanation": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.7392,
+          "arbitration": "rules_with_judge_check"
+        }
+      },
+      "baseline_coverage": {
+        "fields_total": 10,
+        "fields_with_hits": 10,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 10,
+        "avg_hits_per_field": 1.0
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.). Final risk level: high.",
+        "confidence": 0.7392,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": "high",
+        "judge_confidence": 0.74,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 0.6667,
+          "critical_avg_confidence": 0.5633,
+          "critical_unknown_count": 1,
+          "high_uncertainty": false,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "none specified",
+            "severity": "high",
+            "contribution": 35.0,
+            "confidence": 0.12,
+            "evidence_count": 1,
+            "pages": [
+              10
+            ],
+            "notes": "Liability appears uncapped or unspecified."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "People's Republic of China",
+            "severity": "medium",
+            "contribution": 8.0,
+            "confidence": 0.99,
+            "evidence_count": 1,
+            "pages": [
+              14
+            ],
+            "notes": "Governing law could not be confidently mapped to a region."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.58,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": 120,
+            "severity": "high",
+            "contribution": 8.0,
+            "confidence": 0.98,
+            "evidence_count": 1,
+            "pages": [
+              8
+            ],
+            "notes": "Initial term exceeds 36 months."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": 30,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.32,
+            "evidence_count": 2,
+            "pages": [
+              8
+            ],
+            "notes": "Termination notice period is moderate (16-30 days)."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": false,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.58,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "No non-solicit protection was found."
+          }
+        ],
+        "prompt_tokens": 815,
+        "completion_tokens": 111,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.74,\"rationale\":\"High risk driven primarily by liability cap being none specified (high severity, largest contribution; low confidence but flagged as uncapped/unspecified) and a long 120-month term (high severity, high confidence). Additional medium-risk factors include PRC governing law (medium severity, high confidence) and uncertain cross-border data transfer handling (medium severity, limited evidence). Overall factor contributions and remaining critical-field uncertainty support a high risk rating.\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": true,
+          "trigger_reasons": [
+            "min_critical_confidence=0.12"
+          ],
+          "review_attempted": true,
+          "review_rounds": 1,
+          "review_top_k": 2,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": null,
+          "applied_corrections": {
+            "termination_notice_days": {
+              "from": null,
+              "to": 30
+            }
+          },
+          "input_snapshot_before": {
+            "liability_cap": "none specified",
+            "governing_law": "People's Republic of China",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": 120,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "input_snapshot_after": {
+            "liability_cap": "none specified",
+            "governing_law": "People's Republic of China",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": 120,
+            "termination_notice_days": 30,
+            "non_solicit_clause_present": false
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 100.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": 2347,
+          "review_completion_tokens": 275
+        }
+      },
+      "orchestration": {
+        "baseline_top_k": 1,
+        "repair_confidence_threshold": 0.64,
+        "max_repairs": 2,
+        "repair_queue_ranked": [
+          "effective_date",
+          "termination_notice_days",
+          "liability_cap",
+          "doc_type",
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "repaired_fields": [
+          "effective_date",
+          "termination_notice_days"
+        ],
+        "disagreement_fields": [
+          "governing_law",
+          "liability_cap"
+        ],
+        "selected_source_counts": {
+          "field_agent": 4,
+          "party_roles_agent": 2,
+          "repair_agent": 2,
+          "global_baseline": 2
+        },
+        "baseline_used_fallback_full_text": false,
+        "baseline_issues": [
+          "Field 'governing_law' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)",
+          "Field 'liability_cap' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
+        ],
+        "verifier_enabled": false,
+        "verifier_model": null,
+        "verifier_confidence_threshold": null,
+        "verifier_skip_confidence": null,
+        "verifier_max_repairs": null,
+        "verifier_repairs_used": 0,
+        "verifier_repair_fields": [],
+        "verifier_decisions": null,
+        "verifier_disagreement_fields": [],
+        "verifier_disagreement_rate": null,
+        "passes": [
+          "global_baseline",
+          "field_agent",
+          "repair_agent"
+        ]
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 8,
+        "fields_without_evidence": [
+          "non_solicit_clause_present",
+          "data_transfer_outside_uk_eu"
+        ],
+        "evidence_ratio": 0.8,
+        "evidence_snippets_total": 12,
+        "unique_evidence_pages": 6,
+        "avg_confidence": 0.639,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"Beijing SINA Internet Information Service Co., Ltd.","party_b_name":"Beijing Yisheng Leju Information Services Co., Ltd.","effective_date":null,"term_length":120,"governing_law":"unknown","termination_notice_days":null,"liability_cap":"unknown","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Beijing SINA Internet Information Service Co., Ltd.",
+  "party_b_name": "Beijing Yisheng Leju Information Services Co., Ltd.",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "DOMAIN NAME AND CONTENT LICENSE AGREEMENT",
+      "snippet": "This Domain Name and Content License Agreement (the \"Agreement\") is made and entered into, by and between Beijing SINA Internet  Information Service Co., Ltd. ( ), a limited liability company organized under the laws of the People's Republic  of China (hereinafter \"Licensor\")"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "DOMAIN NAME AND CONTENT LICENSE AGREEMENT",
+      "snippet": "and Beijing Yisheng Leju Information Services Co., Ltd., a limited liability company organized under the laws of  the People's Republic of China (\"Licensee\""
+    }
+  ],
+  "party_a_confidence": 0.99,
+  "party_b_confidence": 0.99
+}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":11,"heading":"ARTICLE IX  CONFIDENTIALITY","snippet":"ARTICLE IX  CONFIDENTIALITY\n9.1. Confidential Information. In performing its obligations under this Agreement, either Party (the \"Recipient\") may obtain certain Confidential  Information of the other Party."},{"page_num":11,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"...shall maintain in confidence all Confidential Information and shall not disclose such Confidential Information to any third party without the express written consent of the other Party..."}],"confidence":0.62,"value":"other"}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"DOMAIN NAME AND CONTENT LICENSE AGREEMENT","snippet":"...by and between Beijing SINA Internet  Information Service Co., Ltd. ( ), a limited liability company... (hereinafter \"Licensor\") and Beijing Yisheng Leju Information Services Co., Ltd.... (\"Licensee\""}],"confidence":0.93,"value":"Beijing SINA Internet Information Service Co., Ltd."}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"DOMAIN NAME AND CONTENT LICENSE AGREEMENT","snippet":"...by and between Beijing SINA Internet  Information Service Co., Ltd. ... (hereinafter \"Licensor\") and Beijing Yisheng Leju Information Services Co., Ltd., ... (\"Licensee\"...)"}],"confidence":0.93,"value":"Beijing Yisheng Leju Information Services Co., Ltd."}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":8,"heading":"ARTICLE VI  TERM AND TERMINATION","snippet":"The initial term of this Agreement (the \"Initial Term\") shall commence on the\nEffective Date"},{"page_num":16,"heading":null,"snippet":"the Original  Agreement shall be terminated as of the\nEffective Date."}],"confidence":0.22,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":8,"heading":"ARTICLE VI  TERM AND TERMINATION","snippet":"6.1. Term. The initial term of this Agreement (the \"Initial Term\") shall commence on the Effective Date and shall continue for a period of ten (10)  years thereafter."}],"confidence":0.98,"value":120}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":14,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"10.11. Governing Law. This Agreement and any dispute or claim arising out of or in connection with it or its subject matter shall be governed by, and construed in accordance with, the laws of the People's Republic of China"}],"confidence":0.99,"value":"People's Republic of China"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":8,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"...terminate this Agreement... in material default or breach... continues uncured for a period of thirty (30) days after receipt of written notice thereof..."},{"page_num":8,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"6.2. Termination for Bankruptcy. Either Party may immediately terminate... and such proceedings have not been vacated or set aside within seven (7) days..."}],"confidence":0.22,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":10,"heading":"WITHOUT LIMITATION, WARRANTIES OF MERCHANTABILITY, VALIDITY,  NONINFRINGEMENT, FITNESS FOR","snippet":"WITHOUT LIMITATION, WARRANTIES OF MERCHANTABILITY, VALIDITY,  NONINFRINGEMENT, FITNESS FOR"}],"confidence":0.12,"value":""}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":11,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"...shall not disclose such Confidential Information to any third party without the express written consent of the other Party..."}],"confidence":0.18,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"\"Confidential Information\" has the meaning set forth in Section 9.1."},{"page_num":5,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"...shall not be used by Licensor or its Affiliates or provided or made available to any third parties by Licensor."}],"confidence":0.18,"value":"unknown"}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"DOMAIN NAME AND CONTENT LICENSE AGREEMENT","snippet":"...and is made effective as of the Effective  Date (defined below)."},{"page_num":8,"heading":"ARTICLE VI  TERM AND TERMINATION","snippet":"The initial term of this Agreement (the \"Initial Term\") shall commence on the Effective Date..."},{"page_num":16,"heading":null,"snippet":"...the Original  Agreement shall be terminated as of the Effective Date... this Agreement shall not  become effective unless and until the Mutual Termination Agreement..."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":8,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"...terminate this Agreement... if such default or breach continues uncured for a period of thirty (30) days after receipt of written notice thereof..."},{"page_num":8,"heading":"Source: CHINA REAL ESTATE INFORMATION CORP, F-1, 9/29/2009","snippet":"6.4. Termination for a Change of Control. Licensor may terminate this Agreement by providing prior written notice to Licensee upon the occurrence of a Change of Control."}],"confidence":0.32,"value":null}
+
+RISK_REVIEW_ROUND_1
+{"liability_cap":null,"governing_law":null,"data_transfer_outside_uk_eu":null,"term_length":120,"termination_notice_days":30,"non_solicit_clause_present":null,"confidence":0.74,"rationale":"liability_cap: Provided excerpts only define parties/PRC and definitions; no limitation of liability/cap language shown, so cannot reliably correct (set to null). governing_law: Excerpt shows the heading '10.11. Governing Law' but the actual governing-law text is truncated, so cannot confirm PRC vs another jurisdiction (set to null). data_transfer_outside_uk_eu: Excerpts show PRC addresses but no data-processing/transfer clause; cannot determine whether personal data is transferred outside UK/EU (set to null). term_length: Section 6.1 states initial term is ten (10) years; 10 years = 120 months, so 120 is supported. termination_notice_days: Section 6.3 indicates a 30-day cure period after written notice for material breach; this supports 30 days as the relevant notice/cure period. non_solicit_clause_present: No non-solicit language appears in provided excerpts; cannot reliably confirm absence across the agreement (set to null)."}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.74,"rationale":"High risk driven primarily by liability cap being none specified (high severity, largest contribution; low confidence but flagged as uncapped/unspecified) and a long 120-month term (high severity, high confidence). Additional medium-risk factors include PRC governing law (medium severity, high confidence) and uncertain cross-border data transfer handling (medium severity, limited evidence). Overall factor contributions and remaining critical-field uncertainty support a high risk rating."}

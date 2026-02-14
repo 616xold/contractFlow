@@ -1,0 +1,197 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Global Technologies, Ltd",
+  "party_b_name": "Timothy Cabrera",
+  "effective_date": "2020-01-02",
+  "term_length": null,
+  "governing_law": "State of Florida",
+  "termination_notice_days": 0,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_029_globaltechnologiesltd_06_08_2020_ex_10_1.pdf",
+    "model": "gpt-5.2",
+    "mode": "retrieval",
+    "input_tokens": 12877,
+    "output_tokens": 417,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "field 'liability_cap': normalized liability_cap to canonical representation",
+      "risk review normalization for 'governing_law': normalized governing_law to canonical jurisdiction",
+      "risk review corrected 'termination_notice_days'"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "retrieval_context",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 14,
+      "total_hits": 30,
+      "used_fallback_full_text": false,
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_hits": 10,
+        "fields_without_hits": [],
+        "hit_ratio": 1.0,
+        "total_hits": 30,
+        "avg_hits_per_field": 3.0
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.57,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": "high",
+        "judge_confidence": 0.72,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 0.0,
+          "critical_avg_confidence": 0.5,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "none specified",
+            "severity": "high",
+            "contribution": 35.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Liability appears uncapped or unspecified."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of Florida",
+            "severity": "medium",
+            "contribution": 8.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Governing law could not be confidently mapped to a region."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": null,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Term length is unknown."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": 0,
+            "severity": "high",
+            "contribution": 7.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Termination notice period is short (<=15 days)."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": false,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "No non-solicit protection was found."
+          }
+        ],
+        "prompt_tokens": 788,
+        "completion_tokens": 107,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.72,\"rationale\":\"High risk driven by multiple high-severity items: liability cap is none specified (potentially uncapped) and termination notice is 0 days. Additional medium-severity gaps include governing law (Florida) not confidently mapped, cross-border data transfer marked unknown, unknown term length, and no non-solicit protection. Overall uncertainty is flagged high with missing critical fields, so risk cannot be reduced absent protective evidence.\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": true,
+          "trigger_reasons": [
+            "high_uncertainty"
+          ],
+          "review_attempted": true,
+          "review_rounds": 1,
+          "review_top_k": 4,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": null,
+          "applied_corrections": {
+            "termination_notice_days": {
+              "from": null,
+              "to": 0
+            }
+          },
+          "input_snapshot_before": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Florida",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "input_snapshot_after": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Florida",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": 0,
+            "non_solicit_clause_present": false
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 100.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": 3859,
+          "review_completion_tokens": 217
+        }
+      }
+    }
+  }
+}

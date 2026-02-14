@@ -1,0 +1,4 @@
+{"doc_type":"other","party_a_name":"Beijing SINA Internet Information Service Co., Ltd.","party_b_name":"Beijing Yisheng Leju Information Services Co., Ltd.","effective_date":null,"term_length":120,"governing_law":"People's Republic of China","termination_notice_days":null,"liability_cap":"No explicit monetary cap on liability stated","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown"}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.72,"rationale":"High risk driven by a very long term (120 months; high severity) combined with no explicit liability cap (medium severity) and PRC governing law (medium severity). Additional medium-risk gaps include unknown cross-border data transfer handling, unspecified termination notice, and no non-solicit protection. Overall uncertainty is flagged as high with incomplete coverage of critical fields, so risk cannot be reduced."}

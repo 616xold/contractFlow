@@ -1,0 +1,451 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Global Technologies, Ltd",
+  "party_b_name": "Timothy Cabrera",
+  "effective_date": "2020-01-02",
+  "term_length": null,
+  "governing_law": "State of Florida",
+  "termination_notice_days": 0,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": true,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Mitigating factor: non-solicit clause (non-solicit obligations are present.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_029_globaltechnologiesltd_06_08_2020_ex_10_1.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 30598,
+    "output_tokens": 2545,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'governing_law' must be a non-empty string",
+      "inferred governing_law from evidence snippets",
+      "Field 'liability_cap' must be a non-empty string",
+      "defaulted liability_cap to none specified",
+      "risk review normalization for 'governing_law': normalized governing_law to canonical jurisdiction",
+      "risk review corrected 'termination_notice_days'"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 14,
+      "parallelism": {
+        "enabled": true,
+        "requested_concurrency": 4,
+        "worker_count": 4,
+        "rate_limit_retries": 0,
+        "worker_failures": []
+      },
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+              "snippet": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and"
+            },
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+              "snippet": "During the term of this Agreement, Consultant will perform the services described below (the \"Consulting Services\") for the Company."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1176,
+          "completion_tokens": 136
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+              "snippet": "entered into as of this 2nd day of January 2020, by and between Global Technologies, Ltd (hereinafter the \"Company\"), a Delaware corporation whose address is 501 1st Ave N., Suite 901, St. Petersburg, FL 33701"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 872,
+          "completion_tokens": 132,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "Global Technologies, Ltd",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.03,
+              "confidence": 0.98,
+              "value": "Global Technologies, Ltd",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.97,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+              "snippet": "and Timothy Cabrera (hereinafter the \"Consultant\"), an individual whose address is 11718 SE Federal Hwy., Suite 372, Hobe Sound, FL 33455"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 872,
+          "completion_tokens": 133,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.95,
+              "confidence": 0.9,
+              "value": "Timothy Cabrera",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 2
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 1.02,
+              "confidence": 0.97,
+              "value": "Timothy Cabrera",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "Its: Individual capacity Date: January 2, 2020 Dated: January 2, 2020 7 ____ ____",
+              "snippet": "Its: Individual capacity Date: January 2, 2020 Dated: January 2, 2020"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 946,
+          "completion_tokens": 93
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+              "snippet": "Either Party shall have the right to terminate this Agreement with notice, and the effective date of termination shall be the date such notice is received..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3073,
+          "completion_tokens": 243
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "(i) Arbitration and Governing Law. If a dispute arises out of or relates to this contract, or the breach thereof, and if the dispute cannot be settled through negotiation..."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "for the resolution of all disputes arising under the terms of this Agreement and the transactions contemplated herein will be the County of Pinellas, State of Florida."
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'governing_law' must be a non-empty string",
+            "inferred governing_law from evidence snippets"
+          ],
+          "prompt_tokens": 3045,
+          "completion_tokens": 186
+        },
+        "termination_notice_days": {
+          "source": "risk_review_agent",
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+              "snippet": "Either Party shall have the right to terminate this Agreement with notice, and the effective date of termination shall be the date such notice is received (by mail, overnight delivery, or fax)"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2748,
+          "completion_tokens": 184,
+          "risk_review_corrected": true
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "The rights, duties, obligations and liabilities of the Parties shall be separate, not joint or collective. Each Party shall be responsible only for its obligations as herein set out and shall be liable only for its share of the costs and expenses as provided herein."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string",
+            "defaulted liability_cap to none specified"
+          ],
+          "prompt_tokens": 3032,
+          "completion_tokens": 178
+        },
+        "non_solicit_clause_present": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "The Company further agrees that neither it nor its employees, affiliates or assigns, shall enter into, or otherwise arrange... any business relationship, contact any person regarding such Opportunity, either directly or indirectly..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2973,
+          "completion_tokens": 161
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "10. MISCELLANEOUS PROVISIONS (a) Amendment and Modification. This Agreement may be amended, modified and supplemented only by written agreement of the Company and Consultant."
+            },
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "(l) Entire Agreement. This Agreement including any Exhibits hereto... set forth the entire agreement and understanding of the Parties hereto in respect of the subject matter contained herein"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3069,
+          "completion_tokens": 286
+        },
+        "risk_level": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.7295,
+          "arbitration": "rules_with_judge_check"
+        },
+        "risk_explanation": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.7295,
+          "arbitration": "rules_with_judge_check"
+        }
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Mitigating factor: non-solicit clause (non-solicit obligations are present.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.7295,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": "high",
+        "judge_confidence": 0.74,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 1.0,
+          "critical_avg_confidence": 0.1867,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "none specified",
+            "severity": "high",
+            "contribution": 35.0,
+            "confidence": 0.22,
+            "evidence_count": 1,
+            "pages": [
+              5
+            ],
+            "notes": "Liability appears uncapped or unspecified."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of Florida",
+            "severity": "medium",
+            "contribution": 8.0,
+            "confidence": 0.22,
+            "evidence_count": 2,
+            "pages": [
+              4
+            ],
+            "notes": "Governing law could not be confidently mapped to a region."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.12,
+            "evidence_count": 2,
+            "pages": [
+              3,
+              4
+            ],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": null,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.22,
+            "evidence_count": 1,
+            "pages": [
+              1
+            ],
+            "notes": "Term length is unknown."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": 0,
+            "severity": "high",
+            "contribution": 7.0,
+            "confidence": 0.32,
+            "evidence_count": 1,
+            "pages": [
+              1
+            ],
+            "notes": "Termination notice period is short (<=15 days)."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": true,
+            "severity": "low",
+            "contribution": -3.0,
+            "confidence": 0.62,
+            "evidence_count": 1,
+            "pages": [
+              5
+            ],
+            "notes": "Non-solicit obligations are present."
+          }
+        ],
+        "prompt_tokens": 803,
+        "completion_tokens": 202,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.74,\"rationale\":\"High risk driven by high-severity items: liability cap is none specified/appears uncapped (contribution 35, low confidence 0.22, p5) and termination notice is 0 days (contribution 7, confidence 0.32, p1). Additional medium risks include governing law set to State of Florida with low mapping confidence (contribution 8, confidence 0.22, p4), cross-border data transfer unknown (contribution 6, confidence 0.12, pp3-4), and term length unknown (contribution 2, confidence 0.22, p1). Overall uncertainty is flagged high (critical_avg_confidence 0.1867; critical unknowns include data transfer), so risk is not reduced despite a minor protective/neutral factor (non-solicit present, contribution -3, p5).\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": true,
+          "trigger_reasons": [
+            "high_uncertainty",
+            "min_critical_confidence=0.12"
+          ],
+          "review_attempted": true,
+          "review_rounds": 1,
+          "review_top_k": 4,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": null,
+          "applied_corrections": {
+            "termination_notice_days": {
+              "from": null,
+              "to": 0
+            }
+          },
+          "input_snapshot_before": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Florida",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": true
+          },
+          "input_snapshot_after": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Florida",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": 0,
+            "non_solicit_clause_present": true
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 100.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": 3860,
+          "review_completion_tokens": 238
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 13,
+        "unique_evidence_pages": 4,
+        "avg_confidence": 0.522,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

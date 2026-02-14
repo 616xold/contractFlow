@@ -1,0 +1,160 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Beijing SINA Internet Information Service Co., Ltd.",
+  "party_b_name": "Beijing Yisheng Leju Information Services Co., Ltd.",
+  "effective_date": null,
+  "term_length": 120,
+  "governing_law": "People's Republic of China",
+  "termination_notice_days": null,
+  "liability_cap": "no explicit monetary cap on liability stated",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability cap text could not be normalized.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_027_chinarealestateinformationcorp_20090929_.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 12386,
+    "output_tokens": 209,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [],
+    "retrieval": {
+      "enabled": false,
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability cap text could not be normalized.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.57,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 95.0,
+        "judge_level": "high",
+        "judge_confidence": 0.72,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 0.0,
+          "critical_avg_confidence": 0.5,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "no explicit monetary cap on liability stated",
+            "severity": "medium",
+            "contribution": 14.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Liability cap text could not be normalized."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "People's Republic of China",
+            "severity": "medium",
+            "contribution": 8.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Governing law could not be confidently mapped to a region."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": 120,
+            "severity": "high",
+            "contribution": 8.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Initial term exceeds 36 months."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": null,
+            "severity": "medium",
+            "contribution": 1.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Termination notice period is unspecified."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": false,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "No non-solicit protection was found."
+          }
+        ],
+        "prompt_tokens": 809,
+        "completion_tokens": 102,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.72,\"rationale\":\"High risk driven by a very long term (120 months; high severity) combined with no explicit liability cap (medium severity) and PRC governing law (medium severity). Additional medium-risk gaps include unknown cross-border data transfer handling, unspecified termination notice, and no non-solicit protection. Overall uncertainty is flagged as high with incomplete coverage of critical fields, so risk cannot be reduced.\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": false,
+          "trigger_reasons": [],
+          "review_attempted": false,
+          "review_rounds": 0,
+          "review_top_k": 4,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": "no_retriever_available",
+          "applied_corrections": {},
+          "input_snapshot_before": {
+            "liability_cap": "no explicit monetary cap on liability stated",
+            "governing_law": "People's Republic of China",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": 120,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "input_snapshot_after": {
+            "liability_cap": "no explicit monetary cap on liability stated",
+            "governing_law": "People's Republic of China",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": 120,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 95.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": null,
+          "review_completion_tokens": null
+        }
+      }
+    }
+  }
+}

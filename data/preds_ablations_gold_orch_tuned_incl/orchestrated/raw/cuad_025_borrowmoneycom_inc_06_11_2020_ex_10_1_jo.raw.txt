@@ -1,0 +1,66 @@
+GLOBAL_BASELINE
+{"doc_type":"other","party_a_name":"BorrowMoney.com, inc","party_b_name":"JVLS, LLC dba Vaccines 2Go","effective_date":"2020-03-20","term_length":60,"governing_law":"State of Florida","termination_notice_days":null,"liability_cap":"No stated monetary cap; members not liable for good-faith errors, but liable for gross negligence or willful misconduct","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown"}
+
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "BorrowMoney.com, inc",
+  "party_b_name": "JVLS, LLC dba Vaccines 2Go",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.1",
+      "snippet": "BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go of 4060 Johns Creek Parkway Suite H Suwanee, GA 30024"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.1",
+      "snippet": "BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go of 4060 Johns Creek Parkway Suite H Suwanee, GA 30024"
+    }
+  ],
+  "party_a_confidence": 0.93,
+  "party_b_confidence": 0.93
+}
+
+FIELD_AGENT doc_type
+{"evidence":[{"page_num":5,"heading":null,"snippet":"affiliates may have interests in businesses other than the Venture. Neither the Venture nor any other Member will have any rights to the assets, income or profits of any such business"},{"page_num":6,"heading":null,"snippet":"Each Member represents and warrants that this Agreement is not in violation of any and all agreements and constitutional documents of the individual Member. Definitions"}],"confidence":0.72,"value":"other"}
+
+FIELD_AGENT party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"...BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go..."}],"confidence":0.93,"value":"BorrowMoney.com, inc"}
+
+FIELD_AGENT party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"...BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go of 4060 Johns Creek Parkway Suite H Suwanee, GA 30024..."}],"confidence":0.93,"value":"JVLS, LLC dba Vaccines 2Go"}
+
+FIELD_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"JOINT VENTURE AGREEMENT ... made and entered into this 20th day of Friday, March 2020 (the \"Execution Date\")"}],"confidence":0.42,"value":null}
+
+FIELD_AGENT term_length
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"The duration of this Venture (the \"Term\") will begin on March 1, 2020 and continue in full force and effect until February 28, 2025"}],"confidence":0.9,"value":60}
+
+FIELD_AGENT governing_law
+{"evidence":[{"page_num":5,"heading":null,"snippet":"...any outstanding issues will be submitted to final and binding arbitration in accordance with the laws of the State of Florida."}],"confidence":0.62,"value":"State of Florida"}
+
+FIELD_AGENT termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"Dissociation of a Member 31. Where a Member is in breach of this Agreement and that Member has not remedied the breach on notice from the Venture and after a reasonable period then the remai..."}],"confidence":0.12,"value":null}
+
+FIELD_AGENT liability_cap
+{"evidence":[{"page_num":5,"heading":null,"snippet":"Liability 50. No Member will be liable to the Venture or to any other Member for any error in judgment or any act or failure to act where made in good faith. The Member will be liable for any and all acts or failures to act resulting from gross negligence or willful misconduct."}],"confidence":0.32,"value":"No monetary cap stated; members not liable for good-faith errors/acts, but liable for acts/failures resulting from gross negligence or willful misconduct."}
+
+FIELD_AGENT non_solicit_clause_present
+{"evidence":[{"page_num":2,"heading":"Member Duties Description","snippet":"*HTML code, build, deploy and maintain all technical aspect requirements including a database for medical dispatch personal & product service as needed..."},{"page_num":4,"heading":null,"snippet":"A Member who assigns any or all of their Venture interest to any third party will relinquish their status as Member including all management and voting rights."}],"confidence":0.12,"value":false}
+
+FIELD_AGENT data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"Member Duties Description","snippet":"...including activity information, data storage and backup."},{"page_num":5,"heading":null,"snippet":"Confidentiality 45. All matters relating to this Agreement and the Venture will be treated by the Members as confidential and no Member will disclose... to any third party..."}],"confidence":0.22,"value":"unknown"}
+
+REPAIR_AGENT termination_notice_days
+{"evidence":[{"page_num":6,"heading":null,"snippet":"67. Any notices or delivery required here will be deemed completed when hand-delivered, delivered by agent, or seven (7) days after being placed in the post, postage prepaid..."}],"confidence":0.22,"value":null}
+
+REPAIR_AGENT effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"made and entered into this 20th day of Friday, March 2020 (the \"Execution Date\")"},{"page_num":6,"heading":"Stewart (Mar 20, 2020) (SEAL) Jody Stewart Page 13 of 13","snippet":"Stewart (Mar 20, 2020) (SEAL) Jody Stewart"}],"confidence":0.62,"value":"2020-03-20"}
+
+RISK_REVIEW_ROUND_1
+{"liability_cap":null,"governing_law":"State of Florida (jurisdiction clause)","data_transfer_outside_uk_eu":null,"term_length":60,"termination_notice_days":null,"non_solicit_clause_present":null,"confidence":0.74,"rationale":"Governing law: Evidence states the Members submit to the jurisdiction of the courts of the State of Florida for enforcement/arbitration awards (Jurisdiction §54), supporting Florida as the relevant forum; no explicit ‘governing law’ wording is shown, so updated to ‘State of Florida (jurisdiction clause)’. Liability cap: excerpts discuss indemnification and member liability standards (good faith vs. gross negligence/willful misconduct) but do not set a monetary cap/limitation of liability, so cannot reliably specify a cap. Data transfer outside UK/EU: excerpts mention database/data storage/backup but do not address cross-border transfers, so cannot determine. Term length: explicitly March 1, 2020 to Feb 28, 2025 (5 years = 60 months), so 60 retained. Termination notice days: provided excerpts do not state a notice period, so cannot populate. Non-solicit: no non-solicitation language appears in provided excerpts, so cannot confirm presence/absence from evidence."}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.74,"rationale":"High risk driven primarily by liability cap being none specified (high severity, 35 contribution; low confidence but material exposure) and a long 60-month term (high severity, 8 contribution). Additional medium-risk items include Florida governing law (8), unknown cross-border data transfer handling (6), and unspecified termination notice (1). Overall score context is high (rule_level=high, rule_score=100) with one critical unknown (data_transfer_outside_uk_eu), supporting a high risk classification."}

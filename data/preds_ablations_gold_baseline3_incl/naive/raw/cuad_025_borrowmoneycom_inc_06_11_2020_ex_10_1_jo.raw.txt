@@ -1,0 +1,4 @@
+{"doc_type":"other","party_a_name":"BorrowMoney.com, inc","party_b_name":"JVLS, LLC dba Vaccines 2Go","effective_date":"2020-03-01","term_length":60,"governing_law":"State of Florida","termination_notice_days":null,"liability_cap":"No explicit monetary cap; liability excluded except for gross negligence or willful misconduct","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown"}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.72,"rationale":"High risk driven by high-severity items: liability cap is none specified (appears uncapped/unspecified; largest contribution) and term length is 60 months (>36). Additional medium risks include governing law (Florida) mapping uncertainty, unknown cross-border data transfer handling, unspecified termination notice, and no non-solicit protection. Overall uncertainty is flagged high with critical fields not confidently covered, so risk cannot be reduced."}

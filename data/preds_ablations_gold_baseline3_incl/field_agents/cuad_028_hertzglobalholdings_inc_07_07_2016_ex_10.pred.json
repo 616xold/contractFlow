@@ -1,0 +1,445 @@
+{
+  "doc_type": "other",
+  "party_a_name": null,
+  "party_b_name": null,
+  "effective_date": "2016-06-30",
+  "term_length": 48,
+  "governing_law": "State of New York",
+  "termination_notice_days": null,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law appears outside uk/eu.); Hard trigger(s): uncapped_and_outside_law; Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_028_hertzglobalholdings_inc_07_07_2016_ex_10.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 31016,
+    "output_tokens": 2081,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'party_a_name' must be a non-empty string",
+      "Field 'party_b_name' must be a non-empty string",
+      "Field 'liability_cap' must be a non-empty string",
+      "defaulted liability_cap to none specified",
+      "Field 'party_a_name' is null but not nullable",
+      "Field 'party_b_name' is null but not nullable"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 34,
+      "parallelism": {
+        "enabled": true,
+        "requested_concurrency": 4,
+        "worker_count": 4,
+        "rate_limit_retries": 0,
+        "worker_failures": []
+      },
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": null,
+              "snippet": "7. Confidentiality. Unless otherwise agreed to by the Parties or except as otherwise provided in this Agreement or the Distribution Agreement"
+            },
+            {
+              "page_num": 6,
+              "heading": "8.4 Effect of Termination. Termination of this Agreement shall not result in the",
+              "snippet": "9. Non-Competition. During the Interim Period, neither HERC nor any of its affiliates or subsidiaries shall, directly or indirectly, engage in the business of renting or leasing cars"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1039,
+          "completion_tokens": 127
+        },
+        "party_a_name": {
+          "source": "field_agent",
+          "confidence": 0.2,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "...THC and/or HSI will retain ownership and will grant a royalty-free, non-exclusive license to HERC..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_a_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2625,
+          "completion_tokens": 214,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.16,
+              "confidence": 0.2,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.29,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_a_name' is null but not nullable"
+              ],
+              "evidence_count": 0,
+              "attempts": 2
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "...THC and/or HSI will retain ownership and will grant a royalty-free, non-exclusive license to HERC to use such Other Intellectual Property..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'party_b_name' must be a non-empty string"
+          ],
+          "prompt_tokens": 2675,
+          "completion_tokens": 243,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": -0.14,
+              "confidence": 0.22,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' must be a non-empty string"
+              ],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": -0.29,
+              "confidence": 0.12,
+              "value": null,
+              "issues": [
+                "Field 'party_b_name' is null but not nullable"
+              ],
+              "evidence_count": 0,
+              "attempts": 2
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.4   INTELLECTUAL PROPERTY AGREEMENT   This INTELLECTUAL PROPERTY AGREEMENT",
+              "snippet": "(this \"Agreement\" or \"IPA\"), effective as of this 30 day of June 2016 (the \"Effective Date\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1287,
+          "completion_tokens": 94
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.62,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "\"Interim Period\" means a period of four (4) years commencing from the Effective Date of this Agreement."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1183,
+          "completion_tokens": 61
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.99,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "10. Governing Law.",
+              "snippet": "This Agreement and all disputes or controversies arising out of or relating to this Agreement or the transactions contemplated hereby shall be governed by, and construed in accordance with, the internal laws of the State of New York"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1149,
+          "completion_tokens": 88
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.28,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "none",
+              "snippet": "8.1 By THC or HSI upon Notice. In the event of a material breach... terminate this Agreement upon written notice. If HERC has not cured any such breach within thirty (30) days after HERC receives such notice..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3223,
+          "completion_tokens": 177
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": "Section 5.2 and Section 5.3 and any other disputes that arise under this Agreement and the",
+              "snippet": "The amount of coverage shall be a minimum of three million dollars ($3,000,000) combined single limit, with no deductible amount for each single occurrence..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string",
+            "defaulted liability_cap to none specified"
+          ],
+          "prompt_tokens": 3190,
+          "completion_tokens": 184
+        },
+        "non_solicit_clause_present": {
+          "source": "field_agent",
+          "confidence": 0.34,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": "8.4 Effect of Termination. Termination of this Agreement shall not result in the",
+              "snippet": "9. Non-Competition. During the Interim Period, neither HERC nor any of its affiliates or subsidiaries shall, directly or indirectly, engage in the business of renting or leasing cars..."
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3336,
+          "completion_tokens": 275
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": null,
+              "snippet": "HSI will retain ownership and will grant a royalty-free, non-exclusive license to HERC to use the HSI (HERTZ) Foreign ERB Trademarks... for the Interim Period, outside the United States and Puerto Rico"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3085,
+          "completion_tokens": 122
+        },
+        "risk_level": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.8048,
+          "arbitration": "rules_with_judge_check"
+        },
+        "risk_explanation": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.8048,
+          "arbitration": "rules_with_judge_check"
+        }
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law appears outside uk/eu.); Hard trigger(s): uncapped_and_outside_law; Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.8048,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": "high",
+        "judge_confidence": 0.78,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [
+          "uncapped_and_outside_law"
+        ],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 1.0,
+          "critical_avg_confidence": 0.4767,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "none specified",
+            "severity": "high",
+            "contribution": 35.0,
+            "confidence": 0.22,
+            "evidence_count": 1,
+            "pages": [
+              5
+            ],
+            "notes": "Liability appears uncapped or unspecified."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of New York",
+            "severity": "high",
+            "contribution": 20.0,
+            "confidence": 0.99,
+            "evidence_count": 1,
+            "pages": [
+              6
+            ],
+            "notes": "Governing law appears outside UK/EU."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.22,
+            "evidence_count": 1,
+            "pages": [
+              2
+            ],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": 48,
+            "severity": "high",
+            "contribution": 8.0,
+            "confidence": 0.62,
+            "evidence_count": 1,
+            "pages": [
+              2
+            ],
+            "notes": "Initial term exceeds 36 months."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": null,
+            "severity": "medium",
+            "contribution": 1.0,
+            "confidence": 0.28,
+            "evidence_count": 1,
+            "pages": [
+              6
+            ],
+            "notes": "Termination notice period is unspecified."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": false,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.34,
+            "evidence_count": 1,
+            "pages": [
+              6
+            ],
+            "notes": "No non-solicit protection was found."
+          }
+        ],
+        "prompt_tokens": 798,
+        "completion_tokens": 125,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.78,\"rationale\":\"High risk driven by hard trigger uncapped_and_outside_law: liability cap is none specified (appears uncapped/unspecified; p5) and governing law is State of New York (outside UK/EU; p6). Additional risk factors include a 48-month term (exceeds 36 months; p2) and unspecified termination notice (p6). Cross-border data transfer handling is unknown (p2) and overall critical-field uncertainty is high, so risk cannot be reduced.\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": true,
+          "trigger_reasons": [
+            "high_uncertainty",
+            "min_critical_confidence=0.22"
+          ],
+          "review_attempted": true,
+          "review_rounds": 1,
+          "review_top_k": 4,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": "review_confidence_below_threshold",
+          "applied_corrections": {},
+          "input_snapshot_before": {
+            "liability_cap": "none specified",
+            "governing_law": "State of New York",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": 48,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "input_snapshot_after": {
+            "liability_cap": "none specified",
+            "governing_law": "State of New York",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": 48,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 100.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": 4270,
+          "review_completion_tokens": 250
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 11,
+        "unique_evidence_pages": 5,
+        "avg_confidence": 0.469,
+        "min_confidence": 0.2
+      }
+    }
+  }
+}

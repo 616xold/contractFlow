@@ -376,13 +376,13 @@ def _build_risk_summary(fields: Dict[str, Any], risk_meta: Dict[str, Any]) -> Di
     factors = risk_meta.get("factors")
     factor_list = factors if isinstance(factors, list) else []
     drivers = sorted(
-        [f for f in factor_list if isinstance(f, dict) and float(f.get("contribution", 0.0)) > 0],
-        key=lambda f: float(f.get("contribution", 0.0)),
+        [f for f in factor_list if isinstance(f, dict) and _safe_float(f.get("contribution")) > 0],
+        key=lambda f: _safe_float(f.get("contribution")),
         reverse=True,
     )[:5]
     protectors = sorted(
-        [f for f in factor_list if isinstance(f, dict) and float(f.get("contribution", 0.0)) < 0],
-        key=lambda f: float(f.get("contribution", 0.0)),
+        [f for f in factor_list if isinstance(f, dict) and _safe_float(f.get("contribution")) < 0],
+        key=lambda f: _safe_float(f.get("contribution")),
     )[:5]
 
     orchestration = risk_meta.get("orchestration")
@@ -415,5 +415,11 @@ def _json_safe(value: Any) -> Any:
     return value
 
 
-app = create_app()
+def _safe_float(value: Any, default: float = 0.0) -> float:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default
 
+
+app = create_app()

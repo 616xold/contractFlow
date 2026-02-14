@@ -20,7 +20,12 @@ def main() -> None:
     args = parser.parse_args()
 
     from dotenv import load_dotenv
-    from uvicorn import run as uvicorn_run
+    try:
+        from uvicorn import run as uvicorn_run
+    except ModuleNotFoundError as exc:
+        raise SystemExit(
+            "Missing dependency 'uvicorn'. Run `pip install -r requirements.txt` in your active environment."
+        ) from exc
 
     load_dotenv(REPO_ROOT / ".env")
     uvicorn_run("contractflow.ui.app:app", host=args.host, port=args.port, reload=args.reload)
@@ -28,4 +33,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

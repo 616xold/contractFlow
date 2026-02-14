@@ -1,0 +1,38 @@
+JOINT_PARTY_AGENT
+{"party_a_name":"MOTOROLA SOLUTIONS, INC.","party_b_name":"ZEBRA TECHNOLOGIES CORPORATION","party_a_evidence":[{"page_num":37,"heading":"IN WITNESS WHEREOF, the parties have duly executed and delivered this Intellectual","snippet":"Property Agreement on the date first written above.   MOTOROLA SOLUTIONS, INC."}],"party_b_evidence":[{"page_num":37,"heading":"IN WITNESS WHEREOF, the parties have duly executed and delivered this Intellectual","snippet":"ZEBRA TECHNOLOGIES CORPORATION By:   /s/ Michael Annes Name:   Michael Annes Title:"}],"party_a_confidence":0.93,"party_b_confidence":0.93}
+
+FIELD doc_type
+{"evidence":[{"page_num":31,"heading":"ARTICLE V CONFIDENTIALITY","snippet":"Each party shall ... hold the Source Code, trade secrets and other confidential information licensed to any of them under this IP Agreement in confidence"},{"page_num":18,"heading":"Section 2.1(f) and in accordance with Article V).","snippet":"Seller Excluded Products. The licenses granted pursuant to Section 2.1(c)(i)... do not extend to any product, system, or service"}],"confidence":0.72,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":37,"heading":"IN WITNESS WHEREOF, the parties have duly executed and delivered this Intellectual","snippet":"Property Agreement on the date first written above.   MOTOROLA SOLUTIONS, INC."}],"confidence":0.78,"value":"MOTOROLA SOLUTIONS, INC."}
+
+FIELD party_b_name
+{"evidence":[{"page_num":37,"heading":"IN WITNESS WHEREOF, the parties have duly executed and delivered this Intellectual","snippet":"Property Agreement on the date first written above.   MOTOROLA SOLUTIONS, INC. ... ZEBRA TECHNOLOGIES CORPORATION By:   /s/ Michael Annes"}],"confidence":0.72,"value":"ZEBRA TECHNOLOGIES CORPORATION"}
+
+FIELD effective_date
+{"evidence":[{"page_num":23,"heading":null,"snippet":"within thirty (30) days after the Effective Date"},{"page_num":30,"heading":"Section 4.1 Term. The term of this IP Agreement shall be from the Effective Date until all","snippet":"The term of this IP Agreement shall be from the Effective Date until all of the Intellectual Property licensed hereunder is in the public domain"}],"confidence":0.18,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":30,"heading":"Section 4.1 Term. The term of this IP Agreement shall be from the Effective Date until all","snippet":"The term of this IP Agreement shall be from the Effective Date until all of the Intellectual Property licensed hereunder is in the public domain ... or this IP Agreement is terminated pursuant to Section 4.3."}],"confidence":0.22,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":34,"heading":"Section 6.6 Governing Law; Forum.","snippet":"The Laws of the State of Delaware (without reference to its principles of conflicts of law) shall govern the construction, interpretation and other matters arising out of or in connection with this IP Agreement"}],"confidence":0.98,"value":"State of Delaware"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":30,"heading":"Section 4.2 Irrevocability of Licenses.","snippet":"Seller may terminate the license... upon prior written notice to Purchaser, in the event Purchaser materially breaches... and fails to cure... within one hundred twenty (120) days after Purchaser's receipt of written notice"}],"confidence":0.32,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":31,"heading":"Section 4.3, this IP Agreement and the rights and obligations of the parties under this IP","snippet":"Agreement, including any obligation to make any assignment or grant any license hereunder, automatically end without any liability against any party or its Affiliates, except as otherwise provided in the Acquisition Agreement"}],"confidence":0.18,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":27,"heading":"Section 3.6 Employees.","snippet":"...have executed and delivered to a Seller Entity, a Contract (i) providing for the non-disclosure... and (ii) providing for the assignment... of any such Intellectual Property..."},{"page_num":21,"heading":"Purchaser Licensees:","snippet":"...a fully paid-up, royalty-free... non-transferable, non-exclusive sublicense to use any and all Mobility Trademarks..."},{"page_num":19,"heading":"Section 2.2 Licensed IP.","snippet":"...the Seller hereby grants... an irrevocable... perpetual... fully paid-up, royalty-free... non-transferable... non-"}],"confidence":0.18,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":13,"heading":"Section 2.1 Transferred IP.","snippet":"Effective as of the applicable Closing Date, the Seller hereby sells, assigns, transfers, conveys and delivers all of its right, title, and interest in and to the Assigned IP... to the Purchaser Assignees"},{"page_num":33,"heading":null,"snippet":"Subject to the foregoing limitations, this IP Agreement shall be binding upon and inure to the benefit of the parties hereto and their respective successors and permitted assigns."}],"confidence":0.12,"value": "unknown"}
+
+RISK_REVIEW_ROUND_1
+{"liability_cap":null,"governing_law":"State of Delaware","data_transfer_outside_uk_eu":null,"term_length":null,"termination_notice_days":null,"non_solicit_clause_present":null,"confidence":0.74,"rationale":"liability_cap: Excerpt (Section 4.3) states the agreement ends “without any liability… except as otherwise provided in the Acquisition Agreement,” which is not a clear liability cap amount or limitation; cannot reliably correct to a numeric/defined cap from provided text. governing_law: Section 6.6 expressly provides Delaware law governs; correction supported with high confidence. data_transfer_outside_uk_eu: Provided excerpts discuss IP assignment/licensing and contracts, not personal data processing or cross-border transfers; cannot determine. term_length: Although Section 4.1 describes term running until licensed IP is in the public domain or termination under 4.3, this is not a fixed integer length; field expects an integer, so cannot populate reliably. termination_notice_days: No excerpt provides a notice period for termination (only notice mechanics in 6.12 and certain transition periods for trademark use); cannot determine. non_solicit_clause_present: Excerpts relate to confidentiality and employee IP assignment/NDA obligations, not non-solicitation; cannot confirm presence/absence."}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.74,"rationale":"High risk driven by hard trigger uncapped_and_outside_law: liability cap is none specified/appears uncapped (high severity, p31, low extraction confidence 0.18) and governing law is State of Delaware (high severity, p34, confidence 0.98), i.e., outside UK/EU. Additional medium risks/unknowns include uncertain cross-border data transfer handling (pp13,33), and unspecified term length and termination notice (p30). Overall uncertainty is flagged high (critical unknowns and low avg confidence), so risk cannot be reduced."}

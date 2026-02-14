@@ -1,27 +1,47 @@
-"""Baseline PDF -> JSON extractor using an LLM."""
+﻿"""Baseline PDF -> JSON extractor using an LLM."""
 
 from __future__ import annotations
 
 import json
 import re
-from datetime import date, datetime
-from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import Annotated, Any, Dict, Literal, Optional
+from typing import Any, Dict, Literal, Optional
 
 from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field, create_model
 
 from contractflow.core.chunking import ChunkRetriever, RetrievalHit, build_retriever, chunk_pdf
-from contractflow.core.liability import canonicalize_liability_cap, parse_liability_cap
+from contractflow.core.extractor_types import (
+    EvidenceSnippet,
+    ExtractionResult,
+    FieldCandidate,
+    FieldExtractionBase,
+    FieldExtractionResult,
+    FieldVerifierOutput,
+    FieldVerifierResult,
+    JointPartyExtractionResult,
+    PartyRolesExtractionOutput,
+    RiskPipelineResult,
+    RiskReviewOutput,
+)
+from contractflow.core.extractor_validation import (
+    _NULL_STRINGS,
+    _coerce_and_validate_value,
+    _normalize_effective_date,
+    _normalize_enum_value,
+    _normalize_governing_law,
+    _normalize_liability_cap,
+    _normalize_term_length,
+    _validate_and_normalize_field,
+    _validate_and_normalize_to_schema,
+)
+from contractflow.core.liability import parse_liability_cap
 from contractflow.core.pdf_utils import read_pdf_text
 from contractflow.core.risk_engine import RiskAssessment, assess_contract_risk
 
 
 DEFAULT_MODEL = "gpt-5.2"
-_MISSING = object()
-_NULL_STRINGS = {"", "null", "none", "n/a", "na", "unknown"}
 _FIELD_QUERY_HINTS = {
     "party_a_name": "party name preamble parties",
     "party_b_name": "party name preamble parties",
@@ -102,6 +122,10 @@ _FIELD_CLAUSE_ALIASES = {
 _FIELD_INSTRUCTIONS = {
     "effective_date": "Return an ISO date (YYYY-MM-DD) if possible.",
     "term_length": "Return the initial term length in months (convert years to months).",
+    "governing_law": (
+        "Return only the governing jurisdiction, not venue/forum details. "
+        "Prefer canonical forms like 'State of Delaware' or \"People's Republic of China\"."
+    ),
     "termination_notice_days": "Return number of days of notice required for termination for convenience.",
     "liability_cap": (
         "Prefer canonical output when possible: "
@@ -110,6 +134,18 @@ _FIELD_INSTRUCTIONS = {
     ),
     "data_transfer_outside_uk_eu": "Use 'unknown' only if not specified and cannot be inferred.",
     "doc_type": "Choose the closest enum value based on the document.",
+}
+_FIELD_EXCERPT_KEYWORDS: Dict[str, tuple[str, ...]] = {
+    "governing_law": (
+        "governing law",
+        "governed by",
+        "construed in accordance",
+        "laws of the state",
+        "state of",
+        "jurisdiction",
+        "forum",
+        "venue",
+    ),
 }
 _CONFIDENCE_RETRY_THRESHOLD = 0.55
 _MAX_FIELD_RETRIES = 2
@@ -151,119 +187,6 @@ _RISK_REVIEW_DEFAULTS = {
     "trigger_min_critical_confidence_below": 0.45,
     "max_excerpt_chars": 700,
 }
-
-
-@dataclass
-class ExtractionResult:
-    raw_text: str
-    json_result: Dict[str, Any]
-    issues: list[str] | None = None
-    prompt_tokens: Optional[int] = None
-    completion_tokens: Optional[int] = None
-    retrieval: Optional[Dict[str, Any]] = None
-
-
-class EvidenceSnippet(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    page_num: int
-    heading: Optional[str] = None
-    snippet: str
-
-
-class FieldExtractionBase(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    evidence: list[EvidenceSnippet] = Field(default_factory=list)
-    confidence: Annotated[float, Field(ge=0.0, le=1.0)]
-
-
-class PartyRolesExtractionOutput(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    party_a_name: Optional[str] = None
-    party_b_name: Optional[str] = None
-    party_a_evidence: list[EvidenceSnippet] = Field(default_factory=list)
-    party_b_evidence: list[EvidenceSnippet] = Field(default_factory=list)
-    party_a_confidence: Annotated[float, Field(ge=0.0, le=1.0)]
-    party_b_confidence: Annotated[float, Field(ge=0.0, le=1.0)]
-
-
-class FieldVerifierOutput(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    decision: Literal["accept", "revise", "unknown"]
-    reason: str
-    confidence: Annotated[float, Field(ge=0.0, le=1.0)]
-    revised_query: Optional[str] = None
-
-
-class RiskReviewOutput(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    liability_cap: Optional[str] = None
-    governing_law: Optional[str] = None
-    data_transfer_outside_uk_eu: Optional[Literal["yes", "no", "unknown"]] = None
-    term_length: Optional[int] = None
-    termination_notice_days: Optional[int] = None
-    non_solicit_clause_present: Optional[bool] = None
-    confidence: Annotated[float, Field(ge=0.0, le=1.0)]
-    rationale: str
-
-
-@dataclass
-class FieldExtractionResult:
-    field: str
-    value: Any
-    evidence: list[Dict[str, Any]]
-    confidence: float
-    raw_text: str
-    issues: list[str] | None = None
-    prompt_tokens: Optional[int] = None
-    completion_tokens: Optional[int] = None
-    attempts: int = 1
-
-
-@dataclass
-class FieldCandidate:
-    source: str
-    value: Any
-    confidence: float
-    evidence: list[Dict[str, Any]]
-    issues: list[str]
-    attempts: int = 1
-    prompt_tokens: int = 0
-    completion_tokens: int = 0
-
-
-@dataclass
-class FieldVerifierResult:
-    decision: str
-    reason: str
-    confidence: float
-    revised_query: Optional[str]
-    raw_text: str
-    prompt_tokens: Optional[int] = None
-    completion_tokens: Optional[int] = None
-
-
-@dataclass
-class JointPartyExtractionResult:
-    values: Dict[str, Any]
-    field_results: Dict[str, FieldExtractionResult]
-    field_issues: Dict[str, list[str]]
-    raw_text: str
-    prompt_tokens: int
-    completion_tokens: int
-
-
-@dataclass
-class RiskPipelineResult:
-    assessment: RiskAssessment
-    orchestration: Dict[str, Any]
-    raw_outputs: list[str]
-    prompt_tokens: int = 0
-    completion_tokens: int = 0
 
 
 def load_schema(schema_path: str | Path) -> Dict[str, Any]:
@@ -336,7 +259,7 @@ def _format_retrieval_context(
         lines.append("Evidence:")
         for hit in hits:
             heading = hit.chunk.heading or "none"
-            snippet = _truncate_text(hit.chunk.chunk_text, max_chunk_chars)
+            snippet = _focused_excerpt(hit.chunk.chunk_text, max_chunk_chars=max_chunk_chars, field=field)
             lines.append(f"- Page {hit.chunk.page_num} | Heading: {heading}")
             lines.append(snippet)
         lines.append("")
@@ -351,6 +274,39 @@ def _truncate_text(text: str, max_chars: int) -> str:
     if max_chars <= 3:
         return text[:max_chars]
     return text[: max_chars - 3].rstrip() + "..."
+
+
+def _focused_excerpt(text: str, *, max_chunk_chars: int, field: Optional[str] = None) -> str:
+    if max_chunk_chars <= 0 or len(text) <= max_chunk_chars:
+        return text
+    if field != "governing_law":
+        return _truncate_text(text, max_chunk_chars)
+    if not field:
+        return _truncate_text(text, max_chunk_chars)
+
+    keywords = _FIELD_EXCERPT_KEYWORDS.get(field) or ()
+    lowered = text.lower()
+    anchor = -1
+    for kw in keywords:
+        idx = lowered.find(kw)
+        if idx >= 0:
+            anchor = idx
+            break
+    if anchor < 0:
+        return _truncate_text(text, max_chunk_chars)
+
+    half = max_chunk_chars // 2
+    start = max(0, anchor - half)
+    end = start + max_chunk_chars
+    if end > len(text):
+        end = len(text)
+        start = max(0, end - max_chunk_chars)
+    excerpt = text[start:end].strip()
+    if start > 0:
+        excerpt = f"...{excerpt}"
+    if end < len(text):
+        excerpt = f"{excerpt}..."
+    return excerpt
 
 
 def _field_value_type(meta: Dict[str, Any]) -> Any:
@@ -397,14 +353,19 @@ def _build_field_extraction_model(field: str, meta: Dict[str, Any]) -> type[Base
     )
 
 
-def _format_field_context(hits: list[RetrievalHit], *, max_chunk_chars: int) -> str:
+def _format_field_context(
+    hits: list[RetrievalHit],
+    *,
+    max_chunk_chars: int,
+    field: Optional[str] = None,
+) -> str:
     if not hits:
         return "No relevant excerpts found."
 
     lines: list[str] = []
     for idx, hit in enumerate(hits, start=1):
         heading = hit.chunk.heading or "none"
-        snippet = _truncate_text(hit.chunk.chunk_text, max_chunk_chars)
+        snippet = _focused_excerpt(hit.chunk.chunk_text, max_chunk_chars=max_chunk_chars, field=field)
         lines.append(f"[Excerpt {idx}]")
         lines.append(f"Page: {hit.chunk.page_num}")
         lines.append(f"Heading: {heading}")
@@ -790,191 +751,6 @@ def _extract_party_roles_with_retries(
     return best_result
 
 
-def _combine_evidence_text(evidence: list[Dict[str, Any]]) -> str:
-    snippets = []
-    for item in evidence:
-        snippet = str(item.get("snippet", "")).strip()
-        if snippet:
-            snippets.append(snippet)
-    return " ".join(snippets)
-
-
-def _extract_int_from_text(text: str) -> Optional[int]:
-    cleaned = text.strip().lower()
-    match = re.search(r"-?\d+", cleaned.replace(",", ""))
-    if match:
-        return int(match.group(0))
-
-    word_map = {
-        "one": 1,
-        "two": 2,
-        "three": 3,
-        "four": 4,
-        "five": 5,
-        "six": 6,
-        "seven": 7,
-        "eight": 8,
-        "nine": 9,
-        "ten": 10,
-        "eleven": 11,
-        "twelve": 12,
-    }
-    for word, value in word_map.items():
-        if re.search(rf"\b{word}\b", cleaned):
-            return value
-    return None
-
-
-def _term_unit_hint(text: str) -> Optional[str]:
-    lowered = text.lower()
-    has_year = bool(re.search(r"\b(year|years|yr|yrs)\b", lowered))
-    has_month = bool(re.search(r"\b(month|months|mo|mos)\b", lowered))
-    if has_year and not has_month:
-        return "years"
-    if has_month and not has_year:
-        return "months"
-    return None
-
-
-def _normalize_effective_date(value: Any) -> tuple[Any, Optional[str], bool]:
-    if value is None:
-        return None, None, False
-    if not isinstance(value, str):
-        return value, "effective_date is not a string", True
-
-    cleaned = value.strip()
-    if not cleaned:
-        return None, "effective_date is empty", True
-
-    formats = [
-        "%Y-%m-%d",
-        "%Y/%m/%d",
-        "%Y.%m.%d",
-        "%B %d, %Y",
-        "%b %d, %Y",
-        "%d %B %Y",
-        "%d %b %Y",
-    ]
-    for fmt in formats:
-        try:
-            parsed = datetime.strptime(cleaned, fmt).date()
-            iso = parsed.isoformat()
-            if iso != cleaned:
-                return iso, "normalized effective_date to ISO", False
-            return cleaned, None, False
-        except ValueError:
-            continue
-
-    numeric_match = re.search(r"(\d{1,4})[/-](\d{1,2})[/-](\d{2,4})", cleaned)
-    if numeric_match:
-        a, b, c = (int(n) for n in numeric_match.groups())
-        if a >= 1000:
-            year, month, day = a, b, c
-        else:
-            year = c if c >= 100 else (2000 + c if c < 50 else 1900 + c)
-            if a > 12 and b <= 12:
-                day, month = a, b
-            else:
-                month, day = a, b
-        try:
-            parsed = date(year, month, day)
-            iso = parsed.isoformat()
-            if iso != cleaned:
-                return iso, "normalized effective_date to ISO", False
-            return cleaned, None, False
-        except ValueError:
-            pass
-
-    return value, "unable to normalize effective_date to ISO", True
-
-
-def _normalize_term_length(value: Any, evidence_text: str) -> tuple[Any, Optional[str], bool]:
-    if value is None:
-        return None, None, False
-
-    number: Optional[int] = None
-    unit_hint: Optional[str] = None
-    if isinstance(value, int):
-        # The schema already expects months, so keep integer values as months by default.
-        number = value
-        unit_hint = "months"
-    elif isinstance(value, str):
-        value_text = value.strip().lower()
-        number = _extract_int_from_text(value_text)
-        unit_hint = _term_unit_hint(value_text)
-
-    if number is None:
-        number = _extract_int_from_text(evidence_text)
-        if unit_hint is None:
-            unit_hint = _term_unit_hint(evidence_text)
-
-    if number is None:
-        return None, "unable to parse term_length", True
-
-    if unit_hint == "years":
-        return number * 12, "normalized term_length from years to months", False
-    if unit_hint == "months":
-        return number, None, False
-
-    # Last-resort heuristic when unit text is missing:
-    # small integers with "year" in evidence usually mean years.
-    evidence_unit = _term_unit_hint(evidence_text)
-    if evidence_unit == "years" and number <= 15:
-        return number * 12, "normalized term_length from years to months (inferred)", False
-    return number, None, False
-
-
-def _normalize_liability_cap(value: Any, evidence_text: str) -> tuple[Any, Optional[str], bool]:
-    evidence_lower = evidence_text.strip().lower()
-    has_liability_signal = any(
-        term in evidence_lower
-        for term in ("liability", "damages", "indirect", "consequential", "cap")
-    )
-    inferred_from_evidence: Optional[str] = None
-    if has_liability_signal and evidence_lower:
-        inferred_from_evidence = canonicalize_liability_cap(evidence_text)
-
-    if value is None:
-        if inferred_from_evidence:
-            return inferred_from_evidence, "inferred liability_cap from evidence snippets", False
-        return None, None, False
-    if not isinstance(value, str):
-        value = str(value)
-
-    canonical = canonicalize_liability_cap(value)
-    if canonical is None:
-        canonical = inferred_from_evidence
-
-    if canonical is None:
-        cleaned = " ".join(value.split()).strip()
-        if not cleaned:
-            return None, "liability_cap is empty", True
-        return cleaned, None, False
-
-    if inferred_from_evidence:
-        value_sig = parse_liability_cap(canonical)
-        evidence_sig = parse_liability_cap(inferred_from_evidence)
-        if evidence_sig.months is not None and (
-            value_sig.months is None or abs(evidence_sig.months - value_sig.months) >= 6
-        ):
-            return (
-                inferred_from_evidence,
-                "normalized liability_cap from evidence-derived fee window",
-                False,
-            )
-        if evidence_sig.is_uncapped and not value_sig.is_uncapped and value_sig.months is None:
-            return (
-                inferred_from_evidence,
-                "normalized liability_cap from evidence-derived uncapped posture",
-                False,
-            )
-
-    original_clean = " ".join(str(value).split()).strip().lower()
-    if canonical != original_clean:
-        return canonical, "normalized liability_cap to canonical representation", False
-    return canonical, None, False
-
-
 def _load_risk_orchestration_config(
     risk_policy_path: Optional[str | Path],
 ) -> Dict[str, Any]:
@@ -1192,6 +968,21 @@ def _apply_risk_review_changes(
         except Exception:
             issues.append(f"risk review proposed invalid value for '{field}': {candidate_value!r}")
             continue
+        norm_issue: Optional[str] = None
+        norm_conflict = False
+        if field == "effective_date":
+            normalized, norm_issue, norm_conflict = _normalize_effective_date(normalized)
+        elif field == "term_length":
+            normalized, norm_issue, norm_conflict = _normalize_term_length(normalized, "")
+        elif field == "governing_law":
+            normalized, norm_issue, norm_conflict = _normalize_governing_law(normalized, "")
+        elif field == "liability_cap":
+            normalized, norm_issue, norm_conflict = _normalize_liability_cap(normalized, "")
+        if norm_issue:
+            issues.append(f"risk review normalization for '{field}': {norm_issue}")
+        if norm_conflict and normalized is None:
+            continue
+
         current = values.get(field)
         if _values_equivalent(current, normalized):
             continue
@@ -1572,43 +1363,6 @@ def _compute_evidence_coverage(
     }
 
 
-def _validate_and_normalize_field(
-    field: str,
-    meta: Dict[str, Any],
-    value: Any,
-    evidence: list[Dict[str, Any]],
-    *,
-    coerce: bool,
-) -> tuple[Any, list[str], bool]:
-    issues: list[str] = []
-    conflict = False
-    try:
-        normalized = _coerce_and_validate_value(field, meta, value, coerce=coerce)
-    except ValueError as e:
-        issues.append(str(e))
-        normalized = None
-        conflict = True
-
-    evidence_text = _combine_evidence_text(evidence)
-    if field == "effective_date":
-        normalized, issue, date_conflict = _normalize_effective_date(normalized)
-        if issue:
-            issues.append(issue)
-        conflict = conflict or date_conflict
-    elif field == "term_length":
-        normalized, issue, term_conflict = _normalize_term_length(normalized, evidence_text)
-        if issue:
-            issues.append(issue)
-        conflict = conflict or term_conflict
-    elif field == "liability_cap":
-        normalized, issue, liab_conflict = _normalize_liability_cap(normalized, evidence_text)
-        if issue:
-            issues.append(issue)
-        conflict = conflict or liab_conflict
-
-    return normalized, issues, conflict
-
-
 def _should_retry_field(confidence: float, conflict: bool) -> bool:
     return conflict or confidence < _CONFIDENCE_RETRY_THRESHOLD
 
@@ -1642,7 +1396,7 @@ def _extract_field_with_retries(
     current_query = query
     for attempt in range(_MAX_FIELD_RETRIES):
         hits = retriever.retrieve(current_query, top_k=top_k * (attempt + 1))
-        context = _format_field_context(hits, max_chunk_chars=max_chunk_chars)
+        context = _format_field_context(hits, max_chunk_chars=max_chunk_chars, field=field)
         call_issues: list[str] = []
         try:
             result = _call_llm_for_field(
@@ -1849,7 +1603,7 @@ def _values_equivalent(left: Any, right: Any) -> bool:
     return left == right
 
 
-def _field_candidate_score(candidate: FieldCandidate) -> float:
+def _field_candidate_score(candidate: FieldCandidate, *, field: Optional[str] = None) -> float:
     score = candidate.confidence
     if candidate.value is None:
         score -= 0.35
@@ -1858,16 +1612,39 @@ def _field_candidate_score(candidate: FieldCandidate) -> float:
     if candidate.evidence:
         score += min(0.15, 0.05 * len(candidate.evidence))
     score -= min(0.3, 0.06 * len(candidate.issues))
+
+    if field == "liability_cap":
+        signal = parse_liability_cap(candidate.value)
+        if candidate.source == "global_baseline" and not candidate.evidence:
+            score -= 0.35
+        if signal.is_nullish:
+            score -= 0.2
+        if signal.months is not None:
+            score += 0.22
+        if signal.amount is not None:
+            score += 0.22
+        if signal.is_uncapped:
+            score += 0.16
+        if candidate.evidence and candidate.source != "global_baseline":
+            score += 0.1
+        if (
+            isinstance(candidate.value, str)
+            and len(candidate.value) > 180
+            and signal.months is None
+            and signal.amount is None
+            and not signal.is_uncapped
+        ):
+            score -= 0.12
     return score
 
 
-def _select_best_candidate(candidates: list[FieldCandidate]) -> FieldCandidate:
+def _select_best_candidate(candidates: list[FieldCandidate], *, field: Optional[str] = None) -> FieldCandidate:
     if not candidates:
         raise ValueError("No candidates available for selection.")
     best = candidates[0]
-    best_score = _field_candidate_score(best)
+    best_score = _field_candidate_score(best, field=field)
     for candidate in candidates[1:]:
-        score = _field_candidate_score(candidate)
+        score = _field_candidate_score(candidate, field=field)
         if score > best_score:
             best = candidate
             best_score = score
@@ -2573,7 +2350,7 @@ def extract_fields_field_agents(
                 prompt_tokens=joint_result.prompt_tokens or 0,
                 completion_tokens=joint_result.completion_tokens or 0,
             )
-            selected = _select_best_candidate([field_candidate, joint_candidate])
+            selected = _select_best_candidate([field_candidate, joint_candidate], field=field)
             selected_source = selected.source
             if selected_source == "party_roles_agent":
                 value = joint_candidate.value
@@ -2584,7 +2361,7 @@ def extract_fields_field_agents(
             candidates_meta = [
                 {
                     "source": candidate.source,
-                    "score": round(_field_candidate_score(candidate), 4),
+                    "score": round(_field_candidate_score(candidate, field=field), 4),
                     "confidence": round(candidate.confidence, 4),
                     "value": candidate.value,
                     "issues": candidate.issues,
@@ -2917,7 +2694,7 @@ def extract_fields_orchestrated(
     selected_by_field: Dict[str, FieldCandidate] = {}
     repair_queue: list[tuple[str, float]] = []
     for field, candidates in field_candidates.items():
-        selected = _select_best_candidate(candidates)
+        selected = _select_best_candidate(candidates, field=field)
         selected_by_field[field] = selected
         disagreement = field in disagreement_fields and selected.source == "global_baseline"
         needs_repair = (
@@ -2968,7 +2745,7 @@ def extract_fields_orchestrated(
             completion_tokens=field_completion_tokens,
         )
         field_candidates[field].append(repair_candidate)
-        selected_by_field[field] = _select_best_candidate(field_candidates[field])
+        selected_by_field[field] = _select_best_candidate(field_candidates[field], field=field)
         repaired_fields.append(field)
 
         total_prompt_tokens += field_prompt_tokens
@@ -3093,7 +2870,7 @@ def extract_fields_orchestrated(
                         completion_tokens=field_completion_tokens,
                     )
                     field_candidates[field].append(repair_candidate)
-                    selected_by_field[field] = _select_best_candidate(field_candidates[field])
+                    selected_by_field[field] = _select_best_candidate(field_candidates[field], field=field)
                     verifier_repairs_used += 1
                     verifier_repair_fields.append(field)
                     repaired = True
@@ -3175,7 +2952,7 @@ def extract_fields_orchestrated(
             "candidates": [
                 {
                     "source": candidate.source,
-                    "score": round(_field_candidate_score(candidate), 4),
+                    "score": round(_field_candidate_score(candidate, field=field), 4),
                     "confidence": round(candidate.confidence, 4),
                     "value": candidate.value,
                     "issues": candidate.issues,
@@ -3346,146 +3123,3 @@ def _safe_parse_json(raw: str) -> Dict[str, Any]:
         raise ValueError(f"LLM response was not valid JSON: {raw!r}") from e
 
 
-def _validate_and_normalize_to_schema(
-    schema: Dict[str, Any],
-    data: Any,
-    *,
-    coerce: bool,
-) -> tuple[Dict[str, Any], list[str]]:
-    issues: list[str] = []
-    if not isinstance(data, dict):
-        issues.append(f"Expected JSON object at top level, got {type(data).__name__}")
-        data = {}
-
-    extra_keys = sorted(set(data.keys()) - set(schema.keys()))
-    if extra_keys:
-        issues.append(f"Unexpected keys not in schema: {extra_keys}")
-
-    normalized: Dict[str, Any] = {}
-
-    for field, meta in schema.items():
-        value = data.get(field, _MISSING)
-        try:
-            normalized[field] = _coerce_and_validate_value(field, meta, value, coerce=coerce)
-        except ValueError as e:
-            issues.append(str(e))
-            normalized[field] = None
-
-    return normalized, issues
-
-
-def _coerce_and_validate_value(field: str, meta: Dict[str, Any], value: Any, *, coerce: bool) -> Any:
-    nullable = bool(meta.get("nullable"))
-    expected_type = meta.get("type")
-    enum_vals = meta.get("enum")
-
-    if value is _MISSING:
-        if nullable:
-            return None
-        raise ValueError(f"Missing required field '{field}'")
-
-    if value is None:
-        if nullable:
-            return None
-        raise ValueError(f"Field '{field}' is null but not nullable")
-
-    if expected_type == "string":
-        out: Any
-        if isinstance(value, str):
-            out = value.strip()
-        elif coerce and isinstance(value, (int, float)) and not isinstance(value, bool):
-            out = str(value)
-        else:
-            raise ValueError(f"Field '{field}' expected string, got {type(value).__name__}")
-
-        if not nullable and out.strip() == "":
-            raise ValueError(f"Field '{field}' must be a non-empty string")
-
-        if out.strip().lower() == "unknown" and field != "data_transfer_outside_uk_eu":
-            raise ValueError(
-                f"Field '{field}' must not be 'unknown' (reserved for data_transfer_outside_uk_eu)"
-            )
-
-        if enum_vals:
-            if out is None:
-                if nullable:
-                    return None
-                raise ValueError(f"Field '{field}' is null but not nullable")
-            if not isinstance(out, str):
-                raise ValueError(
-                    f"Field '{field}' must be one of {enum_vals}, got {type(out).__name__}"
-                )
-            normalized_enum = _normalize_enum_value(enum_vals, out)
-            if normalized_enum is None:
-                raise ValueError(f"Field '{field}' must be one of {enum_vals}, got {out!r}")
-            out = normalized_enum
-
-        return out
-
-    if expected_type == "integer":
-        out_int: Optional[int] = None
-
-        if isinstance(value, bool):
-            raise ValueError(f"Field '{field}' expected integer, got boolean")
-        if isinstance(value, int):
-            out_int = value
-        elif coerce and isinstance(value, float) and value.is_integer():
-            out_int = int(value)
-        elif coerce and isinstance(value, str):
-            cleaned = value.strip()
-            if cleaned.lower() in _NULL_STRINGS:
-                if nullable:
-                    return None
-                raise ValueError(f"Field '{field}' expected integer, got {value!r}")
-            match = re.search(r"-?\d+", cleaned.replace(",", ""))
-            if match:
-                out_int = int(match.group(0))
-            elif nullable:
-                return None
-            else:
-                raise ValueError(f"Field '{field}' expected integer, got {value!r}")
-        else:
-            raise ValueError(f"Field '{field}' expected integer, got {type(value).__name__}")
-
-        if enum_vals:
-            if out_int not in enum_vals:
-                raise ValueError(f"Field '{field}' must be one of {enum_vals}, got {out_int!r}")
-
-        return out_int
-
-    if expected_type == "boolean":
-        out_bool: Optional[bool] = None
-
-        if isinstance(value, bool):
-            out_bool = value
-        elif coerce and isinstance(value, int) and value in (0, 1):
-            out_bool = bool(value)
-        elif coerce and isinstance(value, str):
-            cleaned = value.strip().lower()
-            if cleaned in _NULL_STRINGS:
-                if nullable:
-                    return None
-                raise ValueError(f"Field '{field}' expected boolean, got {value!r}")
-            if cleaned in {"true", "t", "yes", "y", "1"}:
-                out_bool = True
-            elif cleaned in {"false", "f", "no", "n", "0"}:
-                out_bool = False
-            else:
-                raise ValueError(f"Field '{field}' expected boolean, got {value!r}")
-        else:
-            raise ValueError(f"Field '{field}' expected boolean, got {type(value).__name__}")
-
-        if enum_vals:
-            if out_bool not in enum_vals:
-                raise ValueError(f"Field '{field}' must be one of {enum_vals}, got {out_bool!r}")
-
-        return out_bool
-
-    raise ValueError(f"Field '{field}' has unsupported schema type: {expected_type!r}")
-
-
-def _normalize_enum_value(enum_vals: Any, value: str) -> Optional[str]:
-    if not isinstance(enum_vals, list):
-        return None
-    lookup = {str(v).strip().lower(): str(v) for v in enum_vals}
-    return lookup.get(value.strip().lower())

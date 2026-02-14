@@ -1,0 +1,45 @@
+JOINT_PARTY_AGENT
+{
+  "party_a_name": null,
+  "party_b_name": null,
+  "party_a_evidence": [],
+  "party_b_evidence": [],
+  "party_a_confidence": 0.12,
+  "party_b_confidence": 0.12
+}
+
+FIELD doc_type
+{"evidence":[{"page_num":6,"heading":null,"snippet":"7. Confidentiality. Unless otherwise agreed to by the Parties or except as otherwise provided in this Agreement or the Distribution Agreement"},{"page_num":6,"heading":"8.4 Effect of Termination. Termination of this Agreement shall not result in the","snippet":"9. Non-Competition. During the Interim Period, neither HERC nor any of its affiliates or subsidiaries shall, directly or indirectly, engage in the business of renting or leasing cars"}],"confidence":0.62,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":4,"heading":null,"snippet":"...THC and/or HSI will retain ownership and will grant a royalty-free, non-exclusive license to HERC..."}],"confidence":0.2,"value":""}
+
+FIELD party_b_name
+{"evidence":[{"page_num":4,"heading":null,"snippet":"...THC and/or HSI will retain ownership and will grant a royalty-free, non-exclusive license to HERC to use such Other Intellectual Property..."}],"confidence":0.22,"value":""}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.4   INTELLECTUAL PROPERTY AGREEMENT   This INTELLECTUAL PROPERTY AGREEMENT","snippet":"(this \"Agreement\" or \"IPA\"), effective as of this 30 day of June 2016 (the \"Effective Date\")"}],"confidence":0.98,"value":"2016-06-30"}
+
+FIELD term_length
+{"evidence":[{"page_num":2,"heading":null,"snippet":"\"Interim Period\" means a period of four (4) years commencing from the Effective Date of this Agreement."}],"confidence":0.62,"value":48}
+
+FIELD governing_law
+{"evidence":[{"page_num":6,"heading":"10. Governing Law.","snippet":"This Agreement and all disputes or controversies arising out of or relating to this Agreement or the transactions contemplated hereby shall be governed by, and construed in accordance with, the internal laws of the State of New York"}],"confidence":0.99,"value":"State of New York"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":6,"heading":"none","snippet":"8.1 By THC or HSI upon Notice. In the event of a material breach... terminate this Agreement upon written notice. If HERC has not cured any such breach within thirty (30) days after HERC receives such notice..."}],"confidence":0.28,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":5,"heading":"Section 5.2 and Section 5.3 and any other disputes that arise under this Agreement and the","snippet":"The amount of coverage shall be a minimum of three million dollars ($3,000,000) combined single limit, with no deductible amount for each single occurrence..."}],"confidence":0.22,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":6,"heading":"8.4 Effect of Termination. Termination of this Agreement shall not result in the","snippet":"9. Non-Competition. During the Interim Period, neither HERC nor any of its affiliates or subsidiaries shall, directly or indirectly, engage in the business of renting or leasing cars..."}],"confidence":0.34,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":null,"snippet":"HSI will retain ownership and will grant a royalty-free, non-exclusive license to HERC to use the HSI (HERTZ) Foreign ERB Trademarks... for the Interim Period, outside the United States and Puerto Rico"}],"confidence":0.22,"value":"unknown"}
+
+RISK_REVIEW_ROUND_1
+{"liability_cap":null,"governing_law":null,"data_transfer_outside_uk_eu":null,"term_length":48,"termination_notice_days":null,"non_solicit_clause_present":null,"confidence":0.62,"rationale":"liability_cap: Provided excerpts discuss insurance and broad indemnification/survival, but do not state any explicit limitation of liability or cap amount; cannot reliably correct beyond existing extraction. governing_law: No excerpt contains a governing law/jurisdiction clause; references to disputes being governed by procedures in the Distribution Agreement are not the same as a stated governing law, so cannot confirm 'State of New York' from evidence. data_transfer_outside_uk_eu: Excerpts only address notice delivery methods and IP definitions; no data processing/transfer language, so cannot determine. term_length: Definition of 'Interim Period' as four (4) years commencing from the Effective Date supports 48 months. termination_notice_days: Notice mechanics are described, but no termination notice period is stated in excerpts. non_solicit_clause_present: No non-solicitation language appears in excerpts; cannot confirm true/false from evidence."}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.78,"rationale":"High risk driven by hard trigger uncapped_and_outside_law: liability cap is none specified (appears uncapped/unspecified; p5) and governing law is State of New York (outside UK/EU; p6). Additional risk factors include a 48-month term (exceeds 36 months; p2) and unspecified termination notice (p6). Cross-border data transfer handling is unknown (p2) and overall critical-field uncertainty is high, so risk cannot be reduced."}

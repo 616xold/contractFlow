@@ -1,0 +1,4 @@
+{"doc_type":"other","party_a_name":"Global Technologies, Ltd","party_b_name":"Timothy Cabrera","effective_date":"2020-01-02","term_length":12,"governing_law":"State of Florida","termination_notice_days":0,"liability_cap":"No explicit liability cap stated","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown"}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.72,"rationale":"High risk driven primarily by liability cap being none specified (treated as uncapped/unspecified; high severity, largest contribution) and a 0-day termination notice (high severity). Additional medium risks include governing law set to State of Florida (mapping/fit uncertain), cross-border data transfer marked unknown, and no non-solicit protection. Although the 12-month term is mildly protective, overall uncertainty is flagged high with critical fields not confidently evidenced, so a low risk rating is not supported."}

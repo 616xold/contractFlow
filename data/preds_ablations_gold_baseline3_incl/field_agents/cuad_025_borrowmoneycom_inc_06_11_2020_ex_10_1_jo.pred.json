@@ -1,0 +1,439 @@
+{
+  "doc_type": "other",
+  "party_a_name": "BorrowMoney.com, inc",
+  "party_b_name": "JVLS, LLC dba Vaccines 2Go",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Florida",
+  "termination_notice_days": null,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_025_borrowmoneycom_inc_06_11_2020_ex_10_1_jo.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 27766,
+    "output_tokens": 2112,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'liability_cap' must be a non-empty string",
+      "inferred liability_cap from evidence snippets"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 18,
+      "parallelism": {
+        "enabled": true,
+        "requested_concurrency": 4,
+        "worker_count": 4,
+        "rate_limit_retries": 0,
+        "worker_failures": []
+      },
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 6,
+              "heading": null,
+              "snippet": "This Venture is termed a contractual joint venture and will not constitute a partnership."
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "All matters relating to this Agreement and the Venture will be treated by the Members as confidential"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1083,
+          "completion_tokens": 82
+        },
+        "party_a_name": {
+          "source": "field_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.1",
+              "snippet": "...BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go..."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1108,
+          "completion_tokens": 87,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "BorrowMoney.com, inc",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "BorrowMoney.com, inc",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.1",
+              "snippet": "BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go of 4060 Johns Creek Parkway Suite H Suwanee, GA 30024"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 730,
+          "completion_tokens": 128,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.91,
+              "confidence": 0.86,
+              "value": "JVLS, LLC dba Vaccines 2Go",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "JVLS, LLC dba Vaccines 2Go",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.42,
+          "evidence": [
+            {
+              "page_num": 1,
+              "heading": "Exhibit 10.1",
+              "snippet": "THIS JOINT VENTURE AGREEMENT (the \"Agreement\") made and entered into this 20th day of Friday, March 2020 (the \"Execution Date\")"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 3082,
+          "completion_tokens": 158
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "36. The Venture will be dissolved and its assets liquidated in the event of any of the following: a. the Term expires and is not extended;"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 3053,
+          "completion_tokens": 136
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.78,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "...any outstanding issues will be submitted to final and binding arbitration in accordance with the laws of the State of Florida."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1099,
+          "completion_tokens": 66
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 3,
+              "heading": null,
+              "snippet": "When calling a special meeting, all Members must be provided with reasonable notice."
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "This section will survive for one year after the expiration or termination of this Agreement or dissolution of the Venture."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2933,
+          "completion_tokens": 190
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 4,
+              "heading": null,
+              "snippet": "33. Each Member will indemnify the remaining Members against all losses, costs and claims that may arise in the event of the Venture being terminated as a result of breach of the Agreement by that Member."
+            },
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "employee, agent or other person engaged in the business interest of the Venture against any liability asserted against them or incurred by them while acting in good faith on behalf of the Venture."
+            }
+          ],
+          "attempts": 2,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string",
+            "inferred liability_cap from evidence snippets"
+          ],
+          "prompt_tokens": 2932,
+          "completion_tokens": 264
+        },
+        "non_solicit_clause_present": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 5,
+              "heading": null,
+              "snippet": "Confidentiality 45. All matters relating to this Agreement and the Venture will be treated by the Members as confidential and no Member will disclose or allow to be disclosed any Venture matter or matters, directly or indirectly, to any third party"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2555,
+          "completion_tokens": 187
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 2,
+              "heading": "Member Duties Description",
+              "snippet": "...build, deploy and maintain all technical aspect requirements including a database for medical dispatch personal & product service as needed, including activity information, data storage and backup."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2662,
+          "completion_tokens": 164
+        },
+        "risk_level": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.773,
+          "arbitration": "rules_with_judge_check"
+        },
+        "risk_explanation": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.773,
+          "arbitration": "rules_with_judge_check"
+        }
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law could not be confidently mapped to a region.); Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.773,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": "high",
+        "judge_confidence": 0.74,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 1.0,
+          "critical_avg_confidence": 0.38,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "none specified",
+            "severity": "high",
+            "contribution": 35.0,
+            "confidence": 0.18,
+            "evidence_count": 2,
+            "pages": [
+              4,
+              5
+            ],
+            "notes": "Liability appears uncapped or unspecified."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of Florida",
+            "severity": "medium",
+            "contribution": 8.0,
+            "confidence": 0.78,
+            "evidence_count": 1,
+            "pages": [
+              5
+            ],
+            "notes": "Governing law could not be confidently mapped to a region."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.18,
+            "evidence_count": 1,
+            "pages": [
+              2
+            ],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": null,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.22,
+            "evidence_count": 1,
+            "pages": [
+              4
+            ],
+            "notes": "Term length is unknown."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": null,
+            "severity": "medium",
+            "contribution": 1.0,
+            "confidence": 0.18,
+            "evidence_count": 2,
+            "pages": [
+              3,
+              5
+            ],
+            "notes": "Termination notice period is unspecified."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": false,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.22,
+            "evidence_count": 1,
+            "pages": [
+              5
+            ],
+            "notes": "No non-solicit protection was found."
+          }
+        ],
+        "prompt_tokens": 802,
+        "completion_tokens": 160,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.74,\"rationale\":\"High risk driven primarily by liability cap being none specified (high severity, 35 contribution; evidence on pp. 4–5), implying potentially uncapped exposure. Additional medium-severity gaps increase risk and uncertainty: cross-border data transfer is unknown (pp. 2), term length and termination notice are unspecified (pp. 3–5), and no non-solicit protection was found (p. 5). Governing law is Florida (p. 5), which may be acceptable but adds jurisdictional considerations. Overall uncertainty is flagged high (critical_avg_confidence 0.38; critical_unknown_count 1), so a low rating is not appropriate.\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": true,
+          "trigger_reasons": [
+            "high_uncertainty",
+            "min_critical_confidence=0.18"
+          ],
+          "review_attempted": true,
+          "review_rounds": 1,
+          "review_top_k": 4,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": "no_proposed_changes",
+          "applied_corrections": {},
+          "input_snapshot_before": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Florida",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "input_snapshot_after": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Florida",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 100.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": 3877,
+          "review_completion_tokens": 252
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 13,
+        "unique_evidence_pages": 6,
+        "avg_confidence": 0.482,
+        "min_confidence": 0.18
+      }
+    }
+  }
+}

@@ -34,7 +34,7 @@ _STOPWORDS = {
     "any",
     "all",
 }
-_CURRENCY_SYMBOL_MAP = {"$": "usd", "€": "eur", "£": "gbp"}
+_CURRENCY_SYMBOL_MAP = {"$": "usd", "\u20ac": "eur", "\u00a3": "gbp"}
 _NUMBER_WORDS = {
     "one": 1,
     "two": 2,
@@ -73,6 +73,20 @@ _UNCAPPED_TERMS = (
     "no limitation",
     "none specified",
     "not specified",
+)
+_CAP_PHRASES = (
+    "limitation of liability",
+    "liability shall not exceed",
+    "shall not exceed",
+    "aggregate liability",
+    "cap on liability",
+    "liability is limited",
+    "liability will be limited",
+    "liability shall be limited",
+    "maximum liability",
+    "total liability",
+    "limited to",
+    "up to",
 )
 
 
@@ -122,6 +136,12 @@ def canonicalize_liability_cap(value: Any) -> Optional[str]:
     if signal.is_nullish:
         return None
     if signal.is_uncapped:
+        lowered = signal.raw_text.strip().lower()
+        if any(
+            term in lowered
+            for term in ("not specified", "none specified", "unspecified", "not stated", "no stated")
+        ):
+            return "none specified"
         return "uncapped"
     if signal.months is not None:
         return f"{signal.months} months fees"
@@ -131,6 +151,9 @@ def canonicalize_liability_cap(value: Any) -> Optional[str]:
             return f"{signal.currency} {amount_text}"
         return f"amount {amount_text}"
     if signal.normalized_text:
+        lowered = signal.raw_text.strip().lower()
+        if ("liability" in lowered or "damages" in lowered) and not _has_cap_phrase(lowered):
+            return "none specified"
         return signal.normalized_text
     return None
 
@@ -165,6 +188,11 @@ def _is_nullish(value: str) -> bool:
 
 
 def _extract_cap_months(text: str) -> Optional[int]:
+    cap_phrase = _has_cap_phrase(text)
+    fee_basis = _has_fee_basis(text)
+    if not cap_phrase and not fee_basis:
+        return None
+
     month_match = re.search(r"(\d+(?:\.\d+)?)\s*(?:month|months|mo|mos)\b", text)
     if month_match:
         return max(0, int(round(float(month_match.group(1)))))
@@ -222,7 +250,14 @@ def _word_number_at(tokens: list[str], idx: int) -> Optional[int]:
 
 
 def _extract_cap_amount(text: str) -> tuple[Optional[float], Optional[str]]:
-    symbol_match = re.search(r"([$€£])\s*(\d[\d,]*(?:\.\d+)?)", text)
+    cap_phrase = _has_cap_phrase(text)
+    fee_basis = _has_fee_basis(text)
+    if not cap_phrase and not fee_basis:
+        return None, None
+    if "insurance" in text and not cap_phrase:
+        return None, None
+
+    symbol_match = re.search(r"([$\u20ac\u00a3])\s*(\d[\d,]*(?:\.\d+)?)", text)
     if symbol_match:
         currency = _CURRENCY_SYMBOL_MAP.get(symbol_match.group(1))
         amount = _parse_amount(symbol_match.group(2))
@@ -299,3 +334,18 @@ def _token_jaccard(left: str, right: str) -> float:
     inter = len(left_tokens & right_tokens)
     union = len(left_tokens | right_tokens)
     return inter / union if union else 0.0
+
+
+def _has_cap_phrase(text: str) -> bool:
+    lowered = text.lower()
+    return any(phrase in lowered for phrase in _CAP_PHRASES)
+
+
+def _has_fee_basis(text: str) -> bool:
+    return bool(
+        re.search(
+            r"\b(fee|fees|charge|charges|payment|payments|paid|payable|revenue|consideration)\b",
+            text.lower(),
+        )
+    )
+

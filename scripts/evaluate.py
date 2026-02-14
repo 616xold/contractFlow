@@ -70,6 +70,11 @@ def main() -> None:
         default=42,
         help="Random seed for bootstrap sampling (default: 42)",
     )
+    parser.add_argument(
+        "--include-derived",
+        action="store_true",
+        help="Include schema fields marked derived=true (default: excluded).",
+    )
     args = parser.parse_args()
 
     summary = evaluate_predictions(
@@ -80,6 +85,7 @@ def main() -> None:
         partial_threshold=args.partial_threshold,
         bootstrap_samples=args.bootstrap_samples,
         bootstrap_seed=args.bootstrap_seed,
+        include_derived=args.include_derived,
     )
 
     _print_summary(summary)
@@ -98,8 +104,14 @@ def evaluate_predictions(
     partial_threshold: float = 0.85,
     bootstrap_samples: int = 0,
     bootstrap_seed: int = 42,
+    include_derived: bool = False,
 ) -> Dict[str, Any]:
     schema = _load_json(schema_path)
+    eval_fields = [
+        field
+        for field, meta in schema.items()
+        if include_derived or not bool((meta or {}).get("derived"))
+    ]
     label_paths = sorted(labels_dir.glob(f"*{label_suffix}"))
     if not label_paths:
         raise ValueError(f"No label files found in {labels_dir} with suffix {label_suffix}")
@@ -113,7 +125,7 @@ def evaluate_predictions(
             "avg_similarity": 0.0,
             "error_buckets": {bucket: 0 for bucket in bucket_keys},
         }
-        for field in schema.keys()
+        for field in eval_fields
     }
     error_buckets_global: Dict[str, int] = {bucket: 0 for bucket in bucket_keys}
     docs: list[Dict[str, Any]] = []
@@ -165,7 +177,8 @@ def evaluate_predictions(
         per_field: Dict[str, Any] = {}
         doc_error_buckets: Dict[str, int] = {bucket: 0 for bucket in bucket_keys}
 
-        for field, meta_def in schema.items():
+        for field in eval_fields:
+            meta_def = schema[field]
             gold_value_raw = gold_fields.get(field, None)
             pred_value_raw = pred_fields.get(field, None)
             norm_gold = _normalize_value(gold_value_raw, meta_def)
@@ -246,7 +259,8 @@ def evaluate_predictions(
         )
 
     field_accuracy = {}
-    for field, stats in field_stats.items():
+    for field in eval_fields:
+        stats = field_stats[field]
         total = stats["total"]
         exact = stats["exact_correct"]
         partial = stats["partial_correct"]
@@ -265,6 +279,8 @@ def evaluate_predictions(
         "docs_total": len(label_paths),
         "docs_evaluated": evaluated_docs,
         "docs_missing_preds": missing_preds,
+        "include_derived": include_derived,
+        "fields_evaluated": eval_fields,
         "overall_accuracy_exact": round((overall_exact / overall_total) if overall_total else 0.0, 4),
         "overall_accuracy_partial": round((overall_partial / overall_total) if overall_total else 0.0, 4),
         "overall_accuracy_exact_ci95": _bootstrap_mean_ci(

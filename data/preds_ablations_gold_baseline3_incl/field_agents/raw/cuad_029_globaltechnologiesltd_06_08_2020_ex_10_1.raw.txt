@@ -1,0 +1,57 @@
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "Global Technologies, Ltd",
+  "party_b_name": "Timothy Cabrera",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+      "snippet": "entered into as of this 2nd day of January 2020, by and between Global Technologies, Ltd (hereinafter the \"Company\"), a Delaware corporation whose address is 501 1st Ave N., Suite 901, St. Petersburg, FL 33701"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and",
+      "snippet": "and Timothy Cabrera (hereinafter the \"Consultant\"), an individual whose address is 11718 SE Federal Hwy., Suite 372, Hobe Sound, FL 33455"
+    }
+  ],
+  "party_a_confidence": 0.98,
+  "party_b_confidence": 0.97
+}
+
+FIELD doc_type
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and","snippet":"Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and"},{"page_num":1,"heading":"Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and","snippet":"During the term of this Agreement, Consultant will perform the services described below (the \"Consulting Services\") for the Company."}],"confidence":0.93,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and","snippet":"entered into as of this 2nd day of January 2020, by and between Global Technologies, Ltd (hereinafter the \"Company\"), a Delaware corporation... and Timothy Cabrera (hereinafter the \"Consultant\")"}],"confidence":0.86,"value":"Global Technologies, Ltd"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and","snippet":"entered into as of this 2nd day of January 2020, by and between Global Technologies, Ltd (hereinafter the \"Company\"), ... and Timothy Cabrera (hereinafter the \"Consultant\")"}],"confidence":0.9,"value":"Timothy Cabrera"}
+
+FIELD effective_date
+{"evidence":[{"page_num":5,"heading":"Its: Individual capacity Date: January 2, 2020 Dated: January 2, 2020 7 ____ ____","snippet":"Its: Individual capacity Date: January 2, 2020 Dated: January 2, 2020"}],"confidence":0.62,"value":"2020-01-02"}
+
+FIELD term_length
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and","snippet":"Either Party shall have the right to terminate this Agreement with notice, and the effective date of termination shall be the date such notice is received..."}],"confidence":0.22,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":4,"heading":null,"snippet":"(i) Arbitration and Governing Law. If a dispute arises out of or relates to this contract, or the breach thereof, and if the dispute cannot be settled through negotiation..."},{"page_num":4,"heading":null,"snippet":"for the resolution of all disputes arising under the terms of this Agreement and the transactions contemplated herein will be the County of Pinellas, State of Florida."}],"confidence":0.22,"value":""}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.16 CONSULTING AGREEMENT This Consulting Agreement (the \"Agreement\") is made and","snippet":"Either Party shall have the right to terminate this Agreement with notice, and the effective date of termination shall be the date such notice is received (by mail, overnight delivery, or fax)"}],"confidence":0.32,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":5,"heading":null,"snippet":"The rights, duties, obligations and liabilities of the Parties shall be separate, not joint or collective. Each Party shall be responsible only for its obligations as herein set out and shall be liable only for its share of the costs and expenses as provided herein."}],"confidence":0.22,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":5,"heading":null,"snippet":"The Company further agrees that neither it nor its employees, affiliates or assigns, shall enter into, or otherwise arrange... any business relationship, contact any person regarding such Opportunity, either directly or indirectly..."}],"confidence":0.62,"value":true}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":3,"heading":null,"snippet":"10. MISCELLANEOUS PROVISIONS (a) Amendment and Modification. This Agreement may be amended, modified and supplemented only by written agreement of the Company and Consultant."},{"page_num":4,"heading":null,"snippet":"(l) Entire Agreement. This Agreement including any Exhibits hereto... set forth the entire agreement and understanding of the Parties hereto in respect of the subject matter contained herein"}],"confidence":0.12,"value": "unknown"}
+
+RISK_REVIEW_ROUND_1
+{"liability_cap":null,"governing_law":"County of Pinellas, State of Florida (venue/forum selection)","data_transfer_outside_uk_eu":null,"term_length":null,"termination_notice_days":0,"non_solicit_clause_present":null,"confidence":0.74,"rationale":"Governing law/venue: Evidence states “for the resolution of all disputes… will be the County of Pinellas, State of Florida,” which supports Florida forum/venue (page 4). Termination notice: Evidence states either party may terminate “with notice,” effective on the date notice is received, implying no advance notice period (0 days) (page 1). Liability cap: provided excerpts discuss compensation, confidentiality, covenants, and indemnity but do not state any limitation of liability/cap, so no reliable correction. Data transfer outside UK/EU: no data processing/transfer language in excerpts, so cannot determine. Non-solicit: excerpts provided relate to confidentiality and use of opportunity/contact information but do not clearly establish a non-solicitation clause, so cannot confirm."}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.74,"rationale":"High risk driven by high-severity items: liability cap is none specified/appears uncapped (contribution 35, low confidence 0.22, p5) and termination notice is 0 days (contribution 7, confidence 0.32, p1). Additional medium risks include governing law set to State of Florida with low mapping confidence (contribution 8, confidence 0.22, p4), cross-border data transfer unknown (contribution 6, confidence 0.12, pp3-4), and term length unknown (contribution 2, confidence 0.22, p1). Overall uncertainty is flagged high (critical_avg_confidence 0.1867; critical unknowns include data transfer), so risk is not reduced despite a minor protective/neutral factor (non-solicit present, contribution -3, p5)."}

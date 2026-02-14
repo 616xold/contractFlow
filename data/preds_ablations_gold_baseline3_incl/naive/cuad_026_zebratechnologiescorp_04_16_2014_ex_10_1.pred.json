@@ -1,0 +1,164 @@
+{
+  "doc_type": "other",
+  "party_a_name": "Motorola Solutions, Inc.",
+  "party_b_name": "Zebra Technologies Corporation",
+  "effective_date": "2014-04-14",
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": null,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law appears outside uk/eu.); Hard trigger(s): uncapped_and_outside_law; Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_026_zebratechnologiescorp_04_16_2014_ex_10_1.pdf",
+    "model": "gpt-5.2",
+    "mode": "naive",
+    "input_tokens": 29395,
+    "output_tokens": 234,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "field 'liability_cap': normalized liability_cap to canonical representation"
+    ],
+    "retrieval": {
+      "enabled": false,
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law appears outside uk/eu.); Hard trigger(s): uncapped_and_outside_law; Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.57,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": "high",
+        "judge_confidence": 0.72,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [
+          "uncapped_and_outside_law"
+        ],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 0.0,
+          "critical_avg_confidence": 0.5,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "none specified",
+            "severity": "high",
+            "contribution": 35.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Liability appears uncapped or unspecified."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of Delaware",
+            "severity": "high",
+            "contribution": 20.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Governing law appears outside UK/EU."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": null,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Term length is unknown."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": null,
+            "severity": "medium",
+            "contribution": 1.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "Termination notice period is unspecified."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": false,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.5,
+            "evidence_count": 0,
+            "pages": [],
+            "notes": "No non-solicit protection was found."
+          }
+        ],
+        "prompt_tokens": 788,
+        "completion_tokens": 125,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.72,\"rationale\":\"High risk driven by hard trigger 'uncapped_and_outside_law': liability cap is none specified (appears uncapped/unspecified; high severity, 35 contribution) and governing law is State of Delaware (outside UK/EU; high severity, 20 contribution). Additional medium-risk uncertainty: cross-border data transfer is unknown, and term length/termination notice are unspecified. Overall uncertainty is flagged high (critical coverage 0.0; one critical unknown), so risk cannot be reduced.\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": false,
+          "trigger_reasons": [],
+          "review_attempted": false,
+          "review_rounds": 0,
+          "review_top_k": 4,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": "no_retriever_available",
+          "applied_corrections": {},
+          "input_snapshot_before": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Delaware",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "input_snapshot_after": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Delaware",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 100.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": null,
+          "review_completion_tokens": null
+        }
+      }
+    }
+  }
+}

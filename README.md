@@ -48,26 +48,31 @@ flowchart LR
     J --> K[JSON + audit]
 ```
 
-## Benchmark Snapshot (Committee Silver, 25 Docs)
+## Benchmark Snapshot (Gold Labels, 5 CUAD Docs)
 
-Benchmark date: **February 8, 2026**  
-Canonical artifact: `data/benchmarks/portfolio_benchmark.json`
+Benchmark date: **February 14, 2026**  
+Canonical artifact: `data/benchmarks/gold_ablation_presentation.json`
 
 | Mode | Exact Accuracy | Partial Accuracy | Exact CI95 | Avg Total Tokens / Doc | Delta Exact vs Naive |
 |---|---:|---:|---:|---:|---:|
-| naive | 0.7067 | 0.7233 | 0.6733..0.7367 | 11,474 | +0.0000 |
-| retrieval | 0.7000 | 0.7067 | 0.6400..0.7533 | 6,038 | -0.0067 |
-| field_agents | 0.7800 | 0.7800 | 0.7367..0.8267 | 25,155 | +0.0733 |
-| orchestrated | **0.8467** | **0.8567** | **0.8167..0.8800** | 58,935 | **+0.1400** |
+| naive | 0.8500 | 0.9333 | 0.8333..0.8833 | 12,692 | +0.0000 |
+| retrieval | 0.8000 | 0.8333 | 0.7667..0.8333 | 12,609.8 | -0.0500 |
+| field_agents | 0.7833 | 0.8500 | 0.7000..0.8667 | 29,178 | -0.0667 |
+| orchestrated (tuned) | **0.9167** | **0.9167** | **0.8667..0.9667** | **26,178.8** | **+0.0667** |
+
+Notes:
+- Gold set currently contains 5 labeled CUAD contracts (`.gold.json`).
+- This benchmark includes derived fields (`risk_level`, `risk_explanation`) for all modes.
+- Orchestrated uses a tuned low-token profile (see optimization table below).
 
 ### Accuracy Diagram
 
 ```mermaid
 xychart-beta
-    title "Exact Acc (25 docs)"
+    title "Exact Acc (gold-5)"
     x-axis ["N", "R", "F", "O"]
     y-axis "acc" 0 --> 1
-    bar [0.7067, 0.7000, 0.7800, 0.8467]
+    bar [0.85, 0.8, 0.7833, 0.9167]
 ```
 `N=naive`, `R=retrieval`, `F=field_agents`, `O=orchestrated`
 
@@ -75,28 +80,42 @@ xychart-beta
 
 ```mermaid
 xychart-beta
-    title "Avg Tokens/Doc"
+    title "Avg Tokens/Doc (gold-5)"
     x-axis ["N", "R", "F", "O"]
-    y-axis "tokens" 0 --> 60000
-    bar [11474, 6038, 25155, 58935]
+    y-axis "tokens" 0 --> 32000
+    bar [12692, 12609.8, 29178, 26178.8]
 ```
 `N=naive`, `R=retrieval`, `F=field_agents`, `O=orchestrated`
 
-## Field-Level Signal (Orchestrated Exact Accuracy)
+### Orchestrated Token Optimization (Gold-5)
+
+| Orchestrated Profile | Exact | Partial | Avg Tokens / Doc |
+|---|---:|---:|---:|
+| default | 0.8500 | 0.8500 | 53,863.6 |
+| tuned | **0.9167** | **0.9167** | **26,178.8** |
+
+Tuned settings used in this benchmark:
+- `top_k=2`
+- `max_chunk_chars=800`
+- `chunk_max_chars=1300`
+- `max_repairs=2`
+- `disable_verifier=true`
+- `risk_review_top_k=2`
+
+## Field-Level Signal (Orchestrated, Gold-5 Exact Accuracy)
 
 - Strong fields:
-  - `doc_type`: 0.96
-  - `party_a_name`: 0.96
-  - `party_b_name`: 0.96
-  - `non_solicit_clause_present`: 1.00
-  - `data_transfer_outside_uk_eu`: 1.00
+  - `doc_type`: 1.00
+  - `party_a_name`: 1.00
+  - `governing_law`: 1.00
+  - `liability_cap`: 1.00
   - `risk_level`: 1.00
-- Main bottleneck:
-  - `liability_cap`: 0.24
-- Secondary bottlenecks:
-  - `effective_date`: 0.76
-  - `termination_notice_days`: 0.80
-  - `risk_explanation`: 0.64
+  - `risk_explanation`: 1.00
+- Current bottlenecks:
+  - `termination_notice_days`: 0.60
+  - `party_b_name`: 0.80
+  - `effective_date`: 0.80
+  - `term_length`: 0.80
 
 ## Risk Engine V2
 
@@ -113,7 +132,7 @@ Implemented in `contractflow/core/risk_engine.py` and the post-extraction orches
   - missing values remain `unknown`
   - not auto-promoted to `uncapped` or `outside`
 
-Current caveat: committee-silver risk labels are single-class (`high`), so risk-level accuracy is inflated. Add low/medium gold labels for proper calibration.
+Current caveat: current gold risk labels are still single-class (`high`) in this slice. Add balanced low/medium/high risk gold labels for proper calibration.
 
 ## Repository Layout
 
@@ -171,6 +190,9 @@ python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --field-agents
 # Orchestrated with verifier/judge
 python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated
 
+# Orchestrated low-cost tuned profile
+python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --orchestrated-profile low_cost
+
 # Orchestrated with risk-review disabled (rules + judge only)
 python scripts/baseline_extract.py data/raw_pdfs/nda_harvard.pdf --orchestrated --disable-risk-review
 
@@ -193,17 +215,23 @@ Open `http://127.0.0.1:8000` and:
   - explainable risk summary (drivers, protectors, triggers, uncertainty)
   - orchestration trace
 
+If `uvicorn` is missing in your venv, reinstall dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
 ### 3) Reproduce Evaluation
 
 ```bash
-# Evaluate one mode (with CI95)
-python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds_ablations/orchestrated --label-suffix .silver_committee.json --bootstrap-samples 1000 --out data/benchmarks/eval_orchestrated_committee_latest.json
+# Baseline 3 modes on gold labels (include derived fields)
+python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .gold.json --modes naive,retrieval,field_agents --preds-root data/preds_ablations_gold_baseline3_incl --overwrite --include-derived --bootstrap-samples 1000 --out data/benchmarks/gold_ablation_baseline3_include_derived.json
 
-# Evaluate risk outputs
-python scripts/evaluate_risk.py --labels-dir data/labels --preds-dir data/preds_ablations/orchestrated --label-suffix .silver_committee.json --out data/benchmarks/risk_eval_orchestrated_committee_latest.json
+# Tuned orchestrated mode on gold labels
+python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .gold.json --modes orchestrated --preds-root data/preds_ablations_gold_orch_tuned_incl --overwrite --orchestrated-profile low_cost --include-derived --bootstrap-samples 1000 --out data/benchmarks/gold_ablation_orchestrated_tuned_include_derived.json
 
-# Full ablation report
-python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .silver_committee.json --preds-root data/preds_ablations --skip-extraction --bootstrap-samples 1000 --out data/benchmarks/ablation_latest.json
+# Optional: evaluate one prediction directory directly
+python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds_ablations_gold_orch_tuned_incl/orchestrated --label-suffix .gold.json --include-derived --bootstrap-samples 1000 --out data/benchmarks/eval_gold_orchestrated_tuned_include_derived.json
 ```
 
 

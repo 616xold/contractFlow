@@ -1,0 +1,452 @@
+{
+  "doc_type": "other",
+  "party_a_name": "MOTOROLA SOLUTIONS, INC.",
+  "party_b_name": "ZEBRA TECHNOLOGIES CORPORATION",
+  "effective_date": null,
+  "term_length": null,
+  "governing_law": "State of Delaware",
+  "termination_notice_days": null,
+  "liability_cap": "none specified",
+  "non_solicit_clause_present": false,
+  "data_transfer_outside_uk_eu": "unknown",
+  "risk_level": "high",
+  "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law appears outside uk/eu.); Hard trigger(s): uncapped_and_outside_law; Some critical factors have limited evidence or confidence. Final risk level: high.",
+  "_meta": {
+    "pdf": "C:\\Users\\sohai\\contractFlow\\data\\raw_pdfs\\cuad_026_zebratechnologiescorp_04_16_2014_ex_10_1.pdf",
+    "model": "gpt-5.2",
+    "mode": "field_agents",
+    "input_tokens": 23032,
+    "output_tokens": 2306,
+    "validate": true,
+    "strict": false,
+    "coerce": true,
+    "structured_outputs": true,
+    "issues": [
+      "Field 'liability_cap' must be a non-empty string",
+      "inferred liability_cap from evidence snippets"
+    ],
+    "retrieval": {
+      "enabled": true,
+      "mode": "field_agents",
+      "backend": "bm25",
+      "model": null,
+      "cache_path": null,
+      "cache_hit": null,
+      "config": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "reranker_model": null,
+      "reranker_top_n": null,
+      "top_k": 3,
+      "max_chunk_chars": 1200,
+      "chunk_max_chars": 2000,
+      "use_ocr": false,
+      "total_chunks": 157,
+      "parallelism": {
+        "enabled": true,
+        "requested_concurrency": 4,
+        "worker_count": 4,
+        "rate_limit_retries": 0,
+        "worker_failures": []
+      },
+      "fields": {
+        "doc_type": {
+          "source": "field_agent",
+          "confidence": 0.72,
+          "evidence": [
+            {
+              "page_num": 31,
+              "heading": "ARTICLE V CONFIDENTIALITY",
+              "snippet": "Each party shall ... hold the Source Code, trade secrets and other confidential information licensed to any of them under this IP Agreement in confidence"
+            },
+            {
+              "page_num": 18,
+              "heading": "Section 2.1(f) and in accordance with Article V).",
+              "snippet": "Seller Excluded Products. The licenses granted pursuant to Section 2.1(c)(i)... do not extend to any product, system, or service"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1000,
+          "completion_tokens": 124
+        },
+        "party_a_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 37,
+              "heading": "IN WITNESS WHEREOF, the parties have duly executed and delivered this Intellectual",
+              "snippet": "Property Agreement on the date first written above.   MOTOROLA SOLUTIONS, INC."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 434,
+          "completion_tokens": 82,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.83,
+              "confidence": 0.78,
+              "value": "MOTOROLA SOLUTIONS, INC.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "MOTOROLA SOLUTIONS, INC.",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "party_b_name": {
+          "source": "party_roles_agent",
+          "confidence": 0.93,
+          "evidence": [
+            {
+              "page_num": 37,
+              "heading": "IN WITNESS WHEREOF, the parties have duly executed and delivered this Intellectual",
+              "snippet": "ZEBRA TECHNOLOGIES CORPORATION By:   /s/ Michael Annes Name:   Michael Annes Title:"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 434,
+          "completion_tokens": 82,
+          "candidates": [
+            {
+              "source": "field_agent",
+              "score": 0.77,
+              "confidence": 0.72,
+              "value": "ZEBRA TECHNOLOGIES CORPORATION",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            },
+            {
+              "source": "party_roles_agent",
+              "score": 0.98,
+              "confidence": 0.93,
+              "value": "ZEBRA TECHNOLOGIES CORPORATION",
+              "issues": [],
+              "evidence_count": 1,
+              "attempts": 1
+            }
+          ]
+        },
+        "effective_date": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 23,
+              "heading": null,
+              "snippet": "within thirty (30) days after the Effective Date"
+            },
+            {
+              "page_num": 30,
+              "heading": "Section 4.1 Term. The term of this IP Agreement shall be from the Effective Date until all",
+              "snippet": "The term of this IP Agreement shall be from the Effective Date until all of the Intellectual Property licensed hereunder is in the public domain"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2297,
+          "completion_tokens": 245
+        },
+        "term_length": {
+          "source": "field_agent",
+          "confidence": 0.22,
+          "evidence": [
+            {
+              "page_num": 30,
+              "heading": "Section 4.1 Term. The term of this IP Agreement shall be from the Effective Date until all",
+              "snippet": "The term of this IP Agreement shall be from the Effective Date until all of the Intellectual Property licensed hereunder is in the public domain ... or this IP Agreement is terminated pursuant to Section 4.3."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 1742,
+          "completion_tokens": 198
+        },
+        "governing_law": {
+          "source": "field_agent",
+          "confidence": 0.98,
+          "evidence": [
+            {
+              "page_num": 34,
+              "heading": "Section 6.6 Governing Law; Forum.",
+              "snippet": "The Laws of the State of Delaware (without reference to its principles of conflicts of law) shall govern the construction, interpretation and other matters arising out of or in connection with this IP Agreement"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 844,
+          "completion_tokens": 89
+        },
+        "termination_notice_days": {
+          "source": "field_agent",
+          "confidence": 0.32,
+          "evidence": [
+            {
+              "page_num": 30,
+              "heading": "Section 4.2 Irrevocability of Licenses.",
+              "snippet": "Seller may terminate the license... upon prior written notice to Purchaser, in the event Purchaser materially breaches... and fails to cure... within one hundred twenty (120) days after Purchaser's receipt of written notice"
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2534,
+          "completion_tokens": 191
+        },
+        "liability_cap": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 31,
+              "heading": "Section 4.3, this IP Agreement and the rights and obligations of the parties under this IP",
+              "snippet": "Agreement, including any obligation to make any assignment or grant any license hereunder, automatically end without any liability against any party or its Affiliates, except as otherwise provided in the Acquisition Agreement"
+            }
+          ],
+          "attempts": 1,
+          "issues": [
+            "Field 'liability_cap' must be a non-empty string",
+            "inferred liability_cap from evidence snippets"
+          ],
+          "prompt_tokens": 2702,
+          "completion_tokens": 187
+        },
+        "non_solicit_clause_present": {
+          "source": "field_agent",
+          "confidence": 0.18,
+          "evidence": [
+            {
+              "page_num": 27,
+              "heading": "Section 3.6 Employees.",
+              "snippet": "...have executed and delivered to a Seller Entity, a Contract (i) providing for the non-disclosure... and (ii) providing for the assignment... of any such Intellectual Property..."
+            },
+            {
+              "page_num": 21,
+              "heading": "Purchaser Licensees:",
+              "snippet": "...a fully paid-up, royalty-free... non-transferable, non-exclusive sublicense to use any and all Mobility Trademarks..."
+            },
+            {
+              "page_num": 19,
+              "heading": "Section 2.2 Licensed IP.",
+              "snippet": "...the Seller hereby grants... an irrevocable... perpetual... fully paid-up, royalty-free... non-transferable... non-"
+            }
+          ],
+          "attempts": 2,
+          "issues": [],
+          "prompt_tokens": 2246,
+          "completion_tokens": 338
+        },
+        "data_transfer_outside_uk_eu": {
+          "source": "field_agent",
+          "confidence": 0.12,
+          "evidence": [
+            {
+              "page_num": 13,
+              "heading": "Section 2.1 Transferred IP.",
+              "snippet": "Effective as of the applicable Closing Date, the Seller hereby sells, assigns, transfers, conveys and delivers all of its right, title, and interest in and to the Assigned IP... to the Purchaser Assignees"
+            },
+            {
+              "page_num": 33,
+              "heading": null,
+              "snippet": "Subject to the foregoing limitations, this IP Agreement shall be binding upon and inure to the benefit of the parties hereto and their respective successors and permitted assigns."
+            }
+          ],
+          "attempts": 1,
+          "issues": [],
+          "prompt_tokens": 2536,
+          "completion_tokens": 170
+        },
+        "risk_level": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.7835,
+          "arbitration": "rules_with_judge_check"
+        },
+        "risk_explanation": {
+          "source": "risk_orchestrator",
+          "evidence": [],
+          "derived": true,
+          "derived_reason": "post_extraction_risk_orchestrator",
+          "risk_confidence": 0.7835,
+          "arbitration": "rules_with_judge_check"
+        }
+      },
+      "risk": {
+        "version": "risk_v2",
+        "risk_level": "high",
+        "risk_explanation": "Primary risk driver: liability cap (liability appears uncapped or unspecified.); Secondary driver: governing law (governing law appears outside uk/eu.); Hard trigger(s): uncapped_and_outside_law; Some critical factors have limited evidence or confidence. Final risk level: high.",
+        "confidence": 0.7835,
+        "score": 82.0,
+        "rule_level": "high",
+        "rule_score": 100.0,
+        "judge_level": "high",
+        "judge_confidence": 0.74,
+        "arbitration": "rules_with_judge_check",
+        "hard_triggers": [
+          "uncapped_and_outside_law"
+        ],
+        "uncertainty": {
+          "critical_fields": [
+            "liability_cap",
+            "governing_law",
+            "data_transfer_outside_uk_eu"
+          ],
+          "critical_coverage": 1.0,
+          "critical_avg_confidence": 0.4267,
+          "critical_unknown_count": 1,
+          "high_uncertainty": true,
+          "high_coverage": false
+        },
+        "factors": [
+          {
+            "factor_id": "liability_cap",
+            "label": "Liability cap",
+            "value": "none specified",
+            "severity": "high",
+            "contribution": 35.0,
+            "confidence": 0.18,
+            "evidence_count": 1,
+            "pages": [
+              31
+            ],
+            "notes": "Liability appears uncapped or unspecified."
+          },
+          {
+            "factor_id": "governing_law",
+            "label": "Governing law",
+            "value": "State of Delaware",
+            "severity": "high",
+            "contribution": 20.0,
+            "confidence": 0.98,
+            "evidence_count": 1,
+            "pages": [
+              34
+            ],
+            "notes": "Governing law appears outside UK/EU."
+          },
+          {
+            "factor_id": "data_transfer_outside_uk_eu",
+            "label": "Cross-border transfer",
+            "value": "unknown",
+            "severity": "medium",
+            "contribution": 6.0,
+            "confidence": 0.12,
+            "evidence_count": 2,
+            "pages": [
+              13,
+              33
+            ],
+            "notes": "Cross-border transfer handling is uncertain."
+          },
+          {
+            "factor_id": "term_length",
+            "label": "Contract term length",
+            "value": null,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.22,
+            "evidence_count": 1,
+            "pages": [
+              30
+            ],
+            "notes": "Term length is unknown."
+          },
+          {
+            "factor_id": "termination_notice_days",
+            "label": "Termination notice",
+            "value": null,
+            "severity": "medium",
+            "contribution": 1.0,
+            "confidence": 0.32,
+            "evidence_count": 1,
+            "pages": [
+              30
+            ],
+            "notes": "Termination notice period is unspecified."
+          },
+          {
+            "factor_id": "non_solicit_clause_present",
+            "label": "Non-solicit clause",
+            "value": false,
+            "severity": "medium",
+            "contribution": 2.0,
+            "confidence": 0.18,
+            "evidence_count": 3,
+            "pages": [
+              19,
+              21,
+              27
+            ],
+            "notes": "No non-solicit protection was found."
+          }
+        ],
+        "prompt_tokens": 810,
+        "completion_tokens": 142,
+        "judge_raw_text": "{\"risk_level\":\"high\",\"confidence\":0.74,\"rationale\":\"High risk driven by hard trigger uncapped_and_outside_law: liability cap is none specified/appears uncapped (high severity, p31, low extraction confidence 0.18) and governing law is State of Delaware (high severity, p34, confidence 0.98), i.e., outside UK/EU. Additional medium risks/unknowns include uncertain cross-border data transfer handling (pp13,33), and unspecified term length and termination notice (p30). Overall uncertainty is flagged high (critical unknowns and low avg confidence), so risk cannot be reduced.\"}",
+        "orchestration": {
+          "stage": "post_extraction_risk_orchestrator_v1",
+          "enabled": true,
+          "triggered": true,
+          "trigger_reasons": [
+            "high_uncertainty",
+            "min_critical_confidence=0.12"
+          ],
+          "review_attempted": true,
+          "review_rounds": 1,
+          "review_top_k": 4,
+          "review_confidence_threshold": 0.72,
+          "review_model": "gpt-5.2",
+          "review_skipped_reason": "proposed_changes_not_applied",
+          "applied_corrections": {},
+          "input_snapshot_before": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Delaware",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "input_snapshot_after": {
+            "liability_cap": "none specified",
+            "governing_law": "State of Delaware",
+            "data_transfer_outside_uk_eu": "unknown",
+            "term_length": null,
+            "termination_notice_days": null,
+            "non_solicit_clause_present": false
+          },
+          "final_rule_level": "high",
+          "final_rule_score": 100.0,
+          "final_level": "high",
+          "final_arbitration": "rules_with_judge_check",
+          "review_prompt_tokens": 3923,
+          "review_completion_tokens": 284
+        }
+      },
+      "coverage": {
+        "fields_total": 10,
+        "fields_with_evidence": 10,
+        "fields_without_evidence": [],
+        "evidence_ratio": 1.0,
+        "evidence_snippets_total": 15,
+        "unique_evidence_pages": 11,
+        "avg_confidence": 0.476,
+        "min_confidence": 0.12
+      }
+    }
+  }
+}

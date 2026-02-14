@@ -23,6 +23,15 @@ from contractflow.core.extractor import (
 )
 from scripts.evaluate import evaluate_predictions
 
+_LOW_COST_ORCHESTRATED_PROFILE = {
+    "top_k": 2,
+    "max_chunk_chars": 800,
+    "chunk_max_chars": 1300,
+    "max_repairs": 2,
+    "disable_verifier": True,
+    "risk_review_top_k": 2,
+}
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run ablations and evaluate accuracy.")
@@ -207,6 +216,13 @@ def main() -> None:
         help="Path to risk policy JSON (default: docs/risk_policy.json)",
     )
     parser.add_argument(
+        "--orchestrated-profile",
+        type=str,
+        choices=("default", "low_cost"),
+        default="default",
+        help="Optional orchestrated preset. low_cost applies tuned token-saving defaults.",
+    )
+    parser.add_argument(
         "--use-ocr",
         action="store_true",
         help="Enable OCR fallback when extracted text is sparse",
@@ -246,6 +262,11 @@ def main() -> None:
         type=int,
         default=42,
         help="Seed for bootstrap sampling (default: 42)",
+    )
+    parser.add_argument(
+        "--include-derived",
+        action="store_true",
+        help="Include schema fields marked derived=true during evaluation.",
     )
     parser.add_argument(
         "--skip-extraction",
@@ -337,6 +358,7 @@ def main() -> None:
             partial_threshold=args.partial_threshold,
             bootstrap_samples=args.bootstrap_samples,
             bootstrap_seed=args.bootstrap_seed,
+            include_derived=args.include_derived,
         )
         summary["token_usage"] = _compute_token_usage(summary)
         results[mode] = summary
@@ -359,6 +381,7 @@ def main() -> None:
                 "skip_extraction": args.skip_extraction,
                 "bootstrap_samples": args.bootstrap_samples,
                 "bootstrap_seed": args.bootstrap_seed,
+                "include_derived": args.include_derived,
                 "fixed_benchmark": args.fixed_benchmark,
                 "disable_risk_judge": args.disable_risk_judge,
                 "risk_judge_model": args.risk_judge_model,
@@ -366,6 +389,8 @@ def main() -> None:
                 "risk_review_model": args.risk_review_model,
                 "risk_review_top_k": args.risk_review_top_k,
                 "risk_policy_path": str(args.risk_policy_path) if args.risk_policy_path else None,
+                "orchestrated_profile": args.orchestrated_profile,
+                "orchestrated_profile_overrides": _resolve_orchestrated_profile_overrides(args),
             },
             "summaries": results,
             "pairwise_comparisons": pairwise,
@@ -497,6 +522,7 @@ def _run_mode(
                 risk_policy_path=args.risk_policy_path,
             )
         elif mode == "orchestrated":
+            orchestrated_overrides = _resolve_orchestrated_profile_overrides(args)
             result = extract_fields_orchestrated(
                 pdf_path,
                 args.schema,
@@ -511,17 +537,17 @@ def _run_mode(
                 embedding_cache_dir=args.embedding_cache_dir,
                 reranker_model=args.reranker_model,
                 reranker_top_n=args.reranker_top_n,
-                top_k=args.top_k,
-                max_chunk_chars=args.max_chunk_chars,
-                chunk_max_chars=args.chunk_max_chars,
+                top_k=orchestrated_overrides["top_k"],
+                max_chunk_chars=orchestrated_overrides["max_chunk_chars"],
+                chunk_max_chars=orchestrated_overrides["chunk_max_chars"],
                 field_agent_concurrency=args.field_agent_concurrency,
                 use_ocr=args.use_ocr,
                 ocr_min_chars=args.ocr_min_chars,
                 ocr_lang=args.ocr_lang,
                 ocr_dpi=args.ocr_dpi,
                 repair_confidence_threshold=args.repair_confidence_threshold,
-                max_repairs=args.max_repairs,
-                enable_verifier=not args.disable_verifier,
+                max_repairs=orchestrated_overrides["max_repairs"],
+                enable_verifier=not orchestrated_overrides["disable_verifier"],
                 verifier_confidence_threshold=args.verifier_confidence_threshold,
                 verifier_max_repairs=args.verifier_max_repairs,
                 verifier_skip_confidence=args.verifier_skip_confidence,
@@ -530,7 +556,7 @@ def _run_mode(
                 risk_judge_model=args.risk_judge_model,
                 enable_risk_review=not args.disable_risk_review,
                 risk_review_model=args.risk_review_model,
-                risk_review_top_k=args.risk_review_top_k,
+                risk_review_top_k=orchestrated_overrides["risk_review_top_k"],
                 risk_policy_path=args.risk_policy_path,
             )
         else:
@@ -770,6 +796,20 @@ def _delta_outcome(delta: float, eps: float = 1e-9) -> str:
 
 def _mean(values: list[float]) -> float:
     return sum(values) / len(values) if values else 0.0
+
+
+def _resolve_orchestrated_profile_overrides(args: argparse.Namespace) -> dict:
+    params = {
+        "top_k": int(args.top_k),
+        "max_chunk_chars": int(args.max_chunk_chars),
+        "chunk_max_chars": int(args.chunk_max_chars),
+        "max_repairs": int(args.max_repairs),
+        "disable_verifier": bool(args.disable_verifier),
+        "risk_review_top_k": args.risk_review_top_k,
+    }
+    if args.orchestrated_profile == "low_cost":
+        params.update(_LOW_COST_ORCHESTRATED_PROFILE)
+    return params
 
 
 if __name__ == "__main__":

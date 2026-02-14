@@ -1,0 +1,4 @@
+{"doc_type":"other","party_a_name":"Motorola Solutions, Inc.","party_b_name":"Zebra Technologies Corporation","effective_date":"2014-04-14","term_length":null,"governing_law":"State of Delaware","termination_notice_days":null,"liability_cap":"Not specified in the provided text (remedies/liability governed by Acquisition Agreement Article 8)","non_solicit_clause_present":false,"data_transfer_outside_uk_eu":"unknown"}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.72,"rationale":"High risk driven by hard trigger 'uncapped_and_outside_law': liability cap is none specified (appears uncapped/unspecified; high severity, 35 contribution) and governing law is State of Delaware (outside UK/EU; high severity, 20 contribution). Additional medium-risk uncertainty: cross-border data transfer is unknown, and term length/termination notice are unspecified. Overall uncertainty is flagged high (critical coverage 0.0; one critical unknown), so risk cannot be reduced."}

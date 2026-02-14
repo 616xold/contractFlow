@@ -1,0 +1,57 @@
+JOINT_PARTY_AGENT
+{
+  "party_a_name": "BorrowMoney.com, inc",
+  "party_b_name": "JVLS, LLC dba Vaccines 2Go",
+  "party_a_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.1",
+      "snippet": "BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go of 4060 Johns Creek Parkway Suite H Suwanee, GA 30024"
+    }
+  ],
+  "party_b_evidence": [
+    {
+      "page_num": 1,
+      "heading": "Exhibit 10.1",
+      "snippet": "BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go of 4060 Johns Creek Parkway Suite H Suwanee, GA 30024"
+    }
+  ],
+  "party_a_confidence": 0.93,
+  "party_b_confidence": 0.93
+}
+
+FIELD doc_type
+{"evidence":[{"page_num":6,"heading":null,"snippet":"This Venture is termed a contractual joint venture and will not constitute a partnership."},{"page_num":5,"heading":null,"snippet":"All matters relating to this Agreement and the Venture will be treated by the Members as confidential"}],"confidence":0.78,"value":"other"}
+
+FIELD party_a_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"...BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go..."}],"confidence":0.93,"value":"BorrowMoney.com, inc"}
+
+FIELD party_b_name
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"...BETWEEN: BorrowMoney.com, inc of 512 Bayshore DR, suite 201 Fort Lauderdale FL 33304, and JVLS, LLC dba Vaccines 2Go of 4060 Johns Creek Parkway Suite H Suwanee, GA 30024..."}],"confidence":0.86,"value":"JVLS, LLC dba Vaccines 2Go"}
+
+FIELD effective_date
+{"evidence":[{"page_num":1,"heading":"Exhibit 10.1","snippet":"THIS JOINT VENTURE AGREEMENT (the \"Agreement\") made and entered into this 20th day of Friday, March 2020 (the \"Execution Date\")"}],"confidence":0.42,"value":null}
+
+FIELD term_length
+{"evidence":[{"page_num":4,"heading":null,"snippet":"36. The Venture will be dissolved and its assets liquidated in the event of any of the following: a. the Term expires and is not extended;"}],"confidence":0.22,"value":null}
+
+FIELD governing_law
+{"evidence":[{"page_num":5,"heading":null,"snippet":"...any outstanding issues will be submitted to final and binding arbitration in accordance with the laws of the State of Florida."}],"confidence":0.78,"value":"State of Florida"}
+
+FIELD termination_notice_days
+{"evidence":[{"page_num":3,"heading":null,"snippet":"When calling a special meeting, all Members must be provided with reasonable notice."},{"page_num":5,"heading":null,"snippet":"This section will survive for one year after the expiration or termination of this Agreement or dissolution of the Venture."}],"confidence":0.18,"value":null}
+
+FIELD liability_cap
+{"evidence":[{"page_num":4,"heading":null,"snippet":"33. Each Member will indemnify the remaining Members against all losses, costs and claims that may arise in the event of the Venture being terminated as a result of breach of the Agreement by that Member."},{"page_num":5,"heading":null,"snippet":"employee, agent or other person engaged in the business interest of the Venture against any liability asserted against them or incurred by them while acting in good faith on behalf of the Venture."}],"confidence":0.18,"value":""}
+
+FIELD non_solicit_clause_present
+{"evidence":[{"page_num":5,"heading":null,"snippet":"Confidentiality 45. All matters relating to this Agreement and the Venture will be treated by the Members as confidential and no Member will disclose or allow to be disclosed any Venture matter or matters, directly or indirectly, to any third party"}],"confidence":0.22,"value":false}
+
+FIELD data_transfer_outside_uk_eu
+{"evidence":[{"page_num":2,"heading":"Member Duties Description","snippet":"...build, deploy and maintain all technical aspect requirements including a database for medical dispatch personal & product service as needed, including activity information, data storage and backup."}],"confidence":0.18,"value":"unknown"}
+
+RISK_REVIEW_ROUND_1
+{"liability_cap":null,"governing_law":null,"data_transfer_outside_uk_eu":null,"term_length":null,"termination_notice_days":null,"non_solicit_clause_present":null,"confidence":0.42,"rationale":"liability_cap: Provided excerpts discuss member advances treated as debt and indemnification for good-faith actions, but do not state any explicit limitation of liability or cap amount; cannot reliably correct.\n\ngoverning_law: No excerpt includes a governing law/jurisdiction clause; Florida address alone is insufficient to set governing law.\n\ndata_transfer_outside_uk_eu: Excerpts mention database/data storage/backup duties but do not specify cross-border transfers or locations; cannot determine.\n\nterm_length: Execution date is shown (March 2020) but no fixed term/expiration or duration is provided in excerpts.\n\ntermination_notice_days: Only “reasonable notice” for special meetings is referenced; no termination notice period stated.\n\nnon_solicit_clause_present: No non-solicit language appears in excerpts; however absence cannot be confirmed from limited evidence, so cannot reliably keep/flip boolean."}
+
+RISK_JUDGE
+{"risk_level":"high","confidence":0.74,"rationale":"High risk driven primarily by liability cap being none specified (high severity, 35 contribution; evidence on pp. 4–5), implying potentially uncapped exposure. Additional medium-severity gaps increase risk and uncertainty: cross-border data transfer is unknown (pp. 2), term length and termination notice are unspecified (pp. 3–5), and no non-solicit protection was found (p. 5). Governing law is Florida (p. 5), which may be acceptable but adds jurisdictional considerations. Overall uncertainty is flagged high (critical_avg_confidence 0.38; critical_unknown_count 1), so a low rating is not appropriate."}
