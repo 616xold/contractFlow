@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LiabilityCapNormalization",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "raw_text",
+    "normalized_text",
+    "kind",
+    "is_nullish",
+    "is_uncapped",
+    "months",
+    "amount",
+    "currency",
+    "canonical"
+  ],
+  "properties": {
+    "raw_text": {
+      "type": "string",
+      "description": "Original extracted liability-cap text."
+    },
+    "normalized_text": {
+      "type": "string",
+      "description": "Lower-cased / token-normalized liability text."
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "nullish",
+        "uncapped",
+        "none_specified",
+        "months_fees",
+        "money_cap",
+        "other"
+      ],
+      "description": "Structured classification of the liability posture."
+    },
+    "is_nullish": {
+      "type": "boolean"
+    },
+    "is_uncapped": {
+      "type": "boolean"
+    },
+    "months": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Parsed fee-window cap in months when available."
+    },
+    "amount": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Parsed money cap value when available."
+    },
+    "currency": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Lower-cased ISO-like currency token (e.g., usd, eur, gbp)."
+    },
+    "canonical": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Canonical normalized representation used by extractor/eval."
+    },
+    "clause_span": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Focused clause span used for parsing if detected."
+    }
+  }
+}

@@ -169,6 +169,21 @@ _REPAIR_PRIORITY_FIELDS = {
     "doc_type",
 }
 _RISK_OUTPUT_FIELDS = {"risk_level", "risk_explanation"}
+_COST_AWARE_ENABLED_DEFAULT = True
+_COST_AWARE_MIN_AVG_CONFIDENCE = 0.82
+_COST_AWARE_MIN_EVIDENCE_RATIO = 0.7
+_COST_AWARE_MIN_NON_NULL_RATIO = 0.9
+_COST_AWARE_MIN_CRITICAL_CONFIDENCE = 0.75
+_COST_AWARE_MAX_DISAGREEMENT_RATE = 0.2
+_COST_AWARE_CRITICAL_FIELDS = {
+    "party_a_name",
+    "party_b_name",
+    "effective_date",
+    "term_length",
+    "liability_cap",
+    "governing_law",
+    "data_transfer_outside_uk_eu",
+}
 _RISK_INPUT_FIELDS = (
     "liability_cap",
     "governing_law",
@@ -1699,6 +1714,123 @@ def _repair_priority_score(
     return score
 
 
+def _is_populated_value(value: Any) -> bool:
+    if value is None:
+        return False
+    if isinstance(value, str):
+        return bool(value.strip())
+    return True
+
+
+def _build_cost_aware_snapshot(
+    selected_by_field: Dict[str, FieldCandidate],
+    extraction_schema: Dict[str, Dict[str, Any]],
+    *,
+    disagreement_fields: list[str],
+    coerce: bool,
+) -> Dict[str, Any]:
+    total_fields = len(extraction_schema)
+    if total_fields == 0:
+        return {
+            "total_fields": 0,
+            "avg_confidence": 0.0,
+            "evidence_ratio": 0.0,
+            "non_null_ratio": 0.0,
+            "critical_min_confidence": 0.0,
+            "critical_avg_confidence": 0.0,
+            "disagreement_rate": 0.0,
+            "conflict_fields": [],
+            "critical_conflict_fields": [],
+        }
+
+    non_nullable_total = 0
+    non_nullable_populated = 0
+    confidence_values: list[float] = []
+    evidence_fields = 0
+    conflict_fields: list[str] = []
+    critical_confidences: list[float] = []
+    critical_conflict_fields: list[str] = []
+
+    disagreement_set = set(disagreement_fields)
+
+    for field, meta in extraction_schema.items():
+        candidate = selected_by_field.get(field)
+        if candidate is None:
+            continue
+
+        confidence_values.append(float(candidate.confidence))
+        if candidate.evidence:
+            evidence_fields += 1
+
+        nullable = bool(meta.get("nullable"))
+        if not nullable:
+            non_nullable_total += 1
+            if _is_populated_value(candidate.value):
+                non_nullable_populated += 1
+
+        checks = _deterministic_verifier_checks(field, meta, candidate, coerce=coerce)
+        if checks.get("conflict"):
+            conflict_fields.append(field)
+
+        if field in _COST_AWARE_CRITICAL_FIELDS:
+            critical_confidences.append(float(candidate.confidence))
+            if checks.get("conflict"):
+                critical_conflict_fields.append(field)
+
+    avg_confidence = sum(confidence_values) / max(1, len(confidence_values))
+    evidence_ratio = evidence_fields / max(1, total_fields)
+    non_null_ratio = non_nullable_populated / max(1, non_nullable_total)
+    critical_min_confidence = min(critical_confidences) if critical_confidences else 0.0
+    critical_avg_confidence = (
+        sum(critical_confidences) / max(1, len(critical_confidences))
+        if critical_confidences
+        else 0.0
+    )
+    disagreement_rate = len(disagreement_set) / max(1, total_fields)
+
+    return {
+        "total_fields": total_fields,
+        "avg_confidence": round(avg_confidence, 4),
+        "evidence_ratio": round(evidence_ratio, 4),
+        "non_null_ratio": round(non_null_ratio, 4),
+        "critical_min_confidence": round(critical_min_confidence, 4),
+        "critical_avg_confidence": round(critical_avg_confidence, 4),
+        "disagreement_rate": round(disagreement_rate, 4),
+        "conflict_fields": sorted(set(conflict_fields)),
+        "critical_conflict_fields": sorted(set(critical_conflict_fields)),
+        "disagreement_fields": sorted(disagreement_set),
+        "non_nullable_total": non_nullable_total,
+        "non_nullable_populated": non_nullable_populated,
+    }
+
+
+def _should_cost_aware_early_exit(
+    snapshot: Dict[str, Any],
+    *,
+    min_avg_confidence: float,
+    min_evidence_ratio: float,
+    min_non_null_ratio: float,
+    min_critical_confidence: float,
+    max_disagreement_rate: float,
+) -> tuple[bool, list[str]]:
+    reasons: list[str] = []
+    if float(snapshot.get("avg_confidence", 0.0)) < min_avg_confidence:
+        reasons.append("avg_confidence_below_threshold")
+    if float(snapshot.get("evidence_ratio", 0.0)) < min_evidence_ratio:
+        reasons.append("evidence_ratio_below_threshold")
+    if float(snapshot.get("non_null_ratio", 0.0)) < min_non_null_ratio:
+        reasons.append("non_null_ratio_below_threshold")
+    if float(snapshot.get("critical_min_confidence", 0.0)) < min_critical_confidence:
+        reasons.append("critical_min_confidence_below_threshold")
+    if float(snapshot.get("disagreement_rate", 1.0)) > max_disagreement_rate:
+        reasons.append("disagreement_rate_above_threshold")
+    if snapshot.get("conflict_fields"):
+        reasons.append("deterministic_conflicts_present")
+    if snapshot.get("critical_conflict_fields"):
+        reasons.append("critical_conflicts_present")
+    return len(reasons) == 0, reasons
+
+
 def _dedupe_issues(issues: list[str]) -> list[str]:
     deduped: list[str] = []
     seen: set[str] = set()
@@ -2484,6 +2616,12 @@ def extract_fields_orchestrated(
     verifier_max_repairs: int = _MAX_VERIFIER_REPAIRS,
     verifier_skip_confidence: float = _VERIFIER_SKIP_CONFIDENCE,
     verifier_model: Optional[str] = None,
+    enable_cost_aware: bool = _COST_AWARE_ENABLED_DEFAULT,
+    cost_aware_min_avg_confidence: float = _COST_AWARE_MIN_AVG_CONFIDENCE,
+    cost_aware_min_evidence_ratio: float = _COST_AWARE_MIN_EVIDENCE_RATIO,
+    cost_aware_min_non_null_ratio: float = _COST_AWARE_MIN_NON_NULL_RATIO,
+    cost_aware_min_critical_confidence: float = _COST_AWARE_MIN_CRITICAL_CONFIDENCE,
+    cost_aware_max_disagreement_rate: float = _COST_AWARE_MAX_DISAGREEMENT_RATE,
     enable_risk_judge: bool = True,
     enable_risk_review: bool = True,
     risk_judge_model: Optional[str] = None,
@@ -2506,6 +2644,16 @@ def extract_fields_orchestrated(
         raise ValueError("field_agent_concurrency must be >= 1 for orchestrated extraction.")
     if not (0.0 <= verifier_skip_confidence <= 1.0):
         raise ValueError("verifier_skip_confidence must be between 0 and 1.")
+    if not (0.0 <= cost_aware_min_avg_confidence <= 1.0):
+        raise ValueError("cost_aware_min_avg_confidence must be between 0 and 1.")
+    if not (0.0 <= cost_aware_min_evidence_ratio <= 1.0):
+        raise ValueError("cost_aware_min_evidence_ratio must be between 0 and 1.")
+    if not (0.0 <= cost_aware_min_non_null_ratio <= 1.0):
+        raise ValueError("cost_aware_min_non_null_ratio must be between 0 and 1.")
+    if not (0.0 <= cost_aware_min_critical_confidence <= 1.0):
+        raise ValueError("cost_aware_min_critical_confidence must be between 0 and 1.")
+    if not (0.0 <= cost_aware_max_disagreement_rate <= 1.0):
+        raise ValueError("cost_aware_max_disagreement_rate must be between 0 and 1.")
 
     schema = load_schema(schema_path)
     extraction_schema = _schema_for_extraction(schema)
@@ -2711,47 +2859,127 @@ def extract_fields_orchestrated(
             )
             repair_queue.append((field, priority))
 
-    repaired_fields: list[str] = []
-    repair_queue.sort(key=lambda item: item[1], reverse=True)
-    for field, _priority in repair_queue[:max_repairs]:
-        meta = extraction_schema[field]
-        current = selected_by_field[field]
-        repair_query = _build_repair_query(
-            field=field,
-            base_query=field_queries.get(field, field.replace("_", " ")),
-            current=current,
-            baseline_value=baseline_values.get(field),
-        )
-        value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
-            field,
-            meta,
-            retriever,
-            repair_query,
-            model=model,
-            client=client,
-            structured_outputs=structured_outputs,
-            top_k=top_k + 1,
-            max_chunk_chars=max_chunk_chars,
+    cost_aware_meta: Dict[str, Any] = {
+        "enabled": bool(enable_cost_aware),
+        "thresholds": {
+            "min_avg_confidence": round(cost_aware_min_avg_confidence, 4),
+            "min_evidence_ratio": round(cost_aware_min_evidence_ratio, 4),
+            "min_non_null_ratio": round(cost_aware_min_non_null_ratio, 4),
+            "min_critical_confidence": round(cost_aware_min_critical_confidence, 4),
+            "max_disagreement_rate": round(cost_aware_max_disagreement_rate, 4),
+        },
+        "critical_fields": sorted(_COST_AWARE_CRITICAL_FIELDS),
+        "evaluations": [],
+        "repair_early_exit": False,
+        "verifier_early_exit": False,
+        "early_exit_stage": None,
+        "early_exit_reasons": [],
+    }
+    run_repairs = True
+    run_verifier = bool(enable_verifier)
+    if enable_cost_aware:
+        pre_repair_snapshot = _build_cost_aware_snapshot(
+            selected_by_field,
+            extraction_schema,
+            disagreement_fields=disagreement_fields,
             coerce=coerce,
         )
-        repair_candidate = FieldCandidate(
-            source="repair_agent",
-            value=value,
-            confidence=result.confidence,
-            evidence=result.evidence,
-            issues=field_issues,
-            attempts=result.attempts,
-            prompt_tokens=field_prompt_tokens,
-            completion_tokens=field_completion_tokens,
+        pre_repair_exit, pre_repair_reasons = _should_cost_aware_early_exit(
+            pre_repair_snapshot,
+            min_avg_confidence=cost_aware_min_avg_confidence,
+            min_evidence_ratio=cost_aware_min_evidence_ratio,
+            min_non_null_ratio=cost_aware_min_non_null_ratio,
+            min_critical_confidence=cost_aware_min_critical_confidence,
+            max_disagreement_rate=cost_aware_max_disagreement_rate,
         )
-        field_candidates[field].append(repair_candidate)
-        selected_by_field[field] = _select_best_candidate(field_candidates[field], field=field)
-        repaired_fields.append(field)
+        cost_aware_meta["evaluations"].append(
+            {
+                "stage": "pre_repair",
+                "snapshot": pre_repair_snapshot,
+                "early_exit": pre_repair_exit,
+                "reasons": pre_repair_reasons,
+            }
+        )
+        if pre_repair_exit:
+            run_repairs = False
+            run_verifier = False
+            cost_aware_meta["repair_early_exit"] = True
+            cost_aware_meta["verifier_early_exit"] = True
+            cost_aware_meta["early_exit_stage"] = "pre_repair"
+            cost_aware_meta["early_exit_reasons"] = pre_repair_reasons
 
-        total_prompt_tokens += field_prompt_tokens
-        total_completion_tokens += field_completion_tokens
-        if result.raw_text.strip():
-            raw_outputs.append(f"REPAIR_AGENT {field}\n{result.raw_text}")
+    repaired_fields: list[str] = []
+    repair_queue.sort(key=lambda item: item[1], reverse=True)
+    if run_repairs:
+        for field, _priority in repair_queue[:max_repairs]:
+            meta = extraction_schema[field]
+            current = selected_by_field[field]
+            repair_query = _build_repair_query(
+                field=field,
+                base_query=field_queries.get(field, field.replace("_", " ")),
+                current=current,
+                baseline_value=baseline_values.get(field),
+            )
+            value, result, field_issues, field_prompt_tokens, field_completion_tokens = _extract_field_with_retries(
+                field,
+                meta,
+                retriever,
+                repair_query,
+                model=model,
+                client=client,
+                structured_outputs=structured_outputs,
+                top_k=top_k + 1,
+                max_chunk_chars=max_chunk_chars,
+                coerce=coerce,
+            )
+            repair_candidate = FieldCandidate(
+                source="repair_agent",
+                value=value,
+                confidence=result.confidence,
+                evidence=result.evidence,
+                issues=field_issues,
+                attempts=result.attempts,
+                prompt_tokens=field_prompt_tokens,
+                completion_tokens=field_completion_tokens,
+            )
+            field_candidates[field].append(repair_candidate)
+            selected_by_field[field] = _select_best_candidate(field_candidates[field], field=field)
+            repaired_fields.append(field)
+
+            total_prompt_tokens += field_prompt_tokens
+            total_completion_tokens += field_completion_tokens
+            if result.raw_text.strip():
+                raw_outputs.append(f"REPAIR_AGENT {field}\n{result.raw_text}")
+
+    if enable_cost_aware and run_verifier:
+        pre_verifier_snapshot = _build_cost_aware_snapshot(
+            selected_by_field,
+            extraction_schema,
+            disagreement_fields=disagreement_fields,
+            coerce=coerce,
+        )
+        pre_verifier_exit, pre_verifier_reasons = _should_cost_aware_early_exit(
+            pre_verifier_snapshot,
+            min_avg_confidence=cost_aware_min_avg_confidence,
+            min_evidence_ratio=cost_aware_min_evidence_ratio,
+            min_non_null_ratio=cost_aware_min_non_null_ratio,
+            min_critical_confidence=cost_aware_min_critical_confidence,
+            max_disagreement_rate=cost_aware_max_disagreement_rate,
+        )
+        cost_aware_meta["evaluations"].append(
+            {
+                "stage": "pre_verifier",
+                "snapshot": pre_verifier_snapshot,
+                "early_exit": pre_verifier_exit,
+                "reasons": pre_verifier_reasons,
+            }
+        )
+        if pre_verifier_exit:
+            run_verifier = False
+            cost_aware_meta["verifier_early_exit"] = True
+            if cost_aware_meta["early_exit_stage"] is None:
+                cost_aware_meta["early_exit_stage"] = "pre_verifier"
+                cost_aware_meta["early_exit_reasons"] = pre_verifier_reasons
 
     verifier_model_name = verifier_model or model
     verifier_meta_by_field: Dict[str, Any] = {}
@@ -2760,7 +2988,7 @@ def extract_fields_orchestrated(
     verifier_repair_fields: list[str] = []
     verifier_repairs_used = 0
 
-    if enable_verifier:
+    if run_verifier:
         for field, meta in extraction_schema.items():
             selected = selected_by_field[field]
             candidates = field_candidates[field]
@@ -3026,22 +3254,24 @@ def extract_fields_orchestrated(
             "selected_source_counts": selected_source_counts,
             "baseline_used_fallback_full_text": baseline_used_fallback_full_text,
             "baseline_issues": baseline_issues,
-            "verifier_enabled": enable_verifier,
-            "verifier_model": verifier_model_name if enable_verifier else None,
-            "verifier_confidence_threshold": verifier_confidence_threshold if enable_verifier else None,
-            "verifier_skip_confidence": verifier_skip_confidence if enable_verifier else None,
-            "verifier_max_repairs": verifier_max_repairs if enable_verifier else None,
-            "verifier_repairs_used": verifier_repairs_used if enable_verifier else 0,
-            "verifier_repair_fields": sorted(set(verifier_repair_fields)) if enable_verifier else [],
-            "verifier_decisions": verifier_decision_counts if enable_verifier else None,
+            "verifier_enabled_requested": enable_verifier,
+            "verifier_enabled_effective": run_verifier,
+            "verifier_model": verifier_model_name if run_verifier else None,
+            "verifier_confidence_threshold": verifier_confidence_threshold if run_verifier else None,
+            "verifier_skip_confidence": verifier_skip_confidence if run_verifier else None,
+            "verifier_max_repairs": verifier_max_repairs if run_verifier else None,
+            "verifier_repairs_used": verifier_repairs_used if run_verifier else 0,
+            "verifier_repair_fields": sorted(set(verifier_repair_fields)) if run_verifier else [],
+            "verifier_decisions": verifier_decision_counts if run_verifier else None,
             "verifier_disagreement_fields": sorted(set(verifier_disagreement_fields))
-            if enable_verifier
+            if run_verifier
             else [],
             "verifier_disagreement_rate": (
                 round(len(set(verifier_disagreement_fields)) / max(1, len(extraction_schema)), 4)
-                if enable_verifier
+                if run_verifier
                 else None
             ),
+            "cost_aware": cost_aware_meta,
             "passes": (
                 [
                     "global_baseline",
@@ -3050,8 +3280,12 @@ def extract_fields_orchestrated(
                     "verifier_agent",
                     "verifier_repair_agent",
                 ]
-                if enable_verifier
-                else ["global_baseline", "field_agent", "repair_agent"]
+                if run_verifier
+                else (
+                    ["global_baseline", "field_agent", "repair_agent"]
+                    if run_repairs
+                    else ["global_baseline", "field_agent"]
+                )
             ),
         },
     }

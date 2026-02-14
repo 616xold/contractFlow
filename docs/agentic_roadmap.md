@@ -54,9 +54,11 @@ This roadmap is optimized for interview signal: clear agent roles, measurable ga
     - risk-review agent proposes typed field corrections only.
     - deterministic recompute + optional judge on corrected inputs.
   - full risk trace in `_meta.retrieval.risk` for auditability.
+  - monetary liability caps treated as first-class normalized signal (`liability_money_cap_known` weight).
+  - cost-aware orchestrated early-exit gates before repair/verifier (confidence/evidence/conflict/disagreement aware).
 - Next refinements:
   - add domain-specific factors (indemnity carve-outs, security obligations, DPA safeguards).
-  - calibrate factor weights against manually curated gold risk labels.
+  - tune uncertainty contribution from empirical calibration rather than fixed offsets.
 
 ## Stage 4: Evaluation Harness (Implemented Core)
 
@@ -66,10 +68,12 @@ This roadmap is optimized for interview signal: clear agent roles, measurable ga
   - paired ablation comparison report with per-doc deltas and win/tie/loss counts.
   - fixed benchmark command (`scripts/ablation_eval.py --fixed-benchmark`) that emits one portfolio JSON artifact.
   - committee teacher silver labels as the default silver benchmark set.
+  - confidence calibration script for field/risk reliability (`scripts/calibration_curves.py`).
+  - balanced risk-gold set (5 low / 5 medium / 5 high) with dedicated evaluator (`scripts/evaluate_risk_gold.py`).
 - Next refinements:
   - prioritize 20-30 manually curated gold docs for primary reporting.
   - add gold-vs-silver split reporting in one artifact.
-  - calibrate confidence bands per field (not only aggregate CI).
+  - auto-fit confidence calibration (temperature/isotonic) and compare pre/post ECE.
 
 ## Stage 5: Portfolio Packaging + UI (Implemented Core)
 

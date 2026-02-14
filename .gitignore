@@ -1,11 +1,15 @@
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
 .env
 .vscode/
 .idea/
 data/embeddings/
 data/preds/
+data/benchmarks/calibration_*.json
+data/benchmarks/calibration_*_csv/
+data/benchmarks/risk_gold_*_eval.json
 data/archive/*
 !data/archive/benchmarks/
 !data/archive/benchmarks/*.json

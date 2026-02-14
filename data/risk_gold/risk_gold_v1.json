@@ -1,0 +1,206 @@
+{
+  "version": "risk_gold_v1",
+  "labeling_protocol": "manual_policy_adjudication",
+  "classes": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "cases": [
+    {
+      "id": "low_001",
+      "gold_risk_level": "low",
+      "notes": "Short term, UK law, no cross-border transfer, explicit fee-based cap.",
+      "values": {
+        "liability_cap": "12 months of fees",
+        "governing_law": "England and Wales",
+        "data_transfer_outside_uk_eu": "no",
+        "term_length": 12,
+        "termination_notice_days": 60,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "low_002",
+      "gold_risk_level": "low",
+      "notes": "Very protective cap and region with no cross-border transfer.",
+      "values": {
+        "liability_cap": "6 months fees",
+        "governing_law": "France",
+        "data_transfer_outside_uk_eu": "no",
+        "term_length": 18,
+        "termination_notice_days": 45,
+        "non_solicit_clause_present": false
+      }
+    },
+    {
+      "id": "low_003",
+      "gold_risk_level": "low",
+      "notes": "Known monetary cap plus otherwise protective posture.",
+      "values": {
+        "liability_cap": "USD 500,000",
+        "governing_law": "England and Wales",
+        "data_transfer_outside_uk_eu": "no",
+        "term_length": 12,
+        "termination_notice_days": 45,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "low_004",
+      "gold_risk_level": "low",
+      "notes": "24-month cap but still low aggregate risk profile.",
+      "values": {
+        "liability_cap": "24 months fees",
+        "governing_law": "England and Wales",
+        "data_transfer_outside_uk_eu": "no",
+        "term_length": 24,
+        "termination_notice_days": 30,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "low_005",
+      "gold_risk_level": "low",
+      "notes": "Unknown data-transfer with strong remaining protections.",
+      "values": {
+        "liability_cap": "12 months of fees",
+        "governing_law": "Germany",
+        "data_transfer_outside_uk_eu": "unknown",
+        "term_length": 6,
+        "termination_notice_days": 40,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "medium_001",
+      "gold_risk_level": "medium",
+      "notes": "Uncapped liability but otherwise protective terms.",
+      "values": {
+        "liability_cap": "uncapped",
+        "governing_law": "England and Wales",
+        "data_transfer_outside_uk_eu": "no",
+        "term_length": 12,
+        "termination_notice_days": 45,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "medium_002",
+      "gold_risk_level": "medium",
+      "notes": "Longer cap horizon and unknown transfer posture.",
+      "values": {
+        "liability_cap": "36 months fees",
+        "governing_law": "England and Wales",
+        "data_transfer_outside_uk_eu": "yes",
+        "term_length": 24,
+        "termination_notice_days": 45,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "medium_003",
+      "gold_risk_level": "medium",
+      "notes": "Outside governing law offset by known monetary cap and no transfer.",
+      "values": {
+        "liability_cap": "USD 2,000,000",
+        "governing_law": "New York",
+        "data_transfer_outside_uk_eu": "no",
+        "term_length": 36,
+        "termination_notice_days": 30,
+        "non_solicit_clause_present": false
+      }
+    },
+    {
+      "id": "medium_004",
+      "gold_risk_level": "medium",
+      "notes": "Outside law with moderate cap and moderate term details.",
+      "values": {
+        "liability_cap": "18 months fees",
+        "governing_law": "Delaware",
+        "data_transfer_outside_uk_eu": "no",
+        "term_length": 24,
+        "termination_notice_days": 45,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "medium_005",
+      "gold_risk_level": "medium",
+      "notes": "Long cap plus cross-border transfer but protective law and notice.",
+      "values": {
+        "liability_cap": "30 months fees",
+        "governing_law": "England and Wales",
+        "data_transfer_outside_uk_eu": "yes",
+        "term_length": 24,
+        "termination_notice_days": 45,
+        "non_solicit_clause_present": true
+      }
+    },
+    {
+      "id": "high_001",
+      "gold_risk_level": "high",
+      "notes": "Uncapped + outside law + cross-border transfer hard-trigger profile.",
+      "values": {
+        "liability_cap": "uncapped",
+        "governing_law": "New York",
+        "data_transfer_outside_uk_eu": "yes",
+        "term_length": 48,
+        "termination_notice_days": 10,
+        "non_solicit_clause_present": false
+      }
+    },
+    {
+      "id": "high_002",
+      "gold_risk_level": "high",
+      "notes": "No explicit cap with outside law and long term commitments.",
+      "values": {
+        "liability_cap": "none specified",
+        "governing_law": "California",
+        "data_transfer_outside_uk_eu": "unknown",
+        "term_length": 60,
+        "termination_notice_days": 15,
+        "non_solicit_clause_present": false
+      }
+    },
+    {
+      "id": "high_003",
+      "gold_risk_level": "high",
+      "notes": "Large month-based cap with outside law and cross-border transfer.",
+      "values": {
+        "liability_cap": "36 months fees",
+        "governing_law": "Texas",
+        "data_transfer_outside_uk_eu": "yes",
+        "term_length": 48,
+        "termination_notice_days": 15,
+        "non_solicit_clause_present": false
+      }
+    },
+    {
+      "id": "high_004",
+      "gold_risk_level": "high",
+      "notes": "Outside law and transfer risk remain high despite monetary cap.",
+      "values": {
+        "liability_cap": "USD 1,000,000",
+        "governing_law": "Singapore",
+        "data_transfer_outside_uk_eu": "yes",
+        "term_length": 60,
+        "termination_notice_days": 10,
+        "non_solicit_clause_present": false
+      }
+    },
+    {
+      "id": "high_005",
+      "gold_risk_level": "high",
+      "notes": "Uncapped with cross-border transfer and short termination notice.",
+      "values": {
+        "liability_cap": "uncapped",
+        "governing_law": "England and Wales",
+        "data_transfer_outside_uk_eu": "yes",
+        "term_length": 48,
+        "termination_notice_days": 10,
+        "non_solicit_clause_present": false
+      }
+    }
+  ]
+}

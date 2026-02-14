@@ -342,18 +342,29 @@ def _normalize_liability_cap(value: Any, evidence_text: str) -> tuple[Any, Optio
         term in evidence_lower
         for term in ("liability", "damages", "indirect", "consequential", "cap")
     )
-    inferred_from_evidence: Optional[str] = None
-    if has_liability_signal and evidence_lower:
-        inferred_from_evidence = canonicalize_liability_cap(evidence_text)
+    evidence_signal = parse_liability_cap(evidence_text) if (has_liability_signal and evidence_lower) else None
+    inferred_from_evidence = evidence_signal.canonical if evidence_signal is not None else None
+
+    def _liability_strength(kind: str) -> int:
+        if kind in {"months_fees", "money_cap"}:
+            return 4
+        if kind == "uncapped":
+            return 3
+        if kind == "none_specified":
+            return 2
+        if kind == "other":
+            return 1
+        return 0
 
     if value is None:
-        if inferred_from_evidence:
+        if inferred_from_evidence and evidence_signal and _liability_strength(evidence_signal.kind) >= 2:
             return inferred_from_evidence, "inferred liability_cap from evidence snippets", False
         return "none specified", "defaulted liability_cap to none specified", False
     if not isinstance(value, str):
         value = str(value)
 
-    canonical = canonicalize_liability_cap(value)
+    value_signal = parse_liability_cap(value)
+    canonical = value_signal.canonical
     if canonical is None:
         canonical = inferred_from_evidence
 
@@ -378,7 +389,7 @@ def _normalize_liability_cap(value: Any, evidence_text: str) -> tuple[Any, Optio
             )
         return "none specified", "downgraded liability_cap due weak cap context", False
 
-    if inferred_from_evidence:
+    if inferred_from_evidence and evidence_signal is not None:
         evidence_sig = parse_liability_cap(inferred_from_evidence)
         if evidence_sig.months is not None and (
             value_sig.months is None or abs(evidence_sig.months - value_sig.months) >= 6
@@ -392,6 +403,14 @@ def _normalize_liability_cap(value: Any, evidence_text: str) -> tuple[Any, Optio
             return (
                 inferred_from_evidence,
                 "normalized liability_cap from evidence-derived uncapped posture",
+                False,
+            )
+        value_strength = _liability_strength(value_sig.kind)
+        evidence_strength = _liability_strength(evidence_sig.kind)
+        if evidence_strength > value_strength and _has_liability_cap_context(evidence_lower):
+            return (
+                inferred_from_evidence,
+                "normalized liability_cap from stronger evidence-derived clause parse",
                 False,
             )
 
@@ -597,4 +616,3 @@ def _validate_and_normalize_to_schema(
             normalized[field] = None
 
     return normalized, issues
-

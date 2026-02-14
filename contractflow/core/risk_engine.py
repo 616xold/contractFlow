@@ -104,6 +104,7 @@ _DEFAULT_POLICY = {
         "liability_cap_12_or_less": -12.0,
         "liability_cap_13_to_24": -6.0,
         "liability_cap_25_plus": 7.0,
+        "liability_money_cap_known": -4.0,
         "governing_law_outside_uk_eu": 20.0,
         "governing_law_unknown": 8.0,
         "governing_law_uk_eu": -8.0,
@@ -167,9 +168,13 @@ def assess_contract_risk(
     termination_signal = _field_signal(field_meta, "termination_notice_days")
     non_solicit_signal = _field_signal(field_meta, "non_solicit_clause_present")
 
+    liability_signal_parsed = parse_liability_cap(liability_cap)
     liability_missing = _is_nullish(liability_cap)
-    liability_uncapped = _liability_uncapped(liability_cap)
-    liability_months = _liability_cap_months(liability_cap)
+    liability_uncapped = liability_signal_parsed.is_uncapped
+    liability_months = liability_signal_parsed.months
+    liability_amount = liability_signal_parsed.amount
+    liability_currency = liability_signal_parsed.currency
+    liability_kind = liability_signal_parsed.kind
     if liability_missing:
         factors.append(
             _factor(
@@ -182,7 +187,7 @@ def assess_contract_risk(
                 "Liability cap is not explicitly specified.",
             )
         )
-    elif liability_uncapped:
+    elif liability_kind in {"uncapped", "none_specified"} or liability_uncapped:
         factors.append(
             _factor(
                 "liability_cap",
@@ -194,7 +199,73 @@ def assess_contract_risk(
                 "Liability appears uncapped or unspecified.",
             )
         )
-    elif liability_months is None:
+    elif liability_kind == "months_fees" and liability_months is not None:
+        if liability_months <= 12:
+            factors.append(
+                _factor(
+                    "liability_cap",
+                    "Liability cap",
+                    f"{liability_months} months",
+                    "low",
+                    weights.get("liability_cap_12_or_less", -12.0),
+                    liability_signal,
+                    "Liability cap is at or below 12 months.",
+                )
+            )
+        elif liability_months <= 24:
+            factors.append(
+                _factor(
+                    "liability_cap",
+                    "Liability cap",
+                    f"{liability_months} months",
+                    "low",
+                    weights.get("liability_cap_13_to_24", -6.0),
+                    liability_signal,
+                    "Liability cap is between 13 and 24 months.",
+                )
+            )
+        else:
+            factors.append(
+                _factor(
+                    "liability_cap",
+                    "Liability cap",
+                    f"{liability_months} months",
+                    "medium",
+                    weights.get("liability_cap_25_plus", 7.0),
+                    liability_signal,
+                    "Liability cap exceeds 24 months.",
+                )
+            )
+    elif liability_kind == "money_cap" and liability_amount is not None:
+        amount_text = (
+            f"{liability_currency.upper()} {_format_liability_amount(liability_amount)}"
+            if liability_currency
+            else _format_liability_amount(liability_amount)
+        )
+        factors.append(
+            _factor(
+                "liability_cap",
+                "Liability cap",
+                amount_text,
+                "low",
+                weights.get("liability_money_cap_known", -4.0),
+                liability_signal,
+                "Liability cap is a fixed monetary amount.",
+            )
+        )
+    elif liability_kind == "other":
+        factors.append(
+            _factor(
+                "liability_cap",
+                "Liability cap",
+                liability_cap,
+                "medium",
+                weights.get("liability_unknown", 14.0),
+                liability_signal,
+                "Liability clause exists but cap type could not be normalized.",
+            )
+        )
+    else:
         factors.append(
             _factor(
                 "liability_cap",
@@ -204,42 +275,6 @@ def assess_contract_risk(
                 weights.get("liability_unknown", 14.0),
                 liability_signal,
                 "Liability cap text could not be normalized.",
-            )
-        )
-    elif liability_months <= 12:
-        factors.append(
-            _factor(
-                "liability_cap",
-                "Liability cap",
-                f"{liability_months} months",
-                "low",
-                weights.get("liability_cap_12_or_less", -12.0),
-                liability_signal,
-                "Liability cap is at or below 12 months.",
-            )
-        )
-    elif liability_months <= 24:
-        factors.append(
-            _factor(
-                "liability_cap",
-                "Liability cap",
-                f"{liability_months} months",
-                "low",
-                weights.get("liability_cap_13_to_24", -6.0),
-                liability_signal,
-                "Liability cap is between 13 and 24 months.",
-            )
-        )
-    else:
-        factors.append(
-            _factor(
-                "liability_cap",
-                "Liability cap",
-                f"{liability_months} months",
-                "medium",
-                weights.get("liability_cap_25_plus", 7.0),
-                liability_signal,
-                "Liability cap exceeds 24 months.",
             )
         )
 
@@ -946,6 +981,12 @@ def _level_midpoint(level: RiskLevel) -> float:
     if level == "medium":
         return 50.0
     return 82.0
+
+
+def _format_liability_amount(value: float) -> str:
+    if abs(value - round(value)) <= 1e-9:
+        return f"{int(round(value)):,}"
+    return f"{value:,.2f}".rstrip("0").rstrip(".")
 
 
 def _extract_response_text(response: Any) -> str:

@@ -124,15 +124,18 @@ Implemented in `contractflow/core/risk_engine.py` and the post-extraction orches
 - 3 output classes: `low`, `medium`, `high`
 - `risk_level` and `risk_explanation` are derived fields (not directly extracted by the schema prompt)
 - weighted factors: liability, governing law region, transfer posture, term, termination, non-solicit
+- dedicated liability-cap parser supports:
+  - uncapped / none-specified posture
+  - month-window normalization (`<N> months fees`)
+  - fixed monetary caps (`<CUR> <amount>`)
 - uncertainty-aware scoring from evidence/confidence coverage
 - hard-trigger floors for high-risk combinations
 - optional risk-review agent on triggered uncertainty/conflict cases
 - optional LLM judge arbitration after deterministic scoring
+- balanced risk benchmark available in `data/risk_gold/risk_gold_v1.json` (5/5/5 low-medium-high)
 - normal behavior on uncertainty:
   - missing values remain `unknown`
   - not auto-promoted to `uncapped` or `outside`
-
-Current caveat: current gold risk labels are still single-class (`high`) in this slice. Add balanced low/medium/high risk gold labels for proper calibration.
 
 ## Repository Layout
 
@@ -140,6 +143,8 @@ Current caveat: current gold risk labels are still single-class (`high`) in this
   - `pdf_utils.py`: PDF text extraction + OCR fallback
   - `chunking.py`: chunking, BM25/embeddings/hybrid retrieval
   - `extractor.py`: naive/retrieval/field_agents/orchestrated pipelines
+  - `extractor_validation.py`: deterministic normalization/coercion rules
+  - `liability.py`: liability cap clause parser + canonicalization
   - `risk_engine.py`: policy-driven risk scoring + judge arbitration
 - `contractflow/schemas/`
   - `contract_schema.json`
@@ -150,12 +155,13 @@ Current caveat: current gold risk labels are still single-class (`high`) in this
 - `scripts/`
   - `baseline_extract.py`, `bulk_extract.py`, `inspect_chunks.py`
   - `run_ui.py`: local web UI launcher
-  - `evaluate.py`, `evaluate_risk.py`, `ablation_eval.py`
+  - `evaluate.py`, `evaluate_risk.py`, `evaluate_risk_gold.py`, `ablation_eval.py`
+  - `calibration_curves.py`: field/risk confidence calibration reports
   - `retrieval_diagnostics.py`, `bootstrap_labels.py`, `build_cuad_pdfs.py`
 - `docs/`
   - `domain.md`, `agentic_roadmap.md`, `risk_policy.json`
 - `data/`
-  - `raw_pdfs/`, `labels/`, `preds_ablations/`, `benchmarks/`
+  - `raw_pdfs/`, `labels/`, `risk_gold/`, `preds_ablations/`, `benchmarks/`
 
 ## Quickstart
 
@@ -232,12 +238,28 @@ python scripts/ablation_eval.py --labels-dir data/labels --label-suffix .gold.js
 
 # Optional: evaluate one prediction directory directly
 python scripts/evaluate.py --labels-dir data/labels --preds-dir data/preds_ablations_gold_orch_tuned_incl/orchestrated --label-suffix .gold.json --include-derived --bootstrap-samples 1000 --out data/benchmarks/eval_gold_orchestrated_tuned_include_derived.json
+
+# Risk-only balanced benchmark (rules-first risk engine quality)
+python scripts/evaluate_risk_gold.py --dataset data/risk_gold/risk_gold_v1.json --out data/benchmarks/risk_gold_v1_eval.json
+
+# Confidence calibration (field confidence + risk confidence)
+python scripts/calibration_curves.py --preds-dir data/preds_ablations_gold_orch_tuned_incl/orchestrated --labels-dir data/labels --label-suffix .gold.json --bins 10 --out data/benchmarks/calibration_gold_orchestrated_tuned.json --csv-dir data/benchmarks/calibration_gold_orchestrated_tuned_csv
+```
+
+### 4) Run Pre-Push Smoke Check
+
+```bash
+# compile + tests + balanced risk-gold check
+python scripts/smoke_check.py
+
+# optional: skip tests when iterating quickly
+python scripts/smoke_check.py --skip-tests
 ```
 
 
 ## Next High-Impact Improvements
 
-1. Build a **gold risk set** with low/medium/high balance.
-2. Improve `liability_cap` extraction with a dedicated clause parser and normalization schema.
-3. Add **cost-aware orchestration**: dynamic early-exit when verifier confidence is already high.
-4. Add **calibration curves** for field confidence and risk confidence.
+1. Expand extraction gold set from 5 docs to 20-30 docs (strongest hiring signal for generalization).
+2. Add calibration-driven confidence thresholds (per field + risk) instead of fixed constants.
+3. Add a clause-specific joint agent for `termination_notice_days` and remedy windows (current weakest field).
+4. Add downloadable run reports (JSON + evidence table + risk factor trace) from the UI.

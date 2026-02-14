@@ -27,6 +27,7 @@ Implemented in `contractflow/core/risk_engine.py` with policy config in `docs/ri
 - Output classes: `low`, `medium`, `high`
 - Deterministic weighted factors:
   - liability cap posture (uncapped/unknown/capped ranges)
+  - fixed monetary cap credit when cap is explicitly monetary
   - governing law region (UK/EU vs outside vs unknown)
   - cross-border data transfer posture
   - term length
@@ -52,6 +53,7 @@ Implemented in `contractflow/core/extractor.py` and controlled by `risk_orchestr
   - applied corrections
   - before/after risk-input snapshots
   - token usage for risk review
+- Orchestrated extraction now also supports cost-aware early exit before repair/verifier when quality is already high.
 
 This keeps risk explainable and deterministic-first while adding agentic recovery where extraction uncertainty is high.
 
@@ -67,3 +69,9 @@ This keeps risk explainable and deterministic-first while adding agentic recover
   - `<CUR> <amount>`
 - Evaluation in `scripts/evaluate.py` uses semantic liability similarity instead of plain string overlap for `liability_cap`.
   This reduces false negatives where wording differs but cap semantics are equivalent.
+
+## Balanced Risk Gold Set
+
+- `data/risk_gold/risk_gold_v1.json` provides a balanced 15-case benchmark (5 low / 5 medium / 5 high).
+- Use `scripts/evaluate_risk_gold.py` for risk-only policy/judge evaluation independent of extraction quality.
+- Use `scripts/calibration_curves.py` for field confidence + risk confidence reliability metrics (ECE/MCE/Brier + bins).

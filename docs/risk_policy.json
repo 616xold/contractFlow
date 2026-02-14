@@ -10,6 +10,7 @@
     "liability_cap_12_or_less": -12.0,
     "liability_cap_13_to_24": -6.0,
     "liability_cap_25_plus": 7.0,
+    "liability_money_cap_known": -4.0,
     "governing_law_outside_uk_eu": 20.0,
     "governing_law_unknown": 8.0,
     "governing_law_uk_eu": -8.0,

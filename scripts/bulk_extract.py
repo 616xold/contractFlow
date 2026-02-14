@@ -182,6 +182,41 @@ def main() -> None:
         help="Optional model override for verifier/judge pass (default: same as --model)",
     )
     parser.add_argument(
+        "--disable-cost-aware",
+        action="store_true",
+        help="Disable cost-aware early-exit heuristics in orchestrated mode.",
+    )
+    parser.add_argument(
+        "--cost-aware-min-avg-confidence",
+        type=float,
+        default=0.82,
+        help="Min average field confidence for cost-aware early-exit (default: 0.82).",
+    )
+    parser.add_argument(
+        "--cost-aware-min-evidence-ratio",
+        type=float,
+        default=0.7,
+        help="Min evidence ratio for cost-aware early-exit (default: 0.7).",
+    )
+    parser.add_argument(
+        "--cost-aware-min-non-null-ratio",
+        type=float,
+        default=0.9,
+        help="Min non-null ratio across non-nullable fields for cost-aware early-exit (default: 0.9).",
+    )
+    parser.add_argument(
+        "--cost-aware-min-critical-confidence",
+        type=float,
+        default=0.75,
+        help="Min confidence required across critical fields for cost-aware early-exit (default: 0.75).",
+    )
+    parser.add_argument(
+        "--cost-aware-max-disagreement-rate",
+        type=float,
+        default=0.2,
+        help="Max baseline disagreement rate tolerated for cost-aware early-exit (default: 0.2).",
+    )
+    parser.add_argument(
         "--disable-risk-judge",
         action="store_true",
         help="Disable risk judge arbitration (use rules-only risk scoring)",
@@ -328,6 +363,12 @@ def main() -> None:
                         verifier_max_repairs=args.verifier_max_repairs,
                         verifier_skip_confidence=args.verifier_skip_confidence,
                         verifier_model=args.verifier_model,
+                        enable_cost_aware=not args.disable_cost_aware,
+                        cost_aware_min_avg_confidence=args.cost_aware_min_avg_confidence,
+                        cost_aware_min_evidence_ratio=args.cost_aware_min_evidence_ratio,
+                        cost_aware_min_non_null_ratio=args.cost_aware_min_non_null_ratio,
+                        cost_aware_min_critical_confidence=args.cost_aware_min_critical_confidence,
+                        cost_aware_max_disagreement_rate=args.cost_aware_max_disagreement_rate,
                         enable_risk_judge=not args.disable_risk_judge,
                         enable_risk_review=not args.disable_risk_review,
                         risk_judge_model=args.risk_judge_model,

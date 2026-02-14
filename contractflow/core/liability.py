@@ -1,12 +1,21 @@
-"""Utilities for parsing and comparing liability-cap clause values."""
+"""Utilities for parsing, normalizing, and comparing liability-cap clauses."""
 
 from __future__ import annotations
 
 import re
 from dataclasses import dataclass
 from difflib import SequenceMatcher
-from typing import Any, Optional
+from typing import Any, Literal, Optional
 
+
+LiabilityCapKind = Literal[
+    "nullish",
+    "uncapped",
+    "none_specified",
+    "months_fees",
+    "money_cap",
+    "other",
+]
 
 _NULL_STRINGS = {"", "null", "none", "n/a", "na", "unknown"}
 _STOPWORDS = {
@@ -35,6 +44,16 @@ _STOPWORDS = {
     "all",
 }
 _CURRENCY_SYMBOL_MAP = {"$": "usd", "\u20ac": "eur", "\u00a3": "gbp"}
+_MULTIPLIER_MAP = {
+    "k": 1_000.0,
+    "thousand": 1_000.0,
+    "m": 1_000_000.0,
+    "mm": 1_000_000.0,
+    "million": 1_000_000.0,
+    "b": 1_000_000_000.0,
+    "bn": 1_000_000_000.0,
+    "billion": 1_000_000_000.0,
+}
 _NUMBER_WORDS = {
     "one": 1,
     "two": 2,
@@ -64,15 +83,30 @@ _NUMBER_WORDS = {
     "eighty": 80,
     "ninety": 90,
 }
+_LIABILITY_ANCHORS = (
+    "limitation of liability",
+    "liability",
+    "liable",
+    "damages",
+    "maximum aggregate",
+    "total aggregate",
+)
 _UNCAPPED_TERMS = (
     "uncapped",
     "unlimited",
-    "no cap",
     "without limit",
     "not limited",
     "no limitation",
+    "no cap",
+)
+_NONE_SPECIFIED_TERMS = (
     "none specified",
     "not specified",
+    "not stated",
+    "unspecified",
+    "no explicit cap",
+    "no monetary cap",
+    "no stated cap",
 )
 _CAP_PHRASES = (
     "limitation of liability",
@@ -87,6 +121,7 @@ _CAP_PHRASES = (
     "total liability",
     "limited to",
     "up to",
+    "greater of",
 )
 
 
@@ -94,68 +129,82 @@ _CAP_PHRASES = (
 class LiabilityCapSignal:
     raw_text: str
     normalized_text: str
+    kind: LiabilityCapKind
     is_nullish: bool
     is_uncapped: bool
     months: Optional[int]
     amount: Optional[float]
     currency: Optional[str]
+    canonical: Optional[str] = None
+    clause_span: Optional[str] = None
 
 
 def parse_liability_cap(value: Any) -> LiabilityCapSignal:
     raw_text = "" if value is None else str(value)
     normalized_text = _normalize_text(raw_text)
-    is_nullish = _is_nullish(raw_text)
-    if is_nullish:
+    if _is_nullish(raw_text):
         return LiabilityCapSignal(
             raw_text=raw_text,
             normalized_text=normalized_text,
+            kind="nullish",
             is_nullish=True,
             is_uncapped=False,
             months=None,
             amount=None,
             currency=None,
+            canonical=None,
+            clause_span=None,
         )
 
     lowered = raw_text.strip().lower()
-    is_uncapped = any(term in lowered for term in _UNCAPPED_TERMS)
-    months = _extract_cap_months(lowered)
-    amount, currency = _extract_cap_amount(lowered)
+    span = _extract_liability_span(lowered)
+    target = span or lowered
+
+    uncapped = _contains_any(target, _UNCAPPED_TERMS)
+    none_specified = _contains_any(target, _NONE_SPECIFIED_TERMS)
+    months = _extract_cap_months(target)
+    amount, currency = _extract_cap_amount(target)
+
+    kind: LiabilityCapKind
+    if uncapped and none_specified:
+        kind = "none_specified"
+    elif none_specified:
+        kind = "none_specified"
+    elif uncapped:
+        kind = "uncapped"
+    elif months is not None:
+        kind = "months_fees"
+    elif amount is not None:
+        kind = "money_cap"
+    elif _mentions_liability(target) and not _has_cap_phrase(target):
+        kind = "none_specified"
+    else:
+        kind = "other"
+
+    canonical = _canonical_from_parts(
+        kind=kind,
+        normalized_text=normalized_text,
+        months=months,
+        amount=amount,
+        currency=currency,
+    )
+    is_uncapped = kind in {"uncapped", "none_specified"}
     return LiabilityCapSignal(
         raw_text=raw_text,
         normalized_text=normalized_text,
+        kind=kind,
         is_nullish=False,
         is_uncapped=is_uncapped,
         months=months,
         amount=amount,
         currency=currency,
+        canonical=canonical,
+        clause_span=span,
     )
 
 
 def canonicalize_liability_cap(value: Any) -> Optional[str]:
-    signal = parse_liability_cap(value)
-    if signal.is_nullish:
-        return None
-    if signal.is_uncapped:
-        lowered = signal.raw_text.strip().lower()
-        if any(
-            term in lowered
-            for term in ("not specified", "none specified", "unspecified", "not stated", "no stated")
-        ):
-            return "none specified"
-        return "uncapped"
-    if signal.months is not None:
-        return f"{signal.months} months fees"
-    if signal.amount is not None:
-        amount_text = _format_amount(signal.amount)
-        if signal.currency:
-            return f"{signal.currency} {amount_text}"
-        return f"amount {amount_text}"
-    if signal.normalized_text:
-        lowered = signal.raw_text.strip().lower()
-        if ("liability" in lowered or "damages" in lowered) and not _has_cap_phrase(lowered):
-            return "none specified"
-        return signal.normalized_text
-    return None
+    return parse_liability_cap(value).canonical
 
 
 def liability_cap_similarity(gold: Any, pred: Any) -> float:
@@ -167,8 +216,12 @@ def liability_cap_similarity(gold: Any, pred: Any) -> float:
         return 0.0
 
     candidates: list[float] = []
+    if left.kind == right.kind:
+        candidates.append(0.92)
+
     if left.is_uncapped and right.is_uncapped:
-        candidates.append(1.0)
+        uncapped_score = 1.0 if left.kind == right.kind else 0.95
+        candidates.append(uncapped_score)
     elif left.is_uncapped != right.is_uncapped:
         candidates.append(0.1)
 
@@ -178,13 +231,73 @@ def liability_cap_similarity(gold: Any, pred: Any) -> float:
     if left.amount is not None and right.amount is not None:
         candidates.append(_amount_similarity(left.amount, right.amount, left.currency, right.currency))
 
-    candidates.append(_text_similarity(left.normalized_text, right.normalized_text))
+    if left.canonical and right.canonical:
+        candidates.append(_text_similarity(left.canonical, right.canonical))
+    else:
+        candidates.append(_text_similarity(left.normalized_text, right.normalized_text))
+
     return max(0.0, min(1.0, max(candidates)))
 
 
+def _canonical_from_parts(
+    *,
+    kind: LiabilityCapKind,
+    normalized_text: str,
+    months: Optional[int],
+    amount: Optional[float],
+    currency: Optional[str],
+) -> Optional[str]:
+    if kind == "nullish":
+        return None
+    if kind == "none_specified":
+        return "none specified"
+    if kind == "uncapped":
+        return "uncapped"
+    if kind == "months_fees" and months is not None:
+        return f"{months} months fees"
+    if kind == "money_cap" and amount is not None:
+        amount_text = _format_amount(amount)
+        if currency:
+            return f"{currency} {amount_text}"
+        return f"amount {amount_text}"
+    if normalized_text:
+        return normalized_text
+    return None
+
+
+def _extract_liability_span(text: str) -> Optional[str]:
+    if not text:
+        return None
+    sentences = [part.strip() for part in re.split(r"[.;\n]+", text) if part.strip()]
+    if not sentences:
+        return None
+
+    for idx, sentence in enumerate(sentences):
+        if _mentions_liability(sentence):
+            span_parts = [sentence]
+            if idx + 1 < len(sentences) and _mentions_cap_context(sentences[idx + 1]):
+                span_parts.append(sentences[idx + 1])
+            return " ; ".join(span_parts)
+    return None
+
+
 def _is_nullish(value: str) -> bool:
-    cleaned = value.strip().lower()
-    return cleaned in _NULL_STRINGS
+    return value.strip().lower() in _NULL_STRINGS
+
+
+def _mentions_liability(text: str) -> bool:
+    lowered = text.lower()
+    return any(anchor in lowered for anchor in _LIABILITY_ANCHORS)
+
+
+def _mentions_cap_context(text: str) -> bool:
+    lowered = text.lower()
+    return _has_cap_phrase(lowered) or _has_fee_basis(lowered) or _contains_any(lowered, _UNCAPPED_TERMS)
+
+
+def _contains_any(text: str, terms: tuple[str, ...]) -> bool:
+    lowered = text.lower()
+    return any(term in lowered for term in terms)
 
 
 def _extract_cap_months(text: str) -> Optional[int]:
@@ -193,14 +306,20 @@ def _extract_cap_months(text: str) -> Optional[int]:
     if not cap_phrase and not fee_basis:
         return None
 
-    month_match = re.search(r"(\d+(?:\.\d+)?)\s*(?:month|months|mo|mos)\b", text)
-    if month_match:
-        return max(0, int(round(float(month_match.group(1)))))
+    paren_match = re.search(
+        r"(?:\b[a-z]+)?\s*\(\s*(\d{1,3})\s*\)\s*(month|months|mo|mos|year|years|yr|yrs)\b",
+        text,
+    )
+    if paren_match:
+        num = int(paren_match.group(1))
+        unit = paren_match.group(2)
+        return _to_months(num, unit)
 
-    year_match = re.search(r"(\d+(?:\.\d+)?)\s*(?:year|years|yr|yrs)\b", text)
-    if year_match:
-        years = float(year_match.group(1))
-        return max(0, int(round(years * 12)))
+    numeric_match = re.search(r"(\d+(?:\.\d+)?)\s*(month|months|mo|mos|year|years|yr|yrs)\b", text)
+    if numeric_match:
+        num = float(numeric_match.group(1))
+        unit = numeric_match.group(2)
+        return _to_months(num, unit)
 
     word_months = _extract_word_number_with_unit(text, unit="months")
     if word_months is not None:
@@ -210,7 +329,6 @@ def _extract_cap_months(text: str) -> Optional[int]:
     if word_years is not None:
         return word_years * 12
 
-    # Common legal phrasing: "annual fees" implies a 12-month fee base.
     if re.search(r"\bannual\s+fees?\b", text):
         mult = re.search(r"(\d+)\s*x\s*annual", text)
         if mult:
@@ -219,12 +337,18 @@ def _extract_cap_months(text: str) -> Optional[int]:
     return None
 
 
+def _to_months(value: float, unit: str) -> int:
+    if unit in {"year", "years", "yr", "yrs"}:
+        return max(0, int(round(value * 12)))
+    return max(0, int(round(value)))
+
+
 def _extract_word_number_with_unit(text: str, *, unit: str) -> Optional[int]:
     tokens = re.findall(r"[a-z]+", text.lower())
     if len(tokens) < 2:
         return None
 
-    target_units = {"months"} if unit == "months" else {"year", "years", "yr", "yrs"}
+    target_units = {"year", "years", "yr", "yrs"}
     if unit == "months":
         target_units = {"month", "months", "mo", "mos"}
 
@@ -252,30 +376,74 @@ def _word_number_at(tokens: list[str], idx: int) -> Optional[int]:
 def _extract_cap_amount(text: str) -> tuple[Optional[float], Optional[str]]:
     cap_phrase = _has_cap_phrase(text)
     fee_basis = _has_fee_basis(text)
-    if not cap_phrase and not fee_basis:
+    amount_only_signal = _looks_like_money_only(text)
+    if not cap_phrase and not fee_basis and not amount_only_signal:
         return None, None
     if "insurance" in text and not cap_phrase:
         return None, None
 
-    symbol_match = re.search(r"([$\u20ac\u00a3])\s*(\d[\d,]*(?:\.\d+)?)", text)
+    symbol_match = re.search(
+        r"([$\u20ac\u00a3])\s*(\d[\d,]*(?:\.\d+)?)\s*(k|m|mm|bn|b|thousand|million|billion)?\b",
+        text,
+    )
     if symbol_match:
         currency = _CURRENCY_SYMBOL_MAP.get(symbol_match.group(1))
-        amount = _parse_amount(symbol_match.group(2))
+        amount = _parse_amount(symbol_match.group(2), symbol_match.group(3))
         return amount, currency
 
-    code_match = re.search(r"\b(usd|eur|gbp|cad|aud|inr)\s*(\d[\d,]*(?:\.\d+)?)\b", text)
+    code_match = re.search(
+        r"\b(usd|eur|gbp|cad|aud|inr)\s*(\d[\d,]*(?:\.\d+)?)\s*(k|m|mm|bn|b|thousand|million|billion)?\b",
+        text,
+    )
     if code_match:
-        amount = _parse_amount(code_match.group(2))
+        amount = _parse_amount(code_match.group(2), code_match.group(3))
         return amount, code_match.group(1)
+
+    if amount_only_signal:
+        plain_match = re.search(
+            r"(\d[\d,]*(?:\.\d+)?)\s*(k|m|mm|bn|b|thousand|million|billion)\b",
+            text,
+        )
+        if plain_match:
+            amount = _parse_amount(plain_match.group(1), plain_match.group(2))
+            return amount, None
 
     return None, None
 
 
-def _parse_amount(text: str) -> Optional[float]:
+def _looks_like_money_only(text: str) -> bool:
+    cleaned = " ".join(text.strip().lower().split())
+    if not cleaned:
+        return False
+    # Common extractor outputs can be short canonical values like "$1,000,000" or "usd 2m".
+    currency_prefixed = re.fullmatch(
+        r"(?:about|around|approximately)?\s*(?:[$\u20ac\u00a3]|usd|eur|gbp|cad|aud|inr)\s*"
+        r"\d[\d,]*(?:\.\d+)?\s*(?:k|m|mm|bn|b|thousand|million|billion)?"
+        r"(?:\s*(?:in\s+aggregate|aggregate|per\s+claim))?",
+        cleaned,
+    )
+    if currency_prefixed:
+        return True
+
+    # No currency is accepted only when a magnitude marker is present (e.g., "2 million").
+    magnitude_only = re.fullmatch(
+        r"(?:about|around|approximately)?\s*\d[\d,]*(?:\.\d+)?\s*"
+        r"(?:k|m|mm|bn|b|thousand|million|billion)"
+        r"(?:\s*(?:in\s+aggregate|aggregate|per\s+claim))?",
+        cleaned,
+    )
+    return bool(magnitude_only)
+
+
+def _parse_amount(text: str, multiplier: Optional[str]) -> Optional[float]:
     try:
-        return float(text.replace(",", ""))
+        base = float(text.replace(",", ""))
     except Exception:
         return None
+    mult = 1.0
+    if isinstance(multiplier, str):
+        mult = _MULTIPLIER_MAP.get(multiplier.lower(), 1.0)
+    return base * mult
 
 
 def _format_amount(value: float) -> str:
